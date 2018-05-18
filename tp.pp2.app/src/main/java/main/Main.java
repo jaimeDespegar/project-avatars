@@ -1,6 +1,8 @@
+
 package main;
 
 import java.awt.Point;
+
 import tablero.Map;
 
 public class Main {
