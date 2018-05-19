@@ -12,10 +12,6 @@ public class Map {
 		board = builder.getBoard();
 	}
 
-	public Map(Point point) {
-		board = new Board(point);
-	}
-
 	public boolean isOcupatePosition(Point box) {
 		return board.getBoard()[box.x][box.y].getObjectGraphic() == null;
 	}

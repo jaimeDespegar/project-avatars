@@ -7,26 +7,28 @@ public class Builder {
 	
 	public Builder(Point sizeBoard) {
 		if (sizeBoard == null) {
-	        throw new IllegalArgumentException("profession and name can not be null");
+	        throw new IllegalArgumentException("el tamaño no puede ser null");
 		}
 		board = new Board(sizeBoard);
 	}
 	
-	//agregar estructura rectangulo - y linea
-	public Builder withStructureRectangulo(Object object) {
-		addStructure(object);
+	public Builder withStructureRectangle(Object object) {
+		addStructureByRectangle(object);
 		return this;
 	}
 	
 	public Builder withStructureLine(Object object) {
-		addStructure(object);
+		addStructureByLine(object);
 		return this;
 	}
 	
-	public void addStructure(Object object) {
-		//case (object.getClass().getName().equals("Rectangule")){
-			
-		//}
+	public void addStructureByRectangle(Object object) {
+		AddStructure.addStructureByRectangle(object);
+	}
+	
+	public void addStructureByLine(Object object) {
+		AddStructure.addStructureByLine(object);
+		
 	}
 	
 	public Map build() {

@@ -1,23 +1,24 @@
 package tablero;
 
 import java.awt.Point;
+import java.util.List;
 
-public class Rectangule extends ObjectGraphic{
-	private Point size;
+public class Line extends ObjectGraphic{
+	private List<Point> positions;
 	private TypeOfEstructure typeOfStructure;
 	
-	public Rectangule(Point position, Point size, TypeOfEstructure typeOfStructure) {
+	public Line (Point position, List<Point> positions, TypeOfEstructure typeOfStructure) {
 		super(position);
-		this.size = size;
+		this.positions = positions;
 		this.typeOfStructure = typeOfStructure;
 	}
 
-	public Point getSize() {
-		return size;
+	public List<Point> getPositions() {
+		return positions;
 	}
 
-	public void setSize(Point size) {
-		this.size = size;
+	public void setPositions(List<Point> positions) {
+		this.positions = positions;
 	}
 
 	public TypeOfEstructure getTypeOfStructure() {
