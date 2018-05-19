@@ -17,6 +17,10 @@ public class Board {
 		this.board = board;
 	}
 
+	public boolean isOcupatePosition(Point box) {
+		return board[box.x][box.y].getObjectGraphic() == null;
+	}
+	
 	public void printBoard() {
 		String file = "";
 		for (int x = 0; x < board.length; x++) {

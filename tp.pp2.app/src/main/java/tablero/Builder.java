@@ -12,22 +12,22 @@ public class Builder {
 		board = new Board(sizeBoard);
 	}
 	
-	public Builder withStructureRectangle(Object object) {
-		addStructureByRectangle(object);
+	public Builder withStructureRectangle(Rectangle rectangle) {
+		addStructureByRectangle(board,rectangle);
 		return this;
 	}
 	
-	public Builder withStructureLine(Object object) {
-		addStructureByLine(object);
+	public Builder withStructureLine(Line line) {
+		addStructureByLine(board, line);
 		return this;
 	}
 	
-	public void addStructureByRectangle(Object object) {
-		AddStructure.addStructureByRectangle(object);
+	public void addStructureByRectangle(Board board, Rectangle rectangle) {
+		AddStructure.addStructureByRectangle(board, rectangle);
 	}
 	
-	public void addStructureByLine(Object object) {
-		AddStructure.addStructureByLine(object);
+	public void addStructureByLine(Board board, Line line) {
+		AddStructure.addStructureByLine(board, line);
 		
 	}
 	
