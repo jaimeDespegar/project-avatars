@@ -8,10 +8,12 @@ public class Avatar {
 	protected Point coordinate;
 	protected Point size;
 	protected boolean escudo;
+	protected int vida;
 	
-	public Avatar(Point coordinate, Point size, boolean escudo) {
+	public Avatar(Point coordinate, Point size, int vida, boolean escudo) {
 		this.coordinate = coordinate;
 		this.size = size;	
+		this.vida= vida;
 		this.escudo= escudo;
 	}
 	
@@ -27,14 +29,20 @@ public class Avatar {
 	public void setSize(Point size) {
 		this.size = size;
 	}
+	public int getVida() {
+		return vida;
+	}
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
 	public boolean isEscudo() {
 		return escudo;
 	}
-
 	public void setEscudo(boolean escudo) {
 		this.escudo = escudo;
 	}
 
+	//USER STORY 9
 	public Point assignFreePosition(HashMap mapa){ //el mapa contiene(Point posición, Object objeto)
 		Point freePosition= new Point(0,0); //valido inicial
 		//CONTROLO UNA POSICIÓN LIBRE DEL MAPA
