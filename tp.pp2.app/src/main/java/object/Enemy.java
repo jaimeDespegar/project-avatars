@@ -48,3 +48,4 @@ public class Enemy {
 		return freePosition;
 	}
 }
+
