@@ -13,12 +13,12 @@ public class Builder {
 	}
 	
 	public Builder withStructureRectangle(Rectangle rectangle) {
-		addStructureByRectangle(board,rectangle);
+		//addStructureByRectangle(board,rectangle);
 		return this;
 	}
 	
 	public Builder withStructureLine(Line line) {
-		addStructureByLine(board, line);
+		//addStructureByLine(board, line);
 		return this;
 	}
 	

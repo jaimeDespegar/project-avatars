@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Line extends ObjectGraphic{
 	private List<Point> positions;
-	private TypeOfEstructure typeOfStructure;
+	private Structure structure;
 	
-	public Line (Point position, List<Point> positions, TypeOfEstructure typeOfStructure) {
+	public Line (Point position, List<Point> positions, Structure structure) {
 		super(position);
 		this.positions = positions;
-		this.typeOfStructure = typeOfStructure;
+		this.structure = structure;
 	}
 
 	public List<Point> getPositions() {
@@ -21,11 +21,11 @@ public class Line extends ObjectGraphic{
 		this.positions = positions;
 	}
 
-	public TypeOfEstructure getTypeOfStructure() {
-		return typeOfStructure;
+	public Structure getStructure() {
+		return structure;
 	}
 
-	public void setTypeOfStructure(TypeOfEstructure typeOfStructure) {
-		this.typeOfStructure = typeOfStructure;
+	public void setStructure(Structure structure) {
+		this.structure = structure;
 	}
 }

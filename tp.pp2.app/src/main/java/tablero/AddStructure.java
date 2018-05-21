@@ -14,7 +14,7 @@ public class AddStructure {
 			}
 		}
 		if(validatePositions(board, positionsOfRectangle)) {
-			addStructures(board, positionsOfRectangle, rectangle.getTypeOfStructure());
+			addStructures(board, positionsOfRectangle, rectangle.getStructure().getTypeOfStructure());
 		}else {
 			throw new IllegalArgumentException("uno o mas casilleros estan ocupados");
 		}
@@ -26,7 +26,7 @@ public class AddStructure {
 		
 		
 		if(validatePositions(board, positionsOfLine)) {
-			addStructures(board, positionsOfLine, line.getTypeOfStructure());
+			addStructures(board, positionsOfLine, line.getStructure().getTypeOfStructure());
 		}else {
 			throw new IllegalArgumentException("uno o mas casilleros estan ocupados");
 		}
@@ -41,7 +41,7 @@ public class AddStructure {
 		return true;
 	}
 
-	private static void addStructures(Board board, List<Point> positionsOfRectangle, TypeOfEstructure typeOfStructure) {
+	private static void addStructures(Board board, List<Point> positionsOfRectangle, TypeOfStructure typeOfStructure) {
 		// TODO Auto-generated method stub
 		
 	}
