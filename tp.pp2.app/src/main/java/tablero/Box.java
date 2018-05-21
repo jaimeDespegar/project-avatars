@@ -3,8 +3,8 @@ package tablero;
 public class Box {
 	private ObjectGraphic objectGraphic;
 	
-	public Box () {
-		
+	public Box (ObjectGraphic objectGraphic) {
+		this.objectGraphic = objectGraphic;
 	}
 
 	public ObjectGraphic getObjectGraphic() {

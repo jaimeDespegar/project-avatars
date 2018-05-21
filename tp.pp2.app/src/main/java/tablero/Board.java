@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public class Board {
 	private Box[][] board;
-
+	
 	public Board(Point sizeBoard) {
 		board = new Box[sizeBoard.x][sizeBoard.y];
 	}
@@ -18,7 +18,7 @@ public class Board {
 	}
 
 	public boolean isOcupatePosition(Point box) {
-		return board[box.x][box.y].getObjectGraphic() == null;
+		return board[box.x][box.y] != null;
 	}
 	
 	public void printBoard() {

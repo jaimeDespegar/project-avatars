@@ -13,7 +13,7 @@ public class Builder {
 	}
 	
 	public Builder withStructureRectangle(Rectangle rectangle) {
-		//addStructureByRectangle(board,rectangle);
+		addStructureByRectangle(board,rectangle);
 		return this;
 	}
 	

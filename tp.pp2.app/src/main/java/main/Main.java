@@ -16,7 +16,7 @@ public class Main {
 		// map.printMap();
 		// new Hero.Builder(Profession.MAGE,
 		// "Riobard").withHairColor(HairColor.BLACK).withWeapon(Weapon.DAGGER).build();
-		Map map = new Builder(new Point(5, 6))
+		Map map = new Builder(new Point(7, 8))
 				.withStructureRectangle(
 						new Rectangle(new Point(2, 2), new Point(3, 5), new Structure(null, TypeOfStructure.ACERO)))
 				.withStructureLine(null).build();

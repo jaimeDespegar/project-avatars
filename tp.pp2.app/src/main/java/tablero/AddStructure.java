@@ -10,11 +10,11 @@ public class AddStructure {
 		List<Point> positionsOfRectangle = new ArrayList<Point>();
 		for(int x = rectangle.getPosition().x; x < rectangle.getPosition().x + rectangle.getSize().getX(); x ++) {
 			for(int y = rectangle.getPosition().y; y < rectangle.getPosition().y + rectangle.getSize().getY(); y ++) {
-				positionsOfRectangle.add(new Point(x,y));
+				positionsOfRectangle.add(new Point(y,x));
 			}
 		}
 		if(validatePositions(board, positionsOfRectangle)) {
-			addStructures(board, positionsOfRectangle, rectangle.getStructure().getTypeOfStructure());
+			addStructures(board, positionsOfRectangle, rectangle.getStructure());
 		}else {
 			throw new IllegalArgumentException("uno o mas casilleros estan ocupados");
 		}
@@ -26,7 +26,7 @@ public class AddStructure {
 		
 		
 		if(validatePositions(board, positionsOfLine)) {
-			addStructures(board, positionsOfLine, line.getStructure().getTypeOfStructure());
+			addStructures(board, positionsOfLine, line.getStructure());
 		}else {
 			throw new IllegalArgumentException("uno o mas casilleros estan ocupados");
 		}
@@ -41,9 +41,10 @@ public class AddStructure {
 		return true;
 	}
 
-	private static void addStructures(Board board, List<Point> positionsOfRectangle, TypeOfStructure typeOfStructure) {
-		// TODO Auto-generated method stub
-		
+	private static void addStructures(Board board, List<Point> positionsOfRectangle, Structure structure) {
+		for(Point pos : positionsOfRectangle){
+			board.getBoard()[pos.x][pos.y] = new Box(structure);
+		}
 	}
 }
 
