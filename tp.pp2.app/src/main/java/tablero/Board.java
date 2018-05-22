@@ -31,5 +31,15 @@ public class Board {
 			file = "";
 		}
 	}
-
+	
+	/*public void printBoardObjectName() { //Quiero saber qué tipo de Objeto está dentro de un casillero
+		String file = "";
+		for (int x = 0; x < board.length; x++) {
+			for (int y = 0; y < board[0].length; y++) {
+				file = file + "[" +board[x][y]. + "]";
+			}
+			System.out.println(file);
+			file = "";
+		}
+	}*/
 }
