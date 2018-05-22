@@ -1,57 +1,25 @@
 package object;
 
 import java.awt.Point;
-import java.util.HashMap;
 
-import states.StateMove;
-
-public class Avatar {
-	
-	protected Point coordinate;
-	protected Point size;
-	protected int vida;
-	private StateMove stateMove;
+public class Avatar extends GameObject{
 	
 	public Avatar(Point coordinate, Point size, int vida) {
-		this.coordinate = coordinate;
-		this.size = size;	
-		this.vida= vida;
+		super(coordinate, size, vida);
 	}
 	
-	public Point getCoordinate() {
-		return coordinate;
+	public void Colission_AvatarWithShield(){
+		this.vida= this.vida - 0;
 	}
-	public void setCoordinate(Point coordinate) {
-		this.coordinate = coordinate;
+	public void Colission_Ax(){
+		this.vida= this.vida - 90;
 	}
-	public Point getSize() {
-		return size;
+	public void Colission_Bazooka(){
+		this.vida= this.vida - 80;
 	}
-	public void setSize(Point size) {
-		this.size = size;
-	}
-	public int getVida() {
-		return vida;
-	}
-	public void setVida(int vida) {
-		this.vida = vida;
+	public void Colission_Shotgun(){
+		this.vida= this.vida - 70;
 	}
 	
-	public void setStateMove(StateMove stateMove) 
-	{
-		this.stateMove = stateMove;
-	}
-
-	public void doActionStateMove() {
-		this.stateMove.control();
-	}
-
-	//USER STORY 9
-	public Point assignFreePosition(HashMap mapa){ //el mapa contiene(Point posición, Object objeto)
-		Point freePosition= new Point(0,0); //valido inicial
-		//CONTROLO UNA POSICIÓN LIBRE DEL MAPA
-		return freePosition;
-	}
-
 }
 
