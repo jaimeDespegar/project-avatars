@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public class Board {
 	private Box[][] board;
-	
+	//private HashMap<Point>
 	public Board(Point sizeBoard) {
 		board = new Box[sizeBoard.x][sizeBoard.y];
 	}

@@ -19,7 +19,7 @@ private Map<Integer, StateMove> mapStateMoves;
 
 	/*private*/public void buildMapStatesMoves(SetKeys setkeys) 
 	{
-		this.mapStateMoves = new HashMap<>();
+		this.mapStateMoves = new HashMap<Integer, StateMove>();
 		this.mapStateMoves.put(setkeys.getKeyUp(), new StateMoveUp());
 		this.mapStateMoves.put(setkeys.getKeyDown(), new StateMoveDown());
 		this.mapStateMoves.put(setkeys.getKeyLeft(), new StateMoveLeft());

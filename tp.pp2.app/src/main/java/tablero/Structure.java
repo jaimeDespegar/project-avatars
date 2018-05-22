@@ -2,6 +2,8 @@ package tablero;
 
 import java.awt.Point;
 
+import enums.TypeOfStructure;
+
 public class Structure extends ObjectGraphic{
 	private TypeOfStructure typeOfStructure;
 	
