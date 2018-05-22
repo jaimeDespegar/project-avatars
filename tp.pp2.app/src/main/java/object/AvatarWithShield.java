@@ -3,13 +3,13 @@ package object;
 import java.awt.Point;
 import java.util.HashMap;
 
-public class Enemy {
+public class AvatarWithShield {
 	protected Point coordinate;
 	protected Point size;
-	protected boolean escudo;
+	protected boolean escudo= true;
 	protected int vida;
 	
-	public Enemy(Point coordinate, Point size, int vida, boolean escudo) {
+	public AvatarWithShield(Point coordinate, Point size, int vida, boolean escudo) {
 		this.coordinate = coordinate;
 		this.size = size;	
 		this.vida= vida;

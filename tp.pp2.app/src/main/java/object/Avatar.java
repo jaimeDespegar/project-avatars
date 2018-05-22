@@ -9,7 +9,7 @@ public class Avatar {
 	
 	protected Point coordinate;
 	protected Point size;
-	protected boolean escudo;
+	protected boolean escudo=false;
 	protected int vida;
 	private StateMove stateMove;
 	
