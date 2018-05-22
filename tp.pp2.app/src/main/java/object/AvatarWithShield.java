@@ -3,17 +3,18 @@ package object;
 import java.awt.Point;
 import java.util.HashMap;
 
+import states.StateMove;
+
 public class AvatarWithShield {
 	protected Point coordinate;
 	protected Point size;
-	protected boolean escudo= true;
 	protected int vida;
+	private StateMove stateMove;
 	
-	public AvatarWithShield(Point coordinate, Point size, int vida, boolean escudo) {
+	public AvatarWithShield(Point coordinate, Point size, int vida) {
 		this.coordinate = coordinate;
 		this.size = size;	
 		this.vida= vida;
-		this.escudo= escudo;
 	}
 	
 	public Point getCoordinate() {
@@ -34,13 +35,15 @@ public class AvatarWithShield {
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
-	public boolean isEscudo() {
-		return escudo;
+	
+	public void setStateMove(StateMove stateMove) 
+	{
+		this.stateMove = stateMove;
 	}
-	public void setEscudo(boolean escudo) {
-		this.escudo = escudo;
+	public void doActionStateMove() {
+		this.stateMove.control();
 	}
-
+	
 	//USER STORY 9
 	public Point assignFreePosition(HashMap mapa){ //el mapa contiene(Point posición, Object objeto)
 		Point freePosition= new Point(0,0); //valido inicial

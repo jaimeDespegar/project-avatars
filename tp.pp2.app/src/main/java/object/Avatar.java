@@ -9,15 +9,13 @@ public class Avatar {
 	
 	protected Point coordinate;
 	protected Point size;
-	protected boolean escudo=false;
 	protected int vida;
 	private StateMove stateMove;
 	
-	public Avatar(Point coordinate, Point size, int vida, boolean escudo) {
+	public Avatar(Point coordinate, Point size, int vida) {
 		this.coordinate = coordinate;
 		this.size = size;	
 		this.vida= vida;
-		this.escudo= escudo;
 	}
 	
 	public Point getCoordinate() {
@@ -37,12 +35,6 @@ public class Avatar {
 	}
 	public void setVida(int vida) {
 		this.vida = vida;
-	}
-	public boolean isEscudo() {
-		return escudo;
-	}
-	public void setEscudo(boolean escudo) {
-		this.escudo = escudo;
 	}
 	
 	public void setStateMove(StateMove stateMove) 
