@@ -24,6 +24,7 @@ public class Main {
 				.withStructureLine(new Line(null,positions,new Structure(null, TypeOfStructure.ACERO))).build();
 		map.printMap();
 		map.getBoard().printBoardObjectName(new Point(2,2));
+		map.getBoard().getObjectGraphic(new Point (2,2));//me devuelve el objeto grafico de una posicion
 		// Como agrego objetos al Map ??
 		// Como se que objeto hay en cada casillero?
 	}
