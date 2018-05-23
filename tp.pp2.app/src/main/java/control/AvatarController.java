@@ -29,7 +29,7 @@ public class AvatarController extends GameObject{
 	
 	public AvatarController(Avatar avatar, Board tablero, Ax hacha, Bazooka bazooka, Shotgun escopeta) 
 	{
-		super(avatar.getPosition(), avatar.getSize(), avatar.getVida(), avatar.getOrientation());
+		super(avatar.getVida(), avatar.getOrientation());
 		this.avatar= avatar;
 		this.tablero= tablero;
 		this.hacha= hacha;
@@ -43,7 +43,7 @@ public class AvatarController extends GameObject{
 		if(keyPressedInNow != -1) //si se presiona una tecla registrada para el Avatar
 		{
 			StateMove stateMove = factory.getStateMove(keyPressedInNow);//reviso la tecla presionada
-			avanzarAvatar(stateMove); //Avanza o gira o si es una tecla incorrecta no hace nada
+			//avanzarAvatar(stateMove); //Avanza o gira o si es una tecla incorrecta no hace nada
 			disparar(keyPressedInNow);
 		}
 	}
@@ -78,44 +78,44 @@ public class AvatarController extends GameObject{
 		
 	}
 
-	public void avanzarAvatar(StateMove stateMove){
-		//this.avatar.setStateMove(stateMove);
-		if(stateMove.equals(this.avatar.getOrientationAvatar())){//si el avatar avanza cuando se presiona por 2º vez la misma tecla
-			if(stateMove.equals(new StateMoveUp())){
-				coordenada.x=this.avatar.getPosition().x;
-				coordenada.y=this.avatar.getPosition().y -1;	
-			}
-			if(stateMove.equals(new StateMoveDown())){
-				coordenada.x=this.avatar.getPosition().x ;
-				coordenada.y=this.avatar.getPosition().y +1;
-			}
-			if(stateMove.equals(new StateMoveLeft())){
-				coordenada.x=this.avatar.getPosition().x -1;
-				coordenada.y=this.avatar.getPosition().y;
-			}
-			if(stateMove.equals(new StateMoveRight())){
-				coordenada.x=this.avatar.getPosition().x + 1;
-				coordenada.y=this.avatar.getPosition().y;
-			}
-			
-			if((tablero.isOcupatePosition(coordenada)) != false){
-				this.avatar.setPosition(coordenada);
-				//tablero.add(avatar);   DEBO GUARDAR EN EL TABLERO
-			}
-		}
-		else{ //Si el avatar gira al presionarse una tecla distinta a la última
-			girarAvatar(stateMove);
-		}
-	}
-	public void girarAvatar(StateMove stateMove){
-		this.avatar.setOrientationAvatar(stateMove);
-		if(stateMove.equals(new StateMoveUp())){
-			this.avatar.setOrientation(orientation.UP);}
-		if(stateMove.equals(new StateMoveDown())){
-			this.avatar.setOrientation(orientation.DOWN);}
-		if(stateMove.equals(new StateMoveLeft())){
-			this.avatar.setOrientation(orientation.LEFT);}
-		if(stateMove.equals(new StateMoveRight())){
-			this.avatar.setOrientation(orientation.RIGHT);}	
-	}
+//	public void avanzarAvatar(StateMove stateMove){
+//		//this.avatar.setStateMove(stateMove);
+//		if(stateMove.equals(this.avatar.getOrientationAvatar())){//si el avatar avanza cuando se presiona por 2º vez la misma tecla
+//			if(stateMove.equals(new StateMoveUp())){
+//				coordenada.x=this.avatar.getPosition().x;
+//				coordenada.y=this.avatar.getPosition().y -1;	
+//			}
+//			if(stateMove.equals(new StateMoveDown())){
+//				coordenada.x=this.avatar.getPosition().x ;
+//				coordenada.y=this.avatar.getPosition().y +1;
+//			}
+//			if(stateMove.equals(new StateMoveLeft())){
+//				coordenada.x=this.avatar.getPosition().x -1;
+//				coordenada.y=this.avatar.getPosition().y;
+//			}
+//			if(stateMove.equals(new StateMoveRight())){
+//				coordenada.x=this.avatar.getPosition().x + 1;
+//				coordenada.y=this.avatar.getPosition().y;
+//			}
+//			
+//			if((tablero.isOcupatePosition(coordenada)) != false){
+//				this.avatar.setPosition(coordenada);
+//				//tablero.add(avatar);   DEBO GUARDAR EN EL TABLERO
+//			}
+//		}
+//		else{ //Si el avatar gira al presionarse una tecla distinta a la última
+//			girarAvatar(stateMove);
+//		}
+//	}
+//	public void girarAvatar(StateMove stateMove){
+//		this.avatar.setOrientationAvatar(stateMove);
+//		if(stateMove.equals(new StateMoveUp())){
+//			this.avatar.setOrientation(orientation.UP);}
+//		if(stateMove.equals(new StateMoveDown())){
+//			this.avatar.setOrientation(orientation.DOWN);}
+//		if(stateMove.equals(new StateMoveLeft())){
+//			this.avatar.setOrientation(orientation.LEFT);}
+//		if(stateMove.equals(new StateMoveRight())){
+//			this.avatar.setOrientation(orientation.RIGHT);}	
+//	}
 }

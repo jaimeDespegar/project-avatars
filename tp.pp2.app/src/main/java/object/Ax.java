@@ -1,7 +1,5 @@
 package object;
 
-import java.awt.Point;
-
 import enums.Orientation;
 
 
@@ -9,8 +7,8 @@ public class Ax extends GameObject{
 	public int damage=90;
 	public int shootingRange=1;
 
-	public Ax(Point coordinate, Point size, int vida, Orientation orientation) {
-		super(coordinate, size, vida,orientation);
+	public Ax(Integer vida, Orientation orientation) {
+		super(vida,orientation);
 	}
 	
 	public void colissionAvatar(){

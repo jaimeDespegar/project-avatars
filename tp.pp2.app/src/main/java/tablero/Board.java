@@ -58,9 +58,9 @@ public class Board {
 	}
 	
 	public void addAvatar(Point point, Avatar a){
-		if(!isOcupatePosition(a.getPosition())) {
-			ObjectGraphic objectGraphic= new ObjectGraphic(a.getPosition());
-			board[point.x][point.y].setObjectGraphic(objectGraphic);
+		if(!isOcupatePosition(point)) {
+			//ObjectGraphic objectGraphic= new ObjectGraphic(a.getPosition());
+	//		board[point.x][point.y].setObjectGraphic(a);
 		}
 	}
 }

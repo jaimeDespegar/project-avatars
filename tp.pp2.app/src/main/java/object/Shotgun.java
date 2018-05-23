@@ -1,16 +1,15 @@
 package object;
 
-import java.awt.Point;
 
 import enums.Orientation;
 
 
 public class Shotgun extends GameObject{
-	public int damage=70;
-	public int shootingRange=3;
+	private int damage=70;
+	private int shootingRange=3;
 	
-	public Shotgun(Point coordinate, Point size, int vida, Orientation orientation) {
-		super(coordinate, size, vida, orientation);
+	public Shotgun(int vida, Orientation orientation) {
+		super(vida, orientation);
 	}
 	
 	

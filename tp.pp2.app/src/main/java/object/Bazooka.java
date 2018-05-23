@@ -1,15 +1,13 @@
 package object;
 
-import java.awt.Point;
-
 import enums.Orientation;
 
 public class Bazooka extends GameObject{
 	public int damage=80;
 	public int shootingRange=2;
 	
-	public Bazooka(Point coordinate, Point size, int vida, Orientation orientation) {
-		super(coordinate, size, vida, orientation);
+	public Bazooka(Integer vida, Orientation orientation) {
+		super(vida, orientation);
 	}
 	
 	public void colissionAvatar(){

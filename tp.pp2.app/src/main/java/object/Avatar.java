@@ -1,7 +1,5 @@
 package object;
 
-import java.awt.Point;
-
 import enums.Orientation;
 import states.StateMove;
 import states.StateMoveUp;
@@ -14,8 +12,8 @@ public class Avatar extends GameObject{
 
 	
 
-	public Avatar(Point coordinate, Point size, int vida, Orientation orientation) {
-		super(coordinate, size, vida, orientation);
+	public Avatar(Integer vida, Orientation orientation) {
+		super(vida, orientation);
 		
 	}
 	

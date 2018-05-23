@@ -1,31 +1,22 @@
 package object;
 
-import java.awt.Point;
 
 import enums.Orientation;
 import states.StateMove;
-import tablero.ObjectGraphic;
 
-public class GameObject extends ObjectGraphic{
 
-	protected Point size;
-	protected int vida;
+public class GameObject {
+
+	protected Integer vida;
 	protected Orientation orientation;
 	private StateMove stateMove;
 	
-	public GameObject(Point position, Point size, int vida, Orientation orientation) {
-		super(position);
-		this.size = size;	
+	public GameObject( Integer vida, Orientation orientation) {
+			
 		this.vida= vida;
 		this.orientation= orientation;
 	}
 
-	public Point getSize() {
-		return size;
-	}
-	public void setSize(Point size) {
-		this.size = size;
-	}
 	public int getVida() {
 		return vida;
 	}
