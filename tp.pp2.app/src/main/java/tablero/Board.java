@@ -2,6 +2,8 @@ package tablero;
 
 import java.awt.Point;
 
+import object.Avatar;
+
 public class Board {
 	private Box[][] board;
 	//private HashMap<Point>
@@ -52,6 +54,13 @@ public class Board {
 	public void printBoardObjectName(Point pointObject) { //Quiero saber qué tipo de Objeto está dentro de un casillero
 		if(board[pointObject.x][pointObject.y] != null) {
 			System.out.println(board[pointObject.x][pointObject.y].getObjectGraphic().getClass().getName());
+		}
+	}
+	
+	public void addAvatar(Point point, Avatar a){
+		if(!isOcupatePosition(a.getPosition())) {
+			ObjectGraphic objectGraphic= new ObjectGraphic(a.getPosition());
+			board[point.x][point.y].setObjectGraphic(objectGraphic);
 		}
 	}
 }

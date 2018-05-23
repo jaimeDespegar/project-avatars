@@ -29,7 +29,7 @@ public class AvatarController extends GameObject{
 	
 	public AvatarController(Avatar avatar, Board tablero, Ax hacha, Bazooka bazooka, Shotgun escopeta) 
 	{
-		super(avatar.getCoordinate(), avatar.getSize(), avatar.getVida(), avatar.getOrientation());
+		super(avatar.getPosition(), avatar.getSize(), avatar.getVida(), avatar.getOrientation());
 		this.avatar= avatar;
 		this.tablero= tablero;
 		this.hacha= hacha;
@@ -82,24 +82,24 @@ public class AvatarController extends GameObject{
 		//this.avatar.setStateMove(stateMove);
 		if(stateMove.equals(this.avatar.getOrientationAvatar())){//si el avatar avanza cuando se presiona por 2º vez la misma tecla
 			if(stateMove.equals(new StateMoveUp())){
-				coordenada.x=this.avatar.getCoordinate().x;
-				coordenada.y=this.avatar.getCoordinate().y -1;	
+				coordenada.x=this.avatar.getPosition().x;
+				coordenada.y=this.avatar.getPosition().y -1;	
 			}
 			if(stateMove.equals(new StateMoveDown())){
-				coordenada.x=this.avatar.getCoordinate().x ;
-				coordenada.y=this.avatar.getCoordinate().y +1;
+				coordenada.x=this.avatar.getPosition().x ;
+				coordenada.y=this.avatar.getPosition().y +1;
 			}
 			if(stateMove.equals(new StateMoveLeft())){
-				coordenada.x=this.avatar.getCoordinate().x -1;
-				coordenada.y=this.avatar.getCoordinate().y;
+				coordenada.x=this.avatar.getPosition().x -1;
+				coordenada.y=this.avatar.getPosition().y;
 			}
 			if(stateMove.equals(new StateMoveRight())){
-				coordenada.x=this.avatar.getCoordinate().x + 1;
-				coordenada.y=this.avatar.getCoordinate().y;
+				coordenada.x=this.avatar.getPosition().x + 1;
+				coordenada.y=this.avatar.getPosition().y;
 			}
 			
 			if((tablero.isOcupatePosition(coordenada)) != false){
-				this.avatar.setCoordinate(coordenada);
+				this.avatar.setPosition(coordenada);
 				//tablero.add(avatar);   DEBO GUARDAR EN EL TABLERO
 			}
 		}

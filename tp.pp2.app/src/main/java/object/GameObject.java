@@ -4,27 +4,22 @@ import java.awt.Point;
 
 import enums.Orientation;
 import states.StateMove;
+import tablero.ObjectGraphic;
 
-public class GameObject {
-	protected Point coordinate;
+public class GameObject extends ObjectGraphic{
+
 	protected Point size;
 	protected int vida;
 	protected Orientation orientation;
 	private StateMove stateMove;
 	
-	public GameObject(Point coordinate, Point size, int vida, Orientation orientation) {
-		this.coordinate = coordinate;
+	public GameObject(Point position, Point size, int vida, Orientation orientation) {
+		super(position);
 		this.size = size;	
 		this.vida= vida;
 		this.orientation= orientation;
 	}
-	
-	public Point getCoordinate() {
-		return coordinate;
-	}
-	public void setCoordinate(Point coordinate) {
-		this.coordinate = coordinate;
-	}
+
 	public Point getSize() {
 		return size;
 	}

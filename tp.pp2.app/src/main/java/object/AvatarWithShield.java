@@ -27,7 +27,7 @@ public class AvatarWithShield extends GameObject{
 		if(reduceDamage){ axDamage= axDamage/damage; }
 		return axDamage;
 	}
-	public void colissionAvatarWithShield(){
+	public void colissionAvatar(){
 		this.vida= this.vida - 0;
 	}
 	public void colissionAx(Ax hacha){

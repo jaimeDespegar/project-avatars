@@ -46,7 +46,7 @@ public class UserStory_05 {
 		Board board = null;
 		
 		Avatar avatar= new Avatar(coordinate, size, live, Orientation.UP);
-		Ax hacha= new Ax(avatar.getCoordinate(), avatar.getSize(), 1, avatar.getOrientation());
+		Ax hacha= new Ax(avatar.getPosition(), avatar.getSize(), 1, avatar.getOrientation());
 		AvatarController avaControl= new AvatarController(avatar, board, hacha, null, null);
 		KeyBoardAvatar keyListener= new KeyBoardAvatar();
 		keyListener.actualizar();

@@ -5,11 +5,14 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import enums.Orientation;
 import enums.TypeOfStructure;
+import object.Avatar;
 import object.Ax;
 import tablero.Builder;
 import tablero.Line;
 import tablero.Map;
+import tablero.ObjectGraphic;
 import tablero.Rectangle;
 import tablero.Structure;
 
@@ -24,6 +27,12 @@ public class Main {
 						new Rectangle(new Point(2, 2), new Point(3, 5), new Structure(null, TypeOfStructure.ACERO)))
 				.withStructureLine(new Line(null,positions,new Structure(null, TypeOfStructure.ACERO))).build();
 		//map.getBoard().addObjectGraphic(new Point(0,0), new Ax(null, null, 0));
+		/*Avatar a= new Avatar(null, null, 100, Orientation.UP);
+		map.getBoard().addAvatar(a);*/
+		//map.getBoard().addObjectGraphic(new Point(0,0), new Avatar(null, null, 100, Orientation.UP));
+		
+		map.getBoard().addAvatar(new Point(2,2), new Avatar(new Point(2,2), new Point(2,2), 0, Orientation.UP)); //NO HACE NADA ???
+		
 		map.printMap();
 		map.getBoard().printBoardObjectName(new Point(2,2));
 		map.getBoard().getObjectGraphic(new Point (2,2));//me devuelve el objeto grafico de una posicion
