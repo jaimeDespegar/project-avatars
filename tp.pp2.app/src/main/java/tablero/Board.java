@@ -43,6 +43,12 @@ public class Board {
 		return null;
 	}
 	
+	public void addObjectGraphic(Point point, ObjectGraphic objectGraphic) {
+		if(!isOcupatePosition(point)) {
+			board[point.x][point.y].setObjectGraphic(objectGraphic);
+		}
+	}
+	
 	public void printBoardObjectName(Point pointObject) { //Quiero saber qué tipo de Objeto está dentro de un casillero
 		if(board[pointObject.x][pointObject.y] != null) {
 			System.out.println(board[pointObject.x][pointObject.y].getObjectGraphic().getClass().getName());
