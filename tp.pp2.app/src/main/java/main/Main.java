@@ -27,5 +27,6 @@ public class Main {
 		map.getBoard().getObjectGraphic(new Point (2,2));//me devuelve el objeto grafico de una posicion
 		// Como agrego objetos al Map ??
 		// Como se que objeto hay en cada casillero?
+		// Me parece de que no dibuja la linea
 	}
 }
