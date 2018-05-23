@@ -1,9 +1,11 @@
 package states;
 
+import enums.Orientation;
+
 
 public class StateMoveDown extends StateMove
 {
-
+	public Orientation orientation = Orientation.DOWN;
 	@Override
 	public void control() 
 	{

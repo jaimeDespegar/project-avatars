@@ -2,12 +2,14 @@ package object;
 
 import java.awt.Point; 
 
+import enums.Orientation;
+
 public class AvatarWithShield extends GameObject{
 	private boolean reduceDamage= true;
 	private int damage=2;
 	 
-	public AvatarWithShield(Point coordinate, Point size, int vida) {
-		super(coordinate, size, vida);
+	public AvatarWithShield(Point coordinate, Point size, int vida, Orientation orientation) {
+		super(coordinate, size, vida, orientation);
 	}
 	
 	public int finalDamageAx(Ax hacha){

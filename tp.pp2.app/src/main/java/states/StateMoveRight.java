@@ -1,7 +1,10 @@
 package states;
 
-public class StateMoveRight extends StateMove {
+import enums.Orientation;
 
+public class StateMoveRight extends StateMove {
+	
+	public Orientation orientation = Orientation.RIGHT;
 	public StateMoveRight() 
 	{
 	}

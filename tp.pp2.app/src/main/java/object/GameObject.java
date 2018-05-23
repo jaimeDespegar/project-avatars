@@ -2,18 +2,21 @@ package object;
 
 import java.awt.Point;
 
+import enums.Orientation;
 import states.StateMove;
 
 public class GameObject {
 	protected Point coordinate;
 	protected Point size;
 	protected int vida;
+	protected Orientation orientation;
 	private StateMove stateMove;
 	
-	public GameObject(Point coordinate, Point size, int vida) {
+	public GameObject(Point coordinate, Point size, int vida, Orientation orientation) {
 		this.coordinate = coordinate;
 		this.size = size;	
 		this.vida= vida;
+		this.orientation= orientation;
 	}
 	
 	public Point getCoordinate() {
@@ -34,12 +37,19 @@ public class GameObject {
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
-	
+	public Orientation getOrientation() {
+		return orientation;
+	}
+	public void setOrientation(Orientation orientation) {
+		this.orientation = orientation;
+	}
+	public StateMove getStateMove() {
+		return stateMove;
+	}
 	public void setStateMove(StateMove stateMove) 
 	{
 		this.stateMove = stateMove;
 	}
-
 	public void doActionStateMove() {
 		this.stateMove.control();
 	}
