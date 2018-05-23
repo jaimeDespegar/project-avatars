@@ -1,21 +1,22 @@
 package control;
 
 import object.Avatar;
+import object.AvatarWithShield;
 import states.StateMove;
 
 
 
 public class EnemyAvatarController {
-	private Avatar enemyAvatar;
+	private AvatarWithShield enemyAvatar;
 	private KeyBoardEnemyAvatar keyListener;
 	private FactoryStateMove factory;
 	
-	public EnemyAvatarController(Avatar enemyAvatar) 
+	public EnemyAvatarController(AvatarWithShield enemyAvatar) 
 	{
 		this.enemyAvatar = enemyAvatar;
 	}
 	
-	public void controlAvatar() 
+	public void controlEnemyAvatar() 
 	{
 		Integer keyPressedInNow = keyListener.getKeyPressed();
 		if(keyPressedInNow != -1) 

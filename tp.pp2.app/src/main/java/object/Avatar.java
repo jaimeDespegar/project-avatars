@@ -3,23 +3,39 @@ package object;
 import java.awt.Point;
 
 public class Avatar extends GameObject{
-	
+	private boolean reduceDamage= false;
+	private int damage=1;
+
 	public Avatar(Point coordinate, Point size, int vida) {
 		super(coordinate, size, vida);
 	}
 	
-	public void Colission_AvatarWithShield(){
+	public int finalDamageAx(Ax hacha){
+		int axDamage=hacha.getDamage();
+		if(reduceDamage){ axDamage= axDamage/damage; }
+		return axDamage;
+	}
+	public int finalDamageBazooka(Bazooka bazooka){
+		int axDamage=bazooka.getDamage();
+		if(reduceDamage){ axDamage= axDamage/damage; }
+		return axDamage;
+	}
+	public int finalDamageShotgun(Shotgun escopeta){
+		int axDamage=escopeta.getDamage();
+		if(reduceDamage){ axDamage= axDamage/damage; }
+		return axDamage;
+	}
+	public void colissionAvatarWithShield(){
 		this.vida= this.vida - 0;
 	}
-	public void Colission_Ax(){
-		this.vida= this.vida - 90;
+	public void colissionAx(Ax hacha){
+		this.vida= this.vida - finalDamageAx(hacha);
 	}
-	public void Colission_Bazooka(){
-		this.vida= this.vida - 80;
+	public void colissionBazooka(Bazooka bazooka){
+		this.vida= this.vida - finalDamageBazooka(bazooka);
 	}
-	public void Colission_Shotgun(){
-		this.vida= this.vida - 70;
+	public void colissionShotgun(Shotgun escopeta){
+		this.vida= this.vida - finalDamageShotgun(escopeta);
 	}
 	
 }
-
