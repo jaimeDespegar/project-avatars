@@ -2,10 +2,17 @@ package object;
 
 import java.awt.Point;
 
+import enums.Orientation;
+
 
 public class Shotgun extends GameObject{
 	public int damage=70;
 	public int shootingRange=3;
+	
+	public Shotgun(Point coordinate, Point size, int vida, Orientation orientation) {
+		super(coordinate, size, vida, orientation);
+	}
+	
 	
 	public int getShootingRange() {
 		return shootingRange;
@@ -38,7 +45,5 @@ public class Shotgun extends GameObject{
 	public void setShootingRange(int shootingRange) {
 		this.shootingRange = shootingRange;
 	}
-	public Shotgun(Point coordinate, Point size, int vida) {
-		super(coordinate, size, vida);
-	}
+	
 }

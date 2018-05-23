@@ -30,5 +30,6 @@ public class Main {
 		
 		// Como agrego objetos al Map ??
 		// Como se que objeto hay en cada casillero?
+		// Me parece de que no dibuja la linea
 	}
 }

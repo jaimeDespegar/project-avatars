@@ -2,14 +2,29 @@ package object;
 
 import java.awt.Point;
 
+import enums.Orientation;
+import states.StateMove;
+import states.StateMoveUp;
+
 public class Avatar extends GameObject{
 	private boolean reduceDamage= false;
 	private int damage=1;
+	public StateMove orientationAvatar=new StateMoveUp();
+	private Orientation orientation;
 
-	public Avatar(Point coordinate, Point size, int vida) {
-		super(coordinate, size, vida);
+	
+
+	public Avatar(Point coordinate, Point size, int vida, Orientation orientation) {
+		super(coordinate, size, vida, orientation);
+		
 	}
 	
+	public Orientation getOrientation() {
+		return orientation;
+	}
+	public void setOrientation(Orientation orientation) {
+		this.orientation = orientation;
+	}
 	public int finalDamageAx(Ax hacha){
 		int axDamage=hacha.getDamage();
 		if(reduceDamage){ axDamage= axDamage/damage; }
@@ -36,6 +51,12 @@ public class Avatar extends GameObject{
 	}
 	public void colissionShotgun(Shotgun escopeta){
 		this.vida= this.vida - finalDamageShotgun(escopeta);
+	}
+	public StateMove getOrientationAvatar() {
+		return orientationAvatar;
+	}
+	public void setOrientationAvatar(StateMove orientationAvatar) {
+		this.orientationAvatar = orientationAvatar;
 	}
 	
 }
