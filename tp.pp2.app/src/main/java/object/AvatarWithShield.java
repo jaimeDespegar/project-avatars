@@ -1,12 +1,12 @@
 package object;
 
-import java.awt.Point;
+import java.awt.Point; 
 
-public class Avatar extends GameObject{
-	private boolean reduceDamage= false;
-	private int damage=1;
-
-	public Avatar(Point coordinate, Point size, int vida) {
+public class AvatarWithShield extends GameObject{
+	private boolean reduceDamage= true;
+	private int damage=2;
+	 
+	public AvatarWithShield(Point coordinate, Point size, int vida) {
 		super(coordinate, size, vida);
 	}
 	
@@ -39,3 +39,4 @@ public class Avatar extends GameObject{
 	}
 	
 }
+

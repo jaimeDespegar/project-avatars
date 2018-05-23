@@ -23,5 +23,8 @@ public class Main {
 						new Rectangle(new Point(2, 2), new Point(3, 5), new Structure(null, TypeOfStructure.ACERO)))
 				.withStructureLine(new Line(null,positions,new Structure(null, TypeOfStructure.ACERO))).build();
 		map.printMap();
+		//.printMapWhithNameObject();
+		// Como agrego objetos al Map ??
+		// Como se que objeto hay en cada casillero?
 	}
 }
