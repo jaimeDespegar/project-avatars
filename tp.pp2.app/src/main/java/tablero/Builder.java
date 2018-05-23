@@ -18,7 +18,7 @@ public class Builder {
 	}
 	
 	public Builder withStructureLine(Line line) {
-		//addStructureByLine(board, line);
+		addStructureByLine(board, line);
 		return this;
 	}
 	
@@ -28,7 +28,6 @@ public class Builder {
 	
 	public void addStructureByLine(Board board, Line line) {
 		AddStructure.addStructureByLine(board, line);
-		
 	}
 	
 	public Map build() {

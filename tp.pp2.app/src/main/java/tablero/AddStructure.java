@@ -30,8 +30,19 @@ public class AddStructure {
 		List<Point> positionsOfLine = new ArrayList<Point>();
 		Point punto1 = line.getPositions().get(0);
 		Point punto2 = line.getPositions().get(1);
-		Integer mayorDistancia = higherDistance(punto1, punto2);
+		if(punto1.x > punto2.x) {
+			for(int X = punto1.x; X < (punto2.x); X++) {
+				Integer Y = createFunctionByLine(punto1, punto2, X);
+				positionsOfLine.add(new Point (X,Y));
+			}
+		}else {
+			for(int X = punto2.x; X < (punto1.x); X++) {
+				Integer Y = createFunctionByLine(punto1, punto2, X);
+				positionsOfLine.add(new Point (X,Y));
+			}
+		}
 		if (validatePositions(board, positionsOfLine)) {
+			System.out.println(positionsOfLine.size());
 			addStructures(board, positionsOfLine, line.getStructure());
 		} else {
 			// throw new IllegalArgumentException("No se puede añadir las estructuras, uno o
@@ -41,11 +52,11 @@ public class AddStructure {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
-	private static Integer higherDistance(Point punto1, Point punto2) {
-		int difX = (punto1.x - punto2.x);
-		int difY = (punto1.y - punto2.y);
-		return null;
+//con esto creo la funcion de la recta de los dos puntos, si le paso un X y un Y, calulo por que punto pasa, osea pones un x 7 te da un y.
+	private static Integer createFunctionByLine(Point punto1, Point punto2, Integer X) {
+		Integer function = ((punto2.y - punto1.y)/(punto2.x - punto1.x))* (X - punto1.x) + punto1.y;
+		//dom [(x1,y1) -> (x2,y2)]
+		return function;//seria la Y
 	}
 
 	private static boolean validatePositions(Board board, List<Point> positionsOfStructure) {
