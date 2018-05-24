@@ -1,6 +1,8 @@
 package object;
 
 
+import java.awt.Point;
+
 import enums.Orientation;
 import states.StateMove;
 
@@ -10,6 +12,7 @@ public class GameObject {
 	protected Integer vida;
 	protected Orientation orientation;
 	private StateMove stateMove;
+	private Point position;
 	
 	public GameObject( Integer vida, Orientation orientation) {
 			
@@ -39,4 +42,11 @@ public class GameObject {
 	public void doActionStateMove() {
 		this.stateMove.control();
 	}
+	public Point getPosition() {
+		return position;
+	}
+	public void setPosition(Point position) {
+		this.position = position;
+	}
+	
 }
