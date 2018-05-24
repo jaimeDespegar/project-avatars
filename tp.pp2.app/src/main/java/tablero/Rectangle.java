@@ -3,13 +3,22 @@ package tablero;
 import java.awt.Point;
 
 public class Rectangle extends ObjectGraphic{
+	private Point position;
 	private Point size;
 	private Structure structure;
 	
 	public Rectangle(Point position, Point size, Structure structure) {
-		super(position);
+		this.position = position;
 		this.size = size;
 		this.structure = structure;
+	}
+
+	public Point getPosition() {
+		return position;
+	}
+
+	public void setPosition(Point position) {
+		this.position = position;
 	}
 
 	public Point getSize() {

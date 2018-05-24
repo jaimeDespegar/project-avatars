@@ -7,8 +7,8 @@ public class Line extends ObjectGraphic{
 	private List<Point> positions;
 	private Structure structure;
 	
-	public Line (Point position, List<Point> positions, Structure structure) {
-		super(position);
+	public Line (List<Point> positions, Structure structure) {
+		super();
 		this.positions = positions;
 		this.structure = structure;
 	}

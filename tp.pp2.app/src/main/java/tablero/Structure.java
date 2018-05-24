@@ -1,14 +1,11 @@
 package tablero;
 
-import java.awt.Point;
-
 import enums.TypeOfStructure;
 
 public class Structure extends ObjectGraphic{
 	private TypeOfStructure typeOfStructure;
 	
-	public Structure(Point position, TypeOfStructure typeOfStructure) {
-		super(position);
+	public Structure(TypeOfStructure typeOfStructure) {
 		this.typeOfStructure = typeOfStructure;
 	}
 

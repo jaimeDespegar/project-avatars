@@ -2,8 +2,6 @@ package tablero;
 
 import java.awt.Point;
 
-import object.Avatar;
-
 public class Board {
 	private Box[][] boxes;
 
@@ -47,34 +45,6 @@ public class Board {
 			}
 			System.out.println(file);
 			file = "";
-		}
-	}
-	
-	
-	///DE ACA PARA ABAJO SE VA
-	public ObjectGraphic getObjectGraphic(Point pointObject) {
-		if(boxes[pointObject.x][pointObject.y] != null) {
-			return boxes[pointObject.x][pointObject.y].getObjectGraphic();
-		}
-		return null;
-	}
-	
-	public void addObjectGraphic(Point point, ObjectGraphic objectGraphic) {
-		if(!isOcupatePosition(point)) {
-			boxes[point.x][point.y].setObjectGraphic(objectGraphic);
-		}
-	}
-	
-	public void printBoardObjectName(Point pointObject) { //Quiero saber qué tipo de Objeto está dentro de un casillero
-		if(boxes[pointObject.x][pointObject.y] != null) {
-			System.out.println(boxes[pointObject.x][pointObject.y].getObjectGraphic().getClass().getName());
-		}
-	}
-	
-	public void addAvatar(Point point, Avatar a){
-		if(!isOcupatePosition(point)) {
-			//ObjectGraphic objectGraphic= new ObjectGraphic(a.getPosition());
-	//		board[point.x][point.y].setObjectGraphic(a);
 		}
 	}
 }
