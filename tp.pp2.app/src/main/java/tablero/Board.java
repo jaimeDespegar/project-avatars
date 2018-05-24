@@ -5,32 +5,44 @@ import java.awt.Point;
 import object.Avatar;
 
 public class Board {
-	private Box[][] board;
-	//private HashMap<Point>
+	private Box[][] boxes;
+
 	public Board(Point sizeBoard) {
-		board = new Box[sizeBoard.x][sizeBoard.y];
+		boxes = new Box[sizeBoard.x][sizeBoard.y];
 	}
 
-	public Box[][] getBoard() {
-		return board;
+	public Box[][] getBoxes() {
+		return boxes;
 	}
 
-	public void setBoard(Box[][] board) {
-		this.board = board;
+	public void setBox(Box[][] boxes) {
+		this.boxes = boxes;
 	}
 
 	public boolean isOcupatePosition(Point box) {
-		return board[box.x][box.y] != null;
+		return boxes[box.x][box.y] != null;
+	}
+	
+	public Box getBox(Point pointBox) {
+		return boxes[pointBox.x][pointBox.y];
+	}
+
+	public void deleteBox(Point pointBox) {
+		boxes[pointBox.x][pointBox.y] = null;
+	}
+	
+	public void addBox(Point pointBox, Object object) {
+		boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
 	}
 	
 	public void printBoard() {
 		String file = "";
-		for (int x = 0; x < board.length; x++) {
-			for (int y = 0; y < board[0].length; y++) {
-				if(board[x][y] != null) {
-					file = file + "[" +board[x][y].getObjectGraphic().getClass().getName() + "]";
+		for (int x = 0; x < boxes.length; x++) {
+			for (int y = 0; y < boxes[0].length; y++) {
+				if(boxes[x][y] != null) {
+					file = file + "[" +boxes[x][y].getObjectGraphic().getClass().getName() + "]";
 				}else {
-					file = file + "[" +board[x][y] + "]";
+					file = file + "[" +boxes[x][y] + "]";
 				}
 			}
 			System.out.println(file);
@@ -38,22 +50,24 @@ public class Board {
 		}
 	}
 	
+	
+	///DE ACA PARA ABAJO SE VA
 	public ObjectGraphic getObjectGraphic(Point pointObject) {
-		if(board[pointObject.x][pointObject.y] != null) {
-			return board[pointObject.x][pointObject.y].getObjectGraphic();
+		if(boxes[pointObject.x][pointObject.y] != null) {
+			return boxes[pointObject.x][pointObject.y].getObjectGraphic();
 		}
 		return null;
 	}
 	
 	public void addObjectGraphic(Point point, ObjectGraphic objectGraphic) {
 		if(!isOcupatePosition(point)) {
-			board[point.x][point.y].setObjectGraphic(objectGraphic);
+			boxes[point.x][point.y].setObjectGraphic(objectGraphic);
 		}
 	}
 	
 	public void printBoardObjectName(Point pointObject) { //Quiero saber qué tipo de Objeto está dentro de un casillero
-		if(board[pointObject.x][pointObject.y] != null) {
-			System.out.println(board[pointObject.x][pointObject.y].getObjectGraphic().getClass().getName());
+		if(boxes[pointObject.x][pointObject.y] != null) {
+			System.out.println(boxes[pointObject.x][pointObject.y].getObjectGraphic().getClass().getName());
 		}
 	}
 	

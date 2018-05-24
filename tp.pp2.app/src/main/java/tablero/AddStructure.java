@@ -70,7 +70,7 @@ public class AddStructure {
 
 	private static void addStructures(Board board, List<Point> positionsOfRectangle, Structure structure) {
 		for (Point pos : positionsOfRectangle) {
-			board.getBoard()[pos.x][pos.y] = new Box(structure);
+			board.getBoxes()[pos.x][pos.y] = new Box(structure);
 		}
 	}
 }

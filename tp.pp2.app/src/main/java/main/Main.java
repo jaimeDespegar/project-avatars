@@ -27,16 +27,14 @@ public class Main {
 				.withStructureRectangle(new Rectangle(new Point(2, 2), new Point(3, 5), new Structure(null, TypeOfStructure.ACERO)))
 				.withStructureLine(new Line(null,positions,new Structure(null, TypeOfStructure.ACERO)))
 				.build();
-		//map.getBoard().addObjectGraphic(new Point(0,0), new Ax(null, null, 0));
-		/*Avatar a= new Avatar(null, null, 100, Orientation.UP);
-		map.getBoard().addAvatar(a);*/
-		//map.getBoard().addObjectGraphic(new Point(0,0), new Avatar(null, null, 100, Orientation.UP));
-
+		//solo pueden añadir objectos que extiendan de objectGraphic
+		map.addBox(new Point(1,1), new Rectangle(new Point(1, 1), new Point(1, 1), new Structure(null, TypeOfStructure.ACERO)));
+		map.deleteBox(new Point(3,3));
+		System.out.println(map.getBox(new Point(4,3)).getClass().getName());
 		map.printMap();
-		//map.getBoard().addAvatar(new Avatar(100, Orientation.UP)); //NO HACE NADA ???
 		
-		map.getBoard().printBoardObjectName(new Point(2,2));
-		map.getBoard().getObjectGraphic(new Point (2,2));//me devuelve el objeto grafico de una posicion
+		//map.getBoard().printBoardObjectName(new Point(2,2));
+		//map.getBoard().getObjectGraphic(new Point (2,2));//me devuelve el objeto grafico de una posicion
 		
 		// Como agrego objetos al Map ??
 		// Como se que objeto hay en cada casillero?
