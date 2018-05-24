@@ -5,6 +5,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import object.Avatar;
+import enums.Orientation;
 import enums.TypeOfStructure;
 import tablero.Builder;
 import tablero.Line;
@@ -28,5 +30,8 @@ public class Main {
 		System.out.println(map.getBox(new Point(4,3)).getClass().getName());
 		map.printMap();
 		
+		map.addBox(new Point(0,0), new Avatar(100, Orientation.UP));
+		System.out.println(map.getBox(new Point(0,0)).getClass().getName());
+		map.printMap();
 	}
 }

@@ -5,9 +5,10 @@ import java.awt.Point;
 
 import enums.Orientation;
 import states.StateMove;
+import tablero.ObjectGraphic;
 
 
-public class GameObject {
+public class GameObject extends ObjectGraphic{
 
 	protected Integer vida;
 	protected Orientation orientation;
