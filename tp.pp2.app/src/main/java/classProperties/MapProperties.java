@@ -9,6 +9,7 @@ import main.Constants;
 
 public class MapProperties {
 	private Properties properties;
+	private ElectionMap electionMap;
 	
 	public MapProperties () {
 		this.properties = new Properties();
@@ -26,5 +27,9 @@ public class MapProperties {
 			e.printStackTrace();
 		}
 	}
-	
+	//traer los datos, del properties y guardarlos en ElectionMap
+
+	public ElectionMap getElectionMap() {
+		return electionMap;
+	}
 }
