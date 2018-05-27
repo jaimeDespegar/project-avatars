@@ -1,121 +1,276 @@
 package control;
 
-import java.awt.Point;
+import java.awt.Point; 
 import java.awt.event.KeyEvent;
 
-import object.Avatar;
-import object.Ax;
-import object.Bazooka;
+import enums.Orientation;
 import object.GameObject;
-import object.Shotgun;
-import states.StateMove;
-import states.StateMoveDown;
-import states.StateMoveLeft;
-import states.StateMoveRight;
-import states.StateMoveUp;
-import tablero.Board;
+import object.Weapon;
+import tablero.Map;
 
 
 
-public class AvatarController extends GameObject{
-	private Avatar avatar;
+public class AvatarController extends GameObjectController{
+
 	private KeyBoardAvatar keyListener;
-	private FactoryStateMove factory;
 	public Point coordenada;
-	public Board tablero;
-	public Ax hacha;
-	public Bazooka bazooka;
-	public Shotgun escopeta;
+	private Point nextPointUp=null;
+	private Point previousPointUp= null;
+	private Point nextPointDown= null;
+	private Point previousPointDown= null;
+	private Point nextPointLeft= null;
+	private Point previousPointLeft= null;
+	private Point nextPointRight= null;
+	private Point previousPointRight= null;
 	
-	public AvatarController(Avatar avatar, Board tablero, Ax hacha, Bazooka bazooka, Shotgun escopeta) 
+	
+	public AvatarController(GameObject avatar, Map map, Weapon arma) 
 	{
-		super(avatar.getVida(), avatar.getOrientation());
-		this.avatar= avatar;
-		this.tablero= tablero;
-		this.hacha= hacha;
-		this.bazooka= bazooka;
-		this.escopeta= escopeta;
+		super(avatar, map, arma);
+		
 	}
 	
-	public void controlAvatar() 
+	public void controlAvatar(Point positionAvatar) //Esto se usa cuando se juego continuamente
 	{
 		Integer keyPressedInNow = keyListener.getKeyPressed();
-		if(keyPressedInNow != -1) //si se presiona una tecla registrada para el Avatar
-		{
-			StateMove stateMove = factory.getStateMove(keyPressedInNow);//reviso la tecla presionada
-			//avanzarAvatar(stateMove); //Avanza o gira o si es una tecla incorrecta no hace nada
-			disparar(keyPressedInNow);
+		if(keyPressedInNow == KeyEvent.VK_W){
+			avanzar(positionAvatar);
+		}
+		if(keyPressedInNow == KeyEvent.VK_S){
+			retroceder(positionAvatar);
+		}
+		if(keyPressedInNow == KeyEvent.VK_A){
+			girarHaciaIzquierda();
+		}
+		if(keyPressedInNow == KeyEvent.VK_D){
+			girarHaciaDerecha();
+		}
+		if(keyPressedInNow == KeyEvent.VK_ESCAPE){
+			salir();
+		}
+		if(keyPressedInNow == KeyEvent.VK_SPACE){
+			dispararArma();
+		}
+		if(keyPressedInNow == KeyEvent.VK_C){
+			activarPoder1();
+		}
+		if(keyPressedInNow == KeyEvent.VK_V){
+			activarPoder2();
+		}
+
+	}
+	
+	private void activarPoder2() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void activarPoder1() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void dispararArma() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void salir() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void disparar(Integer keyPressedInNow) {
+		if(keyPressedInNow.equals(KeyEvent.VK_SPACE)){ //Dispara si presiona la barra espaciadora
+			if(arma.isActive()){ //REVISO SI AL AVATAR SE LE ASIGNO UN HACHA
+				dispararArma();
+			}
+			
+		}	 
+	}
+	
+	public Point asignarPrimerPosicionLibre(Map map){
+		Point p= null;
+		for (int x = 0; x < map.getBoard().getBoxes().length; x++) {
+			for (int y = 0; y < map.getBoard().getBoxes()[0].length; y++) {
+				if(map.getBoard().getBoxes()[x][y] == null) {
+					p= new Point(x,y);
+					return p;
+				}
+			}	
+		}
+		return p;
+	}
+	
+	public Point asignarUltimaPosicionLibre(Map map){
+		Point p= null;
+		for (int x = map.getBoard().getBoxes().length; x <0; x--) {
+			for (int y = map.getBoard().getBoxes()[0].length; y <0 ; y--) {
+				if(map.getBoard().getBoxes()[x][y] == null) {
+					p= new Point(x,y);
+					return p;
+				}
+			}	
+		}
+		return p;
+	}
+	
+	public void avanzar(Point positionAvatar){
+		if((avatar.getOrientation() == Orientation.UP) && (isFreeNextPositionUp(positionAvatar))){ //avanzar arriba
+			map.addBox(nextPointUp, avatar);
+			avatar.setPosition(nextPointUp);
+			map.deleteBox(positionAvatar);
+		}
+		if((avatar.getOrientation() == Orientation.DOWN) && (isFreeNextPositionDown(positionAvatar))){ //avanzar abajo
+			map.addBox(nextPointDown, avatar);
+			avatar.setPosition(nextPointDown);
+			map.deleteBox(positionAvatar);
+		}
+		if((avatar.getOrientation() == Orientation.LEFT) && (isFreeNextPositionLeft(positionAvatar))){ //avanzar izquierda
+			map.addBox(nextPointLeft, avatar);
+			avatar.setPosition(nextPointLeft);
+			map.deleteBox(positionAvatar);
+		}
+		if((avatar.getOrientation() == Orientation.RIGHT) && (isFreeNextPositionRight(positionAvatar))){ //avanzar derecha
+			map.addBox(nextPointRight, avatar);
+			avatar.setPosition(nextPointRight);
+			map.deleteBox(positionAvatar);
 		}
 	}
 	
-	public void disparar(Integer keyPressedInNow) {
-		if(keyPressedInNow.equals(KeyEvent.VK_SPACE)){ //Dispara si presiona la barra espaciadora
-			if(this.hacha != null){ //REVISO SI AL AVATAR SE LE ASIGNO UN HACHA
-				dispararHacha();
-			}
-			if(this.bazooka != null){ //REVISO SI AL AVATAR SE LE ASIGNO UNA BAZOOKA
-				dispararBazooka();
-			}
-			if(this.escopeta != null){ //REVISO SI AL AVATAR SE LE ASIGNO UNA ESCOPETA
-				dispararEscopeta();
-			}
+	public void retroceder(Point positionAvatar){
+		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
+			map.addBox(previousPointUp, avatar);
+			avatar.setPosition(previousPointUp);
+			map.deleteBox(positionAvatar);
 		}
-		 
+		if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
+			map.addBox(previousPointDown, avatar);
+			avatar.setPosition(previousPointDown);
+			map.deleteBox(positionAvatar);
+		}
+		if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
+			map.addBox(previousPointLeft, avatar);
+			avatar.setPosition(previousPointLeft);
+			map.deleteBox(positionAvatar);
+		}
+		if((avatar.getOrientation() == Orientation.RIGHT) && (isFreePreviousPositionRight(positionAvatar))){ //avanzar derecha
+			map.addBox(previousPointRight, avatar);
+			
+			map.deleteBox(positionAvatar);
+			avatar.setPosition(previousPointRight);
+		}
+	}
+	
+	public void girarHaciaDerecha(){
+		if(avatar.getOrientation() == Orientation.UP){
+			avatar.setOrientation(Orientation.RIGHT);
+		}
+		if(avatar.getOrientation() == Orientation.DOWN){
+			avatar.setOrientation(Orientation.LEFT);
+		}
+		if(avatar.getOrientation() == Orientation.LEFT){
+			avatar.setOrientation(Orientation.UP);
+		}
+		if(avatar.getOrientation() == Orientation.RIGHT){
+			avatar.setOrientation(Orientation.DOWN);
+		}
+	}
+	
+	public void girarHaciaIzquierda(){
+		if(avatar.getOrientation() == Orientation.UP){
+			avatar.setOrientation(Orientation.LEFT);
+		}
+		if(avatar.getOrientation() == Orientation.DOWN){
+			avatar.setOrientation(Orientation.RIGHT);
+		}
+		if(avatar.getOrientation() == Orientation.LEFT){
+			avatar.setOrientation(Orientation.DOWN);
+		}
+		if(avatar.getOrientation() == Orientation.RIGHT){
+			avatar.setOrientation(Orientation.UP);
+		}
+	}
+	
+	
+	
+	//VALIDACIONES DE AVANCE Y RETROCESO DEL AVATAR
+	public boolean isFreeNextPositionUp(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//nextPointUp= new Point(positionAvatar.x, positionAvatar.y -1);
+		nextPointUp= new Point(positionAvatar.y -1, positionAvatar.x);
+		isOcupate= map.getBoard().isOcupatePosition(nextPointUp);
+		isFree = !isOcupate;
+		return isFree;
+	}
+	public boolean isFreePreviousPositionUp(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//previousPointUp= new Point(positionAvatar.x, positionAvatar.y +1);
+		previousPointUp= new Point(positionAvatar.y +1, positionAvatar.x);
+		isOcupate= map.getBoard().isOcupatePosition(previousPointUp);
+		isFree = !isOcupate;
+		return isFree;
+	}
+	
+	public boolean isFreeNextPositionDown(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//nextPointDown= new Point(positionAvatar.x, positionAvatar.y +1);
+		nextPointDown= new Point(positionAvatar.y +1, positionAvatar.x);
+		isOcupate= map.getBoard().isOcupatePosition(nextPointDown);
+		isFree = !isOcupate;
+		return isFree;
+	}
+	public boolean isFreePreviousPositionDown(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//previousPointDown= new Point(positionAvatar.x, positionAvatar.y -1);
+		previousPointDown= new Point(positionAvatar.y -1, positionAvatar.x);
+		isOcupate= map.getBoard().isOcupatePosition(previousPointDown);
+		isFree = !isOcupate;
+		return isFree;
+	}
+	
+	public boolean isFreeNextPositionLeft(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//nextPointLeft= new Point(positionAvatar.x -1, positionAvatar.y);
+		nextPointLeft= new Point(positionAvatar.y, positionAvatar.x -1);
+		isOcupate= map.getBoard().isOcupatePosition(nextPointLeft);
+		isFree = !isOcupate;
+		return isFree;
+	}
+	public boolean isFreePreviousPositionLeft(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//previousPointLeft= new Point(positionAvatar.x +1, positionAvatar.y);
+		previousPointLeft= new Point(positionAvatar.y, positionAvatar.x +1);
+		isOcupate= map.getBoard().isOcupatePosition(previousPointLeft);
+		isFree = !isOcupate;
+		return isFree;
+	}
+	
+	public boolean isFreeNextPositionRight(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//nextPointRight= new Point(positionAvatar.x +1, positionAvatar.y);
+		nextPointRight= new Point(positionAvatar.y, positionAvatar.x +1);
+		isOcupate= map.getBoard().isOcupatePosition(nextPointRight);
+		isFree = !isOcupate;
+		return isFree;
+	}
+	public boolean isFreePreviousPositionRight(Point positionAvatar) {
+		boolean isFree= false;
+		boolean isOcupate= false;
+		//previousPointRight= new Point(positionAvatar.x -1, positionAvatar.y);
+		previousPointRight= new Point(positionAvatar.y, positionAvatar.x -1);
+		isOcupate= map.getBoard().isOcupatePosition(previousPointRight);
+		isFree = !isOcupate;
+		return isFree;
 	}
 
-	private void dispararEscopeta() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
-	private void dispararBazooka() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void dispararHacha() {
-		// TODO Auto-generated method stub
-		
-	}
-
-//	public void avanzarAvatar(StateMove stateMove){
-//		//this.avatar.setStateMove(stateMove);
-//		if(stateMove.equals(this.avatar.getOrientationAvatar())){//si el avatar avanza cuando se presiona por 2º vez la misma tecla
-//			if(stateMove.equals(new StateMoveUp())){
-//				coordenada.x=this.avatar.getPosition().x;
-//				coordenada.y=this.avatar.getPosition().y -1;	
-//			}
-//			if(stateMove.equals(new StateMoveDown())){
-//				coordenada.x=this.avatar.getPosition().x ;
-//				coordenada.y=this.avatar.getPosition().y +1;
-//			}
-//			if(stateMove.equals(new StateMoveLeft())){
-//				coordenada.x=this.avatar.getPosition().x -1;
-//				coordenada.y=this.avatar.getPosition().y;
-//			}
-//			if(stateMove.equals(new StateMoveRight())){
-//				coordenada.x=this.avatar.getPosition().x + 1;
-//				coordenada.y=this.avatar.getPosition().y;
-//			}
-//			
-//			if((tablero.isOcupatePosition(coordenada)) != false){
-//				this.avatar.setPosition(coordenada);
-//				//tablero.add(avatar);   DEBO GUARDAR EN EL TABLERO
-//			}
-//		}
-//		else{ //Si el avatar gira al presionarse una tecla distinta a la última
-//			girarAvatar(stateMove);
-//		}
-//	}
-//	public void girarAvatar(StateMove stateMove){
-//		this.avatar.setOrientationAvatar(stateMove);
-//		if(stateMove.equals(new StateMoveUp())){
-//			this.avatar.setOrientation(orientation.UP);}
-//		if(stateMove.equals(new StateMoveDown())){
-//			this.avatar.setOrientation(orientation.DOWN);}
-//		if(stateMove.equals(new StateMoveLeft())){
-//			this.avatar.setOrientation(orientation.LEFT);}
-//		if(stateMove.equals(new StateMoveRight())){
-//			this.avatar.setOrientation(orientation.RIGHT);}	
-//	}
 }

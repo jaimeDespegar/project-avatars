@@ -20,6 +20,7 @@ import tablero.Structure;
 /**Se crea un mapa vacío de tamaño (largo = 2, ancho = 2). Se crea un Object en
  * la posición (1,1). */
 public class UserStory_02 {
+
 	private Rectangle rectangle;
 	private Map map;
 	
