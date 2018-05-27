@@ -3,7 +3,7 @@ package control;
 
 import java.awt.event.KeyEvent;
 
-public class KeyBoardEnemyAvatar {
+public class KeyBoardAvatarWithShield {
 	private final static int numeroTeclas = 120;
 	private final boolean[] teclas = new boolean[numeroTeclas];
 
