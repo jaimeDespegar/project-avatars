@@ -28,4 +28,8 @@ public class Map {
 	public void printMap() {
 		this.board.printBoard();
 	}
+	
+	public Point getLimitsBoard() {
+		return board.getLimitsBoard();
+	}
 }
