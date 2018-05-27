@@ -15,6 +15,7 @@ import enums.TypeOfStructure;
 import object.Avatar;
 import object.AvatarWithShield;
 import tablero.Builder;
+import tablero.Line;
 import tablero.Map;
 import tablero.Rectangle;
 import tablero.Structure;
@@ -47,12 +48,12 @@ public class UserStory_05 {
 	List<Point> positions = new ArrayList<Point>();
 	positions.add(new Point(1,1));
 	positions.add(new Point(1,5));
-//	map = new Builder(new Point(3, 3))
-//	.withStructureRectangle(new Rectangle(new Point(1, 1), new Point(2, 2), new Structure(TypeOfStructure.ACERO)))
-//	.withStructureLine(new Line(positions,new Structure(TypeOfStructure.ACERO)))
-//	.build();
-	rectangle = new Rectangle(new Point(1, 1), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
-	map = new Builder(new Point(2, 2)).withStructureRectangle(rectangle).build();
+	map = new Builder(new Point(3, 3))
+	.withStructureRectangle(new Rectangle(new Point(1, 1), new Point(2, 2), new Structure(TypeOfStructure.ACERO)))
+	.withStructureLine(new Line(positions,new Structure(TypeOfStructure.ACERO)))
+	.build();
+//	rectangle = new Rectangle(new Point(1, 1), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
+//	map = new Builder(new Point(2, 2)).withStructureRectangle(rectangle).build();
 	a= new Avatar(100, Orientation.RIGHT);
 	AvatarWithShield aws= new AvatarWithShield(100, Orientation.UP);
 	
@@ -73,6 +74,7 @@ public class UserStory_05 {
 	//entonces el avatar deberá ocupar la posición (1,0).
 	@Test
 	public void avanzarDerechaAvatarConOrientaciónDerecha(){
+		System.out.println("\nTest1\n");
 		AvatarController ac= new AvatarController(a, map, null);
 		ac.avanzar(aPoint);
 		Point pFinalEstimado= new Point(1,0);
@@ -86,7 +88,13 @@ public class UserStory_05 {
 	//Si el Avatar está con orientación a la izquierda e intenta avanzar un casillero, entonces 
 	//el avatar deberá seguir ocupando la posición (0,0).
 	@Test
-	public void avanzarIzquierdaAvatarConOrientaciónIzquierda(){
+	public void retrocederIzquierdaAvatarConOrientaciónDerecha(){
+		System.out.println("\nTest2\n");
+		Point l= new Point(map.getLimitsBoard().x, map.getLimitsBoard().y);
+		System.out.println("limite tablero: ("+l.x+", "+l.y+")");
+		System.out.println("positionAvatar= (" +aPoint.x+", "+aPoint.y+")" );
+		System.out.println("orientation= "+a.getOrientation());
+		
 		AvatarController ac= new AvatarController(a, map, null);
 		ac.retroceder(aPoint);
 		Point pFinalEstimado= new Point(0,0);
