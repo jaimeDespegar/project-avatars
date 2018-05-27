@@ -11,11 +11,13 @@ import org.junit.Test;
 
 import control.AvatarController;
 import enums.Orientation;
+import enums.TypeOfStructure;
 import object.Avatar;
 import object.AvatarWithShield;
 import tablero.Builder;
 import tablero.Map;
 import tablero.Rectangle;
+import tablero.Structure;
 
 
 
@@ -38,18 +40,19 @@ public class UserStory_05 {
 	Avatar a;
 	Point aPoint;
 	Point awsPoint;
-	
+	private Rectangle rectangle;
 	
 	@Before
 	public void UserStory5(){
 	List<Point> positions = new ArrayList<Point>();
 	positions.add(new Point(1,1));
 	positions.add(new Point(1,5));
-	map = new Builder(new Point(3, 3))
-	.withStructureRectangle(new Rectangle(new Point(1, 1), new Point(2, 2), new Structure(TypeOfStructure.ACERO)))
-	.withStructureLine(new Line(positions,new Structure(TypeOfStructure.ACERO)))
-	.build();
-	
+//	map = new Builder(new Point(3, 3))
+//	.withStructureRectangle(new Rectangle(new Point(1, 1), new Point(2, 2), new Structure(TypeOfStructure.ACERO)))
+//	.withStructureLine(new Line(positions,new Structure(TypeOfStructure.ACERO)))
+//	.build();
+	rectangle = new Rectangle(new Point(1, 1), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
+	map = new Builder(new Point(2, 2)).withStructureRectangle(rectangle).build();
 	a= new Avatar(100, Orientation.RIGHT);
 	AvatarWithShield aws= new AvatarWithShield(100, Orientation.UP);
 	

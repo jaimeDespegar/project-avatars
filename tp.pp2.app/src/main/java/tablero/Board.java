@@ -34,7 +34,8 @@ public class Board {
 	}
 	
 	public void addBox(Point pointBox, Object object) {
-		boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
+		//boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
+		boxes[pointBox.y][pointBox.x] = new Box((ObjectGraphic) object);
 	}
 	
 	public void printBoard() {
