@@ -34,7 +34,8 @@ public class Board {
 	}
 	
 	public void addBox(Point pointBox, Object object) {
-		boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
+		//boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
+		boxes[pointBox.y][pointBox.x] = new Box((ObjectGraphic) object);
 	}
 	
 	public void printBoard() {
@@ -53,6 +54,7 @@ public class Board {
 	}
 
 	public Point getLimitsBoard() {
-		return new Point(boxes.length, boxes[boxes.length].length);
+		//return new Point(boxes.length, boxes[boxes.length].length);
+		return new Point(boxes.length, boxes[0].length);
 	}
 }
