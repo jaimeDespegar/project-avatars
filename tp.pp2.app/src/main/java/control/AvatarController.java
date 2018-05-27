@@ -146,7 +146,7 @@ public class AvatarController extends GameObjectController{
 			avatar.setOrientation(Orientation.UP);
 		}
 		if(avatar.getOrientation() == Orientation.RIGHT){
-			avatar.setOrientation(Orientation.UP);
+			avatar.setOrientation(Orientation.DOWN);
 		}
 	}
 	

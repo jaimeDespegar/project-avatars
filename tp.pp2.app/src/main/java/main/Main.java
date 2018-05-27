@@ -39,26 +39,38 @@ public class Main {
 		System.out.println("\n");
 		map.printMap();
 		
-//		System.out.println("orientacion avatar: "+a.getOrientation());
-//		if( map.getBox(new Point(1,0)) == null){
-//			System.out.println("position(1,0) = null");
-//		}
-//		System.out.println("posicion(1,0) is ocupate: "+map.getBoard().isOcupatePosition(new Point(1,0)));
-			
+		
 		AvatarController ac= new AvatarController(a, map, null);
+		
+		//AVANZAR
 		ac.avanzar(aPoint);
-		//ac.getAvatar().setPosition(aPoint);
 		System.out.println("positionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
-		System.out.println("casillero= "+map.getBox(new Point(1,0)).getObjectGraphic().getClass().getName());
 		System.out.println("\n");
 		map.printMap();
 		System.out.println("\n");
 		
+		
+		//RETROCEDER
 		ac.retroceder(new Point(1,0));
-		//ac.getAvatar().setPosition(new Point(1,0));
 		System.out.println("positionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
-		System.out.println("\n");
 		
+		System.out.println("\n");
+		System.out.println("orientacion Avatar1: "+a.getOrientation().name());
 		map.printMap();
+		
+		//GIRAR DERECHA
+		Avatar a2= new Avatar(100, Orientation.LEFT);
+		AvatarController ac2= new AvatarController(a2, null, null);
+		System.out.println("\n orientacion Avatar4: "+a2.getOrientation().name());
+		ac2.girarHaciaDerecha();
+		System.out.println("\n orientacion Avatar4: "+a2.getOrientation().name());
+	
+		//GIRAR IZQUIERDA
+		Avatar a3= new Avatar(100, Orientation.LEFT);
+		AvatarController ac3= new AvatarController(a3, null, null);
+		System.out.println("\n orientacion Avatar5: "+a3.getOrientation().name());
+		ac3.girarHaciaIzquierda();
+		System.out.println("\n orientacion Avatar5: "+a3.getOrientation().name());
+		
 	}
 }
