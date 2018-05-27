@@ -6,7 +6,8 @@ public class Board {
 	private Box[][] boxes;
 
 	public Board(Point sizeBoard) {
-		boxes = new Box[sizeBoard.x][sizeBoard.y];
+		//boxes = new Box[sizeBoard.x][sizeBoard.y];
+		boxes = new Box[sizeBoard.y][sizeBoard.x];
 	}
 
 	public Box[][] getBoxes() {
@@ -18,15 +19,18 @@ public class Board {
 	}
 
 	public boolean isOcupatePosition(Point box) {
-		return boxes[box.x][box.y] != null;
+		//return boxes[box.x][box.y] != null;
+		return boxes[box.y][box.x]!= null;
 	}
 	
 	public Box getBox(Point pointBox) {
-		return boxes[pointBox.x][pointBox.y];
+		//return boxes[pointBox.x][pointBox.y];
+		return boxes[pointBox.y][pointBox.x];
 	}
 
 	public void deleteBox(Point pointBox) {
-		boxes[pointBox.x][pointBox.y] = null;
+		//boxes[pointBox.x][pointBox.y] = null;
+		boxes[pointBox.y][pointBox.x] = null;
 	}
 	
 	public void addBox(Point pointBox, Object object) {
