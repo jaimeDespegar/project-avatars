@@ -51,4 +51,8 @@ public class Board {
 			file = "";
 		}
 	}
+
+	public Point getLimitsBoard() {
+		return new Point(boxes.length, boxes[boxes.length].length);
+	}
 }
