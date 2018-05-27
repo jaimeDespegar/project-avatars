@@ -2,6 +2,7 @@ package control;
 
 import java.awt.Point; 
 import java.awt.event.KeyEvent;
+
 import enums.Orientation;
 import object.GameObject;
 import object.Weapon;
@@ -86,6 +87,32 @@ public class AvatarController extends GameObjectController{
 			}
 			
 		}	 
+	}
+	
+	public Point asignarPrimerPosicionLibre(Map map){
+		Point p= null;
+		for (int x = 0; x < map.getBoard().getBoxes().length; x++) {
+			for (int y = 0; y < map.getBoard().getBoxes()[0].length; y++) {
+				if(map.getBoard().getBoxes()[x][y] == null) {
+					p= new Point(x,y);
+					return p;
+				}
+			}	
+		}
+		return p;
+	}
+	
+	public Point asignarUltimaPosicionLibre(Map map){
+		Point p= null;
+		for (int x = map.getBoard().getBoxes().length; x <0; x--) {
+			for (int y = map.getBoard().getBoxes()[0].length; y <0 ; y--) {
+				if(map.getBoard().getBoxes()[x][y] == null) {
+					p= new Point(x,y);
+					return p;
+				}
+			}	
+		}
+		return p;
 	}
 	
 	public void avanzar(Point positionAvatar){
