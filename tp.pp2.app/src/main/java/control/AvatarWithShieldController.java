@@ -1,51 +1,54 @@
 package control;
 
-import java.awt.Point; 
+import java.awt.Point;
 import java.awt.event.KeyEvent;
+
+import object.Avatar;
+import object.AvatarWithShield;
 import object.GameObject;
 import object.Weapon;
+import states.StateMove;
 import tablero.Map;
 
 
 
-public class AvatarController extends GameObjectController{
-
+public class AvatarWithShieldController extends GameObjectController{
 	private KeyBoardAvatar keyListener;
 	public Point coordenada;
 
 	
 	
-	public AvatarController(GameObject avatar, Map map, Weapon arma) 
+	public AvatarWithShieldController(GameObject avatarWithShield, Map map, Weapon arma) 
 	{
-		super(avatar, map, arma);
+		super(avatarWithShield, map, arma);
 		
 	}
-	
-	public void controlAvatar(Point positionAvatar) //Esto se usa cuando se juego continuamente
+
+	public void controlAvatar(Point positionAvatarWithShield) //Esto se usa cuando se juego continuamente
 	{
 		Integer keyPressedInNow = keyListener.getKeyPressed();
-		if(keyPressedInNow == KeyEvent.VK_W){
-			avanzar(positionAvatar);
+		if(keyPressedInNow == KeyEvent.VK_UP){
+			avanzar(positionAvatarWithShield);
 		}
-		if(keyPressedInNow == KeyEvent.VK_S){
-			retroceder(positionAvatar);
+		if(keyPressedInNow == KeyEvent.VK_DOWN){
+			retroceder(positionAvatarWithShield);
 		}
-		if(keyPressedInNow == KeyEvent.VK_A){
+		if(keyPressedInNow == KeyEvent.VK_LEFT){
 			girarHaciaIzquierda();
 		}
-		if(keyPressedInNow == KeyEvent.VK_D){
+		if(keyPressedInNow == KeyEvent.VK_RIGHT){
 			girarHaciaDerecha();
 		}
 		if(keyPressedInNow == KeyEvent.VK_ESCAPE){
 			salir();
 		}
-		if(keyPressedInNow == KeyEvent.VK_SPACE){
+		if(keyPressedInNow == KeyEvent.VK_ENTER){
 			dispararArma();
 		}
-		if(keyPressedInNow == KeyEvent.VK_C){
+		if(keyPressedInNow == KeyEvent.VK_K){
 			activarPoder1();
 		}
-		if(keyPressedInNow == KeyEvent.VK_V){
+		if(keyPressedInNow == KeyEvent.VK_L){
 			activarPoder2();
 		}
 
@@ -79,9 +82,4 @@ public class AvatarController extends GameObjectController{
 			
 		}	 
 	}
-	
-
-
-	
-
 }
