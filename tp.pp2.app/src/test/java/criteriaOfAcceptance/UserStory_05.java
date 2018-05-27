@@ -25,15 +25,9 @@ import tablero.Structure;
 
 /**
  * 
- *Se crea un mapa de tamaño 3x3, y se crea un rectángulo ((1,1), (2,2), acero). Avatar en posición (0,0) y Avatar con escudo en (0,2)
- 
-Si el Avatar está con orientación a la derecha e intenta avanzar un casillero, entonces el avatar deberá ocupar la posición (1,0).
-Si el Avatar está con orientación a la izquierda e intenta avanzar un casillero, entonces el avatar deberá seguir ocupando la posición (0,0).
-Si el Avatar está con orientación hacia arriba, y se presiona la tecla de girar a la derecha, entonces el Avatar tendrá orientación a la izquierda.
-Si el Avatar con escudo está con orientación a la derecha e intenta avanzar un casillero, entonces el Avatar con escudo deberá seguir ocupando la posición (0,2).
-Si el Avatar con escudo está con orientación a la izquierda e intenta avanzar un casillero, entonces el avatar deberá seguir ocupando la posición (0,2).
-Si el Avatar con escudo  está con orientación hacia la derecha, y se presiona la tecla de girar a la izquierda, entonces el Avatar con escudo tendrá orientación hacia arriba.
-
+ *  Se crea un mapa de tamaño 3x3, y se crea un rectángulo ((1,1), (2,2), acero). 
+ *  Avatar en posición (0,0) y orientación hacia derecha. 
+ *  El Avatar con escudo en (0,2) con orientación hacia arriba.
  *
  */
 public class UserStory_05 {
@@ -76,10 +70,13 @@ public class UserStory_05 {
 	public void avanzarDerechaAvatarConOrientaciónDerecha(){
 		System.out.println("\nTest1\n");
 		AvatarController ac= new AvatarController(a, map, null);
-		ac.avanzar(aPoint);
+		//try{    
+			ac.avanzar(aPoint);
+		//}catch(Exception e){} 
+		
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
-		System.out.println("\npositionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
+		//System.out.println("\npositionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
 		assertTrue(actual.equals(pFinalEstimado));
 		map.printMap();
 		System.out.println("\n");
@@ -96,12 +93,24 @@ public class UserStory_05 {
 		System.out.println("orientation= "+a.getOrientation());
 		
 		AvatarController ac= new AvatarController(a, map, null);
-		ac.retroceder(aPoint);
+		try{    
+			ac.retroceder(aPoint);
+		}catch(Exception e){}  
+		
 		Point pFinalEstimado= new Point(0,0);
 		Point actual= a.getPosition();
 		System.out.println("\npositionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
 		assertTrue(actual.equals(pFinalEstimado));
 		map.printMap();
 		System.out.println("\n");
+	}
+	
+	//Si el Avatar intenta girar a la derecha, entonces el Avatar tendrá 
+	//orientación hacia abajo.
+	@Test
+	public void girarAvatarDerecha(){
+		AvatarController ac= new AvatarController(a, map, null);
+		ac.girarHaciaDerecha();
+		assertTrue(a.getOrientation().equals(Orientation.DOWN));
 	}
 }
