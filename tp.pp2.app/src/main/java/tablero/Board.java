@@ -2,12 +2,13 @@ package tablero;
 
 import java.awt.Point;
 
+import javax.swing.JOptionPane;
+
 public class Board {
 	private Box[][] boxes;
 
 	public Board(Point sizeBoard) {
-		//boxes = new Box[sizeBoard.x][sizeBoard.y];
-		boxes = new Box[sizeBoard.y][sizeBoard.x];
+		boxes = new Box[sizeBoard.x][sizeBoard.y];
 	}
 
 	public Box[][] getBoxes() {
@@ -17,25 +18,27 @@ public class Board {
 	public void setBox(Box[][] boxes) {
 		this.boxes = boxes;
 	}
-	//A veces solo sale de rango, controlar eso
+	
 	public boolean isOcupatePosition(Point box) {
-		//return boxes[box.x][box.y] != null;
-		return boxes[box.y][box.x]!= null;
+		if((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {
+			JOptionPane.showMessageDialog(null,
+					"No se puede acceder a la casilla, \nexcede el límite del mapa", "Error!",
+					JOptionPane.ERROR_MESSAGE);
+			return true;
+		}
+		return boxes[box.x][box.y] != null;
 	}
 	
 	public Box getBox(Point pointBox) {
-		//return boxes[pointBox.x][pointBox.y];
-		return boxes[pointBox.y][pointBox.x];
+		return boxes[pointBox.x][pointBox.y];
 	}
 
 	public void deleteBox(Point pointBox) {
-		//boxes[pointBox.x][pointBox.y] = null;
-		boxes[pointBox.y][pointBox.x] = null;
+		boxes[pointBox.x][pointBox.y] = null;
 	}
 	
 	public void addBox(Point pointBox, Object object) {
-		//boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
-		boxes[pointBox.y][pointBox.x] = new Box((ObjectGraphic) object);
+		boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
 	}
 	
 	public void printBoard() {

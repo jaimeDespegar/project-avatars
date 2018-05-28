@@ -59,11 +59,12 @@ public class MapProperties {
 
 	private Structure loadStructure(String typeOfStructure) {
 		Structure structure = new Structure(TypeOfStructure.ACERO);
+		
 		return structure;
 	}
 
 	private Point loadSizeMap() {
-		return new Point(Integer.parseInt(properties.getProperty("heigthMap")),
+		return new Point(Integer.parseInt(properties.getProperty("heightMap")),
 				Integer.parseInt(properties.getProperty("widthMap")));
 	}
 

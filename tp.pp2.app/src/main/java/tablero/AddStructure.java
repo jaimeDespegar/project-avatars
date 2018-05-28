@@ -18,8 +18,6 @@ public class AddStructure {
 		if (validatePositions(board, positionsOfRectangle)) {
 			addStructures(board, positionsOfRectangle, rectangle.getStructure());
 		} else {
-			// throw new RuntimeException("No se puede añadir las estructuras, uno o mas
-			// casilleros estan ocupados");
 			JOptionPane.showMessageDialog(null,
 					"No se puede añadir las estructuras, \nuno o mas casilleros estan ocupados", "Error!",
 					JOptionPane.ERROR_MESSAGE);
@@ -45,8 +43,6 @@ public class AddStructure {
 			System.out.println(positionsOfLine.size());
 			addStructures(board, positionsOfLine, line.getStructure());
 		} else {
-			// throw new IllegalArgumentException("No se puede añadir las estructuras, uno o
-			// mas casilleros estan ocupados");
 			JOptionPane.showMessageDialog(null,
 					"No se puede añadir las estructuras, \nuno o mas casilleros estan ocupados", "Error!",
 					JOptionPane.ERROR_MESSAGE);
