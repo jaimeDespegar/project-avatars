@@ -27,7 +27,7 @@ public class Builder {
 	}
 	
 	public void addStructureByLine(Board board, Line line) {
-		AddStructure.addStructureByLine(board, line);
+		//AddStructure.addStructureByLine(board, line);
 	}
 	
 	public Map build() {

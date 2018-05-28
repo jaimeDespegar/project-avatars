@@ -6,12 +6,11 @@ public class GameController {
 	private Map map;
 	
 	public GameController(Map map) {
-		map = map;
+		this.map = map;
 	}
 
 	public void Initialize() {
-		// TODO Auto-generated method stub
-		
+		map.printMap();
 	}
 
 }

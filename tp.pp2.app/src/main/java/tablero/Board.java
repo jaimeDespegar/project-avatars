@@ -17,7 +17,7 @@ public class Board {
 	public void setBox(Box[][] boxes) {
 		this.boxes = boxes;
 	}
-
+	//A veces solo sale de rango, controlar eso
 	public boolean isOcupatePosition(Point box) {
 		//return boxes[box.x][box.y] != null;
 		return boxes[box.y][box.x]!= null;
@@ -54,7 +54,6 @@ public class Board {
 	}
 
 	public Point getLimitsBoard() {
-		//return new Point(boxes.length, boxes[boxes.length].length);
 		return new Point(boxes.length, boxes[0].length);
 	}
 }
