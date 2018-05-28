@@ -51,9 +51,9 @@ public class GameObject extends ObjectGraphic{
 		this.position = position;
 	}
 	
-	public void colissionWeapon(GameObject go, Weapon w){
-		Integer finalDamage= w.damage / go.reduceDamage;
+	public void colissionWeapon(Weapon w){
+		Integer finalDamage= w.getDamage() / this.reduceDamage;
 		w.isActive= false;
-		go.vida= go.vida - finalDamage;
+		this.vida= this.vida - finalDamage;
 	}
 }
