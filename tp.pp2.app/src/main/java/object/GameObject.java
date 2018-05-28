@@ -14,6 +14,7 @@ public class GameObject extends ObjectGraphic{
 	protected Orientation orientation;
 	private StateMove stateMove;
 	private Point position;
+	protected Integer reduceDamage;
 	
 	public GameObject( Integer vida, Orientation orientation) {
 			
@@ -50,4 +51,9 @@ public class GameObject extends ObjectGraphic{
 		this.position = position;
 	}
 	
+	public void colissionWeapon(GameObject go, Weapon w){
+		Integer finalDamage= w.damage / go.reduceDamage;
+		w.isActive= false;
+		go.vida= go.vida - finalDamage;
+	}
 }

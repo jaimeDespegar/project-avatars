@@ -13,6 +13,7 @@ public class Weapon extends ObjectGraphic{
 	private Point position;
 	
 	public Weapon(Integer damage, Integer shootingRange, boolean isActive,Orientation orientation){
+		isActive= true;
 		this.damage= damage;
 		this.shootingRange= shootingRange;
 		this.isActive= isActive;
@@ -54,4 +55,11 @@ public class Weapon extends ObjectGraphic{
 		this.position = position;
 	}
 	
+	public void colissionGameObject(Weapon w){
+		w.isActive= false;
+	}
+	
+	public void colissionStructure(Weapon w){
+		w.isActive= false;
+	}
 }
