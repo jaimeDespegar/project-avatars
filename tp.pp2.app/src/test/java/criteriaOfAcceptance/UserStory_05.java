@@ -3,6 +3,7 @@ package criteriaOfAcceptance;
 import static org.junit.Assert.*;
 
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -137,12 +138,26 @@ public class UserStory_05 {
 	}
 	
 	@Test
-	public void girarAvatarConEscudoDerecha(){
+	public void girarAvatarConEscudoIzquierda(){
 		System.out.println("\nTest6\n");
 		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
 		System.out.println("Antes de girar: "+aws.getOrientation().name());
 		awsc.girarHaciaIzquierda();;
 		System.out.println("Despues de girar: "+aws.getOrientation().name());
-		assertTrue(aws.getOrientation().equals(Orientation.DOWN));
+		assertTrue(aws.getOrientation().equals(Orientation.UP));
+	}
+	
+	@Test
+	public void avanzarDerechaAvatarConTecla_W(){
+		System.out.println("\nTest7\n");
+		AvatarController ac= new AvatarController(a, map, null);
+
+		ac.controlAvatar(aPoint, KeyEvent.VK_W);
+		
+		Point pFinalEstimado= new Point(1,0);
+		Point actual= a.getPosition();
+		System.out.println("("+actual.x+" ,"+actual.y+")");
+		assertTrue(actual.equals(pFinalEstimado));
+		map.printMap();
 	}
 }

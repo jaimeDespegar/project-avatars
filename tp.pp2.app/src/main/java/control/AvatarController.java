@@ -2,6 +2,8 @@ package control;
 
 import java.awt.Point; 
 import java.awt.event.KeyEvent;
+
+import classProperties.KeyAvatarProperties;
 import object.GameObject;
 import object.Weapon;
 import tablero.Map;
@@ -11,6 +13,7 @@ import tablero.Map;
 public class AvatarController extends GameObjectController{
 
 	private KeyBoardAvatar keyListener;
+	private KeyAvatarProperties keyAvatar;
 	public Point coordenada;
 
 	
@@ -18,12 +21,13 @@ public class AvatarController extends GameObjectController{
 	public AvatarController(GameObject avatar, Map map, Weapon arma) 
 	{
 		super(avatar, map, arma);
-		
+		keyListener= new KeyBoardAvatar();
+		//keyAvatar= new KeyAvatarProperties();
 	}
 	
-	public void controlAvatar(Point positionAvatar) //Esto se usa cuando se juego continuamente
+	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow) //Esto se usa cuando se juego continuamente
 	{
-		Integer keyPressedInNow = keyListener.getKeyPressed();
+		//keyPressedInNow = keyListener.getKeyPressed();
 		if(keyPressedInNow == KeyEvent.VK_W){
 			avanzar(positionAvatar);
 		}
