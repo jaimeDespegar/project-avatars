@@ -54,39 +54,8 @@ public class Main {
 		
 		//ASIGNAR POSICION LIBRE inicial AL AVATAR
 		Point punt= ac.asignarPrimerPosicionLibre(map);
-		System.out.println("primer punto libre: ("+punt.x+", "+punt.y+")");
-		
-		//RETROCEDER
-		ac.retroceder(new Point(1,0));
-		System.out.println("positionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
-		
-		System.out.println("\n");
-		System.out.println("orientacion Avatar1: "+a.getOrientation().name());
-		map.printMap();
-		
-		//ASIGNAR POSICION LIBRE inicial AL AVATAR
-		Point p= ac.asignarPrimerPosicionLibre(map);
-		System.out.println("primer punto libre: ("+p.x+", "+p.y+")");
-		
-		
-		
-		//GIRAR DERECHA
-		Avatar a2= new Avatar(100, Orientation.LEFT);
-		AvatarController ac2= new AvatarController(a2, null, null);
-		System.out.println("\n orientacion Avatar4: "+a2.getOrientation().name());
-		ac2.girarHaciaDerecha();
-		System.out.println("\n orientacion Avatar4: "+a2.getOrientation().name());
-	
-		//GIRAR IZQUIERDA
-		Avatar a3= new Avatar(100, Orientation.LEFT);
-		AvatarController ac3= new AvatarController(a3, null, null);
-		System.out.println("\n orientacion Avatar5: "+a3.getOrientation().name());
-		ac3.girarHaciaIzquierda();
-		System.out.println("\n orientacion Avatar5: "+a3.getOrientation().name());
-		
-		
-		
-		
+		System.out.println("primer punto libre: ("+punt.x+", "+punt.y+")");		
+			
 		
 	}
 }
