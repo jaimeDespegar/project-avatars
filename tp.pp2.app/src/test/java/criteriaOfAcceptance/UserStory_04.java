@@ -1,28 +1,83 @@
 package criteriaOfAcceptance;
 
+import static org.junit.Assert.*;
+
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import control.AvatarController;
+import enums.Orientation;
+import enums.TypeOfStructure;
+import object.Avatar;
+import object.AvatarWithShield;
+import tablero.Builder;
+import tablero.Map;
+import tablero.Rectangle;
+import tablero.Structure;
+
 /**
  * 
- * Crear un mapa vacío con un tamaño de 6x6.
- 
-  _Si creo una línea horizontal (5,5) al (5,7), se va de rango, no es válido.
-  _Si creo una línea horizontal (4,4) al (5,4), está dentro del rango, es válido.
-  _Si creo una línea vertical (5,5) al (7,5), se va de rango, no es válido.
-  _Si creo una línea vertical (5,4) al (5,5), está dentro del rango, es válido.
-  _Si creo una línea diagonal (4,4) al (6,6), se va de rango, no es válido.
-  _Si creo una línea diagonal (4,4) al (5,5), está dentro del rango, es válido.
-
- * Se ingresan las posiciones {(4,5),(1,2)} , {(1,3),(1,5)} y {(3,1), (4,1)}, por lo tanto, la línea va del punto (4,5), 
- hasta el (1,2), después del (1,3) al (1,5), luego del (3,1) al (4,1) como todas están libres, se agregan todas las estructuras. 
- 
-  _Se ingresan las posiciones {(2,5),(5,5)}, por lo tanto, la línea va del punto (2,5), hasta el (5,5), como la posición (4,5)
-   está ocupada, no se agrega ninguna estructura de la línea ingresada. 
-  _Si se ingresan los puntos {(1,1), (3,2)}, no se puede debido a que no forman una línea recta ( horizontal, vertical o diagonal).
-  _Si se ingresan los puntos {(4,4), (2,4)}, no se puede ya que los casilleros que están dentro del recorrido se encuentra el (3,4)
-   que está ocupado.
-  _Si se ingresan 2 puntos a los cuales no se pueda trazar una línea horizontal, vertical o diagonal. Entonces, no se podrá dibujar
-   una línea de objetos de estructuras. Ejemplo: {(4,2}, (2,1)}. 
+ * Se crea un mapa de dimensión (3,3), con los casilleros (0,0)
+ *  y (2,2) ocupados con el objeto de estructura de tipo acero.
  *
  */
 public class UserStory_04 {
+	//Si se crea el personaje avatar con vida =100 y 
+	//orientación =derecha, este se debe crear en la
+	//posición (0,1) del mapa, al pedirle al mapa la 
+	//posición (0,1), me debe devolver el avatar.
 	
+	Map map;
+	Avatar a;
+	AvatarWithShield aws;
+	Point aPoint;
+	Point awsPoint;
+	private Rectangle rectangle1;
+	private Rectangle rectangle2;
+	
+	@Before
+	public void UserStory04(){
+	List<Point> positions = new ArrayList<Point>();
+	positions.add(new Point(1,1));
+	positions.add(new Point(1,5));
+
+	rectangle1 = new Rectangle(new Point(0, 0), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
+	map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle1).build();
+	rectangle2 = new Rectangle(new Point(2, 2), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
+	map.addBox(new Point(2,2), rectangle2);
+	
+	//System.out.println("Before\n");
+	//map.printMap();
+	
+	a= new Avatar(100, Orientation.RIGHT);
+	aws= new AvatarWithShield(100, Orientation.UP);
+	}
+	
+	@Test
+	public void ingresarAvatarPrimerCasilleroLibre(){
+		System.out.println("\nTest1\n");
+		AvatarController ac= new AvatarController(a, map, null);
+		//ASIGNAR POSICION LIBRE inicial AL AVATAR
+		Point punt= ac.asignarPrimerPosicionLibre(map);
+		System.out.println("Primer punto libre: ("+punt.x+", "+punt.y+")\n");		
+		map.addBox(punt, a);
+		map.printMap();	
+		assertTrue(punt.equals(new Point(0,1)));
+	}
+	
+	@Test
+	public void ingresarAvatarWithShieldUltimoCasilleroLibre(){
+		System.out.println("\nTest2\n");
+		AvatarController ac= new AvatarController(aws, map, null);
+		//ASIGNAR POSICION LIBRE final AL AVATAR CON ESCUDO
+		Point punt= ac.asignarUltimaPosicionLibre(map);
+		System.out.println("Ultimo punto libre: ("+punt.x+", "+punt.y+")\n");		
+		map.addBox(punt, aws);
+		map.printMap();	
+		assertTrue(punt.equals(new Point(2,1)));
+	}
 }

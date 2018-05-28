@@ -64,6 +64,14 @@ public class GameObjectController {
 	
 	public Point asignarUltimaPosicionLibre(Map map){
 		Point p= null;
+		for (int x = map.getBoard().getBoxes().length -1; x >= 0 ; x--) {
+			for (int y = map.getBoard().getBoxes()[0].length -1; y >= 0 ; y--) {
+				if(map.getBoard().getBoxes()[x][y] == null) {
+					p= new Point(x,y);
+					return p;
+				}
+			}	
+		}
 		return p;
 	}
 	

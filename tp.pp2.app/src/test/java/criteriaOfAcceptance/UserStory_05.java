@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import control.AvatarController;
+import control.AvatarWithShieldController;
 import enums.Orientation;
 import enums.TypeOfStructure;
 import object.Avatar;
@@ -33,9 +34,9 @@ import tablero.Structure;
 public class UserStory_05 {
 	Map map;
 	Avatar a;
+	AvatarWithShield aws;
 	Point aPoint;
 	Point awsPoint;
-	private Rectangle rectangle;
 	
 	@Before
 	public void UserStory5(){
@@ -46,22 +47,16 @@ public class UserStory_05 {
 	.withStructureRectangle(new Rectangle(new Point(1, 1), new Point(2, 2), new Structure(TypeOfStructure.ACERO)))
 	.withStructureLine(new Line(positions,new Structure(TypeOfStructure.ACERO)))
 	.build();
-//	rectangle = new Rectangle(new Point(1, 1), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
-//	map = new Builder(new Point(2, 2)).withStructureRectangle(rectangle).build();
 	a= new Avatar(100, Orientation.RIGHT);
-	AvatarWithShield aws= new AvatarWithShield(100, Orientation.UP);
+	aws= new AvatarWithShield(100, Orientation.RIGHT);
 	
 	aPoint= new Point(0,0);
 	awsPoint= new Point(0,2); 
 	
-	System.out.println("positionAvatar= (" +aPoint.x+", "+aPoint.y+")" );
-	System.out.println("positionAvatarWithShield= (" +awsPoint.x+", "+awsPoint.y+")" );
+	//System.out.println("positionAvatar= (" +aPoint.x+", "+aPoint.y+")" );
+	//System.out.println("positionAvatarWithShield= (" +awsPoint.x+", "+awsPoint.y+")" );
 	map.addBox(aPoint, a);
-	map.addBox(awsPoint, aws);
-	
-	System.out.println("\n");
-	map.printMap();
-	
+	map.addBox(awsPoint, aws);	
 	}
 	
 	//Si el Avatar está con orientación a la derecha e intenta avanzar un casillero, 
@@ -76,21 +71,15 @@ public class UserStory_05 {
 		
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
-		//System.out.println("\npositionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
 		assertTrue(actual.equals(pFinalEstimado));
 		map.printMap();
-		System.out.println("\n");
 	}
 	
 	//Si el Avatar está con orientación a la izquierda e intenta avanzar un casillero, entonces 
 	//el avatar deberá seguir ocupando la posición (0,0).
 	@Test
-	public void retrocederIzquierdaAvatarConOrientaciónDerecha(){
+	public void retrocederIzquierdaAvatar(){
 		System.out.println("\nTest2\n");
-		Point l= new Point(map.getLimitsBoard().x, map.getLimitsBoard().y);
-		System.out.println("limite tablero: ("+l.x+", "+l.y+")");
-		System.out.println("positionAvatar= (" +aPoint.x+", "+aPoint.y+")" );
-		System.out.println("orientation= "+a.getOrientation());
 		
 		AvatarController ac= new AvatarController(a, map, null);
 		try{    
@@ -99,18 +88,61 @@ public class UserStory_05 {
 		
 		Point pFinalEstimado= new Point(0,0);
 		Point actual= a.getPosition();
-		System.out.println("\npositionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
 		assertTrue(actual.equals(pFinalEstimado));
 		map.printMap();
-		System.out.println("\n");
 	}
 	
 	//Si el Avatar intenta girar a la derecha, entonces el Avatar tendrá 
 	//orientación hacia abajo.
 	@Test
 	public void girarAvatarDerecha(){
+		System.out.println("\nTest3\n");
 		AvatarController ac= new AvatarController(a, map, null);
+		System.out.println("Antes de girar: "+a.getOrientation().name());
 		ac.girarHaciaDerecha();
+		System.out.println("Despues de girar: "+a.getOrientation().name());
 		assertTrue(a.getOrientation().equals(Orientation.DOWN));
+	}
+	
+	//Si el Avatar con escudo está con orientación a la derecha e intenta 
+	//avanzar un casillero, entonces el Avatar con escudo deberá seguir ocupando la posición (0,2).
+	@Test
+	public void avanzarDerechaAvatarConEscudo(){
+		System.out.println("\nTest4\n");
+		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
+		  
+		awsc.avanzar(awsPoint);
+		
+		
+		Point pFinalEstimado= new Point(0,2);
+		Point actual= aws.getPosition();
+		assertTrue(actual.equals(pFinalEstimado));
+		map.printMap();
+	}
+
+	//Si el Avatar con escudo intenta retroceder un casillero, entonces el avatar con escudo 
+	//deberá seguir ocupando la posición (0,2).
+	@Test
+	public void retrocederIzquierdaAvatarConEscudo(){
+		System.out.println("\nTest5\n");
+		
+		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
+   
+		awsc.retroceder(awsPoint); 
+		
+		Point pFinalEstimado= new Point(0,2);
+		Point actual= aws.getPosition();
+		assertTrue(actual.equals(pFinalEstimado));
+		map.printMap();
+	}
+	
+	@Test
+	public void girarAvatarConEscudoDerecha(){
+		System.out.println("\nTest6\n");
+		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
+		System.out.println("Antes de girar: "+aws.getOrientation().name());
+		awsc.girarHaciaIzquierda();;
+		System.out.println("Despues de girar: "+aws.getOrientation().name());
+		assertTrue(aws.getOrientation().equals(Orientation.DOWN));
 	}
 }
