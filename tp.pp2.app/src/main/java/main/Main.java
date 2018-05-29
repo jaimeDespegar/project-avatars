@@ -62,6 +62,12 @@ public class Main {
 		KeyAvatarProperties k= new KeyAvatarProperties();
 		int teclaArriba= k.getElectionKeyAvatar().getKeyUp();
 		System.out.println("teclaArriba: "+teclaArriba);
+		
+		//Division de Integer
+		Integer divisor=10;
+		Integer dividendo=2;
+		System.out.println(divisor/dividendo);
+		
 	}
 	
 }

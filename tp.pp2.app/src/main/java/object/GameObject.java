@@ -16,12 +16,17 @@ public class GameObject extends ObjectGraphic{
 	private Point position;
 	protected Integer reduceDamage;
 	
+
 	public GameObject( Integer vida, Orientation orientation) {
 			
 		this.vida= vida;
 		this.orientation= orientation;
 	}
 
+	public void gameObjectMaxHealthy(){
+		this.vida= 100;
+	}
+	
 	public int getVida() {
 		return vida;
 	}
@@ -50,10 +55,15 @@ public class GameObject extends ObjectGraphic{
 	public void setPosition(Point position) {
 		this.position = position;
 	}
-	
-	public void colissionWeapon(Weapon w){
-		Integer finalDamage= w.getDamage() / this.reduceDamage;
-		w.isActive= false;
-		this.vida= this.vida - finalDamage;
+	public Integer getReduceDamage() {
+		return reduceDamage;
 	}
+	public void setReduceDamage(Integer reduceDamage) {
+		this.reduceDamage = reduceDamage;
+	}
+//	public void colissionWeapon(GameObject g, Weapon w){
+//		int finalDamage= w.getDamage() / g.reduceDamage;
+//		w.isActive= false;
+//		this.vida= this.vida - finalDamage;
+//	}
 }

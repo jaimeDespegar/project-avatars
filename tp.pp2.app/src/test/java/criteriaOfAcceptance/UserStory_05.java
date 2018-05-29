@@ -35,6 +35,7 @@ import tablero.Structure;
  */
 public class UserStory_05 {
 	Map map;
+	Rectangle rectangle;
 	Avatar a;
 	AvatarWithShield aws;
 	Point aPoint;
@@ -42,13 +43,17 @@ public class UserStory_05 {
 	
 	@Before
 	public void UserStory5(){
-	List<Point> positions = new ArrayList<Point>();
-	positions.add(new Point(1,1));
-	positions.add(new Point(1,5));
-	map = new Builder(new Point(3, 3))
-	.withStructureRectangle(new Rectangle(new Point(1, 1), new Point(2, 2), new Structure(TypeOfStructure.ACERO)))
-	.withStructureLine(new Line(positions,new Structure(TypeOfStructure.ACERO)))
-	.build();
+//	List<Point> positions = new ArrayList<Point>();
+//	positions.add(new Point(1,1));
+//	positions.add(new Point(1,5));
+//	map = new Builder(new Point(3, 3))
+//	.withStructureRectangle(new Rectangle(new Point(1, 1), new Point(2, 2), new Structure(TypeOfStructure.ACERO)))
+//	.withStructureLine(new Line(positions,new Structure(TypeOfStructure.ACERO)))
+//	.build();
+	
+	rectangle = new Rectangle(new Point(1, 1), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
+	map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle).build();
+		
 	a= new Avatar(100, Orientation.RIGHT);
 	aws= new AvatarWithShield(100, Orientation.RIGHT);
 	
@@ -57,12 +62,12 @@ public class UserStory_05 {
 	
 	//System.out.println("positionAvatar= (" +aPoint.x+", "+aPoint.y+")" );
 	//System.out.println("positionAvatarWithShield= (" +awsPoint.x+", "+awsPoint.y+")" );
-	map.addBox(aPoint, a);
-	map.addBox(awsPoint, aws);	
+	map.addBoxGameObject(aPoint, a);
+	map.addBoxGameObject(awsPoint, aws);	
 	}
 	
 	//Si el Avatar está con orientación a la derecha e intenta avanzar un casillero, 
-	//entonces el avatar deberá ocupar la posición (1,0).
+	//entonces el avatar deberá ocupar la posición (1,0).wsadtyuwsadtyu
 	@Test
 	public void avanzarDerechaAvatarConOrientaciónDerecha(){
 		System.out.println("\nTest1\n");

@@ -41,6 +41,12 @@ public class Board {
 		boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
 	}
 	
+	public void addBoxGameObject(Point pointBox, Object object) {
+		boxes[pointBox.y][pointBox.x] = new Box((ObjectGraphic) object);
+	}
+	public Box getBoxGameObject(Point pointBox) {
+		return boxes[pointBox.y][pointBox.x];
+	}
 	public void printBoard() {
 		String file = "";
 		for (int x = 0; x < boxes.length; x++) {

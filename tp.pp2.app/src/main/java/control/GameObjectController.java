@@ -2,6 +2,8 @@ package control;
 
 import java.awt.Point;
 
+import javax.swing.JOptionPane;
+
 import enums.Orientation;
 import object.GameObject;
 import object.Weapon;
@@ -25,6 +27,13 @@ public class GameObjectController {
 		this.avatar= avatar;
 		this.map= map;
 		this.arma= arma;
+	}
+
+
+	private void controlLive() {
+		if( this.avatar.getVida() <=0 ){
+			 JOptionPane.showMessageDialog(null, "GAME OVER !");
+		}
 	}
 
 
@@ -77,22 +86,22 @@ public class GameObjectController {
 	
 	public void avanzar(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreeNextPositionUp(positionAvatar))){ //avanzar arriba
-			map.addBox(nextPointUp, avatar);
+			map.addBoxGameObject(nextPointUp, avatar);
 			avatar.setPosition(nextPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreeNextPositionDown(positionAvatar))){ //avanzar abajo
-			map.addBox(nextPointDown, avatar);
+			map.addBoxGameObject(nextPointDown, avatar);
 			avatar.setPosition(nextPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreeNextPositionLeft(positionAvatar))){ //avanzar izquierda
-			map.addBox(nextPointLeft, avatar);
+			map.addBoxGameObject(nextPointLeft, avatar);
 			avatar.setPosition(nextPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreeNextPositionRight(positionAvatar))){ //avanzar derecha
-			map.addBox(nextPointRight, avatar);
+			map.addBoxGameObject(nextPointRight, avatar);
 			avatar.setPosition(nextPointRight);
 			map.deleteBox(positionAvatar);
 		}
@@ -105,22 +114,22 @@ public class GameObjectController {
 	
 	public void retroceder(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
-			map.addBox(previousPointUp, avatar);
+			map.addBoxGameObject(previousPointUp, avatar);
 			avatar.setPosition(previousPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
-			map.addBox(previousPointDown, avatar);
+			map.addBoxGameObject(previousPointDown, avatar);
 			avatar.setPosition(previousPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
-			map.addBox(previousPointLeft, avatar);
+			map.addBoxGameObject(previousPointLeft, avatar);
 			avatar.setPosition(previousPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		if((avatar.getOrientation() == Orientation.RIGHT) && (isFreePreviousPositionRight(positionAvatar))){ //avanzar derecha
-			map.addBox(previousPointRight, avatar);
+			map.addBoxGameObject(previousPointRight, avatar);
 			
 			map.deleteBox(positionAvatar);
 			avatar.setPosition(previousPointRight);
@@ -262,6 +271,14 @@ public class GameObjectController {
 		if((p.y <0) || (p.y >= limit.y)){
 			return false;}
 		return true;
+	}
+	
+	public void colissionWeapon(GameObject g, Weapon w){
+		int finalDamage= w.getDamage() / g.getReduceDamage();
+		w.setActive(false);
+		g.setVida(g.getVida() - finalDamage);
+		
+		controlLive();
 	}
 	
 }

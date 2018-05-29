@@ -1,24 +1,64 @@
 package criteriaOfAcceptance;
 
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
+import object.Avatar;
+import object.AvatarWithShield;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import tablero.Builder;
+import tablero.Line;
+import tablero.Map;
+import tablero.Rectangle;
+import tablero.Structure;
+import enums.Orientation;
+import enums.TypeOfStructure;
+
 /**
  * 
- * Se crea un mapa de tamaño 5x5, y se crea un rectángulo ((2,3), (2,2), acero).
- 
-  _Si se crea un avatar en la posición (2,2), usa el poder de disparo hacia la “derecha”, del tipo bazooka, y choca 
-   contra el otro avatar (con vida = 100) que está en la posición (5,2), reduciendo la vida del enemigo a 20.
-  _Se crea un avatar en la posición (2,2), usa el poder de disparo hacia la “derecha”, del tipo bazooka, y choca 
-   contra el otro avatar (con vida = 80) que está en la posición (5,2), matando al enemigo.
-  _Se crea un avatar en la posición (1,3), usa el poder de disparo hacia la “derecha”, del tipo bazooka, y choca 
-   contra una estructura de acero, la estructura queda en la misma posición (2,3) intacta.
-  _Se crea un avatar en la posición (1,2), usa el poder de disparo hacia la “derecha”, del tipo hacha, y golpea 
-   contra otro avatar (con vida = 100) que está en la posición (2,2), reduciendo la vida del enemigo a (10).
-  _Se crea un avatar en la posición (1,2), usa el poder de disparo hacia la “derecha”, del tipo hacha, y golpea 
-   contra otro avatar (con vida = 70) que está en la posición (2,2), matando al enemigo.
-  _Se crea un avatar en la posición (1,2), usa el poder de disparo hacia la “derecha”, del tipo hacha, y golpea 
-   al casillero (2,2) que está vacío, entonces no pasa nada.
-
+ *Se crea un mapa de tamaño 4x4, y se crea un rectángulo ((1,2), (2,2), acero). 
+ *Además se crea un Avatar en la posición (0,0) con orientación hacia la derecha, vida=100 y 
+ *un Avatar con escudo en la posición (3,0) con orientación hacia la izquierda, vida = 100.
  *
  */
 public class UserStory_08 {
-
+	Map map;
+	private Rectangle rectangle;
+	Avatar a;
+	AvatarWithShield aws;
+	Point aPoint;
+	Point awsPoint;
+	
+	@Before
+	public void UserStory5(){
+	
+	a= new Avatar(100, Orientation.RIGHT);
+	aws= new AvatarWithShield(100, Orientation.RIGHT);
+	
+	aPoint= new Point(1,0);
+	awsPoint= new Point(0,3); 
+	
+	rectangle = new Rectangle(new Point(1, 2), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
+	map = new Builder(new Point(4, 4)).withStructureRectangle(rectangle).build();
+	//System.out.println("positionAvatar= (" +aPoint.x+", "+aPoint.y+")" );
+	//System.out.println("positionAvatarWithShield= (" +awsPoint.x+", "+awsPoint.y+")" );
+	map.addBox(aPoint, a);
+	map.addBox(awsPoint, aws);	
+	
+	map.printMap();
+	}
+	
+	
+	
+	
+	
+	//Si el Avatar usa el poder de disparo del tipo hacha, la vida del Avatar con escudo vale 100. 
+	@Test
+	public void avanzarDerechaAvatarConOrientaciónDerecha(){
+		System.out.println("\nTest1\n");
+	}
 }

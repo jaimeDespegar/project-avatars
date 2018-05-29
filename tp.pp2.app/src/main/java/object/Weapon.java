@@ -12,11 +12,10 @@ public class Weapon extends ObjectGraphic{
 	protected Orientation orientation;
 	private Point position;
 	
-	public Weapon(Integer damage, Integer shootingRange, boolean isActive,Orientation orientation){
-		isActive= true;
+	public Weapon(Integer damage, Integer shootingRange,Orientation orientation){
 		this.damage= damage;
 		this.shootingRange= shootingRange;
-		this.isActive= isActive;
+		this.isActive= true;
 		this.orientation= orientation;
 	}
 
@@ -62,4 +61,5 @@ public class Weapon extends ObjectGraphic{
 	public void colissionStructure(Weapon w){
 		w.isActive= false;
 	}
+	
 }
