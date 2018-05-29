@@ -25,22 +25,10 @@ public class AddStructure {
 	}
 
 	public static void addStructureByLine(Board board, Line line) {
-		List<Point> positionsOfLine = new ArrayList<Point>();
 		Point punto1 = line.getPositions().get(0);
 		Point punto2 = line.getPositions().get(1);
-		if(punto1.x > punto2.x) {
-			for(int X = punto1.x; X < (punto2.x); X++) {
-				Integer Y = createFunctionByLine(punto1, punto2, X);
-				positionsOfLine.add(new Point (X,Y));
-			}
-		}else {
-			for(int X = punto2.x; X < (punto1.x); X++) {
-				Integer Y = createFunctionByLine(punto1, punto2, X);
-				positionsOfLine.add(new Point (X,Y));
-			}
-		}
+		List<Point> positionsOfLine = createListOfPositionsLine(punto1, punto2);
 		if (validatePositions(board, positionsOfLine)) {
-			System.out.println(positionsOfLine.size());
 			addStructures(board, positionsOfLine, line.getStructure());
 		} else {
 			JOptionPane.showMessageDialog(null,
@@ -48,11 +36,39 @@ public class AddStructure {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-//con esto creo la funcion de la recta de los dos puntos, si le paso un X y un Y, calulo por que punto pasa, osea pones un x 7 te da un y.
-	private static Integer createFunctionByLine(Point punto1, Point punto2, Integer X) {
-		Integer function = ((punto2.y - punto1.y)/(punto2.x - punto1.x))* (X - punto1.x) + punto1.y;
-		//dom [(x1,y1) -> (x2,y2)]
-		return function;//seria la Y
+
+	private static List<Point> createListOfPositionsLine(Point point1, Point point2) {
+		List<Point> positionsOfLine = new ArrayList<Point>();
+		// si el x=1 se que es vertical la linea.
+		if (point1.x - point2.x == 0) {
+			if (point1.y <= point2.y) {
+				for (int i = point1.y; i <= point2.y; i++) {
+					positionsOfLine.add(new Point(point1.x, i));
+				}
+			} else {
+				for (int i = point2.y; i <= point1.y; i++) {
+					positionsOfLine.add(new Point(point1.x, i));
+				}
+			}
+		} else if (point1.y - point2.y == 0) {
+			// si el y=1 se que es horizontal la linea
+			if (point1.x <= point2.x) {
+				for (int i = point1.x; i <= point2.x; i++) {
+					positionsOfLine.add(new Point(point1.y, i));
+				}
+			} else {
+				for (int i = point2.x; i <= point1.x; i++) {
+					positionsOfLine.add(new Point(point1.y, i));
+				}
+			}
+		} else if (point1.x - point2.x == point1.y - point2.y || point1.x - point2.x == point2.y - point1.y) {
+
+			// cruzada
+		} else {
+			JOptionPane.showMessageDialog(null, "No se puede añadir las estructuras, \nno es una línea válida",
+					"Error!", JOptionPane.ERROR_MESSAGE);
+		}
+		return positionsOfLine;
 	}
 
 	private static boolean validatePositions(Board board, List<Point> positionsOfStructure) {
@@ -70,10 +86,3 @@ public class AddStructure {
 		}
 	}
 }
-
-// creamos arrays de las posiciones en las cuales se quiere agregar la
-// estructura (esto por rectangulo y otro por linea)
-// contramos si las posiciones de las estructuras estan ocupadas o no (esto para
-// ambos)
-// agregamos las estructuras al tablero, si es que no estan ocupadas las
-// posiciones (esto para ambos)
