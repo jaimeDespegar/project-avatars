@@ -19,10 +19,8 @@ public class MapProperties {
 		try {
 			this.properties.load(new FileReader(Constants.ROUTE_PROPERTIES));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -1,14 +1,11 @@
 package criteriaOfAcceptance;
 
 import static org.junit.Assert.*;
-
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import control.AvatarController;
 import enums.Orientation;
 import enums.TypeOfStructure;
@@ -20,14 +17,11 @@ import tablero.Map;
 import tablero.Rectangle;
 import tablero.Structure;
 
-
-
-
 /**
  * 
- *  Se crea un mapa de tamaño 3x3, y se crea un rectángulo ((1,1), (2,2), acero). 
- *  Avatar en posición (0,0) y orientación hacia derecha. 
- *  El Avatar con escudo en (0,2) con orientación hacia arriba.
+ *  Se crea un mapa de tamaï¿½o 3x3, y se crea un rectï¿½ngulo ((1,1), (2,2), acero). 
+ *  Avatar en posiciï¿½n (0,0) y orientaciï¿½n hacia derecha. 
+ *  El Avatar con escudo en (0,2) con orientaciï¿½n hacia arriba.
  *
  */
 public class UserStory_05 {
@@ -64,10 +58,10 @@ public class UserStory_05 {
 	
 	}
 	
-	//Si el Avatar está con orientación a la derecha e intenta avanzar un casillero, 
-	//entonces el avatar deberá ocupar la posición (1,0).
+	//Si el Avatar estï¿½ con orientaciï¿½n a la derecha e intenta avanzar un casillero, 
+	//entonces el avatar deberï¿½ ocupar la posiciï¿½n (1,0).
 	@Test
-	public void avanzarDerechaAvatarConOrientaciónDerecha(){
+	public void avanzarDerechaAvatarConOrientacionDerecha(){
 		System.out.println("\nTest1\n");
 		AvatarController ac= new AvatarController(a, map, null);
 		//try{    
@@ -82,10 +76,10 @@ public class UserStory_05 {
 		System.out.println("\n");
 	}
 	
-	//Si el Avatar está con orientación a la izquierda e intenta avanzar un casillero, entonces 
-	//el avatar deberá seguir ocupando la posición (0,0).
+	//Si el Avatar estï¿½ con orientaciï¿½n a la izquierda e intenta avanzar un casillero, entonces 
+	//el avatar deberï¿½ seguir ocupando la posiciï¿½n (0,0).
 	@Test
-	public void retrocederIzquierdaAvatarConOrientaciónDerecha(){
+	public void retrocederIzquierdaAvatarConOrientacionDerecha(){
 		System.out.println("\nTest2\n");
 		Point l= new Point(map.getLimitsBoard().x, map.getLimitsBoard().y);
 		System.out.println("limite tablero: ("+l.x+", "+l.y+")");
@@ -105,8 +99,8 @@ public class UserStory_05 {
 		System.out.println("\n");
 	}
 	
-	//Si el Avatar intenta girar a la derecha, entonces el Avatar tendrá 
-	//orientación hacia abajo.
+	//Si el Avatar intenta girar a la derecha, entonces el Avatar tendrï¿½ 
+	//orientaciï¿½n hacia abajo.
 	@Test
 	public void girarAvatarDerecha(){
 		AvatarController ac= new AvatarController(a, map, null);

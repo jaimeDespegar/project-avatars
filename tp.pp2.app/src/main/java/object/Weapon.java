@@ -22,34 +22,43 @@ public class Weapon extends ObjectGraphic{
 	public Integer getDamage() {
 		return damage;
 	}
+
 	public void setDamage(Integer damage) {
 		this.damage = damage;
 	}
+
 	public Integer getShootingRange() {
 		return shootingRange;
 	}
+
 	public void setShootingRange(Integer shootingRange) {
 		this.shootingRange = shootingRange;
 	}
+
 	public boolean isActive() {
 		return isActive;
 	}
+
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+
 	public Orientation getOrientation() {
 		return orientation;
 	}
+
 	public void setOrientation(Orientation orientation) {
 		this.orientation = orientation;
 	}
-	public void colissionObject(){
-		this.isActive=false;
+
+	public void colissionObject() {
+		this.isActive = false;
 	}
 
 	public Point getPosition() {
 		return position;
 	}
+
 	public void setPosition(Point position) {
 		this.position = position;
 	}
