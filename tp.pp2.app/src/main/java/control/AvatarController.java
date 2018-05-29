@@ -1,5 +1,6 @@
 package control;
 
+import java.awt.AWTException;
 import java.awt.Point; 
 import java.awt.event.KeyEvent;
 
@@ -11,45 +12,40 @@ import tablero.Map;
 
 
 public class AvatarController extends GameObjectController{
-
-	private KeyBoardAvatar keyListener;
-	private KeyAvatarProperties keyAvatar;
-	public Point coordenada;
-
 	
 	
 	public AvatarController(GameObject avatar, Map map, Weapon arma) 
 	{
 		super(avatar, map, arma);
-		keyListener= new KeyBoardAvatar();
-		//keyAvatar= new KeyAvatarProperties();
 	}
 	
-	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow) //Esto se usa cuando se juego continuamente
+	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
 	{
+		KeyAvatarProperties k= new KeyAvatarProperties();
+		
 		//keyPressedInNow = keyListener.getKeyPressed();
-		if(keyPressedInNow == KeyEvent.VK_W){
+		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyUp()){
 			avanzar(positionAvatar);
 		}
-		if(keyPressedInNow == KeyEvent.VK_S){
+		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyDown()){
 			retroceder(positionAvatar);
 		}
-		if(keyPressedInNow == KeyEvent.VK_A){
+		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyLeft()){
 			girarHaciaIzquierda();
 		}
-		if(keyPressedInNow == KeyEvent.VK_D){
+		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyRight()){
 			girarHaciaDerecha();
 		}
 		if(keyPressedInNow == KeyEvent.VK_ESCAPE){
 			salir();
 		}
-		if(keyPressedInNow == KeyEvent.VK_SPACE){
+		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyShoot()){
 			dispararArma();
 		}
-		if(keyPressedInNow == KeyEvent.VK_C){
+		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyPower1()){
 			activarPoder1();
 		}
-		if(keyPressedInNow == KeyEvent.VK_V){
+		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyPower2()){
 			activarPoder2();
 		}
 

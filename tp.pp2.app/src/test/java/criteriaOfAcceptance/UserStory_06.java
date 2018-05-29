@@ -1,28 +1,17 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.assertTrue;
-
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.assertTrue; 
 
 import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
 import object.Bazooka;
 import object.Shotgun;
-import object.Weapon;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import control.AvatarController;
-import tablero.Builder;
-import tablero.Map;
-import tablero.Rectangle;
-import tablero.Structure;
 import enums.Orientation;
-import enums.TypeOfStructure;
+
 
 /**
  * Se crea un Avatar de vida=100 y orientación derecha. 

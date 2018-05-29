@@ -2,6 +2,7 @@ package criteriaOfAcceptance;
 
 import static org.junit.Assert.*;
 
+import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -148,7 +149,7 @@ public class UserStory_05 {
 	}
 	
 	@Test
-	public void avanzarDerechaAvatarConTecla_W(){
+	public void avanzarDerechaAvatarConTecla_W() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
 		System.out.println("\nTest7\n");
 		AvatarController ac= new AvatarController(a, map, null);
 

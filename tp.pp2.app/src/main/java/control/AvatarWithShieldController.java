@@ -1,22 +1,17 @@
 package control;
 
+import java.awt.AWTException; 
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 
-import object.Avatar;
-import object.AvatarWithShield;
+import classProperties.KeyAvatarWithShieldProperties;
 import object.GameObject;
 import object.Weapon;
-import states.StateMove;
 import tablero.Map;
 
 
 
 public class AvatarWithShieldController extends GameObjectController{
-	private KeyBoardAvatar keyListener;
-	public Point coordenada;
-
-	
 	
 	public AvatarWithShieldController(GameObject avatarWithShield, Map map, Weapon arma) 
 	{
@@ -24,31 +19,33 @@ public class AvatarWithShieldController extends GameObjectController{
 		
 	}
 
-	public void controlAvatar(Point positionAvatarWithShield) //Esto se usa cuando se juego continuamente
+	public void controlAvatar(Point positionAvatarWithShield, Integer keyPressedInNow) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
 	{
-		Integer keyPressedInNow = keyListener.getKeyPressed();
-		if(keyPressedInNow == KeyEvent.VK_UP){
+		KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
+		
+		//keyPressedInNow = keyListener.getKeyPressed();
+		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyUp()){//KeyEvent.VK_UP){
 			avanzar(positionAvatarWithShield);
 		}
-		if(keyPressedInNow == KeyEvent.VK_DOWN){
+		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyDown()){
 			retroceder(positionAvatarWithShield);
 		}
-		if(keyPressedInNow == KeyEvent.VK_LEFT){
+		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyLeft()){
 			girarHaciaIzquierda();
 		}
-		if(keyPressedInNow == KeyEvent.VK_RIGHT){
+		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyRight()){
 			girarHaciaDerecha();
 		}
 		if(keyPressedInNow == KeyEvent.VK_ESCAPE){
 			salir();
 		}
-		if(keyPressedInNow == KeyEvent.VK_ENTER){
+		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyShoot()){
 			dispararArma();
 		}
-		if(keyPressedInNow == KeyEvent.VK_K){
+		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyPower1()){
 			activarPoder1();
 		}
-		if(keyPressedInNow == KeyEvent.VK_L){
+		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyPower2()){
 			activarPoder2();
 		}
 
