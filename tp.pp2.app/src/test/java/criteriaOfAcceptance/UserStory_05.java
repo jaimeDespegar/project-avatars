@@ -66,6 +66,7 @@ public class UserStory_05 {
 		
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		assertTrue(actual.equals(pFinalEstimado));
 	}
 	
@@ -82,6 +83,7 @@ public class UserStory_05 {
 		
 		Point pFinalEstimado= new Point(0,0);
 		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		assertTrue(actual.equals(pFinalEstimado));
 	}
 	
@@ -109,6 +111,7 @@ public class UserStory_05 {
 		
 		Point pFinalEstimado= new Point(0,2);
 		Point actual= aws.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		assertTrue(actual.equals(pFinalEstimado));
 	}
 
@@ -124,6 +127,7 @@ public class UserStory_05 {
 		
 		Point pFinalEstimado= new Point(0,2);
 		Point actual= aws.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		assertTrue(actual.equals(pFinalEstimado));
 	}
 	
@@ -146,8 +150,8 @@ public class UserStory_05 {
 		
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
-		System.out.println("("+actual.x+" ,"+actual.y+")");
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		assertTrue(actual.equals(pFinalEstimado));
 	}
 	
-}
+}//wsadtyu
