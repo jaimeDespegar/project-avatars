@@ -2,8 +2,8 @@ package classProperties;
 
 import java.awt.Point;
 
-import tablero.Line;
-import tablero.Rectangle;
+import object.Line;
+import object.Rectangle;
 
 public class ElectionMap {
 	private Point mapSize;

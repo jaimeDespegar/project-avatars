@@ -6,6 +6,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import object.Line;
+import object.Rectangle;
+import object.Structure;
+
 public class AddStructure {
 
 	public static void addStructureByRectangle(Board board, Rectangle rectangle) {
@@ -61,9 +65,30 @@ public class AddStructure {
 					positionsOfLine.add(new Point(point1.y, i));
 				}
 			}
-		} else if (point1.x - point2.x == point1.y - point2.y || point1.x - point2.x == point2.y - point1.y) {
-
-			// cruzada
+		} // cruzada
+		else if (point1.x - point2.x == point1.y - point2.y || point1.x - point2.x == point2.y - point1.y) {
+			positionsOfLine.add(new Point(point1.x, point1.y));
+			if (point1.x < point2.x) { // va hacia la derecha
+				if (point1.y < point2.y) { // va hacia abajo
+					for (int i = 0; i <= point2.x - point1.x; i++) {
+						positionsOfLine.add(new Point(point1.x + i, point1.y + i));
+					}
+				} else { // va hacia arriba
+					for (int i = 0; i <= point1.x - point2.x; i++) {
+						positionsOfLine.add(new Point(point1.x + i, point1.y - i));
+					}
+				}
+			} else { // va hacia la izquierda
+				if (point2.y < point1.y) { // va hacia abajo
+					for (int i = 0; i <= point1.x - point2.x; i++) {
+						positionsOfLine.add(new Point(point2.x + i, point2.y + i));
+					}
+				} else { // va hacia arriba
+					for (int i = 0; i <= point2.x - point1.x; i++) {
+						positionsOfLine.add(new Point(point2.x + i, point2.y - i));
+					}
+				}
+			}
 		} else {
 			JOptionPane.showMessageDialog(null, "No se puede añadir las estructuras, \nno es una línea válida",
 					"Error!", JOptionPane.ERROR_MESSAGE);

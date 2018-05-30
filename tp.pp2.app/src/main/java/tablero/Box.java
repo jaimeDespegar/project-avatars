@@ -1,5 +1,7 @@
 package tablero;
 
+import object.ObjectGraphic;
+
 public class Box {
 	private ObjectGraphic objectGraphic;
 	

@@ -5,7 +5,6 @@ import java.awt.Point;
 
 import enums.Orientation;
 import states.StateMove;
-import tablero.ObjectGraphic;
 
 
 public class GameObject extends ObjectGraphic{

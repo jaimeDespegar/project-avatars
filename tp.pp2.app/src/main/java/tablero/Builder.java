@@ -2,6 +2,9 @@ package tablero;
 
 import java.awt.Point;
 
+import object.Line;
+import object.Rectangle;
+
 public class Builder {
 	private Board board;
 	

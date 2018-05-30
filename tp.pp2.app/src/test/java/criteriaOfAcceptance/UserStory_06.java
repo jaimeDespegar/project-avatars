@@ -10,7 +10,9 @@ import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
 import object.Bazooka;
+import object.Rectangle;
 import object.Shotgun;
+import object.Structure;
 import object.Weapon;
 
 import org.junit.Before;
@@ -19,8 +21,6 @@ import org.junit.Test;
 import control.AvatarController;
 import tablero.Builder;
 import tablero.Map;
-import tablero.Rectangle;
-import tablero.Structure;
 import enums.Orientation;
 import enums.TypeOfStructure;
 

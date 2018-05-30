@@ -1,4 +1,4 @@
-package tablero;
+package object;
 
 public class ObjectGraphic {
 	

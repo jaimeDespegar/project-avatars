@@ -11,11 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import enums.TypeOfStructure;
+import object.ObjectGraphic;
+import object.Rectangle;
+import object.Structure;
 import tablero.Builder;
 import tablero.Map;
-import tablero.ObjectGraphic;
-import tablero.Rectangle;
-import tablero.Structure;
 
 /**Se crea un mapa vacío de tamaño (largo = 2, ancho = 2). Se crea un Object en
  * la posición (1,1). */

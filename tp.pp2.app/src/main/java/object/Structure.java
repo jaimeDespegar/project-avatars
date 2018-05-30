@@ -1,4 +1,4 @@
-package tablero;
+package object;
 
 import enums.TypeOfStructure;
 

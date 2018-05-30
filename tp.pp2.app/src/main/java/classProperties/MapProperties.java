@@ -10,9 +10,9 @@ import java.util.Properties;
 
 import enums.TypeOfStructure;
 import main.Constants;
-import tablero.Line;
-import tablero.Rectangle;
-import tablero.Structure;
+import object.Line;
+import object.Rectangle;
+import object.Structure;
 
 public class MapProperties {
 	private Properties properties;
@@ -38,7 +38,8 @@ public class MapProperties {
 	private Line loadLine(String linePosX1, String linePosY1, String linePosX2, String linePosY2, String lineTypeOfStructure) {
 		Point point1 = new Point(Integer.parseInt(properties.getProperty(linePosX1)), Integer.parseInt(properties.getProperty(linePosY1)));
 		Point point2 = new Point(Integer.parseInt(properties.getProperty(linePosX2)), Integer.parseInt(properties.getProperty(linePosY2)));
-		Structure structure = loadStructure(lineTypeOfStructure);
+		String typeOfStructureByLine = properties.getProperty(lineTypeOfStructure);
+		Structure structure = loadStructure(typeOfStructureByLine);
 		List<Point> list = new ArrayList<Point>();
 		list.add(point1);
 		list.add(point2);
@@ -58,9 +59,16 @@ public class MapProperties {
 	}
 
 	private Structure loadStructure(String typeOfStructure) {
-		Structure structure = new Structure(TypeOfStructure.ACERO);
-		
-		return structure;
+		//Structure structure = null;
+		System.out.println(typeOfStructure);
+		if(typeOfStructure.equals("ACERO"))
+			return new Structure(TypeOfStructure.ACERO);
+		else if(typeOfStructure.equals("AGUA"))
+			return new Structure(TypeOfStructure.AGUA);
+		else if(typeOfStructure.equals("BOSQUE"))
+			return new Structure(TypeOfStructure.BOSQUE);
+		else 
+			return new Structure(TypeOfStructure.LADRILLO);
 	}
 
 	private Point loadSizeMap() {

@@ -3,7 +3,6 @@ package object;
 import java.awt.Point;
 
 import enums.Orientation;
-import tablero.ObjectGraphic;
 
 public class Weapon extends ObjectGraphic{
 	protected Integer damage;

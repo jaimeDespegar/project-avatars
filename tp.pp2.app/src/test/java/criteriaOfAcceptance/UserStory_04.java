@@ -14,10 +14,10 @@ import enums.Orientation;
 import enums.TypeOfStructure;
 import object.Avatar;
 import object.AvatarWithShield;
+import object.Rectangle;
+import object.Structure;
 import tablero.Builder;
 import tablero.Map;
-import tablero.Rectangle;
-import tablero.Structure;
 
 /**
  * 

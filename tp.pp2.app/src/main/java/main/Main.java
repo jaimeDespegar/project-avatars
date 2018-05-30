@@ -7,13 +7,13 @@ import java.util.List;
 
 import control.AvatarController;
 import object.Avatar;
+import object.Line;
+import object.Rectangle;
+import object.Structure;
 import enums.Orientation;
 import enums.TypeOfStructure;
 import tablero.Builder;
-import tablero.Line;
 import tablero.Map;
-import tablero.Rectangle;
-import tablero.Structure;
 
 public class Main {
 
