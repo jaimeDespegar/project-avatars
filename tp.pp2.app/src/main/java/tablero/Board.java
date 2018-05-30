@@ -29,6 +29,17 @@ public class Board {
 		return boxes[box.x][box.y] != null;
 	}
 	
+	public boolean isOcupatePositionMAP(Point boxOriginal) {
+		Point box= new Point(boxOriginal.y, boxOriginal.x);
+		if((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {
+			JOptionPane.showMessageDialog(null,
+					"No se puede acceder a la casilla, \nexcede el límite del mapa", "Error!",
+					JOptionPane.ERROR_MESSAGE);
+			return true;
+		}
+		return boxes[box.x][box.y] != null;
+	}
+	
 	public Box getBox(Point pointBox) {
 		return boxes[pointBox.x][pointBox.y];
 	}

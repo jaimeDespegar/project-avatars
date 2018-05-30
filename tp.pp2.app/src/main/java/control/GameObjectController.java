@@ -21,7 +21,7 @@ public class GameObjectController {
 	private Point previousPointLeft= null;
 	private Point nextPointRight= null;
 	private Point previousPointRight= null;
-	
+	private Point puntoChoque=null;
 	
 	public GameObjectController(GameObject avatar, Map map, Weapon arma) {
 		this.avatar= avatar;
@@ -281,4 +281,49 @@ public class GameObjectController {
 		controlLive();
 	}
 	
+	public Integer disparar(GameObject g){
+		int cantShootingRange=0;
+		WeaponController w= new WeaponController(avatar, map, arma);
+		arma.setOrientation(avatar.getOrientation());
+		Point old;
+		for(int i=0; i < arma.getShootingRange(); i++ ){
+			old= arma.getPosition();
+			w.avanzar(arma.getPosition());
+			if(old.equals(arma.getPosition())){
+				puntoChoque= controlColissionPoint(arma, cantShootingRange, w);
+				controlChoqueConEnemy(puntoChoque, g);
+				return cantShootingRange;
+			}
+			cantShootingRange= cantShootingRange+1;
+		}
+		
+		return cantShootingRange;
+	}
+	
+	private void controlChoqueConEnemy(Point puntoChoque2, GameObject g) {
+		if(puntoChoque2.equals(g.getPosition())){
+			colissionWeapon(g, arma);
+		}
+		
+	}
+
+
+	private Point controlColissionPoint(Weapon arma, int cantShootingRange, WeaponController w) {
+		Point p= null;
+		for(int i=0; i < cantShootingRange+1; i++ ){
+			p= w.avanzarRangoDisparo(arma.getPosition());
+		}
+		return p;
+	}
+
+
+	public boolean isWeaponrecorridaCompleta(Integer cantShootingRange){
+		return (arma.getShootingRange().equals(cantShootingRange));
+	}
+	
+	public boolean isColission(Integer cantShootingRange){
+		boolean i= isWeaponrecorridaCompleta(cantShootingRange);
+		boolean r= !i;
+		return r;
+	}
 }

@@ -40,45 +40,32 @@ public class AvatarController extends GameObjectController{
 			salir();
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyShoot()){
-			dispararArma();
+			//dispararArma();
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyPower1()){
-			activarPoder1();
+			//activarPoder1();
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyPower2()){
-			activarPoder2();
+			//activarPoder2();
 		}
 
 	}
 	
-	private void activarPoder2() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void activarPoder1() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void dispararArma() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	private void salir() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void disparar(Integer keyPressedInNow) {
-		if(keyPressedInNow.equals(KeyEvent.VK_SPACE)){ //Dispara si presiona la barra espaciadora
-			if(arma.isActive()){ //REVISO SI AL AVATAR SE LE ASIGNO UN HACHA
-				dispararArma();
-			}
-			
-		}	 
-	}
+//	public void disparar(Integer keyPressedInNow) {
+//		if(keyPressedInNow.equals(KeyEvent.VK_SPACE)){ //Dispara si presiona la barra espaciadora
+//			if(arma.isActive()){ //REVISO SI AL AVATAR SE LE ASIGNO UN HACHA
+//				//dispararArma();
+//			}
+//			
+//		}	 
+//	}
 	
 
 
