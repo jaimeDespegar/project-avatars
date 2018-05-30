@@ -1,10 +1,12 @@
 
 package main;
 
+import java.awt.AWTException; 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import classProperties.KeyAvatarProperties;
 import control.AvatarController;
 import object.Avatar;
 import object.Line;
@@ -17,7 +19,7 @@ import tablero.Map;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws AWTException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		List<Point> positions = new ArrayList<Point>();
 		positions.add(new Point(1,1));
 		positions.add(new Point(1,5));
@@ -55,7 +57,17 @@ public class Main {
 		//ASIGNAR POSICION LIBRE inicial AL AVATAR
 		Point punt= ac.asignarPrimerPosicionLibre(map);
 		System.out.println("primer punto libre: ("+punt.x+", "+punt.y+")");		
-			
+		
+		//Obtener teclas del Properties del Avatar
+		KeyAvatarProperties k= new KeyAvatarProperties();
+		int teclaArriba= k.getElectionKeyAvatar().getKeyUp();
+		System.out.println("teclaArriba: "+teclaArriba);
+		
+		//Division de Integer
+		Integer divisor=10;
+		Integer dividendo=2;
+		System.out.println(divisor/dividendo);
 		
 	}
+	
 }
