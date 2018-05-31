@@ -30,17 +30,6 @@ public class GameObjectController {
 	}
 
 
-	private void controlLive() {
-		if( this.avatar.getVida() <=0 ){
-			 JOptionPane.showMessageDialog(null, "GAME OVER !");
-		}
-	}
-	private void controlLiveInConsole() {
-		if( this.avatar.getVida() <=0 ){
-			 System.out.println("GAME OVER!");
-		}
-	}
-
 	//GETTER & SETTER
 	public GameObject getAvatar() {
 		return avatar;
@@ -82,6 +71,17 @@ public class GameObjectController {
 	public void girarHaciaIzquierda(){
 	}
 	
+	@SuppressWarnings("unused")
+	private void controlLive() {
+		if( this.avatar.getVida() <=0 ){
+			 JOptionPane.showMessageDialog(null, "GAME OVER !");
+		}
+	}
+	private void controlLiveInConsole() {
+		if( this.avatar.getVida() <=0 ){
+			 System.out.println("GAME OVER!");
+		}
+	}
 	public void colissionWeapon(GameObject g, Weapon w){
 		int finalDamage= w.getDamage() / g.getReduceDamage();
 		w.setActive(false);
