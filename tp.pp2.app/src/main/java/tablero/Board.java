@@ -1,9 +1,6 @@
 package tablero;
 
 import java.awt.Point;
-
-import javax.swing.JOptionPane;
-
 import object.ObjectGraphic;
 import object.Structure;
 
@@ -24,10 +21,7 @@ public class Board {
 	
 	public boolean isOcupatePosition(Point box) {
 		if((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {
-			JOptionPane.showMessageDialog(null,
-					"No se puede acceder a la casilla, \nexcede el límite del mapa", "Error!",
-					JOptionPane.ERROR_MESSAGE);
-			return true;
+	        throw new IllegalArgumentException("No se puede acceder a la casilla, excede el límite del mapa");
 		}
 		return boxes[box.x][box.y] != null;
 	}
@@ -35,10 +29,7 @@ public class Board {
 	public boolean isOcupatePositionMAP(Point boxOriginal) {
 		Point box= new Point(boxOriginal.y, boxOriginal.x);
 		if((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {
-			JOptionPane.showMessageDialog(null,
-					"No se puede acceder a la casilla, \nexcede el límite del mapa", "Error!",
-					JOptionPane.ERROR_MESSAGE);
-			return true;
+			throw new IllegalArgumentException("No se puede acceder a la casilla, excede el límite del mapa");
 		}
 		return boxes[box.x][box.y] != null;
 	}

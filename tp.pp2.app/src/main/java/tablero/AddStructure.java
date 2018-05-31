@@ -4,8 +4,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import object.Line;
 import object.Rectangle;
 import object.Structure;
@@ -22,9 +20,7 @@ public class AddStructure {
 		if (validatePositions(board, positionsOfRectangle)) {
 			addStructures(board, positionsOfRectangle, rectangle.getStructure());
 		} else {
-			JOptionPane.showMessageDialog(null,
-					"No se puede añadir las estructuras, \nuno o mas casilleros estan ocupados", "Error!",
-					JOptionPane.ERROR_MESSAGE);
+			throw new RuntimeException("No se puede añadir las estructuras, uno o mas casilleros estan ocupados");
 		}
 	}
 
@@ -35,9 +31,7 @@ public class AddStructure {
 		if (validatePositions(board, positionsOfLine)) {
 			addStructures(board, positionsOfLine, line.getStructure());
 		} else {
-			JOptionPane.showMessageDialog(null,
-					"No se puede añadir las estructuras, \nuno o mas casilleros estan ocupados", "Error!",
-					JOptionPane.ERROR_MESSAGE);
+			throw new RuntimeException("No se puede añadir las estructuras, uno o mas casilleros estan ocupados");
 		}
 	}
 
@@ -58,11 +52,11 @@ public class AddStructure {
 			// si el y=1 se que es horizontal la linea
 			if (point1.x <= point2.x) {
 				for (int i = point1.x; i <= point2.x; i++) {
-					positionsOfLine.add(new Point(point1.y, i));
+					positionsOfLine.add(new Point(i, point1.y));
 				}
 			} else {
 				for (int i = point2.x; i <= point1.x; i++) {
-					positionsOfLine.add(new Point(point1.y, i));
+					positionsOfLine.add(new Point(i, point1.y));
 				}
 			}
 		} // cruzada
@@ -90,8 +84,7 @@ public class AddStructure {
 				}
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "No se puede añadir las estructuras, \nno es una línea válida",
-					"Error!", JOptionPane.ERROR_MESSAGE);
+			throw new RuntimeException("No se puede añadir las estructuras, no es una linea valida");
 		}
 		return positionsOfLine;
 	}

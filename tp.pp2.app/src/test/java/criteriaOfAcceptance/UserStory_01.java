@@ -1,6 +1,5 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
@@ -12,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import enums.TypeOfStructure;
-import junit.framework.AssertionFailedError;
 import object.ObjectGraphic;
 import object.Rectangle;
 import object.Structure;
@@ -24,7 +22,7 @@ import tablero.Map;
 Se lee un archivo externo Properties con un tamaño determinado
 
 Si el tamaño es de (ancho = 2 y alto= 2), la matriz del mapa deberá tener un tamaño de 4 posiciones.
-Si el tamaño es de (ancho = -2 y alto = 5), tira una excepción de tamaño inválido y toma un valor por default. 
+Si el tamaño es de (ancho = -2 y alto = 5), tira una excepción de tamaño inválido. 
 Si el tamaño es de (ancho = dos y alto = 5), tiene que tirar error y salir del programa por valores no válidos (texto).
 Si el tamaño es de (ancho = 2 y alto= 2), e intentó leer el casillero (0,0), debería devolver una casilla válida.
 Si el tamaño es de (ancho = 2 y alto = 2) e intentó leer el casillero (2, 3) debería devolver un error por alto ingresado inválido (error, posiciones invalida).
@@ -51,10 +49,10 @@ public class UserStory_01 {
 		assertEquals(4, (map.getBoard().getBoxes().length * map.getBoard().getBoxes()[0].length)); 
 	}
 	
-	/**Si el tamaño es de (ancho = -2 y alto = 5), tira una excepción de tamaño inválido y toma un valor por default. */
-	@Test
+	/**Si el tamaño es de (ancho = -2 y alto = 5), tira una excepción de tamaño inválido. */
+	@Test(expected=IllegalArgumentException.class)
 	public void testCreateInvalidMap() {
-		Map map = new Builder(new Point(-2, -5)).build();
+		Map map = new Builder(new Point(-2, 5)).build();
 		assertEquals(25, (map.getBoard().getBoxes().length * map.getBoard().getBoxes()[0].length)); 
 	}
 
