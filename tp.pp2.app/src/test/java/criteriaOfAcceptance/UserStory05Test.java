@@ -146,8 +146,7 @@ public class UserStory05Test {
 		System.out.println("\nTest7\n");
 		AvatarController ac= new AvatarController(a, map, null);
 
-		ac.controlAvatar(aPoint, KeyEvent.VK_W);
-		
+	
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
