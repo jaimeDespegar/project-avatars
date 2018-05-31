@@ -145,7 +145,8 @@ public class UserStory05Test {
 	public void avanzarDerechaAvatarConTecla_W() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
 		System.out.println("\nTest7\n");
 		AvatarController ac= new AvatarController(a, map, null);
-
+		
+		ac.controlAvatar(aPoint, KeyEvent.VK_W);
 	
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
