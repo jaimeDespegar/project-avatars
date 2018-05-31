@@ -1,6 +1,6 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; 
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -9,7 +9,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import control.AvatarController;
+//import control.AvatarController;
+import control.ControlFreePosition;
 import enums.Orientation;
 import enums.TypeOfStructure;
 import object.Avatar;
@@ -60,9 +61,10 @@ public class UserStory04Test {
 	@Test
 	public void ingresarAvatarPrimerCasilleroLibre(){
 		System.out.println("\nTest1\n");
-		AvatarController ac= new AvatarController(a, map, null);
+		//AvatarController ac= new AvatarController(a, map, null);
+		ControlFreePosition free= new ControlFreePosition(a, map, null);
 		//ASIGNAR POSICION LIBRE inicial AL AVATAR
-		Point punt= ac.asignarPrimerPosicionLibre(map);
+		Point punt= free.asignarPrimerPosicionLibre(map);
 		System.out.println("Primer punto libre: ("+punt.x+", "+punt.y+")\n");		
 		map.addBox(punt, a);
 		//map.printMap();	
@@ -72,9 +74,10 @@ public class UserStory04Test {
 	@Test
 	public void ingresarAvatarWithShieldUltimoCasilleroLibre(){
 		System.out.println("\nTest2\n");
-		AvatarController ac= new AvatarController(aws, map, null);
+		//AvatarController ac= new AvatarController(aws, map, null);
+		ControlFreePosition free= new ControlFreePosition(a, map, null);
 		//ASIGNAR POSICION LIBRE final AL AVATAR CON ESCUDO
-		Point punt= ac.asignarUltimaPosicionLibre(map);
+		Point punt= free.asignarUltimaPosicionLibre(map);
 		System.out.println("Ultimo punto libre: ("+punt.x+", "+punt.y+")\n");		
 		map.addBox(punt, aws);
 		//map.printMap();	

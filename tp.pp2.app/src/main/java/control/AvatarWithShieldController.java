@@ -22,19 +22,21 @@ public class AvatarWithShieldController extends GameObjectController{
 	public void controlAvatar(Point positionAvatarWithShield, Integer keyPressedInNow) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
 	{
 		KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
+		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);
+		ControlTurn t= new ControlTurn(avatar, map , arma);
 		
 		//keyPressedInNow = keyListener.getKeyPressed();
 		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyUp()){//KeyEvent.VK_UP){
-			avanzar(positionAvatarWithShield);
+			c.avanzar(positionAvatarWithShield);
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyDown()){
-			retroceder(positionAvatarWithShield);
+			c.retroceder(positionAvatarWithShield);
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyLeft()){
-			girarHaciaIzquierda();
+			t.girarHaciaIzquierda();
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyRight()){
-			girarHaciaDerecha();
+			t.girarHaciaDerecha();
 		}
 		if(keyPressedInNow == KeyEvent.VK_ESCAPE){
 			salir();
@@ -52,31 +54,11 @@ public class AvatarWithShieldController extends GameObjectController{
 	}
 	
 	private void activarPoder2() {
-		// TODO Auto-generated method stub
-		
 	}
-
 	private void activarPoder1() {
-		// TODO Auto-generated method stub
-		
 	}
-
 	private void dispararArma() {
-		// TODO Auto-generated method stub
-		
 	}
-
 	private void salir() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void disparar(Integer keyPressedInNow) {
-		if(keyPressedInNow.equals(KeyEvent.VK_SPACE)){ //Dispara si presiona la barra espaciadora
-			if(arma.isActive()){ //REVISO SI AL AVATAR SE LE ASIGNO UN HACHA
-				dispararArma();
-			}
-			
-		}	 
 	}
 }

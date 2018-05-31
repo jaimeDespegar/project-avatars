@@ -10,7 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import control.AvatarController;
-import control.AvatarWithShieldController;
+import control.ControlPositionMovement;
+import control.ControlTurn;
 import enums.Orientation;
 import enums.TypeOfStructure;
 import object.Avatar;
@@ -59,11 +60,10 @@ public class UserStory05Test {
 	@Test
 	public void avanzarDerechaAvatarConOrientaciónDerecha(){
 		System.out.println("\nTest1\n");
-		AvatarController ac= new AvatarController(a, map, null);
-		//try{    
-			ac.avanzar(aPoint);
-		//}catch(Exception e){} 
-		
+		//AvatarController ac= new AvatarController(a, map, null);
+		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
+		c.avanzar(aPoint);
+
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
@@ -76,10 +76,8 @@ public class UserStory05Test {
 	public void retrocederIzquierdaAvatar(){
 		System.out.println("\nTest2\n");
 		
-		AvatarController ac= new AvatarController(a, map, null);
-		try{    
-			ac.retroceder(aPoint);
-		}catch(Exception e){}  
+		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
+		c.retroceder(aPoint);
 		
 		Point pFinalEstimado= new Point(0,0);
 		Point actual= a.getPosition();
@@ -92,9 +90,11 @@ public class UserStory05Test {
 	@Test
 	public void girarAvatarDerecha(){
 		System.out.println("\nTest3\n");
-		AvatarController ac= new AvatarController(a, map, null);
+		//AvatarController ac= new AvatarController(a, map, null);
+		ControlTurn t= new ControlTurn(a, map, null);
 		System.out.println("Antes de girar: "+a.getOrientation().name());
-		ac.girarHaciaDerecha();
+		//ac.girarHaciaDerecha();
+		t.girarHaciaDerecha();
 		System.out.println("Despues de girar: "+a.getOrientation().name());
 		assertTrue(a.getOrientation().equals(Orientation.DOWN));
 	}
@@ -104,9 +104,9 @@ public class UserStory05Test {
 	@Test
 	public void avanzarDerechaAvatarConEscudo(){
 		System.out.println("\nTest4\n");
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
-		  
-		awsc.avanzar(awsPoint);
+		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);  
+		ControlPositionMovement c= new ControlPositionMovement(aws, map, null);   
+		c.avanzar(awsPoint);
 		
 		
 		Point pFinalEstimado= new Point(0,2);
@@ -121,9 +121,9 @@ public class UserStory05Test {
 	public void retrocederIzquierdaAvatarConEscudo(){
 		System.out.println("\nTest5\n");
 		
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
-   
-		awsc.retroceder(awsPoint); 
+		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
+		ControlPositionMovement c= new ControlPositionMovement(aws, map, null);   
+		c.retroceder(awsPoint); 
 		
 		Point pFinalEstimado= new Point(0,2);
 		Point actual= aws.getPosition();
@@ -134,9 +134,9 @@ public class UserStory05Test {
 	@Test
 	public void girarAvatarConEscudoIzquierda(){
 		System.out.println("\nTest6\n");
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
+		ControlTurn t= new ControlTurn(aws, map, null);
 		System.out.println("Antes de girar: "+aws.getOrientation().name());
-		awsc.girarHaciaIzquierda();;
+		t.girarHaciaIzquierda();;
 		System.out.println("Despues de girar: "+aws.getOrientation().name());
 		assertTrue(aws.getOrientation().equals(Orientation.UP));
 	}

@@ -1,13 +1,10 @@
 
 package main;
 
-import java.awt.AWTException; 
+import java.awt.AWTException;  
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-
-import classProperties.KeyAvatarProperties;
-import control.AvatarController;
 import object.Avatar;
 import object.Line;
 import object.Rectangle;
@@ -39,34 +36,9 @@ public class Main {
 		map.addBox(aPoint, a);
 		System.out.println("casillero= "+map.getBox(new Point(0,0)).getObjectGraphic().getClass().getName());
 		System.out.println("\n");
-		map.printMap();
+		//map.printMap();
 		
 		
-		AvatarController ac= new AvatarController(a, map, null);
-		//ASIGNAR POSICION LIBRE inicial AL AVATAR
-		Point pun= ac.asignarPrimerPosicionLibre(map);
-		System.out.println("primer punto libre: ("+pun.x+", "+pun.y+")");
-				
-		//AVANZAR
-		ac.avanzar(aPoint);
-		System.out.println("positionAvatar= (" +a.getPosition().x+", "+a.getPosition().y+")" );
-		System.out.println("\n");
-		map.printMap();
-		System.out.println("\n");
-		
-		//ASIGNAR POSICION LIBRE inicial AL AVATAR
-		Point punt= ac.asignarPrimerPosicionLibre(map);
-		System.out.println("primer punto libre: ("+punt.x+", "+punt.y+")");		
-		
-		//Obtener teclas del Properties del Avatar
-		KeyAvatarProperties k= new KeyAvatarProperties();
-		int teclaArriba= k.getElectionKeyAvatar().getKeyUp();
-		System.out.println("teclaArriba: "+teclaArriba);
-		
-		//Division de Integer
-		Integer divisor=10;
-		Integer dividendo=2;
-		System.out.println(divisor/dividendo);
 		
 	}
 	

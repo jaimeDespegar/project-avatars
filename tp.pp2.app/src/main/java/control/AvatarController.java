@@ -22,19 +22,22 @@ public class AvatarController extends GameObjectController{
 	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
 	{
 		KeyAvatarProperties k= new KeyAvatarProperties();
+		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);
+		ControlTurn t= new ControlTurn(avatar, map , arma);
+		
 		
 		//keyPressedInNow = keyListener.getKeyPressed();
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyUp()){
-			avanzar(positionAvatar);
+			c.avanzar(positionAvatar);
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyDown()){
-			retroceder(positionAvatar);
+			c.retroceder(positionAvatar);
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyLeft()){
-			girarHaciaIzquierda();
+			t.girarHaciaIzquierda();
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyRight()){
-			girarHaciaDerecha();
+			t.girarHaciaDerecha();
 		}
 		if(keyPressedInNow == KeyEvent.VK_ESCAPE){
 			salir();
@@ -50,25 +53,6 @@ public class AvatarController extends GameObjectController{
 		}
 
 	}
-	
-	
-
 	private void salir() {
-		// TODO Auto-generated method stub
-		
 	}
-
-//	public void disparar(Integer keyPressedInNow) {
-//		if(keyPressedInNow.equals(KeyEvent.VK_SPACE)){ //Dispara si presiona la barra espaciadora
-//			if(arma.isActive()){ //REVISO SI AL AVATAR SE LE ASIGNO UN HACHA
-//				//dispararArma();
-//			}
-//			
-//		}	 
-//	}
-	
-
-
-	
-
 }
