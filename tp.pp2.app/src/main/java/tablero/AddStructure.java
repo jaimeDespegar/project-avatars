@@ -41,22 +41,22 @@ public class AddStructure {
 		if (point1.x - point2.x == 0) {
 			if (point1.y <= point2.y) {
 				for (int i = point1.y; i <= point2.y; i++) {
-					positionsOfLine.add(new Point(point1.x, i));
+					positionsOfLine.add(new Point(i, point1.x));
 				}
 			} else {
 				for (int i = point2.y; i <= point1.y; i++) {
-					positionsOfLine.add(new Point(point1.x, i));
+					positionsOfLine.add(new Point(i, point1.x));
 				}
 			}
 		} else if (point1.y - point2.y == 0) {
 			// si el y=1 se que es horizontal la linea
 			if (point1.x <= point2.x) {
 				for (int i = point1.x; i <= point2.x; i++) {
-					positionsOfLine.add(new Point(i, point1.y));
+					positionsOfLine.add(new Point( point1.y,i));
 				}
 			} else {
 				for (int i = point2.x; i <= point1.x; i++) {
-					positionsOfLine.add(new Point(i, point1.y));
+					positionsOfLine.add(new Point( point1.y, i));
 				}
 			}
 		} // cruzada
@@ -88,7 +88,7 @@ public class AddStructure {
 		}
 		return positionsOfLine;
 	}
-
+	
 	private static boolean validatePositions(Board board, List<Point> positionsOfStructure) {
 		for (Point pos : positionsOfStructure) {
 			if (board.isOcupatePosition(pos)) {
