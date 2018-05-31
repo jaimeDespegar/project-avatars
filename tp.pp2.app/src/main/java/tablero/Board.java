@@ -57,8 +57,10 @@ public class Board {
 		for (int x = 0; x < boxes.length; x++) {
 			for (int y = 0; y < boxes[0].length; y++) {
 				if(boxes[x][y] != null) {
-					//file = file + "[" +boxes[x][y].getObjectGraphic().getClass().getName() + "]";
-					file = file + "[" +((Structure) boxes[x][y].getObjectGraphic()).getTypeOfStructure().name() + "]";
+					if(boxes[x][y].getObjectGraphic().getClass().equals(Structure.class))
+						file = file + "[" +((Structure) boxes[x][y].getObjectGraphic()).getTypeOfStructure().name() + "]";
+					else
+						file = file + "[" +boxes[x][y].getObjectGraphic().getClass().getName() + "]";
 				}else {
 					file = file + "[" +boxes[x][y] + "]";
 				}
