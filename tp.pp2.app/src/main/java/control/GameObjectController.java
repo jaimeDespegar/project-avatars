@@ -35,7 +35,11 @@ public class GameObjectController {
 			 JOptionPane.showMessageDialog(null, "GAME OVER !");
 		}
 	}
-
+	private void controlLiveInConsole() {
+		if( this.avatar.getVida() <=0 ){
+			 System.out.println("GAME OVER!");
+		}
+	}
 
 	//GETTER & SETTER
 	public GameObject getAvatar() {
@@ -278,7 +282,8 @@ public class GameObjectController {
 		w.setActive(false);
 		g.setVida(g.getVida() - finalDamage);
 		
-		controlLive();
+		//controlLive();
+		controlLiveInConsole();
 	}
 	
 	public Integer disparar(GameObject g){

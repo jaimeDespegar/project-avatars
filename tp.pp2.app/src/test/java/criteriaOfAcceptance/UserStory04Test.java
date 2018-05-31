@@ -25,7 +25,7 @@ import tablero.Map;
  *  y (2,2) ocupados con el objeto de estructura de tipo acero.
  *
  */
-public class UserStory_04 {
+public class UserStory04Test {
 	//Si se crea el personaje avatar con vida =100 y 
 	//orientación =derecha, este se debe crear en la
 	//posición (0,1) del mapa, al pedirle al mapa la 
@@ -65,7 +65,7 @@ public class UserStory_04 {
 		Point punt= ac.asignarPrimerPosicionLibre(map);
 		System.out.println("Primer punto libre: ("+punt.x+", "+punt.y+")\n");		
 		map.addBox(punt, a);
-		map.printMap();	
+		//map.printMap();	
 		assertTrue(punt.equals(new Point(0,1)));
 	}
 	
@@ -77,7 +77,7 @@ public class UserStory_04 {
 		Point punt= ac.asignarUltimaPosicionLibre(map);
 		System.out.println("Ultimo punto libre: ("+punt.x+", "+punt.y+")\n");		
 		map.addBox(punt, aws);
-		map.printMap();	
+		//map.printMap();	
 		assertTrue(punt.equals(new Point(2,1)));
 	}
 }

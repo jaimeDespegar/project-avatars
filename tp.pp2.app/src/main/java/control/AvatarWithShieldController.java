@@ -1,6 +1,6 @@
 package control;
 
-import java.awt.AWTException; 
+import java.awt.AWTException;  
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 

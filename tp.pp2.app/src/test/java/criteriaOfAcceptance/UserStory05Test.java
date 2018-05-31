@@ -1,6 +1,6 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; 
 
 import java.awt.AWTException;
 import java.awt.Point;
@@ -145,9 +145,9 @@ public class UserStory05Test {
 	public void avanzarDerechaAvatarConTecla_W() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
 		System.out.println("\nTest7\n");
 		AvatarController ac= new AvatarController(a, map, null);
-
-		ac.controlAvatar(aPoint, KeyEvent.VK_W);
 		
+		ac.controlAvatar(aPoint, KeyEvent.VK_W);
+	
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");

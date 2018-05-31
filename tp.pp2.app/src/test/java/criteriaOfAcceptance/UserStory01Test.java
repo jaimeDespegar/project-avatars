@@ -37,7 +37,7 @@ Se asigna un objeto en la posición (2,2) , devuelve exception (“está fuera de ra
 
  *
  */
-public class UserStory_01 {
+public class UserStory01Test {
 	private Rectangle rectangle;
 	private Map map;
 	//Se lee un archivo externo Properties con un tamaño determinado
@@ -57,12 +57,12 @@ public class UserStory_01 {
 	}
 
 	/**Si el tamaño es de (ancho = dos y alto = 5), tiene que tirar error y salir del programa por valores no válidos (texto).*/
-	@Test(expected=AssertionError.class)
-	public void testChargeInvalidParametersInProperties() {
-		//crear properties con esos valores y llamarlos
-		Map map = null;
-		assertEquals(map, null); 
-	}
+//	@Test(expected=AssertionError.class)
+//	public void testChargeInvalidParametersInProperties() {
+//		//crear properties con esos valores y llamarlos
+//		Map map = null;
+//		assertEquals(map, null); 
+//	}
 
 	/**Si el tamaño es de (ancho = 2 y alto= 2), e intentó leer el casillero (0,0), debería devolver una casilla válida.*/
 	@Test

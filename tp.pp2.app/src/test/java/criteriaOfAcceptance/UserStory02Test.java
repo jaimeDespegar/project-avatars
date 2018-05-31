@@ -29,7 +29,7 @@ Crear un mapa con un tamaño de 3x3, se crea un rectángulo nº1 (posición (0,1), t
 
  *
  */
-public class UserStory_02 {
+public class UserStory02Test {
 	private Rectangle rectangle;
 	private Map map;
 	
