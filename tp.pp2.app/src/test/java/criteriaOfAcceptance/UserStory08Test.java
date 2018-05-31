@@ -25,7 +25,7 @@ import enums.TypeOfStructure;
  *un Avatar con escudo en la posición (3,0) con orientación hacia la izquierda, vida = 100.
  *
  */
-public class UserStory_08 {
+public class UserStory08Test {
 	Map map;
 	private Rectangle rectangle;
 	Avatar a;

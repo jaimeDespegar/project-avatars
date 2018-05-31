@@ -80,7 +80,7 @@ import enums.Orientation;
  * Además se crea un Avatar With Shield de vida=100 y orientación derecha
  *
  */
-public class UserStory_06 {
+public class UserStory06Test {
 	Avatar a;
 	Avatar aDañado;
 	AvatarWithShield aws;
