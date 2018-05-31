@@ -1,6 +1,6 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; 
 
 import java.awt.AWTException;
 import java.awt.Point;
