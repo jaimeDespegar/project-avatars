@@ -1,17 +1,13 @@
 package object;
 
-
-import java.awt.Point;
-
+import java.awt.Point; 
 import enums.Orientation;
-import states.StateMove;
-
 
 public class GameObject extends ObjectGraphic{
 
 	protected Integer vida;
 	protected Orientation orientation;
-	private StateMove stateMove;
+	//private StateMove stateMove;
 	private Point position;
 	protected Integer reduceDamage;
 	
@@ -38,16 +34,6 @@ public class GameObject extends ObjectGraphic{
 	public void setOrientation(Orientation orientation) {
 		this.orientation = orientation;
 	}
-	public StateMove getStateMove() {
-		return stateMove;
-	}
-	public void setStateMove(StateMove stateMove) 
-	{
-		this.stateMove = stateMove;
-	}
-	public void doActionStateMove() {
-		this.stateMove.control();
-	}
 	public Point getPosition() {
 		return position;
 	}
@@ -60,9 +46,4 @@ public class GameObject extends ObjectGraphic{
 	public void setReduceDamage(Integer reduceDamage) {
 		this.reduceDamage = reduceDamage;
 	}
-//	public void colissionWeapon(GameObject g, Weapon w){
-//		int finalDamage= w.getDamage() / g.reduceDamage;
-//		w.isActive= false;
-//		this.vida= this.vida - finalDamage;
-//	}
 }
