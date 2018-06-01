@@ -60,8 +60,8 @@ public class UserStory08Test {
 	rectangle = new Rectangle(new Point(1, 2), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
 	map = new Builder(new Point(4, 4)).withStructureRectangle(rectangle).build();
 	
-	map.addBoxGameObject(aPoint, a);
-	map.addBoxGameObject(awsPoint, aws);	
+	map.addBox(aPoint, a);
+	map.addBox(awsPoint, aws);	
 	
 	//map.printMap();
 	}

@@ -15,22 +15,22 @@ public class ControlPositionMovement extends GameObjectController {
 	@Override
 	public void avanzar(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreeNextPositionUp(positionAvatar))){ //avanzar arriba
-			map.addBoxGameObject(nextPointUp, avatar);
+			map.addBox(nextPointUp, avatar);
 			avatar.setPosition(nextPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreeNextPositionDown(positionAvatar))){ //avanzar abajo
-			map.addBoxGameObject(nextPointDown, avatar);
+			map.addBox(nextPointDown, avatar);
 			avatar.setPosition(nextPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreeNextPositionLeft(positionAvatar))){ //avanzar izquierda
-			map.addBoxGameObject(nextPointLeft, avatar);
+			map.addBox(nextPointLeft, avatar);
 			avatar.setPosition(nextPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreeNextPositionRight(positionAvatar))){ //avanzar derecha
-			map.addBoxGameObject(nextPointRight, avatar);
+			map.addBox(nextPointRight, avatar);
 			avatar.setPosition(nextPointRight);
 			map.deleteBox(positionAvatar);
 		}
@@ -44,22 +44,22 @@ public class ControlPositionMovement extends GameObjectController {
 	@Override
 	public void retroceder(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
-			map.addBoxGameObject(previousPointUp, avatar);
+			map.addBox(previousPointUp, avatar);
 			avatar.setPosition(previousPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
-			map.addBoxGameObject(previousPointDown, avatar);
+			map.addBox(previousPointDown, avatar);
 			avatar.setPosition(previousPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
-			map.addBoxGameObject(previousPointLeft, avatar);
+			map.addBox(previousPointLeft, avatar);
 			avatar.setPosition(previousPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		if((avatar.getOrientation() == Orientation.RIGHT) && (isFreePreviousPositionRight(positionAvatar))){ //avanzar derecha
-			map.addBoxGameObject(previousPointRight, avatar);
+			map.addBox(previousPointRight, avatar);
 			
 			map.deleteBox(positionAvatar);
 			avatar.setPosition(previousPointRight);

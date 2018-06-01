@@ -36,7 +36,7 @@ public class ControlColissionShoot extends GameObjectController{
 	}
 	private void borrarAvatarDelMapa() {
 		if(this.avatar.getPosition() != null){
-			map.deleteBoxGameObject(this.avatar.getPosition());
+			map.deleteBox(this.avatar.getPosition());
 		}
 		
 	}

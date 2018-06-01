@@ -64,16 +64,12 @@ public class MapProperties {
 	}
 
 	private Structure loadStructure(String typeOfStructure) {
-		//Structure structure = null;
-		System.out.println(typeOfStructure);
-		if(typeOfStructure.equals("ACERO"))
-			return new Structure(TypeOfStructure.ACERO);
-		else if(typeOfStructure.equals("AGUA"))
-			return new Structure(TypeOfStructure.AGUA);
-		else if(typeOfStructure.equals("BOSQUE"))
-			return new Structure(TypeOfStructure.BOSQUE);
-		else 
-			return new Structure(TypeOfStructure.LADRILLO);
+		Structure structure = null;
+		structure = (typeOfStructure.equals("ACERO")) ? new Structure(TypeOfStructure.ACERO) : structure;
+		structure = (typeOfStructure.equals("AGUA")) ? new Structure(TypeOfStructure.AGUA) : structure;
+		structure = (typeOfStructure.equals("BOSQUE")) ? new Structure(TypeOfStructure.BOSQUE) : structure;
+		structure = (typeOfStructure.equals("LADRILLO")) ? new Structure(TypeOfStructure.LADRILLO) : structure;
+		return structure;
 	}
 
 	private Point loadSizeMap() {
@@ -85,10 +81,8 @@ public class MapProperties {
 		try {
 			this.properties.load(new FileReader(route_properties));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

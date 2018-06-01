@@ -107,9 +107,9 @@ public class UserStory07Test {
 	@Test
 	public void avatarDerrotadoDesapareceDelMapa(){
 		System.out.println("\nTest3\n");
-		map.addBoxGameObject(new Point(0,0), A);
+		map.addBox(new Point(0,0), A);
 		A.setPosition(new Point(0,0));
-		map.addBoxGameObject(new Point(1,0), B);
+		map.addBox(new Point(1,0), B);
 		B.setPosition(new Point(1,0));
 		map.printMap();
 		
