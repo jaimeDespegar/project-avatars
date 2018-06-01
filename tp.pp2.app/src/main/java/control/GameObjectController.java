@@ -27,64 +27,17 @@ public class GameObjectController {
 		this.map= map;
 		this.arma= arma;
 	}
-
-
 	//GETTER & SETTER
 	public GameObject getAvatar() {
-		return avatar;
-	}
+		return avatar;}
 	public void setAvatar(GameObject avatar) {
-		this.avatar = avatar;
-	}
+		this.avatar = avatar;}
 	public Map getMap() {
-		return map;
-	}
+		return map;}
 	public void setMap(Map map) {
-		this.map = map;
-	}
+		this.map = map;}
 	public Weapon getArma() {
-		return arma;
-	}
+		return arma;}
 	public void setArma(Weapon arma) {
-		this.arma = arma;
-	}
-	
-	//ASIGNAR POSICION LIBRE
-	public Point asignarPrimerPosicionLibre(Map map){
-		return null;
-	}
-	
-	public Point asignarUltimaPosicionLibre(Map map){
-		return null;
-	}
-	
-	public void avanzar(Point positionAvatar){
-	}
-	
-	public void retroceder(Point positionAvatar){
-	}
-	
-	public void girarHaciaDerecha(){
-	}
-	
-	public void girarHaciaIzquierda(){
-	}
-	
-//	public void colissionWeapon(GameObject g, Weapon w){
-//	}
-//	
-//	public Integer disparar(GameObject g){
-//		int cantShootingRange=0;		
-//		return cantShootingRange;
-//	}
-//	
-//	public boolean isWeaponrecorridaCompleta(Integer cantShootingRange){
-//		return (arma.getShootingRange().equals(cantShootingRange));
-//	}
-//	
-//	public boolean isColission(Integer cantShootingRange){
-//		boolean i= isWeaponrecorridaCompleta(cantShootingRange);
-//		boolean r= !i;
-//		return r;
-//	}
+		this.arma = arma;}
 }

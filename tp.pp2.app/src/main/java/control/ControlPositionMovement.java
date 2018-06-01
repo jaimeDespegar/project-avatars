@@ -12,7 +12,7 @@ public class ControlPositionMovement extends GameObjectController {
 		super(avatar, map, arma);
 	}
 	
-	@Override
+	
 	public void avanzar(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreeNextPositionUp(positionAvatar))){ //avanzar arriba
 			map.addBoxGameObject(nextPointUp, avatar);
@@ -41,7 +41,7 @@ public class ControlPositionMovement extends GameObjectController {
 		
 	}
 	
-	@Override
+	
 	public void retroceder(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
 			map.addBoxGameObject(previousPointUp, avatar);

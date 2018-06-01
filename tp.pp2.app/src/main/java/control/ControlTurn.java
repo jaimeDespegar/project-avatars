@@ -10,7 +10,7 @@ public class ControlTurn extends GameObjectController {
 		super(avatar, map, arma);
 	}
 	
-	@Override
+	
 	public void girarHaciaDerecha(){
 		if(avatar.getOrientation() == Orientation.UP){
 			avatar.setOrientation(Orientation.RIGHT);
@@ -26,7 +26,7 @@ public class ControlTurn extends GameObjectController {
 		}
 	}
 	
-	@Override
+	
 	public void girarHaciaIzquierda(){
 		if(avatar.getOrientation() == Orientation.UP){
 			avatar.setOrientation(Orientation.LEFT);
