@@ -14,10 +14,6 @@ public class Board {
 	public Box[][] getBoxes() {
 		return boxes;
 	}
-
-	public void setBox(Box[][] boxes) {
-		this.boxes = boxes;
-	}
 	
 	public boolean isOcupatePosition(Point box) {
 		if((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {

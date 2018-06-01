@@ -20,7 +20,7 @@ public class CreateListOfPointsLine {
 		return positionsOfLine;
 	}
 	
-	private static void addLineHorizontal(Point point1, Point point2, List<Point> positionsOfLine) {
+	public static void addLineHorizontal(Point point1, Point point2, List<Point> positionsOfLine) {
 		if (point1.x <= point2.x) {
 			for (int i = point1.x; i <= point2.x; i++) {
 				positionsOfLine.add(new Point(i,point1.y));
@@ -32,7 +32,7 @@ public class CreateListOfPointsLine {
 		}
 	}
 	
-	private static void addLineVertical(Point point1, Point point2, List<Point> positionsOfLine) {
+	public static void addLineVertical(Point point1, Point point2, List<Point> positionsOfLine) {
 		if (point1.y <= point2.y) {
 			for (int i = point1.y; i <= point2.y; i++) {
 				positionsOfLine.add(new Point(point1.x, i));
@@ -44,8 +44,7 @@ public class CreateListOfPointsLine {
 		}
 	}
 	
-	private static void addLineDiagonal(Point point1, Point point2, List<Point> positionsOfLine) {
-		positionsOfLine.add(new Point(point1.x, point1.y));
+	public static void addLineDiagonal(Point point1, Point point2, List<Point> positionsOfLine) {
 		if (point1.x < point2.x) { // va hacia la derecha
 			if (point1.y < point2.y) { // va hacia abajo
 				for (int i = 0; i <= point2.x - point1.x; i++) {
@@ -58,7 +57,6 @@ public class CreateListOfPointsLine {
 			}
 		} else { // va hacia la izquierda
 			if (point1.y < point2.y) { // va hacia abajo
-				System.out.println("si");
 				for (int i = 0; i <= point1.x - point2.x; i++) {
 					positionsOfLine.add(new Point(point1.x - i, point1.y + i));
 				}
