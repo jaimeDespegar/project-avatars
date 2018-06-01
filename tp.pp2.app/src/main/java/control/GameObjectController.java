@@ -4,7 +4,6 @@ import java.awt.Point;
 
 import javax.swing.JOptionPane;
 
-import enums.Orientation;
 import object.GameObject;
 import object.Weapon;
 import tablero.Map;

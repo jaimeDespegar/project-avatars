@@ -15,6 +15,7 @@ import object.ObjectGraphic;
 import object.Rectangle;
 import object.Structure;
 import tablero.Builder;
+import tablero.CreateMap;
 import tablero.Map;
 
 /**
@@ -45,24 +46,26 @@ public class UserStory01Test {
 	/**Si el tamaño es de (ancho = 2 y alto= 2), la matriz del mapa deberá tener un tamaño de 4 posiciones.*/
 	@Test
 	public void testCreateValidMap() {
-		Map map = new Builder(new Point(2, 2)).build();
+		CreateMap createMap = new CreateMap("src/main/resources/configurationProperties/Test01Map.properties");
+		Map map = new Builder (createMap.getMapProperties().getElectionMap().getMapSize()).build();
 		assertEquals(4, (map.getBoard().getBoxes().length * map.getBoard().getBoxes()[0].length)); 
 	}
 	
 	/**Si el tamaño es de (ancho = -2 y alto = 5), tira una excepción de tamaño inválido. */
 	@Test(expected=IllegalArgumentException.class)
 	public void testCreateInvalidMap() {
-		Map map = new Builder(new Point(-2, 5)).build();
-		assertEquals(25, (map.getBoard().getBoxes().length * map.getBoard().getBoxes()[0].length)); 
+		CreateMap createMap = new CreateMap("src/main/resources/configurationProperties/Test02Map.properties");
+		Map map = new Builder (createMap.getMapProperties().getElectionMap().getMapSize()).build();
+		assertEquals(4, (map.getBoard().getBoxes().length * map.getBoard().getBoxes()[0].length)); 
 	}
 
 	/**Si el tamaño es de (ancho = dos y alto = 5), tiene que tirar error y salir del programa por valores no válidos (texto).*/
-//	@Test(expected=AssertionError.class)
-//	public void testChargeInvalidParametersInProperties() {
-//		//crear properties con esos valores y llamarlos
-//		Map map = null;
-//		assertEquals(map, null); 
-//	}
+	@Test(expected=NumberFormatException.class)
+	public void testChargeInvalidParametersInProperties() {
+		CreateMap createMap = new CreateMap("src/main/resources/configurationProperties/Test03Map.properties");
+		Map map = new Builder (createMap.getMapProperties().getElectionMap().getMapSize()).build();
+		assertEquals(4, (map.getBoard().getBoxes().length * map.getBoard().getBoxes()[0].length));
+	}
 
 	/**Si el tamaño es de (ancho = 2 y alto= 2), e intentó leer el casillero (0,0), debería devolver una casilla válida.*/
 	@Test

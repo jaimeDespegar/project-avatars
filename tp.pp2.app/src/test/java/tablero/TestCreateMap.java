@@ -6,12 +6,14 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
+import main.Constants;
+
 public class TestCreateMap {
 	private CreateMap createMap;
 	
 	@Before
 	public void init() {
-		createMap = new CreateMap();
+		createMap = new CreateMap(Constants.ROUTE_PROPERTIES);
 	}
 	
 	@Test
