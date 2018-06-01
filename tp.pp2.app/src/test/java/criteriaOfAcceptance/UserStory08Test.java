@@ -1,16 +1,21 @@
 package criteriaOfAcceptance;
 
 import static org.junit.Assert.*;
+
 import java.awt.Point;
+
 import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
 import object.Bazooka;
 import object.Shotgun;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import control.AvatarController;
 import control.AvatarWithShieldController;
+import control.ControlColissionShoot;
 import tablero.Builder;
 import tablero.Map;
 import object.Rectangle;
@@ -69,10 +74,11 @@ public class UserStory08Test {
 	@Test
 	public void avatarDisparaHacha(){
 		System.out.println("\nTest1\n");
-		AvatarController ac= new AvatarController(a, map, hacha);
+		//AvatarController ac= new AvatarController(a, map, hacha);
+		ControlColissionShoot acc= new ControlColissionShoot(a, map, hacha);
 		Integer cantShootingRange=0;
-		cantShootingRange= ac.disparar(aws);
-		boolean huboChoque= ac.isColission(cantShootingRange);
+		cantShootingRange= acc.disparar(aws);
+		boolean huboChoque= acc.isColission(cantShootingRange);
 		System.out.println("huboChoque: "+huboChoque);
 
 		assertTrue(aws.getVida() == 100);
@@ -82,10 +88,11 @@ public class UserStory08Test {
 	@Test
 	public void avatarDisparaBazooka(){
 		System.out.println("\nTest2\n");
-		AvatarController ac= new AvatarController(a, map, bazooka1);
+		//AvatarController ac= new AvatarController(a, map, bazooka1);
+		ControlColissionShoot acc= new ControlColissionShoot(a, map, bazooka1);
 		Integer cantShootingRange=0;
-		cantShootingRange= ac.disparar(aws);
-		boolean huboChoque= ac.isColission(cantShootingRange);
+		cantShootingRange= acc.disparar(aws);
+		boolean huboChoque= acc.isColission(cantShootingRange);
 		System.out.println("huboChoque: "+huboChoque);
 		
 		assertTrue(aws.getVida() == 100);
@@ -95,10 +102,11 @@ public class UserStory08Test {
 	@Test
 	public void avatarDisparaEscopeta(){
 		System.out.println("\nTest3\n");
-		AvatarController ac= new AvatarController(a, map, escopeta);
+		//AvatarController ac= new AvatarController(a, map, escopeta);
+		ControlColissionShoot acc= new ControlColissionShoot(a, map, escopeta);
 		Integer cantShootingRange=0;
-		cantShootingRange= ac.disparar(aws);
-		boolean huboChoque= ac.isColission(cantShootingRange);
+		cantShootingRange= acc.disparar(aws);
+		boolean huboChoque= acc.isColission(cantShootingRange);
 		System.out.println("huboChoque: "+huboChoque);
 		
 		assertTrue(aws.getVida() == 65);
@@ -108,10 +116,11 @@ public class UserStory08Test {
 	@Test
 	public void avatarConEscudoDisparaHacha(){
 		System.out.println("\nTest4\n");
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, hacha);
+		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, hacha);
+		ControlColissionShoot awscc= new ControlColissionShoot(aws, map, hacha);
 		Integer cantShootingRange=0;
-		cantShootingRange= awsc.disparar(a);
-		boolean huboChoque= awsc.isColission(cantShootingRange);
+		cantShootingRange= awscc.disparar(a);
+		boolean huboChoque= awscc.isColission(cantShootingRange);
 		System.out.println("huboChoque: "+huboChoque);
 		
 		assertTrue(a.getVida() == 100);
@@ -121,10 +130,11 @@ public class UserStory08Test {
 	@Test
 	public void avatarConEscudoDisparaBazooka(){
 		System.out.println("\nTest5\n");
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, bazooka1);
+		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, bazooka1);
+		ControlColissionShoot awscc= new ControlColissionShoot(aws, map, bazooka1);
 		Integer cantShootingRange=0;
-		cantShootingRange= awsc.disparar(a);
-		boolean huboChoque= awsc.isColission(cantShootingRange);
+		cantShootingRange= awscc.disparar(a);
+		boolean huboChoque= awscc.isColission(cantShootingRange);
 		System.out.println("huboChoque: "+huboChoque);
 		
 		assertTrue(a.getVida() == 100);
@@ -134,10 +144,11 @@ public class UserStory08Test {
 		@Test
 		public void avatarConEscudoDisparaEscopeta(){
 			System.out.println("\nTest6\n");
-			AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, escopeta);
+			//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, escopeta);
+			ControlColissionShoot awscc= new ControlColissionShoot(aws, map, escopeta);
 			Integer cantShootingRange=0;
-			cantShootingRange= awsc.disparar(a);
-			boolean huboChoque= awsc.isColission(cantShootingRange);
+			cantShootingRange= awscc.disparar(a);
+			boolean huboChoque= awscc.isColission(cantShootingRange);
 			System.out.println("huboChoque: "+huboChoque);
 			System.out.println("a.getVida(): "+a.getVida());
 			assertTrue(a.getVida() == 30);

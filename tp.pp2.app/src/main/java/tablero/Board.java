@@ -48,6 +48,9 @@ public class Board {
 	public Box getBoxGameObject(Point pointBox) {
 		return boxes[pointBox.y][pointBox.x];
 	}
+	public void deleteBoxGameObject(Point pointBox) {
+		boxes[pointBox.y][pointBox.x] = null;
+	}
 	public void printBoard() {
 		String file = "";
 		for (int x = 0; x < boxes.length; x++) {

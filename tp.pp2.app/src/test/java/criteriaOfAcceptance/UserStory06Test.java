@@ -1,66 +1,6 @@
-//package criteriaOfAcceptance;
-/***
-import static org.junit.Assert.assertTrue;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
-
-import object.Avatar;
-import object.AvatarWithShield;
-import object.Ax;
-import object.Bazooka;
-import object.Rectangle;
-import object.Shotgun;
-import object.Structure;
-import object.Weapon;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import control.AvatarController;
-import tablero.Builder;
-import tablero.Map;
-import enums.Orientation;
-import enums.TypeOfStructure;
-
-/**
- * Se crea un Avatar de vida=100 y orientación derecha. 
- * Además se crea un Avatar With Shield de vida=100 y orientación derecha
- *
- */
-/***
-public class UserStory_06 {
-	Avatar a;
-	AvatarWithShield aws;
-	Ax hacha;
-	Bazooka bazooka;
-	Shotgun escopeta;
-	
-	@Before
-	public void UserStory04(){
-	a= new Avatar(100, Orientation.RIGHT);
-	aws= new AvatarWithShield(100, Orientation.RIGHT);
-	hacha= new Ax(90, 1, true, Orientation.RIGHT);
-	bazooka= new Bazooka(80, 2, true, Orientation.RIGHT);
-	escopeta= new Shotgun(70, 3, true, Orientation.RIGHT);
-	}
-	
-	@Test
-	public void avatarRecibeHachazo(){
-		System.out.println("\nTest1\n");
-		AvatarController ac= new AvatarController(a, null, null);
-		System.out.println("Vida del Avatar antes del hachazo: "+a.getVida());
-
-		a.colissionWeapon(hacha);
-		System.out.println("Vida del Avatar despues del hachazo: "+a.getVida());
-
-		assertTrue(a.getVida()==10);
-	}
-}*/
-
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.assertTrue; 
+import static org.junit.Assert.assertTrue;  
 import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
@@ -70,8 +10,9 @@ import object.Shotgun;
 import org.junit.Before;
 import org.junit.Test;
 
-import control.AvatarController;
-import control.AvatarWithShieldController;
+//import control.AvatarController;
+//import control.AvatarWithShieldController;
+import control.ControlColissionShoot;
 import enums.Orientation;
 
 
@@ -98,23 +39,26 @@ public class UserStory06Test {
 	escopeta= new Shotgun(70, 3, Orientation.RIGHT);
 	}
 	
+
 	@Test
 	public void avatarRecibeHachazo(){
 		System.out.println("\nTest1\n");
-		AvatarController ac= new AvatarController(a, null, null);
+		//AvatarController ac= new AvatarController(a, null, null);
+		ControlColissionShoot acc= new ControlColissionShoot(a, null, null);
 		System.out.println("Vida del Avatar antes del hachazo: "+a.getVida());
-		ac.colissionWeapon(a, hacha);
+		acc.colissionWeapon(a, hacha);
 		System.out.println("Vida del Avatar despues del hachazo: "+a.getVida());
 
 		assertTrue(a.getVida()==10);
 	}
-
+	
 	@Test
 	public void avatarRecibeBazooka(){
 		System.out.println("\nTest2\n");
-		AvatarController ac= new AvatarController(a, null, null);
+		//AvatarController ac= new AvatarController(a, null, null);
+		ControlColissionShoot acc= new ControlColissionShoot(a, null, null);
 		System.out.println("Vida del Avatar antes de la bazooka: "+a.getVida());
-		ac.colissionWeapon(a, bazooka1);
+		acc.colissionWeapon(a, bazooka1);
 		System.out.println("Vida del Avatar despues de la bazooka: "+a.getVida());
 
 		assertTrue(a.getVida()==20);
@@ -123,9 +67,10 @@ public class UserStory06Test {
 	@Test
 	public void avatarRecibeEscopetazo(){
 		System.out.println("\nTest3\n");
-		AvatarController ac= new AvatarController(a, null, null);
+		//AvatarController ac= new AvatarController(a, null, null);
+		ControlColissionShoot acc= new ControlColissionShoot(a, null, null);
 		System.out.println("Vida del Avatar antes del escopetazo: "+a.getVida());
-		ac.colissionWeapon(a, escopeta);
+		acc.colissionWeapon(a, escopeta);
 		System.out.println("Vida del Avatar despues del escopetazo: "+a.getVida());
 
 		assertTrue(a.getVida()==30);
@@ -134,9 +79,10 @@ public class UserStory06Test {
 	@Test
 	public void avatarConEscudoRecibeHachazo(){
 		System.out.println("\nTest4\n");
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, null, null);
+		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, null, null);
+		ControlColissionShoot awscc= new ControlColissionShoot(aws, null, null);
 		System.out.println("Vida del Avatar Con Escudo antes del hachazo: "+aws.getVida());
-		awsc.colissionWeapon(aws, hacha);
+		awscc.colissionWeapon(aws, hacha);
 		System.out.println("Vida del Avatar Con Escudo despues del hachazo: "+aws.getVida());
 
 		assertTrue(aws.getVida()==55);
@@ -145,9 +91,10 @@ public class UserStory06Test {
 	@Test
 	public void avatarConEscudoRecibeBazooka(){
 		System.out.println("\nTest5\n");
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, null, null);
+		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, null, null);
+		ControlColissionShoot awscc= new ControlColissionShoot(aws, null, null);
 		System.out.println("Vida del Avatar Con Escudo antes de la bazooka: "+aws.getVida());
-		awsc.colissionWeapon(aws, bazooka1);
+		awscc.colissionWeapon(aws, bazooka1);
 		System.out.println("Vida del Avatar Con Escudo despues de la bazooka: "+aws.getVida());
 
 		assertTrue(aws.getVida()==60);
@@ -156,9 +103,10 @@ public class UserStory06Test {
 	@Test
 	public void avatarConEscudoRecibeEscopeta(){
 		System.out.println("\nTest6\n");
-		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, null, null);
+		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, null, null);
+		ControlColissionShoot awscc= new ControlColissionShoot(aws, null, null);
 		System.out.println("Vida del Avatar Con Escudo antes del escopetazo: "+aws.getVida());
-		awsc.colissionWeapon(aws, escopeta);
+		awscc.colissionWeapon(aws, escopeta);
 		System.out.println("Vida del Avatar Con Escudo despues del escopetazo: "+aws.getVida());
 
 		assertTrue(aws.getVida()==65);
@@ -167,9 +115,10 @@ public class UserStory06Test {
 	@Test
 	public void avatarDañadoRecibeHachazo(){
 		System.out.println("\nTest7\n");
-		AvatarController ac= new AvatarController(aDañado, null, null);
+		//AvatarController ac= new AvatarController(aDañado, null, null);
+		ControlColissionShoot acc= new ControlColissionShoot(aDañado, null, null);
 		System.out.println("Vida del Avatar Dañado antes del hacha: "+aDañado.getVida());
-		ac.colissionWeapon(aDañado, hacha);
+		acc.colissionWeapon(aDañado, hacha);
 		System.out.println("Vida del Avatar Dañado despues del hacha: "+aDañado.getVida());
 		
 		

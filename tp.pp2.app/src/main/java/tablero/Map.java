@@ -28,6 +28,10 @@ public class Map {
 	public void addBoxGameObject(Point pointBox,Object object) {
 		board.addBoxGameObject(pointBox,object);
 	}
+	
+	public void deleteBoxGameObject(Point pointBox) {
+		board.deleteBox(pointBox);
+	}
 
 	public void deleteBox(Point pointBox) {
 		board.deleteBox(pointBox);
