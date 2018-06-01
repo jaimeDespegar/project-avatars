@@ -29,6 +29,7 @@ public class TestMap {
 	}
 	@Test
 	public void testGetBox() {
+		map.printMap();
 		assertNull(map.getBox(new Point(2,1)));
 		assertNotNull(map.getBox(new Point(1,0)));
 	}
