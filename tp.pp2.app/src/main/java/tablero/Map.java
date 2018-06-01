@@ -25,6 +25,18 @@ public class Map {
 		board.deleteBox(pointBox);
 	}
 	
+	public Box getBoxGameObject(Point pointBox) {
+		return board.getBox(pointBox);
+	}
+	
+	public void addBoxGameObject(Point pointBox,Object object) {
+		board.addBox(pointBox,object);
+	}
+
+	public void deleteBoxGameObject(Point pointBox) {
+		board.deleteBox(pointBox);
+	}
+	
 	public void printMap() {
 		this.board.printBoard();
 	}

@@ -32,6 +32,16 @@ public class Board {
 	public void deleteBox(Point pointBox) {
 		boxes[pointBox.y][pointBox.x] = null;
 	}
+	public void addBoxGameObject(Point pointBox, Object object) {
+		boxes[pointBox.x][pointBox.y] = new Box((ObjectGraphic) object);
+	}
+	public Box getBoxGameObject(Point pointBox) {
+		return boxes[pointBox.x][pointBox.y];
+	}
+	public void deleteBoxGameObject(Point pointBox) {
+		boxes[pointBox.x][pointBox.y] = null;
+	}
+	
 	public void printBoard() {
 		String file = "";
 		for (int x = 0; x < boxes.length; x++) {
