@@ -17,7 +17,7 @@ public class AddStructure {
 				positionsOfRectangle.add(new Point(y, x));
 			}
 		}
-		if (validatePositions(board, positionsOfRectangle)) {
+		if (validatePositions(board, positionsOfRectangle) && !rectangle.getStructure().equals(null)) {
 			addStructures(board, positionsOfRectangle, rectangle.getStructure());
 		} else {
 			throw new RuntimeException("No se puede añadir las estructuras, uno o mas casilleros estan ocupados");
