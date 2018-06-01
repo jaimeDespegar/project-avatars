@@ -12,7 +12,7 @@ public class ControlFreePosition extends GameObjectController {
 		super(avatar, map, arma);
 	}
 	//ASIGNAR POSICION LIBRE
-		@Override
+		
 		public Point asignarPrimerPosicionLibre(Map map){
 			Point p= null;
 			for (int x = 0; x < map.getBoard().getBoxes().length; x++) {
@@ -25,7 +25,7 @@ public class ControlFreePosition extends GameObjectController {
 			}
 			return p;
 		}
-		@Override
+		
 		public Point asignarUltimaPosicionLibre(Map map){
 			Point p= null;
 			for (int x = map.getBoard().getBoxes().length -1; x >= 0 ; x--) {
