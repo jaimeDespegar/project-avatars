@@ -101,12 +101,12 @@ public class UserStory01Test {
 	}
 
 	/** Si creo un objeto en la posición (0,1), deberá poder, ya que estaba vacío. */
-//	@Test
-//	public void testCreateObject() {
-//		assertNull(map.getBoard().getBoxes()[0][1]);
-//		map.getBoard().addBox(new Point (0,1), new ObjectGraphic ());
-//		assertNotNull(map.getBoard().getBoxes()[0][1].getObjectGraphic());
-//	}
+	@Test
+	public void testCreateObject() {
+		assertNull(map.getBoard().getBoxes()[0][1]);
+		map.getBoard().addBox(new Point (0,1), new ObjectGraphic ());
+		assertNotNull(map.getBoard().getBoxes()[0][1].getObjectGraphic());
+	}
 
 	/**Si Se intenta crear otro Object en la posición (1,1), no se crea, porque la
 	 * posición (1,1) ya está ocupada. */
