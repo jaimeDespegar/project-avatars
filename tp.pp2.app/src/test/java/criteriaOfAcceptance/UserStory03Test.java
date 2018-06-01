@@ -49,13 +49,13 @@ public class UserStory03Test {
 	}
 	
 	/**Si creo una línea horizontal (1,1) al (2,1), está dentro del rango, es válido.*/
-//	@Test
-//	public void testAddLineHorizontal() {
-//		Line line = new Line(UtilCreateListByLine.createList(new Point(1,1), new Point(2,1)), new Structure(TypeOfStructure.ACERO));
-//		AddStructure.addStructureByLine(map.getBoard(), line);
-//		assertNotNull(map.getBoard().getBoxes()[1][1].getObjectGraphic());
-//		assertNotNull(map.getBoard().getBoxes()[2][1].getObjectGraphic());
-//	}
+	@Test
+	public void testAddLineHorizontal() {
+		Line line = new Line(UtilCreateListByLine.createList(new Point(1,1), new Point(2,1)), new Structure(TypeOfStructure.ACERO));
+		AddStructure.addStructureByLine(map.getBoard(), line);
+		assertNotNull(map.getBoard().getBoxes()[1][1].getObjectGraphic());
+		assertNotNull(map.getBoard().getBoxes()[1][2].getObjectGraphic());
+	}
 	
 	/**Si creo una línea vertical (1,0) al (1,7), se va de rango, no es válido.*/
 	@Test(expected=IllegalArgumentException.class)
@@ -65,14 +65,15 @@ public class UserStory03Test {
 	}
 	
 	/**Si creo una línea vertical (0,0) al (0,2), está dentro del rango, es válido.*/
-//	@Test
-//	public void testAddLineVertical() {
-//		Line line = new Line(UtilCreateListByLine.createList(new Point(0,0), new Point(0,2)), new Structure(TypeOfStructure.ACERO));
-//		AddStructure.addStructureByLine(map.getBoard(), line);
-//		assertNotNull(map.getBoard().getBoxes()[0][0].getObjectGraphic());
-//		assertNotNull(map.getBoard().getBoxes()[0][1].getObjectGraphic());
-//		assertNotNull(map.getBoard().getBoxes()[0][2].getObjectGraphic());
-//	}
+	@Test
+	public void testAddLineVertical() {
+		Line line = new Line(UtilCreateListByLine.createList(new Point(0,0), new Point(0,2)), new Structure(TypeOfStructure.ACERO));
+		AddStructure.addStructureByLine(map.getBoard(), line);
+		map.printMap();
+		assertNotNull(map.getBoard().getBoxes()[0][0].getObjectGraphic());
+		assertNotNull(map.getBoard().getBoxes()[1][0].getObjectGraphic());
+		assertNotNull(map.getBoard().getBoxes()[2][0].getObjectGraphic());
+	}
 	
 	/**Si creo una línea diagonal (4,4) al (7,7), se va de rango, no es válido.*/
 	@Test(expected=IllegalArgumentException.class)
@@ -121,10 +122,26 @@ public class UserStory03Test {
 	}
 	
 	/**Si se  ingresan los puntos {(0,0), (2,5)}, no se puede debido a que no forman una línea recta diagonal.*/
-	@Test
-	public void test() {
-		
+	@Test(expected=RuntimeException.class)
+	public void testInvalidLineDiagonal() {
+		AddStructuresByLine();
+		Line line = new Line(UtilCreateListByLine.createList(new Point(0,0), new Point(2,5)), new Structure(TypeOfStructure.ACERO));
+		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
+	
 	/**Si se ingresan los puntos {(0,0), (3,5)}, no se puede debido a que no forman una línea recta horizontal.*/
+	@Test(expected=RuntimeException.class)
+	public void testInvalidLineHorizontal() {
+		AddStructuresByLine();
+		Line line = new Line(UtilCreateListByLine.createList(new Point(0,0), new Point(3,5)), new Structure(TypeOfStructure.ACERO));
+		AddStructure.addStructureByLine(map.getBoard(), line);
+	}
+	
 	/**Si se ingresan los puntos {(0,0), (4,5)}, no se puede debido a que no forman una línea recta vertical.*/
+	@Test(expected=RuntimeException.class)
+	public void testInvalidLineVertical() {
+		AddStructuresByLine();
+		Line line = new Line(UtilCreateListByLine.createList(new Point(0,0), new Point(4,5)), new Structure(TypeOfStructure.ACERO));
+		AddStructure.addStructureByLine(map.getBoard(), line);
+	}
 }
