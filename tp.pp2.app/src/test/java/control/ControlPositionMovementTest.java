@@ -36,7 +36,7 @@ public class ControlPositionMovementTest {
 	
 	
 	@Test
-	public void avanzarConOrientaciónDerecha(){
+	public void avanzarConOrientacionDerecha(){
 		System.out.println("\nTest1\n");
 		a= new Avatar(100, Orientation.RIGHT);
 		
@@ -58,7 +58,7 @@ public class ControlPositionMovementTest {
 	}
 	
 	@Test
-	public void avanzarConOrientaciónAbajo(){
+	public void avanzarConOrientacionAbajo(){
 		System.out.println("\nTest2\n");
 		
 		a= new Avatar(100, Orientation.DOWN);
@@ -80,7 +80,7 @@ public class ControlPositionMovementTest {
 	}
 	
 	@Test
-	public void avanzarConOrientaciónIzquierda(){
+	public void avanzarConOrientacionIzquierda(){
 		System.out.println("\nTest3\n");
 		
 		a= new Avatar(100, Orientation.LEFT);
@@ -101,7 +101,7 @@ public class ControlPositionMovementTest {
 	}
 	
 	@Test
-	public void avanzarConOrientaciónArriba(){
+	public void avanzarConOrientacionArriba(){
 		System.out.println("\nTest4\n");
 		
 		a= new Avatar(100, Orientation.UP);
@@ -124,7 +124,7 @@ public class ControlPositionMovementTest {
 	//RETROCEDER
 	
 	@Test
-	public void retrocederConOrientaciónDerecha(){
+	public void retrocederConOrientacionDerecha(){
 		System.out.println("\nTest5\n");
 		a= new Avatar(100, Orientation.RIGHT);
 		
@@ -146,7 +146,7 @@ public class ControlPositionMovementTest {
 	
 	}
 	@Test
-	public void retrocederConOrientaciónAbajo(){
+	public void retrocederConOrientacionAbajo(){
 		System.out.println("\nTest6\n");
 		a= new Avatar(100, Orientation.DOWN);
 		
@@ -169,7 +169,7 @@ public class ControlPositionMovementTest {
 	}
 	
 	@Test
-	public void retrocederConOrientaciónIzquierda(){
+	public void retrocederConOrientacionIzquierda(){
 		System.out.println("\nTest6\n");
 		a= new Avatar(100, Orientation.LEFT);
 		
@@ -192,7 +192,7 @@ public class ControlPositionMovementTest {
 	}
 	
 	@Test
-	public void retrocederConOrientaciónArriba(){
+	public void retrocederConOrientacionArriba(){
 		System.out.println("\nTest6\n");
 		a= new Avatar(100, Orientation.UP);
 		

@@ -25,9 +25,9 @@ import tablero.Map;
 
 /**
  * 
- *  Se crea un mapa de tamaño 3x3, y se crea un rectángulo ((1,1), (2,2), acero). 
- *  Avatar en posición (0,0) y orientación hacia derecha. 
- *  El Avatar con escudo en (0,2) con orientación hacia arriba.
+ *  Se crea un mapa de tamaï¿½o 3x3, y se crea un rectï¿½ngulo ((1,1), (2,2), acero). 
+ *  Avatar en posiciï¿½n (0,0) y orientaciï¿½n hacia derecha. 
+ *  El Avatar con escudo en (0,2) con orientaciï¿½n hacia arriba.
  *
  */
 
@@ -55,10 +55,10 @@ public class UserStory05Test {
 	map.getBoard().addBoxGameObject(awsPoint, aws);	
 	}
 	
-	//Si el Avatar está con orientación a la derecha e intenta avanzar un casillero, 
-	//entonces el avatar deberá ocupar la posición (1,0).wsadtyuwsadtyu
+	//Si el Avatar estï¿½ con orientaciï¿½n a la derecha e intenta avanzar un casillero, 
+	//entonces el avatar deberï¿½ ocupar la posiciï¿½n (1,0).wsadtyuwsadtyu
 	@Test
-	public void avanzarDerechaAvatarConOrientaciónDerecha(){
+	public void avanzarDerechaAvatarConOrientacionDerecha(){
 		System.out.println("\nTest1\n");
 		//AvatarController ac= new AvatarController(a, map, null);
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
@@ -70,8 +70,8 @@ public class UserStory05Test {
 		assertTrue(actual.equals(pFinalEstimado));
 	}
 	
-	//Si el Avatar está con orientación a la izquierda e intenta avanzar un casillero, entonces 
-	//el avatar deberá seguir ocupando la posición (0,0).
+	//Si el Avatar estï¿½ con orientaciï¿½n a la izquierda e intenta avanzar un casillero, entonces 
+	//el avatar deberï¿½ seguir ocupando la posiciï¿½n (0,0).
 	@Test
 	public void retrocederIzquierdaAvatar(){
 		System.out.println("\nTest2\n");
@@ -85,8 +85,8 @@ public class UserStory05Test {
 		assertTrue(actual.equals(pFinalEstimado));
 	}
 	
-	//Si el Avatar intenta girar a la derecha, entonces el Avatar tendrá 
-	//orientación hacia abajo.
+	//Si el Avatar intenta girar a la derecha, entonces el Avatar tendrï¿½ 
+	//orientaciï¿½n hacia abajo.
 	@Test
 	public void girarAvatarDerecha(){
 		System.out.println("\nTest3\n");
@@ -99,8 +99,8 @@ public class UserStory05Test {
 		assertTrue(a.getOrientation().equals(Orientation.DOWN));
 	}
 	
-	//Si el Avatar con escudo está con orientación a la derecha e intenta 
-	//avanzar un casillero, entonces el Avatar con escudo deberá seguir ocupando la posición (0,2).
+	//Si el Avatar con escudo estï¿½ con orientaciï¿½n a la derecha e intenta 
+	//avanzar un casillero, entonces el Avatar con escudo deberï¿½ seguir ocupando la posiciï¿½n (0,2).
 	@Test
 	public void avanzarDerechaAvatarConEscudo(){
 		System.out.println("\nTest4\n");
@@ -116,7 +116,7 @@ public class UserStory05Test {
 	}
 
 	//Si el Avatar con escudo intenta retroceder un casillero, entonces el avatar con escudo 
-	//deberá seguir ocupando la posición (0,2).
+	//deberï¿½ seguir ocupando la posiciï¿½n (0,2).
 	@Test
 	public void retrocederIzquierdaAvatarConEscudo(){
 		System.out.println("\nTest5\n");

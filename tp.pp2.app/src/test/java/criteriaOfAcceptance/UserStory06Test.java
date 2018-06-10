@@ -1,11 +1,6 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.assertTrue;  
-import object.Avatar;
-import object.AvatarWithShield;
-import object.Ax;
-import object.Bazooka;
-import object.Shotgun;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,16 +9,21 @@ import org.junit.Test;
 //import control.AvatarWithShieldController;
 import control.ControlColissionShoot;
 import enums.Orientation;
+import object.Avatar;
+import object.AvatarWithShield;
+import object.Ax;
+import object.Bazooka;
+import object.Shotgun;
 
 
 /**
- * Se crea un Avatar de vida=100 y orientación derecha. 
- * Además se crea un Avatar With Shield de vida=100 y orientación derecha
+ * Se crea un Avatar de vida=100 y orientaciï¿½n derecha. 
+ * Ademï¿½s se crea un Avatar With Shield de vida=100 y orientaciï¿½n derecha
  *
  */
 public class UserStory06Test {
 	Avatar a;
-	Avatar aDañado;
+	Avatar aDaniado;
 	AvatarWithShield aws;
 	Ax hacha;
 	Bazooka bazooka1;
@@ -32,7 +32,7 @@ public class UserStory06Test {
 	@Before
 	public void UserStory04(){
 	a= new Avatar(100, Orientation.RIGHT);
-	aDañado= new Avatar(40, Orientation.RIGHT);
+	aDaniado= new Avatar(40, Orientation.RIGHT);
 	aws= new AvatarWithShield(100, Orientation.RIGHT);
 	hacha= new Ax(90, 1, Orientation.RIGHT);
 	bazooka1= new Bazooka(80, 2, Orientation.RIGHT);
@@ -113,16 +113,16 @@ public class UserStory06Test {
 	}
 	
 	@Test
-	public void avatarDañadoRecibeHachazo(){
+	public void avatarDaniadoRecibeHachazo(){
 		System.out.println("\nTest7\n");
-		//AvatarController ac= new AvatarController(aDañado, null, null);
-		ControlColissionShoot acc= new ControlColissionShoot(aDañado, null, null);
-		System.out.println("Vida del Avatar Dañado antes del hacha: "+aDañado.getVida());
-		acc.colissionWeapon(aDañado, hacha);
-		System.out.println("Vida del Avatar Dañado despues del hacha: "+aDañado.getVida());
+		//AvatarController ac= new AvatarController(aDaï¿½ado, null, null);
+		ControlColissionShoot acc= new ControlColissionShoot(aDaniado, null, null);
+		System.out.println("Vida del Avatar Daï¿½ado antes del hacha: "+aDaniado.getVida());
+		acc.colissionWeapon(aDaniado, hacha);
+		System.out.println("Vida del Avatar Daï¿½ado despues del hacha: "+aDaniado.getVida());
 		
 		
-		assertTrue(aDañado.getVida()<0);
+		assertTrue(aDaniado.getVida()<0);
 	}
 	
 }

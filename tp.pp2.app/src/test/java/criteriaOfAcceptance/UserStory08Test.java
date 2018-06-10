@@ -1,33 +1,27 @@
 package criteriaOfAcceptance;
 
 import static org.junit.Assert.*;
-
 import java.awt.Point;
-
+import org.junit.Before;
+import org.junit.Test;
+import control.ControlColissionShoot;
+import enums.Orientation;
+import enums.TypeOfStructure;
 import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
 import object.Bazooka;
+import object.Rectangle;
 import object.Shotgun;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import control.AvatarController;
-import control.AvatarWithShieldController;
-import control.ControlColissionShoot;
+import object.Structure;
 import tablero.Builder;
 import tablero.Map;
-import object.Rectangle;
-import object.Structure;
-import enums.Orientation;
-import enums.TypeOfStructure;
 
 /**
  * 
- *Se crea un mapa de tamaño 4x4, y se crea un rectángulo ((1,2), (2,2), acero). 
- *Además se crea un Avatar en la posición (0,0) con orientación hacia la derecha, vida=100 y 
- *un Avatar con escudo en la posición (3,0) con orientación hacia la izquierda, vida = 100.
+ *Se crea un mapa de tamaï¿½o 4x4, y se crea un rectï¿½ngulo ((1,2), (2,2), acero). 
+ *Ademï¿½s se crea un Avatar en la posiciï¿½n (0,0) con orientaciï¿½n hacia la derecha, vida=100 y 
+ *un Avatar con escudo en la posiciï¿½n (3,0) con orientaciï¿½n hacia la izquierda, vida = 100.
  *
  */
 public class UserStory08Test {
