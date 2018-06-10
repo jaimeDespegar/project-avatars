@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 
 import object.Avatar;
 import object.AvatarWithShield;
@@ -19,7 +20,7 @@ import tablero.Builder;
 import tablero.Map;
 import classProperties.KeyAvatarWithShieldProperties;
 
-import com.sun.glass.events.KeyEvent;
+import com.sun.*;
 
 import enums.Orientation;
 import enums.TypeOfStructure;
@@ -28,7 +29,7 @@ public class AvatarWithShieldControllerTest {
 	Map map;
 	Rectangle rectangle;
 	Avatar a;
-	Avatar aDañado;
+	Avatar aDaniado;
 	AvatarWithShield aws;
 	Point aPoint;
 	Point awsPoint;
@@ -42,7 +43,7 @@ public class AvatarWithShieldControllerTest {
 		rectangle = new Rectangle(new Point(1, 1), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
 		map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle).build();
 		a= new Avatar(100, Orientation.RIGHT);
-		aDañado= new Avatar(40, Orientation.RIGHT);
+		aDaniado= new Avatar(40, Orientation.RIGHT);
 		aws= new AvatarWithShield(100, Orientation.RIGHT);
 		aPoint= new Point(0,0);
 		awsPoint= new Point(0,2); 
