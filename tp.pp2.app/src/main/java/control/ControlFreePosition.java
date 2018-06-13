@@ -11,31 +11,34 @@ public class ControlFreePosition extends GameObjectController {
 	public ControlFreePosition(GameObject avatar, Map map, Weapon arma) {
 		super(avatar, map, arma);
 	}
+		
 	//ASIGNAR POSICION LIBRE
 		
-		public Point asignarPrimerPosicionLibre(Map map){
-			Point p= null;
-			for (int x = 0; x < map.getBoard().getBoxes().length; x++) {
-				for (int y = 0; y < map.getBoard().getBoxes()[0].length; y++) {
-					if(map.getBoard().getBoxes()[x][y] == null) {
-						p= new Point(x,y);
-						return p;
-					}
-				}	
-			}
-			return p;
-		}
+	public Point asignarPrimerPosicionLibre(Map map) {
+		OperatorScroll operatorFirst = new OperatorScrollFirstValue(map.getRowsSize(), map.getColumnsSize());
+		return scrollMap(map, operatorFirst);
+	}
 		
-		public Point asignarUltimaPosicionLibre(Map map){
-			Point p= null;
-			for (int x = map.getBoard().getBoxes().length -1; x >= 0 ; x--) {
-				for (int y = map.getBoard().getBoxes()[0].length -1; y >= 0 ; y--) {
-					if(map.getBoard().getBoxes()[x][y] == null) {
-						p= new Point(x,y);
-						return p;
-					}
-				}	
+	public Point asignarUltimaPosicionLibre(Map map) {
+		OperatorScroll operatorLast = new OperatorScrollLastValue(map.getRowsSize(), map.getColumnsSize(), 0, 0);
+		return scrollMap(map, operatorLast);
+	}
+	
+	
+	public Point scrollMap(Map map, OperatorScroll os) {
+		Point box = null;
+		for (int x = os.getFirstInit(); os.isFinish(os.getInitSize(), x); x = os.getOperation(x)) 
+		{
+			for (int y = os.getSecondInit(); os.isFinish(os.getSecondSize(), y); y = os.getOperation(y)) 
+			{
+				box = new Point(x,y);
+				if (!map.isOcupatePosition(box) ) 
+				{
+					return box;
+				}
 			}
-			return p;
 		}
+		return box;
+	}
+	
 }

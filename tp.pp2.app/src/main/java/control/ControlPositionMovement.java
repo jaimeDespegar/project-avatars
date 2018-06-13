@@ -41,7 +41,7 @@ public class ControlPositionMovement extends GameObjectController {
 		
 	}
 	
-	
+	//hoihoih
 	public void retroceder(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
 			map.addBoxGameObject(previousPointUp, avatar);

@@ -17,7 +17,7 @@ public class Board {
 	
 	public boolean isOcupatePosition(Point box) {
 		if((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {
-	        throw new IllegalArgumentException("No se puede acceder a la casilla, excede el límite del mapa");
+	        throw new IllegalArgumentException("No se puede acceder a la casilla, excede el limite del mapa");
 		}
 		return boxes[box.x][box.y] != null;
 	}
@@ -37,7 +37,7 @@ public class Board {
 	public boolean isOcupatePositionMAP(Point boxOriginal) {
 		Point box= new Point(boxOriginal.y, boxOriginal.x);
 		if((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {
-			throw new IllegalArgumentException("No se puede acceder a la casilla, excede el límite del mapa");
+			throw new IllegalArgumentException("No se puede acceder a la casilla, excede el limite del mapa");
 		}
 		return boxes[box.x][box.y] != null;
 	}
@@ -73,5 +73,13 @@ public class Board {
 
 	public Point getLimitsBoard() {
 		return new Point(boxes.length, boxes[0].length);
+	}
+	
+	public Integer size() {
+		return getBoxes().length;
+	}
+
+	public Integer getColumnsSize() {
+		return getBoxes()[0].length;
 	}
 }

@@ -6,39 +6,20 @@ import object.Weapon;
 import tablero.Map;
 
 public class ControlTurn extends GameObjectController {
+	
 	public ControlTurn(GameObject avatar, Map map, Weapon arma) {
 		super(avatar, map, arma);
 	}
 	
 	
-	public void girarHaciaDerecha(){
-		if(avatar.getOrientation() == Orientation.UP){
-			avatar.setOrientation(Orientation.RIGHT);
-		}
-		if(avatar.getOrientation() == Orientation.DOWN){
-			avatar.setOrientation(Orientation.LEFT);
-		}
-		if(avatar.getOrientation() == Orientation.LEFT){
-			avatar.setOrientation(Orientation.UP);
-		}
-		if(avatar.getOrientation() == Orientation.RIGHT){
-			avatar.setOrientation(Orientation.DOWN);
-		}
+	public void girarHaciaDerecha() {
+		Orientation orientationRight = avatar.getOrientation().getRight();
+		avatar.setOrientation(orientationRight);
 	}
 	
 	
-	public void girarHaciaIzquierda(){
-		if(avatar.getOrientation() == Orientation.UP){
-			avatar.setOrientation(Orientation.LEFT);
-		}
-		if(avatar.getOrientation() == Orientation.DOWN){
-			avatar.setOrientation(Orientation.RIGHT);
-		}
-		if(avatar.getOrientation() == Orientation.LEFT){
-			avatar.setOrientation(Orientation.DOWN);
-		}
-		if(avatar.getOrientation() == Orientation.RIGHT){
-			avatar.setOrientation(Orientation.UP);
-		}
+	public void girarHaciaIzquierda() {
+		Orientation orientationRight = avatar.getOrientation().getLeft();
+		avatar.setOrientation(orientationRight);		
 	}	
 }

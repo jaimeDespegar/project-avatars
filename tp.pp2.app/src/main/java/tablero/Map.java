@@ -44,4 +44,16 @@ public class Map {
 	public Point getLimitsBoard() {
 		return board.getLimitsBoard();
 	}
+	
+	public Integer getRowsSize() {
+		return this.board.size();
+	}
+
+	public Integer getColumnsSize() {
+		return this.board.getColumnsSize();
+	}
+
+	public boolean isOcupatePosition(Point point) {
+		return this.board.isOcupatePosition(point);
+	}
 }

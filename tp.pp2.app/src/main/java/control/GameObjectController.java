@@ -1,9 +1,6 @@
 package control; 
 
 import java.awt.Point;
-
-import javax.swing.JOptionPane;
-
 import object.GameObject;
 import object.Weapon;
 import tablero.Map;
@@ -29,15 +26,26 @@ public class GameObjectController {
 	}
 	//GETTER & SETTER
 	public GameObject getAvatar() {
-		return avatar;}
+		return avatar;
+	}
+
 	public void setAvatar(GameObject avatar) {
-		this.avatar = avatar;}
+		this.avatar = avatar;
+	}
+
 	public Map getMap() {
-		return map;}
+		return map;
+	}
+
 	public void setMap(Map map) {
-		this.map = map;}
+		this.map = map;
+	}
+
 	public Weapon getArma() {
-		return arma;}
+		return arma;
+	}
+
 	public void setArma(Weapon arma) {
-		this.arma = arma;}
+		this.arma = arma;
+	}
 }
