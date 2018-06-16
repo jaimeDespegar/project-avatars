@@ -6,8 +6,8 @@ public class CreateMap {
 	private Map map;
 	private MapProperties mapProperties;
 	
-	public CreateMap () {
-		mapProperties = new MapProperties();
+	public CreateMap (String route_properties) {
+		mapProperties = new MapProperties(route_properties);
 	}
 	
 	public void createMap() {
@@ -21,5 +21,9 @@ public class CreateMap {
 
 	public Map getMap() {
 		return map;
+	}
+
+	public MapProperties getMapProperties() {
+		return mapProperties;
 	}
 }

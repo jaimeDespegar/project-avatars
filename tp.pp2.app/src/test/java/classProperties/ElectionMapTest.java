@@ -7,10 +7,12 @@ import java.awt.event.KeyEvent;
 
 import org.junit.Test;
 
+import main.Constants;
+
 public class ElectionMapTest {
 	@Test
 	public void electionMap()throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
-		MapProperties k= new MapProperties();
+		MapProperties k= new MapProperties(Constants.ROUTE_PROPERTIES);
 		
 		ElectionMap e= new ElectionMap(k.getElectionMap().getMapSize(), k.getElectionMap().getRectangle1() ,k.getElectionMap().getRectangle2()
 				,k.getElectionMap().getLine1() ,k.getElectionMap().getLine2());

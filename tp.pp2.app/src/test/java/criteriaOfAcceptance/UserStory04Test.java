@@ -22,15 +22,15 @@ import tablero.Map;
 
 /**
  * 
- * Se crea un mapa de dimensión (3,3), con los casilleros (0,0)
+ * Se crea un mapa de dimensiï¿½n (3,3), con los casilleros (0,0)
  *  y (2,2) ocupados con el objeto de estructura de tipo acero.
  *
  */
 public class UserStory04Test {
 	//Si se crea el personaje avatar con vida =100 y 
-	//orientación =derecha, este se debe crear en la
-	//posición (0,1) del mapa, al pedirle al mapa la 
-	//posición (0,1), me debe devolver el avatar.
+	//orientaciï¿½n =derecha, este se debe crear en la
+	//posiciï¿½n (0,1) del mapa, al pedirle al mapa la 
+	//posiciï¿½n (0,1), me debe devolver el avatar.
 	
 	Map map;
 	Avatar a;
@@ -49,7 +49,7 @@ public class UserStory04Test {
 	rectangle1 = new Rectangle(new Point(0, 0), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
 	map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle1).build();
 	rectangle2 = new Rectangle(new Point(2, 2), new Point(1, 1),new Structure(TypeOfStructure.ACERO));
-	map.addBox(new Point(2,2), rectangle2);
+	map.getBoard().addBoxGameObject(new Point(2,2), rectangle2);
 	
 	//System.out.println("Before\n");
 	//map.printMap();
@@ -64,9 +64,9 @@ public class UserStory04Test {
 		//AvatarController ac= new AvatarController(a, map, null);
 		ControlFreePosition free= new ControlFreePosition(a, map, null);
 		//ASIGNAR POSICION LIBRE inicial AL AVATAR
-		Point punt= free.asignarPrimerPosicionLibre(map);
+		Point punt= free.asignarPrimerPosicionLibre();
 		System.out.println("Primer punto libre: ("+punt.x+", "+punt.y+")\n");		
-		map.addBox(punt, a);
+		map.getBoard().addBoxGameObject(punt, a);
 		//map.printMap();	
 		assertTrue(punt.equals(new Point(0,1)));
 	}
@@ -77,9 +77,9 @@ public class UserStory04Test {
 		//AvatarController ac= new AvatarController(aws, map, null);
 		ControlFreePosition free= new ControlFreePosition(a, map, null);
 		//ASIGNAR POSICION LIBRE final AL AVATAR CON ESCUDO
-		Point punt= free.asignarUltimaPosicionLibre(map);
+		Point punt= free.asignarUltimaPosicionLibre();
 		System.out.println("Ultimo punto libre: ("+punt.x+", "+punt.y+")\n");		
-		map.addBox(punt, aws);
+		map.getBoard().addBoxGameObject(punt, aws);
 		//map.printMap();	
 		assertTrue(punt.equals(new Point(2,1)));
 	}

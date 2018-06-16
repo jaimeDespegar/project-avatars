@@ -5,10 +5,14 @@ import static org.junit.Assert.assertTrue;
 import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
+<<<<<<< HEAD
+
+=======
 import org.junit.Test;
 import classProperties.KeyAvatarWithShieldProperties;
 import enums.Orientation;
 import enums.TypeOfStructure;
+>>>>>>> master
 import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
@@ -16,13 +20,17 @@ import object.Bazooka;
 import object.Rectangle;
 import object.Shotgun;
 import object.Structure;
-import org.junit.Test;
 import tablero.Builder;
 import tablero.Map;
+<<<<<<< HEAD
 import classProperties.KeyAvatarWithShieldProperties;
+
 import com.sun.*;
+
 import enums.Orientation;
 import enums.TypeOfStructure;
+=======
+>>>>>>> master
 
 public class AvatarWithShieldControllerTest {
 	Map map;

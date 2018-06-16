@@ -16,13 +16,13 @@ public class KeyAvatarProperties {
 	private Properties properties;
 	private ElectionKeyAvatar electionKeyAvatar;
 
-	public KeyAvatarProperties() throws AWTException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public KeyAvatarProperties() throws AWTException, NoSuchFieldException, IllegalAccessException {
 		this.properties = new Properties();
 		loadProperties();
 		loadDataProperties();
 	}
 
-	private void loadDataProperties() throws AWTException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	private void loadDataProperties() throws AWTException, NoSuchFieldException, IllegalAccessException {
 		Robot bot = new Robot();
 		
 		String keyUp= properties.getProperty("up");
@@ -54,7 +54,7 @@ public class KeyAvatarProperties {
 	
 	
 	//conviert una letra en un KeyEvent
-	public static int writeKeyboard(Robot bot, String st) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException { 
+	public static int writeKeyboard(Robot bot, String st) throws NoSuchFieldException, IllegalAccessException { 
 		String upperCase = st.toUpperCase();
 		int keyEvent = 0;
 		for(int i = 0; i < upperCase.length(); i++) { 

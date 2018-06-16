@@ -1,5 +1,6 @@
 package criteriaOfAcceptance;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
 
@@ -40,11 +41,11 @@ public class UserStory02Test {
 		map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle).build();
 	}
 	/**Si se logra crear el rectángulo, las posiciones (0,1) y (0,2)  deberán quedar ocupadas*/
-//	@Test
-//	public void testCheckPositions() {
-//		assertNull(map.getBoard().getBoxes()[0][1]);
-//		assertNull(map.getBoard().getBoxes()[0][2]);
-//	}
+	@Test
+	public void testCheckPositions() {
+		assertNotNull(map.getBoard().getBoxes()[0][1]);
+		assertNotNull(map.getBoard().getBoxes()[0][2]);
+	}
 	
 	/**Si se crea un rectángulo con posición (0,1) y tamaño cero (0,1) , lanza una excepción por dato inválido.*/
 	@Test(expected=AssertionError.class)
@@ -87,9 +88,9 @@ public class UserStory02Test {
 	
 	/**Si se quiere crear un rectángulo con posición (0,1) , tamaño (2,2) y tipo “Nosoyvalido” , debe lanzar 
 	 * una excepción por tipo inválido.*/
-//	@Test(expected=RuntimeException.class)
-//	public void testInvalidStructure() {
-//		Rectangle rectangle2 = new Rectangle(new Point(0, 1), new Point(2, 2),null);
-//		AddStructure.addStructureByRectangle(map.getBoard(), rectangle2);
-//	}
+	@Test(expected=RuntimeException.class)
+	public void testInvalidStructure() {
+		Rectangle rectangle2 = new Rectangle(new Point(2, 2), new Point(1, 1),null);
+		AddStructure.addStructureByRectangle(map.getBoard(), rectangle2);
+	}
 }

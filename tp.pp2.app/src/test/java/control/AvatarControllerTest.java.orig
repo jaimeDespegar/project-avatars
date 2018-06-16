@@ -5,10 +5,14 @@ import static org.junit.Assert.assertTrue;
 import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
+<<<<<<< HEAD
+
+=======
 import org.junit.Test;
-import classProperties.KeyAvatarWithShieldProperties;
+import classProperties.KeyAvatarProperties;
 import enums.Orientation;
 import enums.TypeOfStructure;
+>>>>>>> master
 import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
@@ -16,15 +20,15 @@ import object.Bazooka;
 import object.Rectangle;
 import object.Shotgun;
 import object.Structure;
+<<<<<<< HEAD
 import org.junit.Test;
+import classProperties.KeyAvatarProperties;
+=======
+>>>>>>> master
 import tablero.Builder;
 import tablero.Map;
-import classProperties.KeyAvatarWithShieldProperties;
-import com.sun.*;
-import enums.Orientation;
-import enums.TypeOfStructure;
 
-public class AvatarWithShieldControllerTest {
+public class AvatarControllerTest {
 	Map map;
 	Rectangle rectangle;
 	Avatar a;
@@ -49,18 +53,18 @@ public class AvatarWithShieldControllerTest {
 		hacha= new Ax(90, 1, Orientation.RIGHT);
 		bazooka1= new Bazooka(80, 2, Orientation.RIGHT);
 		escopeta= new Shotgun(70, 3, Orientation.RIGHT);
-		AvatarWithShieldController awsc= new AvatarWithShieldController(a, map, hacha);
+		AvatarController ac= new AvatarController(a, map, hacha);
 		
-		awsc.controlAvatar(aPoint, KeyEvent.VK_O);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_L);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_K);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_K);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_J);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_I);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_P);
+		ac.controlAvatar(aPoint, KeyEvent.VK_W);
+		ac.controlAvatar(aPoint, KeyEvent.VK_S);
+		ac.controlAvatar(aPoint, KeyEvent.VK_A);
+		ac.controlAvatar(aPoint, KeyEvent.VK_D);
+		ac.controlAvatar(aPoint, KeyEvent.VK_T);
+		ac.controlAvatar(aPoint, KeyEvent.VK_Y);
+		ac.controlAvatar(aPoint, KeyEvent.VK_U);
 		
-		KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
-		assertTrue(KeyEvent.VK_O == k.getElectionKeyAvatarWithShield().getKeyUp());
+		KeyAvatarProperties k= new KeyAvatarProperties();
+		assertTrue(KeyEvent.VK_W == k.getElectionKeyAvatar().getKeyUp());
 		
 	}
 }

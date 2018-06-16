@@ -5,8 +5,53 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+//import control.AvatarController;
+//import control.AvatarWithShieldController;
 import control.ControlColissionShoot;
 import enums.Orientation;
+<<<<<<< HEAD
+import enums.TypeOfStructure;
+
+/**
+ * Se crea un Avatar de vida=100 y orientaci�n derecha. 
+ * Adem�s se crea un Avatar With Shield de vida=100 y orientaci�n derecha
+ *
+ */
+/***
+public class UserStory_06 {
+	Avatar a;
+	AvatarWithShield aws;
+	Ax hacha;
+	Bazooka bazooka;
+	Shotgun escopeta;
+	
+	@Before
+	public void UserStory04(){
+	a= new Avatar(100, Orientation.RIGHT);
+	aws= new AvatarWithShield(100, Orientation.RIGHT);
+	hacha= new Ax(90, 1, true, Orientation.RIGHT);
+	bazooka= new Bazooka(80, 2, true, Orientation.RIGHT);
+	escopeta= new Shotgun(70, 3, true, Orientation.RIGHT);
+	}
+	
+	@Test
+	public void avatarRecibeHachazo(){
+		System.out.println("\nTest1\n");
+		AvatarController ac= new AvatarController(a, null, null);
+		System.out.println("Vida del Avatar antes del hachazo: "+a.getVida());
+
+		a.colissionWeapon(hacha);
+		System.out.println("Vida del Avatar despues del hachazo: "+a.getVida());
+
+		assertTrue(a.getVida()==10);
+	}
+}*/
+
+package criteriaOfAcceptance;
+
+import static org.junit.Assert.assertTrue; 
+=======
+>>>>>>> master
 import object.Avatar;
 import object.AvatarWithShield;
 import object.Ax;
@@ -113,10 +158,16 @@ public class UserStory06Test {
 	@Test
 	public void avatarDaniadoRecibeHachazo(){
 		System.out.println("\nTest7\n");
+<<<<<<< HEAD
+		AvatarController ac= new AvatarController(aDaniado, null, null);
+		System.out.println("Vida del Avatar Da�ado antes del hacha: "+aDaniado.getVida());
+		ac.colissionWeapon(aDaniado, hacha);
+=======
 		//AvatarController ac= new AvatarController(aDa�ado, null, null);
 		ControlColissionShoot acc= new ControlColissionShoot(aDaniado, null, null);
 		System.out.println("Vida del Avatar Da�ado antes del hacha: "+aDaniado.getVida());
 		acc.colissionWeapon(aDaniado, hacha);
+>>>>>>> master
 		System.out.println("Vida del Avatar Da�ado despues del hacha: "+aDaniado.getVida());
 		
 		

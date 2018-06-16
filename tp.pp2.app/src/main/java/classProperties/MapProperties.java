@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Properties;
 
 import enums.TypeOfStructure;
-import main.Constants;
 import object.Line;
 import object.Rectangle;
 import object.Structure;
@@ -18,20 +17,26 @@ public class MapProperties {
 	private Properties properties;
 	private ElectionMap electionMap;
 
-	public MapProperties() {
+	public MapProperties(String route_properties) {
 		this.properties = new Properties();
-		loadProperties();
+		loadProperties(route_properties);
 		loadDataProperties();
 	}
-
+	
 	private void loadDataProperties() {
 		Point mapSize = loadSizeMap();
-		Rectangle rectangle1 = loadRectangle("rectangle1posX", "rectangle1posY", "rectangle1ancho", "rectangle1alto",
+		Rectangle rectangle1 = null, rectangle2 = null;
+		if(Integer.parseInt(properties.getProperty("cantRectangles"))>0) {
+			rectangle1 = loadRectangle("rectangle1posX", "rectangle1posY", "rectangle1ancho", "rectangle1alto",
 				"rectangle1typeOfStructure");
-		Rectangle rectangle2 = loadRectangle("rectangle2posX", "rectangle2posY", "rectangle2ancho", "rectangle2alto",
+			rectangle2 = loadRectangle("rectangle2posX", "rectangle2posY", "rectangle2ancho", "rectangle2alto",
 				"rectangle2typeOfStructure");
-		Line line1 = loadLine("line1posX1", "line1posY1", "line1posX2", "line1posY2", "line1typeOfStructure");
-		Line line2 = loadLine("line2posX1", "line2posY1", "line2posX2", "line2posY2", "line2typeOfStructure");
+		}
+		Line line1 = null, line2 = null;
+		if(Integer.parseInt(properties.getProperty("cantLines"))>0) {
+			line1 = loadLine("line1posX1", "line1posY1", "line1posX2", "line1posY2", "line1typeOfStructure");
+			line2 = loadLine("line2posX1", "line2posY1", "line2posX2", "line2posY2", "line2typeOfStructure");
+		}
 		this.electionMap = new ElectionMap(mapSize, rectangle1, rectangle2, line1, line2);
 	}
 
@@ -59,16 +64,12 @@ public class MapProperties {
 	}
 
 	private Structure loadStructure(String typeOfStructure) {
-		//Structure structure = null;
-		System.out.println(typeOfStructure);
-		if(typeOfStructure.equals("ACERO"))
-			return new Structure(TypeOfStructure.ACERO);
-		else if(typeOfStructure.equals("AGUA"))
-			return new Structure(TypeOfStructure.AGUA);
-		else if(typeOfStructure.equals("BOSQUE"))
-			return new Structure(TypeOfStructure.BOSQUE);
-		else 
-			return new Structure(TypeOfStructure.LADRILLO);
+		Structure structure = null;
+		structure = (typeOfStructure.equals("ACERO")) ? new Structure(TypeOfStructure.ACERO) : structure;
+		structure = (typeOfStructure.equals("AGUA")) ? new Structure(TypeOfStructure.AGUA) : structure;
+		structure = (typeOfStructure.equals("BOSQUE")) ? new Structure(TypeOfStructure.BOSQUE) : structure;
+		structure = (typeOfStructure.equals("LADRILLO")) ? new Structure(TypeOfStructure.LADRILLO) : structure;
+		return structure;
 	}
 
 	private Point loadSizeMap() {
@@ -76,14 +77,12 @@ public class MapProperties {
 				Integer.parseInt(properties.getProperty("widthMap")));
 	}
 
-	private void loadProperties() {
+	private void loadProperties(String route_properties) {
 		try {
-			this.properties.load(new FileReader(Constants.ROUTE_PROPERTIES));
+			this.properties.load(new FileReader(route_properties));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

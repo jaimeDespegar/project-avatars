@@ -1,5 +1,9 @@
 package main;
 
+import java.awt.Point;
+
+import enums.Orientation;
+import object.Avatar;
 import tablero.Map;
 
 public class GameController {
@@ -10,6 +14,7 @@ public class GameController {
 	}
 
 	public void Initialize() {
+		map.getBoard().addBoxGameObject(new Point(1,0), new Avatar(100, Orientation.RIGHT));
 		map.printMap();
 	}
 

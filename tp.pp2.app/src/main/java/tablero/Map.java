@@ -20,16 +20,20 @@ public class Map {
 	public void addBox(Point pointBox,Object object) {
 		board.addBox(pointBox,object);
 	}
+
+	public void deleteBox(Point pointBox) {
+		board.deleteBox(pointBox);
+	}
 	
 	public Box getBoxGameObject(Point pointBox) {
-		return board.getBoxGameObject(pointBox);
+		return board.getBox(pointBox);
 	}
 	
 	public void addBoxGameObject(Point pointBox,Object object) {
-		board.addBoxGameObject(pointBox,object);
+		board.addBox(pointBox,object);
 	}
 
-	public void deleteBox(Point pointBox) {
+	public void deleteBoxGameObject(Point pointBox) {
 		board.deleteBox(pointBox);
 	}
 	
@@ -39,5 +43,17 @@ public class Map {
 	
 	public Point getLimitsBoard() {
 		return board.getLimitsBoard();
+	}
+	
+	public Integer getRowsSize() {
+		return this.board.size();
+	}
+
+	public Integer getColumnsSize() {
+		return this.board.getColumnsSize();
+	}
+
+	public boolean isOcupatePosition(Point point) {
+		return this.board.isOcupatePosition(point);
 	}
 }

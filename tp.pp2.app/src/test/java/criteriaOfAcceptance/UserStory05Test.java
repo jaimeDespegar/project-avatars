@@ -46,8 +46,8 @@ public class UserStory05Test {
 	aPoint= new Point(0,0);
 	awsPoint= new Point(0,2); 
 	
-	map.addBoxGameObject(aPoint, a);
-	map.addBoxGameObject(awsPoint, aws);	
+	map.getBoard().addBoxGameObject(aPoint, a);
+	map.getBoard().addBoxGameObject(awsPoint, aws);	
 	}
 	
 	//Si el Avatar est� con orientaci�n a la derecha e intenta avanzar un casillero, 
