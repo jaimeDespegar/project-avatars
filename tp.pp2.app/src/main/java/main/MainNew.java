@@ -12,7 +12,7 @@ public class MainNew {
 		gameController.Initialize();
 		
 		ControlFreePosition c = new ControlFreePosition(null, createMap.getMap(), null);
-		System.out.println("PRIMERA " + c.asignarPrimerPosicionLibre(createMap.getMap()));
-		System.out.println("ULTIMA " + c.asignarUltimaPosicionLibre(createMap.getMap()));
+		System.out.println("PRIMERA " + c.asignarPrimerPosicionLibre());
+		System.out.println("ULTIMA " + c.asignarUltimaPosicionLibre());
 	}
 }

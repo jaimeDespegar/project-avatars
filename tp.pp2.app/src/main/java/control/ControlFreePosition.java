@@ -14,12 +14,12 @@ public class ControlFreePosition extends GameObjectController {
 		
 	//ASIGNAR POSICION LIBRE
 		
-	public Point asignarPrimerPosicionLibre(Map map) {
+	public Point asignarPrimerPosicionLibre() {
 		OperatorScroll operatorFirst = new OperatorScrollFirstValue(map.getRowsSize(), map.getColumnsSize());
 		return scrollMap(map, operatorFirst);
 	}
 		
-	public Point asignarUltimaPosicionLibre(Map map) {
+	public Point asignarUltimaPosicionLibre() {
 		OperatorScroll operatorLast = new OperatorScrollLastValue(map.getRowsSize(), map.getColumnsSize(), 0, 0);
 		return scrollMap(map, operatorLast);
 	}
