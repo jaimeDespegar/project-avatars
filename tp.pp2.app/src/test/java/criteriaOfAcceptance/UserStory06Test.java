@@ -24,8 +24,8 @@ import enums.Orientation;
 import enums.TypeOfStructure;
 
 /**
- * Se crea un Avatar de vida=100 y orientación derecha. 
- * Además se crea un Avatar With Shield de vida=100 y orientación derecha
+ * Se crea un Avatar de vida=100 y orientaciï¿½n derecha. 
+ * Ademï¿½s se crea un Avatar With Shield de vida=100 y orientaciï¿½n derecha
  *
  */
 /***
@@ -76,13 +76,13 @@ import enums.Orientation;
 
 
 /**
- * Se crea un Avatar de vida=100 y orientación derecha. 
- * Además se crea un Avatar With Shield de vida=100 y orientación derecha
+ * Se crea un Avatar de vida=100 y orientaciï¿½n derecha. 
+ * Ademï¿½s se crea un Avatar With Shield de vida=100 y orientaciï¿½n derecha
  *
  */
 public class UserStory06Test {
 	Avatar a;
-	Avatar aDañado;
+	Avatar aDaniado;
 	AvatarWithShield aws;
 	Ax hacha;
 	Bazooka bazooka1;
@@ -91,7 +91,7 @@ public class UserStory06Test {
 	@Before
 	public void UserStory04(){
 	a= new Avatar(100, Orientation.RIGHT);
-	aDañado= new Avatar(40, Orientation.RIGHT);
+	aDaniado= new Avatar(40, Orientation.RIGHT);
 	aws= new AvatarWithShield(100, Orientation.RIGHT);
 	hacha= new Ax(90, 1, Orientation.RIGHT);
 	bazooka1= new Bazooka(80, 2, Orientation.RIGHT);
@@ -165,15 +165,15 @@ public class UserStory06Test {
 	}
 	
 	@Test
-	public void avatarDañadoRecibeHachazo(){
+	public void avatarDaniadoRecibeHachazo(){
 		System.out.println("\nTest7\n");
-		AvatarController ac= new AvatarController(aDañado, null, null);
-		System.out.println("Vida del Avatar Dañado antes del hacha: "+aDañado.getVida());
-		ac.colissionWeapon(aDañado, hacha);
-		System.out.println("Vida del Avatar Dañado despues del hacha: "+aDañado.getVida());
+		AvatarController ac= new AvatarController(aDaniado, null, null);
+		System.out.println("Vida del Avatar Daï¿½ado antes del hacha: "+aDaniado.getVida());
+		ac.colissionWeapon(aDaniado, hacha);
+		System.out.println("Vida del Avatar Daï¿½ado despues del hacha: "+aDaniado.getVida());
 		
 		
-		assertTrue(aDañado.getVida()<0);
+		assertTrue(aDaniado.getVida()<0);
 	}
 	
 }
