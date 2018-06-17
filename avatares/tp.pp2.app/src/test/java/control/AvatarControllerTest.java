@@ -47,13 +47,13 @@ public class AvatarControllerTest {
 		escopeta= new Shotgun(70, 3, Orientation.RIGHT);
 		AvatarController ac= new AvatarController(a, map, hacha);
 		
-		ac.controlAvatar(aPoint, KeyEvent.VK_W);
-		ac.controlAvatar(aPoint, KeyEvent.VK_S);
-		ac.controlAvatar(aPoint, KeyEvent.VK_A);
-		ac.controlAvatar(aPoint, KeyEvent.VK_D);
-		ac.controlAvatar(aPoint, KeyEvent.VK_T);
-		ac.controlAvatar(aPoint, KeyEvent.VK_Y);
-		ac.controlAvatar(aPoint, KeyEvent.VK_U);
+		ac.controlAvatar(aPoint, KeyEvent.VK_W,null);
+		ac.controlAvatar(aPoint, KeyEvent.VK_S,null);
+		ac.controlAvatar(aPoint, KeyEvent.VK_A,null);
+		ac.controlAvatar(aPoint, KeyEvent.VK_D,null);
+		ac.controlAvatar(aPoint, KeyEvent.VK_T,null);
+		ac.controlAvatar(aPoint, KeyEvent.VK_Y,null);
+		ac.controlAvatar(aPoint, KeyEvent.VK_U,null);
 		
 		KeyAvatarProperties k= new KeyAvatarProperties();
 		assertTrue(KeyEvent.VK_W == k.getElectionKeyAvatar().getKeyUp());

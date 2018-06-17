@@ -1,6 +1,6 @@
 package control;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertTrue; 
 
 import java.awt.AWTException;
 import java.awt.Point;
@@ -16,13 +16,8 @@ import object.Bazooka;
 import object.Rectangle;
 import object.Shotgun;
 import object.Structure;
-import org.junit.Test;
 import tablero.Builder;
 import tablero.Map;
-import classProperties.KeyAvatarWithShieldProperties;
-import com.sun.*;
-import enums.Orientation;
-import enums.TypeOfStructure;
 
 public class AvatarWithShieldControllerTest {
 	Map map;
@@ -51,13 +46,13 @@ public class AvatarWithShieldControllerTest {
 		escopeta= new Shotgun(70, 3, Orientation.RIGHT);
 		AvatarWithShieldController awsc= new AvatarWithShieldController(a, map, hacha);
 		
-		awsc.controlAvatar(aPoint, KeyEvent.VK_O);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_L);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_K);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_K);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_J);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_I);
-		awsc.controlAvatar(aPoint, KeyEvent.VK_P);
+		awsc.controlAvatar(aPoint, KeyEvent.VK_O,null);
+		awsc.controlAvatar(aPoint, KeyEvent.VK_L,null);
+		awsc.controlAvatar(aPoint, KeyEvent.VK_K,null);
+		awsc.controlAvatar(aPoint, KeyEvent.VK_K,null);
+		awsc.controlAvatar(aPoint, KeyEvent.VK_J,null);
+		awsc.controlAvatar(aPoint, KeyEvent.VK_I,null);
+		awsc.controlAvatar(aPoint, KeyEvent.VK_P,null);
 		
 		KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
 		assertTrue(KeyEvent.VK_O == k.getElectionKeyAvatarWithShield().getKeyUp());

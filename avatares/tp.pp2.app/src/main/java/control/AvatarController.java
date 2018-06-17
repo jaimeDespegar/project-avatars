@@ -19,12 +19,12 @@ public class AvatarController extends GameObjectController{
 		super(avatar, map, arma);
 	}
 	
-	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
+	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow, GameObject enemy) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
 	{
 		KeyAvatarProperties k= new KeyAvatarProperties();
 		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);
 		ControlTurn t= new ControlTurn(avatar, map , arma);
-		
+		ControlColissionShoot d= new ControlColissionShoot(avatar, map, arma);
 		
 		//keyPressedInNow = keyListener.getKeyPressed();
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyUp()){
@@ -43,7 +43,7 @@ public class AvatarController extends GameObjectController{
 			salir();
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyShoot()){
-			//dispararArma();
+			d.disparar(enemy);
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyPower1()){
 			//activarPoder1();

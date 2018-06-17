@@ -141,7 +141,7 @@ public class UserStory05Test {
 		System.out.println("\nTest7\n");
 		AvatarController ac= new AvatarController(a, map, null);
 		
-		ac.controlAvatar(aPoint, KeyEvent.VK_W);
+		ac.controlAvatar(aPoint, KeyEvent.VK_W, null);
 	
 		Point pFinalEstimado= new Point(1,0);
 		Point actual= a.getPosition();
