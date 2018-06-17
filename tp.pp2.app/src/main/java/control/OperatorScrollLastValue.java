@@ -14,23 +14,19 @@ public class OperatorScrollLastValue implements OperatorScroll {
 		this.secondSize = secondSize;
 	}
 	
-	@Override
 	public Integer getFirstInit() {
 		return init;
 	}
 	
-	@Override
 	public Integer getSecondInit() {
 		return secondValue;
 	}
 	
-	@Override
 	public Integer getOperation(Integer value) {
 		value = value - 1;
 		return value;
 	}
 
-	@Override
 	public boolean isFinish(Integer size, Integer value) {
 		return value >= size;
 	}

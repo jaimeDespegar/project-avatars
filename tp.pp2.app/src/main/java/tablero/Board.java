@@ -55,8 +55,8 @@ public class Board {
 	
 	public void printBoard() {
 		String file = "";
-		for (int x = 0; x < boxes.length; x++) {
-			for (int y = 0; y < boxes[0].length; y++) {
+		for (int y = 0; y < boxes[0].length; y++) {
+			for (int x = 0; x < boxes.length; x++) {
 				if(boxes[x][y] != null) {
 					if(boxes[x][y].getObjectGraphic().getClass().equals(Structure.class))
 						file = file + "[" +((Structure) boxes[x][y].getObjectGraphic()).getTypeOfStructure().name() + "]";
