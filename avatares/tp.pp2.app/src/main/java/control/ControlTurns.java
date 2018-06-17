@@ -1,8 +1,7 @@
 package control;
 
-import object.GameObject;
+import object.GameObject; 
 import object.Turns;
-import object.Weapon;
 
 public class ControlTurns {
 	GameObject j1;

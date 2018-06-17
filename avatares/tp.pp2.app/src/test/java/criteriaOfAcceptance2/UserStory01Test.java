@@ -1,6 +1,6 @@
 package criteriaOfAcceptance2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; 
 
 import java.awt.Point;
 
@@ -11,11 +11,11 @@ import object.Bazooka;
 import object.Rectangle;
 import object.Shotgun;
 import object.Structure;
+import object.Turns;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import control.AvatarController;
 import control.ControlColissionShoot;
 import tablero.Builder;
 import tablero.Map;
@@ -33,6 +33,7 @@ public class UserStory01Test {
 	Ax hacha;
 	Bazooka bazooka1;
 	Shotgun escopeta;
+	Turns turno;
 	
 	@Before
 	public void UserStory5(){
@@ -42,7 +43,7 @@ public class UserStory01Test {
 	
 	hacha= new Ax(90, 1, Orientation.RIGHT);
 	bazooka1= new Bazooka(80, 2, Orientation.RIGHT);
-	escopeta= new Shotgun(70, 3, Orientation.RIGHT);
+	escopeta= new Shotgun(70, 3, Orientation.LEFT);
 	
 	aPoint= new Point(1,1);
 	awsPoint= new Point(3,1); 
@@ -57,15 +58,17 @@ public class UserStory01Test {
 	map.getBoard().addBoxGameObject(awsPoint, aws);	
 	
 	map.printMap();
+	
+	turno= new Turns(); //le toca al player1
 	}
 	
 	@Test
 	public void controlTurnsTest(){
 		
+		System.out.println("\nPRIMER DISPARO AVATAR!!");
+		
 		ControlColissionShoot ac= new ControlColissionShoot(a, map, bazooka1);
 		System.out.println("\ncantDisparos0: "+ac.getCantDisparos());
-		
-		System.out.println("\nPRIMER DISPARO!!");
 		System.out.println("arma Activo (antes): "+ ac.isDisparoRealizado());
 		Integer cantShootingRange=0;
 		cantShootingRange= ac.disparar(aws);
@@ -75,11 +78,31 @@ public class UserStory01Test {
 		ac.actualizarDisparoRealizado();
 		System.out.println("arma Activo (despues): "+ ac.isDisparoRealizado());
 		
-		System.out.println("cantDisparos1: "+ac.getCantDisparos());
+		System.out.println("cantDisparosPlayer1: "+ac.getCantDisparos());
 		System.out.println("vida aws: "+aws.getVida());
 		assertEquals(aws.getVida(),60);
+		turno.actualizarTurno(); //le toca al player2
+		//
+		System.out.println("\nPRIMER DISPARO AVATAR WITH SHIELD!!");
 		
-		System.out.println("\nSEGUNDO DISPARO!!");
+		ControlColissionShoot awsc= new ControlColissionShoot(aws, map, escopeta);
+		System.out.println("arma Activo (antes): "+ awsc.isDisparoRealizado());
+		cantShootingRange=0;
+		cantShootingRange= awsc.disparar(a);
+		System.out.println("arma Activo (disparo): "+ awsc.isDisparoRealizado());
+		huboChoque= awsc.isColission(cantShootingRange);
+		System.out.println("huboChoque: "+huboChoque);
+		awsc.actualizarDisparoRealizado();
+		System.out.println("arma Activo (despues): "+ awsc.isDisparoRealizado());
+		
+		System.out.println("cantDisparosPlayer2: "+awsc.getCantDisparos());
+		System.out.println("vida a: "+a.getVida());
+		assertEquals(a.getVida(),30);
+		turno.actualizarTurno(); //le toca al player1
+		//
+		
+		System.out.println("\nSEGUNDO DISPARO AVATAR!!");
+		
 		System.out.println("arma Activo (antes): "+ ac.isDisparoRealizado());
 		cantShootingRange=0;
 		cantShootingRange= ac.disparar(aws);
@@ -89,7 +112,7 @@ public class UserStory01Test {
 		ac.actualizarDisparoRealizado();
 		System.out.println("arma Activo (despues): "+ ac.isDisparoRealizado());
 		
-		System.out.println("cantDisparos2: "+ac.getCantDisparos());
+		System.out.println("cantDisparosPlayer1: "+ac.getCantDisparos());
 		System.out.println("vida aws: "+aws.getVida());
 		assertEquals(aws.getVida(),20);
 	}
