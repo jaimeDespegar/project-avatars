@@ -57,7 +57,7 @@ public class UserStory08Test {
 	map.getBoard().addBoxGameObject(aPoint, a);
 	map.getBoard().addBoxGameObject(awsPoint, aws);	
 	
-	//map.printMap();
+	map.printMap();
 	}
 	
 	

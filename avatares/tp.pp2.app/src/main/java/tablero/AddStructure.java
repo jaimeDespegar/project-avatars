@@ -14,13 +14,14 @@ public class AddStructure {
 		List<Point> positionsOfRectangle = new ArrayList<Point>();
 		for (int x = rectangle.getPosition().x; x < rectangle.getPosition().x + rectangle.getSize().getX(); x++) {
 			for (int y = rectangle.getPosition().y; y < rectangle.getPosition().y + rectangle.getSize().getY(); y++) {
-				positionsOfRectangle.add(new Point(y, x));
+				//positionsOfRectangle.add(new Point(y, x));
+				positionsOfRectangle.add(new Point(x, y));
 			}
 		}
 		if (validatePositions(board, positionsOfRectangle) && !rectangle.getStructure().equals(null)) {
 			addStructures(board, positionsOfRectangle, rectangle.getStructure());
 		} else {
-			throw new RuntimeException("No se puede añadir las estructuras, uno o mas casilleros estan ocupados");
+			throw new RuntimeException("No se puede aï¿½adir las estructuras, uno o mas casilleros estan ocupados");
 		}
 	}
 
@@ -31,7 +32,7 @@ public class AddStructure {
 		if (validatePositions(board, positionsOfLine)) {
 			addStructures(board, positionsOfLine, line.getStructure());
 		} else {
-			throw new RuntimeException("No se puede añadir las estructuras, uno o mas casilleros estan ocupados");
+			throw new RuntimeException("No se puede aï¿½adir las estructuras, uno o mas casilleros estan ocupados");
 		}
 	}
 

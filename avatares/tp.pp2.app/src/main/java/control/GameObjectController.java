@@ -18,6 +18,8 @@ public class GameObjectController {
 	protected Point nextPointRight= null;
 	protected Point previousPointRight= null;
 	protected Point puntoChoque=null;
+	protected Integer cantDisparos=0;
+	protected boolean isDisparoRealizado= false;
 	
 	public GameObjectController(GameObject avatar, Map map, Weapon arma) {
 		this.avatar= avatar;
@@ -28,24 +30,30 @@ public class GameObjectController {
 	public GameObject getAvatar() {
 		return avatar;
 	}
-
 	public void setAvatar(GameObject avatar) {
 		this.avatar = avatar;
 	}
-
 	public Map getMap() {
 		return map;
 	}
-
 	public void setMap(Map map) {
 		this.map = map;
 	}
-
 	public Weapon getArma() {
 		return arma;
 	}
-
 	public void setArma(Weapon arma) {
 		this.arma = arma;
+	}
+	public Integer getCantDisparos() {
+		return cantDisparos;
+	}
+	public boolean isDisparoRealizado() {
+		return isDisparoRealizado;
+	}
+	public void actualizarDisparoRealizado(){
+		if(isDisparoRealizado){
+			isDisparoRealizado=false;
+		}
 	}
 }

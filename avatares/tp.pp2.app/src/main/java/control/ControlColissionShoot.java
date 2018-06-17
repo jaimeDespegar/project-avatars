@@ -45,7 +45,6 @@ public class ControlColissionShoot extends GameObjectController{
 		int finalDamage= w.getDamage() / g.getReduceDamage();
 		w.setActive(false);
 		g.setVida(g.getVida() - finalDamage);
-		
 		//controlLive();
 		controlLiveInConsole();
 	}
@@ -58,6 +57,8 @@ public class ControlColissionShoot extends GameObjectController{
 	}
 	
 	public Integer disparar(GameObject g){
+		cantDisparos= cantDisparos +1;
+		isDisparoRealizado= true;
 		int cantShootingRange=0;
 		WeaponController w= new WeaponController(avatar, map, arma);
 		arma.setOrientation(avatar.getOrientation());
@@ -79,8 +80,8 @@ public class ControlColissionShoot extends GameObjectController{
 	private void controlChoqueConEnemy(Point puntoChoque2, GameObject g) {
 		if(puntoChoque2.equals(g.getPosition())){
 			colissionWeapon(g, arma);
+			System.out.println("controlChoqueConEnemy");
 		}
-		
 	}
 
 
