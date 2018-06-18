@@ -1,10 +1,10 @@
 package object;
 
 public class Turns {
-	Integer turno=0;
+	Integer turno;
 	
 	public Turns(){
-		this.turno=1;
+		turno=0;
 	}
 	
 	public void actualizarTurno(){

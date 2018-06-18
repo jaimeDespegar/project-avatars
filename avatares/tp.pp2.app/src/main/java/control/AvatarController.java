@@ -12,11 +12,14 @@ import tablero.Map;
 
 
 public class AvatarController extends GameObjectController{
-	
+	Integer cantShootingRange=0;
+	ControlColissionShoot d;
+	boolean control= false;
 	
 	public AvatarController(GameObject avatar, Map map, Weapon arma) 
 	{
 		super(avatar, map, arma);
+		d= new ControlColissionShoot(avatar, map, arma);
 	}
 	
 	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow, GameObject enemy) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
@@ -24,7 +27,7 @@ public class AvatarController extends GameObjectController{
 		KeyAvatarProperties k= new KeyAvatarProperties();
 		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);
 		ControlTurn t= new ControlTurn(avatar, map , arma);
-		ControlColissionShoot d= new ControlColissionShoot(avatar, map, arma);
+		
 		
 		//keyPressedInNow = keyListener.getKeyPressed();
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyUp()){
@@ -43,7 +46,8 @@ public class AvatarController extends GameObjectController{
 			salir();
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyShoot()){
-			d.disparar(enemy);
+			control= true;
+			cantShootingRange= d.disparar(enemy);
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyPower1()){
 			//activarPoder1();
@@ -55,4 +59,21 @@ public class AvatarController extends GameObjectController{
 	}
 	private void salir() {
 	}
+	public Integer getCantShootingRange() {
+		return cantShootingRange;
+	}
+	public boolean isColission(){
+		if(control){
+			control= false;
+			return d.isColission(cantShootingRange);
+		}
+		else{
+			return false;
+		}
+	}
+
+	public ControlColissionShoot getD() {
+		return d;
+	}
+	
 }

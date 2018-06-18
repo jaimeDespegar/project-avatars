@@ -2,7 +2,9 @@ package criteriaOfAcceptance2;
 
 import static org.junit.Assert.*; 
 
+import java.awt.AWTException;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 
 import object.Avatar;
 import object.AvatarWithShield;
@@ -16,7 +18,10 @@ import object.Turns;
 import org.junit.Before;
 import org.junit.Test;
 
+import control.AvatarController;
+import control.AvatarWithShieldController;
 import control.ControlColissionShoot;
+import control.ControlTurns;
 import tablero.Builder;
 import tablero.Map;
 import enums.Orientation;
@@ -34,6 +39,9 @@ public class UserStory01Test {
 	Bazooka bazooka1;
 	Shotgun escopeta;
 	Turns turno;
+	ControlColissionShoot ac;
+	ControlColissionShoot awsc;
+	ControlTurns ct;
 	
 	@Before
 	public void UserStory5(){
@@ -57,35 +65,39 @@ public class UserStory01Test {
 	map.getBoard().addBoxGameObject(aPoint, a);
 	map.getBoard().addBoxGameObject(awsPoint, aws);	
 	
-	map.printMap();
+	//map.printMap();
 	
-	turno= new Turns(); //le toca al player1
+
+	ac= new ControlColissionShoot(a, map, bazooka1);
+	awsc= new ControlColissionShoot(aws, map, escopeta);
+	ct= new ControlTurns(ac, awsc);
 	}
 	
 	@Test
 	public void controlTurnsTest(){
+		System.out.println("\nTest1\n");
+		ct.controlDisparo();
 		
-		System.out.println("\nPRIMER DISPARO AVATAR!!");
-		
-		ControlColissionShoot ac= new ControlColissionShoot(a, map, bazooka1);
-		System.out.println("\ncantDisparos0: "+ac.getCantDisparos());
-		System.out.println("arma Activo (antes): "+ ac.isDisparoRealizado());
+//		System.out.println("\nPRIMER DISPARO AVATAR!!");
+//		System.out.println("\ncantDisparos0: "+ac.getCantDisparos());
+//		System.out.println("arma Activo (antes): "+ ac.isDisparoRealizado());
 		Integer cantShootingRange=0;
 		cantShootingRange= ac.disparar(aws);
-		System.out.println("arma Activo (disparo): "+ ac.isDisparoRealizado());
+//		System.out.println("arma Activo (disparo): "+ ac.isDisparoRealizado());
 		boolean huboChoque= ac.isColission(cantShootingRange);
-		System.out.println("huboChoque: "+huboChoque);
+//		System.out.println("huboChoque: "+huboChoque);
 		ac.actualizarDisparoRealizado();
-		System.out.println("arma Activo (despues): "+ ac.isDisparoRealizado());
+//		System.out.println("arma Activo (despues): "+ ac.isDisparoRealizado());
 		
-		System.out.println("cantDisparosPlayer1: "+ac.getCantDisparos());
-		System.out.println("vida aws: "+aws.getVida());
-		assertEquals(aws.getVida(),60);
-		turno.actualizarTurno(); //le toca al player2
+//		System.out.println("cantDisparosPlayer1: "+ac.getCantDisparos());
+//		System.out.println("vida aws: "+aws.getVida());
+		assertEquals(60, aws.getVida());
+		
+		ct.controlDisparo();
 		//
 		System.out.println("\nPRIMER DISPARO AVATAR WITH SHIELD!!");
 		
-		ControlColissionShoot awsc= new ControlColissionShoot(aws, map, escopeta);
+		
 		System.out.println("arma Activo (antes): "+ awsc.isDisparoRealizado());
 		cantShootingRange=0;
 		cantShootingRange= awsc.disparar(a);
@@ -97,9 +109,9 @@ public class UserStory01Test {
 		
 		System.out.println("cantDisparosPlayer2: "+awsc.getCantDisparos());
 		System.out.println("vida a: "+a.getVida());
-		assertEquals(a.getVida(),30);
-		turno.actualizarTurno(); //le toca al player1
-		//
+		assertEquals(30, a.getVida());
+		
+		ct.controlDisparo();
 		
 		System.out.println("\nSEGUNDO DISPARO AVATAR!!");
 		
@@ -114,6 +126,62 @@ public class UserStory01Test {
 		
 		System.out.println("cantDisparosPlayer1: "+ac.getCantDisparos());
 		System.out.println("vida aws: "+aws.getVida());
-		assertEquals(aws.getVida(),20);
+		assertEquals(20, aws.getVida());
+		ct.controlDisparo();
+	}
+	
+	@Test
+	public void controlTurnsKeyTurnTest() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
+		System.out.println("\nTest2\n");
+		AvatarController ac= new AvatarController(a, map, bazooka1);
+		
+		ac.controlAvatar(aPoint, KeyEvent.VK_D, aws);
+	
+		Point pFinalEstimado= new Point(1,1);
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
+		assertEquals(actual,pFinalEstimado);
+		assertEquals(Orientation.DOWN, ac.getAvatar().getOrientation());
+	}
+	
+	@Test
+	public void controlTurnsKeyMovementTest() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
+		System.out.println("\nTest3\n");
+		AvatarController ac= new AvatarController(a, map, bazooka1);
+		
+		ac.controlAvatar(aPoint, KeyEvent.VK_W, aws);
+	
+		Point pFinalEstimado= new Point(2,1);
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
+		assertEquals(pFinalEstimado, actual);
+	}
+	
+	@Test
+	public void controlTurnsKeyShootTest() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
+		System.out.println("\nTest4\n");
+		
+		AvatarController ac= new AvatarController(a, map, bazooka1);
+		AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, escopeta);
+		
+		ControlTurns cShoot= new ControlTurns(ac.getD(), awsc.getD());
+		
+		boolean huboChoque1= ac.isColission();
+		System.out.println("huboChoque ANTES: "+huboChoque1);
+		
+		ac.controlAvatar(aPoint, KeyEvent.VK_T, aws);
+		boolean huboChoque= ac.isColission();
+		System.out.println("huboChoque DESPUES: "+huboChoque);
+		cShoot.controlDisparo();
+		ac.getD().actualizarDisparoRealizado();
+		
+		cShoot.controlDisparo();
+		
+		Point pFinalEstimado= new Point(1,1);
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
+		assertEquals(pFinalEstimado, actual);
+		assertEquals(60, aws.getVida());
+		
 	}
 }
