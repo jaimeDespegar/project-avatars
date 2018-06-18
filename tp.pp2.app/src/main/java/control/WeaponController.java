@@ -67,7 +67,7 @@ public class WeaponController {
 		nextPointUp= new Point(positionAvatar.x, positionAvatar.y -1);
 		//nextPointUp= new Point(positionAvatar.y -1, positionAvatar.x);
 		if (isPositionValid(nextPointUp)){
-			isOcupate= map.getBoard().isOcupatePositionMAP(nextPointUp);
+			isOcupate= map.getBoard().isOcupatePosition(nextPointUp);
 			isFree = !isOcupate;
 		}
 		return isFree;
@@ -78,7 +78,7 @@ public class WeaponController {
 		nextPointDown= new Point(positionAvatar.x, positionAvatar.y +1);
 		//nextPointDown= new Point(positionAvatar.y +1, positionAvatar.x);
 		if (isPositionValid(nextPointDown)){
-			isOcupate= map.getBoard().isOcupatePositionMAP(nextPointDown);
+			isOcupate= map.getBoard().isOcupatePosition(nextPointDown);
 			isFree = !isOcupate;
 		}
 		return isFree;
@@ -89,7 +89,7 @@ public class WeaponController {
 		nextPointLeft= new Point(positionAvatar.x -1, positionAvatar.y);
 		//nextPointLeft= new Point(positionAvatar.y, positionAvatar.x -1);
 		if (isPositionValid(nextPointLeft)){
-			isOcupate= map.getBoard().isOcupatePositionMAP(nextPointLeft);
+			isOcupate= map.getBoard().isOcupatePosition(nextPointLeft);
 			isFree = !isOcupate;
 		}
 		return isFree;
@@ -100,7 +100,7 @@ public class WeaponController {
 		nextPointRight= new Point(positionAvatar.x +1, positionAvatar.y);
 		//nextPointRight= new Point(positionAvatar.y, positionAvatar.x +1);
 		if (isPositionValid(nextPointRight)){
-			isOcupate= map.getBoard().isOcupatePositionMAP(nextPointRight);
+			isOcupate= map.getBoard().isOcupatePosition(nextPointRight);
 			//isOcupate= map.getBoxGameObject(new Point(2,0)).equals(null);
 			isFree = !isOcupate;
 		}	

@@ -1,15 +1,9 @@
 package criteriaOfAcceptance;
 
 import static org.junit.Assert.*; 
-
-import java.awt.AWTException;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import control.AvatarController;
 import control.ControlPositionMovement;
 import control.ControlTurn;
 import enums.Orientation;
@@ -36,25 +30,15 @@ public class UserStory05Test {
 	
 	@Before
 	public void UserStory5(){
-	
 	Rectangle rectangle = new Rectangle(new Point(1, 1), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
 	map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle).build();
 	a= new Avatar(100, Orientation.RIGHT);
 	aws= new AvatarWithShield(100, Orientation.RIGHT);
 	aPoint= new Point(0,0);
 	awsPoint= new Point(0,2); 
-	map.getBoard().addBoxGameObject(aPoint, a);
-	map.getBoard().addBoxGameObject(awsPoint, aws);	
+	map.addBox(aPoint, a);
+	map.addBox(awsPoint, aws);	
 	}
-	
-	
-	/**
-	
-	Si el Avatar con escudo intenta retroceder un casillero, entonces el avatar con escudo deberá seguir ocupando la posición (0,2).
-	Si el Avatar con escudo  girar a la izquierda, entonces el Avatar con escudo tendrá orientación hacia arriba.
-
-	 * */
-	
 	
 	/**Si el Avatar está con orientación a la derecha e intenta avanzar un casillero, entonces el avatar deberá ocupar la posición (1,0).*/
 	@Test
@@ -75,64 +59,24 @@ public class UserStory05Test {
 	/**Si el Avatar intenta girar a la derecha, entonces el Avatar tendrá orientación hacia abajo.*/
 	@Test
 	public void girarAvatarDerecha(){
-		ControlTurn t= new ControlTurn(a, map, null);
+		ControlTurn t = new ControlTurn(a, map, null);
 		t.girarHaciaDerecha();
 		assertTrue(a.getOrientation().equals(Orientation.DOWN));
 	}
 	
-	//Si el Avatar con escudo estï¿½ con orientaciï¿½n a la derecha e intenta 
-	//avanzar un casillero, entonces el Avatar con escudo deberï¿½ seguir ocupando la posiciï¿½n (0,2).
+	/**Si el Avatar con escudo intenta retroceder un casillero, entonces el avatar con escudo deberá seguir ocupando la posición (0,2).*/
 	@Test
 	public void avanzarDerechaAvatarConEscudo(){
-		System.out.println("\nTest4\n");
-		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);  
 		ControlPositionMovement c= new ControlPositionMovement(aws, map, null);   
 		c.avanzar(awsPoint);
-		
-		
-		Point pFinalEstimado= new Point(0,2);
-		Point actual= aws.getPosition();
-		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
-		assertTrue(actual.equals(pFinalEstimado));
+		assertTrue(aws.getPosition().equals(new Point(0,2)));
 	}
 
-	//Si el Avatar con escudo intenta retroceder un casillero, entonces el avatar con escudo 
-	//deberï¿½ seguir ocupando la posiciï¿½n (0,2).
-	@Test
-	public void retrocederIzquierdaAvatarConEscudo(){
-		System.out.println("\nTest5\n");
-		
-		//AvatarWithShieldController awsc= new AvatarWithShieldController(aws, map, null);
-		ControlPositionMovement c= new ControlPositionMovement(aws, map, null);   
-		c.retroceder(awsPoint); 
-		
-		Point pFinalEstimado= new Point(0,2);
-		Point actual= aws.getPosition();
-		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
-		assertTrue(actual.equals(pFinalEstimado));
-	}
-	
+	/**Si el Avatar con escudo  girar a la izquierda, entonces el Avatar con escudo tendrá orientación hacia arriba.*/
 	@Test
 	public void girarAvatarConEscudoIzquierda(){
-		System.out.println("\nTest6\n");
 		ControlTurn t= new ControlTurn(aws, map, null);
-		System.out.println("Antes de girar: "+aws.getOrientation().name());
 		t.girarHaciaIzquierda();;
-		System.out.println("Despues de girar: "+aws.getOrientation().name());
 		assertTrue(aws.getOrientation().equals(Orientation.UP));
 	}
-	
-	@Test
-	public void avanzarDerechaAvatarConTecla_W() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
-		System.out.println("\nTest7\n");
-		AvatarController ac= new AvatarController(a, map, null);
-		
-		ac.controlAvatar(aPoint, KeyEvent.VK_W);
-	
-		Point pFinalEstimado= new Point(1,0);
-		Point actual= a.getPosition();
-		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
-		assertTrue(actual.equals(pFinalEstimado));
-	}
-	
-}//wsadtyu
+}

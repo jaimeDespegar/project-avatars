@@ -15,22 +15,22 @@ public class ControlPositionMovement extends GameObjectController {
 	
 	public void avanzar(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreeNextPositionUp(positionAvatar))){ //avanzar arriba
-			map.addBoxGameObject(nextPointUp, avatar);
+			map.addBox(nextPointUp, avatar);
 			avatar.setPosition(nextPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreeNextPositionDown(positionAvatar))){ //avanzar abajo
-			map.addBoxGameObject(nextPointDown, avatar);
+			map.addBox(nextPointDown, avatar);
 			avatar.setPosition(nextPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreeNextPositionLeft(positionAvatar))){ //avanzar izquierda
-			map.addBoxGameObject(nextPointLeft, avatar);
+			map.addBox(nextPointLeft, avatar);
 			avatar.setPosition(nextPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreeNextPositionRight(positionAvatar))){ //avanzar derecha
-			map.addBoxGameObject(nextPointRight, avatar);
+			map.addBox(nextPointRight, avatar);
 			avatar.setPosition(nextPointRight);
 			map.deleteBox(positionAvatar);
 		}
@@ -44,22 +44,22 @@ public class ControlPositionMovement extends GameObjectController {
 	//hoihoih
 	public void retroceder(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
-			map.addBoxGameObject(previousPointUp, avatar);
+			map.addBox(previousPointUp, avatar);
 			avatar.setPosition(previousPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
-			map.addBoxGameObject(previousPointDown, avatar);
+			map.addBox(previousPointDown, avatar);
 			avatar.setPosition(previousPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
-			map.addBoxGameObject(previousPointLeft, avatar);
+			map.addBox(previousPointLeft, avatar);
 			avatar.setPosition(previousPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreePreviousPositionRight(positionAvatar))){ //avanzar derecha
-			map.addBoxGameObject(previousPointRight, avatar);
+			map.addBox(previousPointRight, avatar);
 			map.deleteBox(positionAvatar);
 			avatar.setPosition(previousPointRight);
 		}
@@ -78,7 +78,7 @@ public class ControlPositionMovement extends GameObjectController {
 			nextPointUp= new Point(positionAvatar.x, positionAvatar.y -1);
 			//nextPointUp= new Point(positionAvatar.y -1, positionAvatar.x);
 			if (isPositionValid(nextPointUp)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointUp);
+				isOcupate= map.getBoard().isOcupatePosition(nextPointUp);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -89,7 +89,7 @@ public class ControlPositionMovement extends GameObjectController {
 			previousPointUp= new Point(positionAvatar.x, positionAvatar.y +1);
 			//previousPointUp= new Point(positionAvatar.y +1, positionAvatar.x);
 			if (isPositionValid(previousPointUp)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointUp);
+				isOcupate= map.getBoard().isOcupatePosition(previousPointUp);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -101,7 +101,7 @@ public class ControlPositionMovement extends GameObjectController {
 			nextPointDown= new Point(positionAvatar.x, positionAvatar.y +1);
 			//nextPointDown= new Point(positionAvatar.y +1, positionAvatar.x);
 			if (isPositionValid(nextPointDown)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointDown);
+				isOcupate= map.getBoard().isOcupatePosition(nextPointDown);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -112,7 +112,7 @@ public class ControlPositionMovement extends GameObjectController {
 			previousPointDown= new Point(positionAvatar.x, positionAvatar.y -1);
 			//previousPointDown= new Point(positionAvatar.y -1, positionAvatar.x);
 			if (isPositionValid(previousPointDown)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointDown);
+				isOcupate= map.getBoard().isOcupatePosition(previousPointDown);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -124,7 +124,7 @@ public class ControlPositionMovement extends GameObjectController {
 			nextPointLeft= new Point(positionAvatar.x -1, positionAvatar.y);
 			//nextPointLeft= new Point(positionAvatar.y, positionAvatar.x -1);
 			if (isPositionValid(nextPointLeft)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointLeft);
+				isOcupate= map.getBoard().isOcupatePosition(nextPointLeft);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -135,7 +135,7 @@ public class ControlPositionMovement extends GameObjectController {
 			previousPointLeft= new Point(positionAvatar.x +1, positionAvatar.y);
 			//previousPointLeft= new Point(positionAvatar.y, positionAvatar.x +1);
 			if (isPositionValid(previousPointLeft)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointLeft);
+				isOcupate= map.getBoard().isOcupatePosition(previousPointLeft);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -147,7 +147,7 @@ public class ControlPositionMovement extends GameObjectController {
 			nextPointRight= new Point(positionAvatar.x +1, positionAvatar.y);
 			//nextPointRight= new Point(positionAvatar.y, positionAvatar.x +1);
 			if (isPositionValid(nextPointRight)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointRight);
+				isOcupate= map.getBoard().isOcupatePosition(nextPointRight);
 				isFree = !isOcupate;
 			}	
 			return isFree;
@@ -158,7 +158,7 @@ public class ControlPositionMovement extends GameObjectController {
 			previousPointRight= new Point(positionAvatar.x -1, positionAvatar.y);
 			//previousPointRight= new Point(positionAvatar.y, positionAvatar.x -1);
 			if (isPositionValid(previousPointRight)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointRight);
+				isOcupate= map.getBoard().isOcupatePosition(previousPointRight);
 				isFree = !isOcupate;
 			}
 			

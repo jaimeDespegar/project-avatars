@@ -14,7 +14,7 @@ public class GameController {
 	}
 
 	public void Initialize() {
-		map.getBoard().addBoxGameObject(new Point(1,0), new Avatar(100, Orientation.RIGHT));
+		map.getBoard().addBox(new Point(1,0), new Avatar(100, Orientation.RIGHT));
 		map.printMap();
 	}
 
