@@ -137,6 +137,8 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			nextPointRight= new Point(positionAvatar.x +1, positionAvatar.y);
+			
+			//System.out.println("nextPointRight: ("+ nextPointRight.x + " ,"+nextPointRight.y + ")");
 
 			if (isPositionValid(nextPointRight)){
 				isOcupate= map.isOcupatePosition(nextPointRight);
