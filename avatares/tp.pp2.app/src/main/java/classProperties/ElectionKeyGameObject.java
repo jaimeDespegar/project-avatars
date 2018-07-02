@@ -41,4 +41,13 @@ public class ElectionKeyGameObject {
 	public Integer getKeyPower2() {
 		return keyPower2;
 	}
+
+
+	@Override
+	public String toString() {
+		return "ElectionKeyGameObject [keyUp=" + keyUp + ", keyDown=" + keyDown + ", keyLeft=" + keyLeft + ", keyRight="
+				+ keyRight + ", keyShoot=" + keyShoot + ", keyPower1=" + keyPower1 + ", keyPower2=" + keyPower2 + "]";
+	}
+	
+	
 }

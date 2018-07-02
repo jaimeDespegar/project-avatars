@@ -26,34 +26,43 @@ public class GameObjectController {
 		this.map= map;
 		this.arma= arma;
 	}
-	//GETTER & SETTER
+
+	// GETTER & SETTER
 	public GameObject getAvatar() {
 		return avatar;
 	}
+
 	public void setAvatar(GameObject avatar) {
 		this.avatar = avatar;
 	}
+
 	public Map getMap() {
 		return map;
 	}
+
 	public void setMap(Map map) {
 		this.map = map;
 	}
+
 	public Weapon getArma() {
 		return arma;
 	}
+
 	public void setArma(Weapon arma) {
 		this.arma = arma;
 	}
+
 	public Integer getCantDisparos() {
 		return cantDisparos;
 	}
+
 	public boolean isDisparoRealizado() {
 		return isDisparoRealizado;
 	}
-	public void actualizarDisparoRealizado(){
-		if(isDisparoRealizado){
-			isDisparoRealizado=false;
+
+	public void actualizarDisparoRealizado() {
+		if (isDisparoRealizado) {
+			isDisparoRealizado = false;
 		}
 	}
 }

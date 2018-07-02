@@ -16,27 +16,24 @@ public class ControlPositionMovement extends GameObjectController {
 	public void avanzar(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreeNextPositionUp(positionAvatar))){ //avanzar arriba
 			map.addBoxGameObject(nextPointUp, avatar);
-			avatar.setPosition(nextPointUp);
+		//	avatar.setPosition(nextPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreeNextPositionDown(positionAvatar))){ //avanzar abajo
 			map.addBoxGameObject(nextPointDown, avatar);
-			avatar.setPosition(nextPointDown);
+		//	avatar.setPosition(nextPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreeNextPositionLeft(positionAvatar))){ //avanzar izquierda
 			map.addBoxGameObject(nextPointLeft, avatar);
-			avatar.setPosition(nextPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreeNextPositionRight(positionAvatar))){ //avanzar derecha
 			map.addBoxGameObject(nextPointRight, avatar);
-			avatar.setPosition(nextPointRight);
 			map.deleteBox(positionAvatar);
 		}
 		else{
 			nextPointUp= positionAvatar;
-			avatar.setPosition(positionAvatar);
 		}
 		
 	}
@@ -64,7 +61,6 @@ public class ControlPositionMovement extends GameObjectController {
 			avatar.setPosition(previousPointRight);
 		}
 		else{
-			//previousPointUp= positionAvatar;
 			avatar.setPosition(positionAvatar);
 		}
 		
@@ -76,9 +72,8 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			nextPointUp= new Point(positionAvatar.x, positionAvatar.y -1);
-			//nextPointUp= new Point(positionAvatar.y -1, positionAvatar.x);
 			if (isPositionValid(nextPointUp)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointUp);
+				isOcupate= map.isOcupatePosition(nextPointUp);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -87,9 +82,8 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			previousPointUp= new Point(positionAvatar.x, positionAvatar.y +1);
-			//previousPointUp= new Point(positionAvatar.y +1, positionAvatar.x);
 			if (isPositionValid(previousPointUp)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointUp);
+				isOcupate= map.isOcupatePosition(previousPointUp);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -99,9 +93,8 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			nextPointDown= new Point(positionAvatar.x, positionAvatar.y +1);
-			//nextPointDown= new Point(positionAvatar.y +1, positionAvatar.x);
 			if (isPositionValid(nextPointDown)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointDown);
+				isOcupate= map.isOcupatePosition(nextPointDown);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -110,9 +103,8 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			previousPointDown= new Point(positionAvatar.x, positionAvatar.y -1);
-			//previousPointDown= new Point(positionAvatar.y -1, positionAvatar.x);
 			if (isPositionValid(previousPointDown)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointDown);
+				isOcupate= map.isOcupatePosition(previousPointDown);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -122,9 +114,9 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			nextPointLeft= new Point(positionAvatar.x -1, positionAvatar.y);
-			//nextPointLeft= new Point(positionAvatar.y, positionAvatar.x -1);
+
 			if (isPositionValid(nextPointLeft)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointLeft);
+				isOcupate= map.isOcupatePosition(nextPointLeft);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -133,9 +125,9 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			previousPointLeft= new Point(positionAvatar.x +1, positionAvatar.y);
-			//previousPointLeft= new Point(positionAvatar.y, positionAvatar.x +1);
+
 			if (isPositionValid(previousPointLeft)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointLeft);
+				isOcupate= map.isOcupatePosition(previousPointLeft);
 				isFree = !isOcupate;
 			}
 			return isFree;
@@ -145,9 +137,9 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			nextPointRight= new Point(positionAvatar.x +1, positionAvatar.y);
-			//nextPointRight= new Point(positionAvatar.y, positionAvatar.x +1);
+
 			if (isPositionValid(nextPointRight)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(nextPointRight);
+				isOcupate= map.isOcupatePosition(nextPointRight);
 				isFree = !isOcupate;
 			}	
 			return isFree;
@@ -156,9 +148,8 @@ public class ControlPositionMovement extends GameObjectController {
 			boolean isFree= false;
 			boolean isOcupate= false;
 			previousPointRight= new Point(positionAvatar.x -1, positionAvatar.y);
-			//previousPointRight= new Point(positionAvatar.y, positionAvatar.x -1);
 			if (isPositionValid(previousPointRight)){
-				isOcupate= map.getBoard().isOcupatePositionMAP(previousPointRight);
+				isOcupate= map.isOcupatePosition(previousPointRight);
 				isFree = !isOcupate;
 			}
 			
