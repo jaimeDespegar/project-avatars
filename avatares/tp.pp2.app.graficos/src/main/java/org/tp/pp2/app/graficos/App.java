@@ -19,6 +19,6 @@ public class App
     
     	KeyAvatarProperties k = new KeyAvatarProperties();
     	
-    	System.out.println(k.getElectionKeyAvatar().toString());WSADTYU
+    	System.out.println(k.getElectionKeyAvatar().toString());
     }
 }
