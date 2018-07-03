@@ -15,8 +15,10 @@ public class Drawer extends Canvas{
 		setIgnoreRepaint(true);
 		setPreferredSize(new Dimension(board.getBoxes().length*40, board.getBoxes()[0].length*40));//tamaño pantalla
 		setFocusable(true);
+		setVisible(true);
 		requestFocus();
 		this.board = board;
+		drawAllMap(board);
 	}
 
 	/**Recibe un tablero, que contiene todas las casillas con los objetos graficos y los dibuja*/
