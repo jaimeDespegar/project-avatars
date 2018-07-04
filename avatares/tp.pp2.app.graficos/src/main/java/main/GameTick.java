@@ -1,9 +1,13 @@
 package main;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import draftmans.Draw;
+import object.ObjectGraphic;
+import tablero.Board;
 import views.ViewGame;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.common.collect.Lists;
 
 public class GameTick implements Runnable {
 
@@ -15,16 +19,15 @@ public class GameTick implements Runnable {
 	private static int contador_fps = 0;
 	@SuppressWarnings("unused")
 	private static ViewGame viewGame;
-//	private  List<ObjectGraphic> objects;
-//	private UpdateGame updateGame;
-//	private Draw draw;
+	private  List<ObjectGraphic> objects;
+	//private UpdateGame updateGame;
+	private Draw draw;
 
-	public GameTick() {
-//		objects = Lists.newArrayList();
-//		objects.addAll(objectsStructures);
+	public GameTick(Board board) {
+		objects = Lists.newArrayList();
 	//	updateGame = new UpdateGame();
-	//	draw = new Draw(objects);
-		viewGame = new ViewGame();
+		draw = new Draw(board);
+		viewGame = new ViewGame(draw);
 	}
 
 	// synchronized permite que no se puedan ejecutar al mismo tiempo
@@ -41,7 +44,7 @@ public class GameTick implements Runnable {
 	}
 
 	public void show() {
-		//draw.DrawImages();
+		draw.DrawImages();
 		fps++;
 	}
 
@@ -82,6 +85,7 @@ public class GameTick implements Runnable {
 			}
 		}
 	}
+
 
 	public static int getCONTADOR_APS() {
 		return contador_aps;

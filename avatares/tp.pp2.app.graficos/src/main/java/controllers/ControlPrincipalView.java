@@ -1,6 +1,8 @@
 package controllers;
 
+import main.Constants;
 import main.GameTick;
+import tablero.CreateMap;
 import views.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,11 +48,10 @@ public class ControlPrincipalView implements ActionListener{
 		}
 		
 		else if (e.getSource() == this.principalView.getBtnPlay()) {
-
 			this.principalView.getFrmPrincipalView().dispose();
-			//BringDataOfTheStructure objectStructures = new BringDataOfTheStructure();
-			//objectStructures.fillList();
-			GameTick game = new GameTick();
+			CreateMap createMap = new CreateMap(Constants.ROUTE_PROPERTIES);
+			createMap.createMap();
+			GameTick game = new GameTick(createMap.getMap().getBoard());
 			game.start();
 
 		}
