@@ -1,5 +1,6 @@
 package controllers;
 
+import main.GameTick;
 import views.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,13 +46,13 @@ public class ControlPrincipalView implements ActionListener{
 		}
 		
 		else if (e.getSource() == this.principalView.getBtnPlay()) {
-		/*
+
 			this.principalView.getFrmPrincipalView().dispose();
-			BringDataOfTheStructure objectStructures = new BringDataOfTheStructure();
-			objectStructures.fillList();
-			Game game = new Game(objectStructures.getObjects());
+			//BringDataOfTheStructure objectStructures = new BringDataOfTheStructure();
+			//objectStructures.fillList();
+			GameTick game = new GameTick();
 			game.start();
-		*/
+
 		}
 		
 	}
