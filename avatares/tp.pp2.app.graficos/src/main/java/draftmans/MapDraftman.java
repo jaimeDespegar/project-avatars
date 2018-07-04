@@ -50,7 +50,7 @@ public class MapDraftman extends Canvas implements Draftman  {
 		// hacer todo para dibujar el mapa ! 
 		for (int x = 0; x < this.map.getBoard().getBoxes().length; x++) {
 			for (int y = 0; y < this.map.getBoard().getBoxes()[0].length; y++) {
-				drawBox(this.map.getBoard().getBoxes()[x][y], new Point (x,y));
+				drawBox(this.map.getBoard().getBoxes()[x][y], new Point (x*40,y*40));
 			}
 		}
 	}
