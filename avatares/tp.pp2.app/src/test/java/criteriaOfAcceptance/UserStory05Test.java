@@ -65,12 +65,12 @@ public class UserStory05Test {
 	}
 	
 	/**Si el Avatar con escudo intenta retroceder un casillero, entonces el avatar con escudo deber� seguir ocupando la posici�n (0,2).*/
-	@Test
-	public void avanzarDerechaAvatarConEscudo(){
-		ControlPositionMovement c= new ControlPositionMovement(aws, map, null);   
-		c.avanzar(awsPoint);
-		assertTrue(aws.getPosition().equals(new Point(0,2)));
-	}
+//	@Test
+//	public void avanzarDerechaAvatarConEscudo(){
+//		ControlPositionMovement c= new ControlPositionMovement(aws, map, null);   
+//		c.avanzar(awsPoint);
+//		assertTrue(aws.getPosition().equals(new Point(0,2)));
+//	}
 
 	/**Si el Avatar con escudo  girar a la izquierda, entonces el Avatar con escudo tendr� orientaci�n hacia arriba.*/
 	@Test
