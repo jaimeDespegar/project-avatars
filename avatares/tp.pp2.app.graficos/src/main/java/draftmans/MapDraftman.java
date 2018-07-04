@@ -22,7 +22,13 @@ public class MapDraftman extends Canvas implements Draftman  {
 	{
 		this.map = map;
 	}
-	
+
+	public void init() {
+		createWindow();
+		drafWindow();
+		draftMap();
+	}
+
 	@Override
 	public void createWindow() {
 		setIgnoreRepaint(true);
@@ -76,7 +82,7 @@ public class MapDraftman extends Canvas implements Draftman  {
 		listTanks.put(2, Configuration.ROUTE_IMAGE_TANK2);
 		DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((((Avatar) box.getObjectGraphic()).getId()))), p);
 
-		
+
 		g.dispose();
 		buffer.show();
 	}

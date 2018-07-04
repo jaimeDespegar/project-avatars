@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.Objects;
+
 public class KeyDto {
 
 	private String keyName;
@@ -11,7 +13,7 @@ public class KeyDto {
 		this.keyName = keyName;
 		this.keyValue = keyValue;
 	}
-	
+
 	public String getKeyName() {
 		return keyName;
 	}
@@ -27,5 +29,17 @@ public class KeyDto {
 	public void setKeyValue(Integer keyValue) {
 		this.keyValue = keyValue;
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		KeyDto keyDto = (KeyDto) o;
+		return Objects.equals(keyValue, keyDto.keyValue);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(keyValue);
+	}
 }

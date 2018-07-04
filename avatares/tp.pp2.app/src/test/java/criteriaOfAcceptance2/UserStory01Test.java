@@ -15,13 +15,13 @@ import object.Shotgun;
 import object.Structure;
 import object.Turns;
 
-import org.junit.Before;
-import org.junit.Test;
 
 import control.AvatarController;
 import control.AvatarWithShieldController;
 import control.ControlColissionShoot;
 import control.ControlTurns;
+import org.junit.Before;
+import org.junit.Test;
 import tablero.Builder;
 import tablero.Map;
 import enums.Orientation;

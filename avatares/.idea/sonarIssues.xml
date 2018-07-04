@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/Listener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/controllers/Controller.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/draftmans/GameDraft.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/draftmans/GameDraftsman.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/draftmans/MapDraftman.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/dto/Configuration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/dto/KeyDto.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/listeners/AvatarListenerDown.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/listeners/AvatarListenerLeft.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/listeners/AvatarListenerRight.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/listeners/FactoryListener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/listeners/GameKeyListener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/listeners/Listener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/listeners/NoneListenerSpecialCase.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app.graficos/src/main/java/main/AppEntorno.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app/src/main/java/main/Constants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app/src/main/java/main/Game.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app/src/main/java/main/GameConfiguration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tp.pp2.app/src/test/java/criteriaOfAcceptance2/UserStory01Test.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
