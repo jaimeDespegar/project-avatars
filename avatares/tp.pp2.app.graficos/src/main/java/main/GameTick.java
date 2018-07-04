@@ -29,6 +29,7 @@ public class GameTick implements Runnable {
 	public void update() {
 	//	updateGame.actualizar();
 	//	draw.getData().addAll(updateGame.getObjects());
+		working = true;
 	}
 
 	public void show() {
@@ -63,7 +64,7 @@ public class GameTick implements Runnable {
 			show();
 
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
-				
+				working = false;
 				referenciaContador = System.nanoTime();
 			}
 		}
