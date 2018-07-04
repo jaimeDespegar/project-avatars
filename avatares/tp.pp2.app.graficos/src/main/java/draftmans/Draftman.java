@@ -1,7 +1,11 @@
 package draftmans;
 
 public interface Draftman {
-
-	public void draft();
+	
+	public void createWindow();
+	
+	public void draftMap();
+	
+	public void updateMap();
 
 }
