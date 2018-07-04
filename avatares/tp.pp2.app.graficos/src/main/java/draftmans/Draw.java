@@ -56,12 +56,13 @@ public class Draw  extends Canvas {
 		HashMap<Integer,String> listTanks = new HashMap<Integer,String>();
 		listTanks.put(1, Configuration.ROUTE_IMAGE_TANK1);
 		listTanks.put(2, Configuration.ROUTE_IMAGE_TANK2);
-		System.out.println("si");
+		//System.out.println("si");
 		if(box!=null) {
-			if(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())!=null){
+			if(box.getObjectGraphic().getClass().getName().equals("object.Structure")){	
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())), p);
 			}
-			else if((((Avatar)((GameObject) box.getObjectGraphic())).getId())!=null) {
+			else if(box.getObjectGraphic().getClass().getName().equals("object.Avatar")) {
+				System.out.println(((Avatar)box.getObjectGraphic()).getId());
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listTanks.get((((Avatar)((GameObject) box.getObjectGraphic())).getId()))), p);
 			}
 		}
