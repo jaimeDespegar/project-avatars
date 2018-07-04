@@ -46,7 +46,7 @@ public class UserStory01Test {
 	@Before
 	public void UserStory5(){
 	
-	a= new Avatar(100, Orientation.RIGHT);
+	a= new Avatar(100, Orientation.RIGHT,1);
 	aws= new AvatarWithShield(100, Orientation.LEFT);
 	
 	hacha= new Ax(90, 1, Orientation.RIGHT);

@@ -1,12 +1,8 @@
 package main;
 
 import draftmans.Draw;
-import object.ObjectGraphic;
 import tablero.Board;
 import views.ViewGame;
-import java.util.List;
-
-import com.google.common.collect.Lists;
 
 public class GameTick implements Runnable {
 
@@ -67,6 +63,7 @@ public class GameTick implements Runnable {
 			show();
 
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
+				
 				referenciaContador = System.nanoTime();
 			}
 		}

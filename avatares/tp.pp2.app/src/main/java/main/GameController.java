@@ -22,7 +22,7 @@ public class GameController {
 		//aplicar turnos, hacer la gestion de los turnos aca, una vez que muera un avatar termina el juego
 		//pasar todo el tablero al dibujador del juego
 		
-		map.getBoard().addBoxGameObject(new Point(1,0), new Avatar(100, Orientation.RIGHT));
+		map.getBoard().addBoxGameObject(new Point(1,0), new Avatar(100, Orientation.RIGHT,1));
 		map.printMap();
 	}
 

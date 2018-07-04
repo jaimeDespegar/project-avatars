@@ -11,6 +11,7 @@ import java.util.HashMap;
 import dto.Configuration;
 import enums.TypeOfStructure;
 import object.Avatar;
+import object.GameObject;
 import object.Structure;
 import tablero.Board;
 import tablero.Box;
@@ -57,10 +58,12 @@ public class Draw  extends Canvas {
 		listTanks.put(2, Configuration.ROUTE_IMAGE_TANK2);
 		System.out.println("si");
 		if(box!=null) {
-		if(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())!=null){
-			DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())), p);
-			//DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((((Avatar) box.getObjectGraphic()).getId()))), p);
-		}
+			if(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())!=null){
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())), p);
+			}
+			else if((((Avatar)((GameObject) box.getObjectGraphic())).getId())!=null) {
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listTanks.get((((Avatar)((GameObject) box.getObjectGraphic())).getId()))), p);
+			}
 		}
 	}
 }

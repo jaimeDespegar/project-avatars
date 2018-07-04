@@ -6,8 +6,9 @@ public class Avatar extends GameObject{
 	private Integer id;
 	private Integer reduceDamage=1;
 
-	public Avatar(Integer vida, Orientation orientation) {
+	public Avatar(Integer vida, Orientation orientation, Integer id) {
 		super(vida, orientation);
+		this.id = id;
 		reduceDamage=1;
 	}
 	

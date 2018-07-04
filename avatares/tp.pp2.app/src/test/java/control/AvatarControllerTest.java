@@ -37,8 +37,8 @@ public class AvatarControllerTest {
 		
 		rectangle = new Rectangle(new Point(1, 1), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
 		map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle).build();
-		a= new Avatar(100, Orientation.RIGHT);
-		aDaniado= new Avatar(40, Orientation.RIGHT);
+		a= new Avatar(100, Orientation.RIGHT,1);
+		aDaniado= new Avatar(40, Orientation.RIGHT,1);
 		aws= new AvatarWithShield(100, Orientation.RIGHT);
 		aPoint= new Point(0,0);
 		awsPoint= new Point(0,2); 
