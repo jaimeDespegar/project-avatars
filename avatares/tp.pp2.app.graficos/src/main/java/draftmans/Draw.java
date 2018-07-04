@@ -42,10 +42,6 @@ public class Draw  extends Canvas {
 				drawBox(g, this.board.getBoxes()[x][y], new Point (x*40,y*40));
 			}
 		}
-
-		g.setColor(Color.white);
-		//DrawCommand.drawString(g, "APS: " + Game.getCONTADOR_APS(), 20, 20);
-		//DrawCommand.drawString(g, "FPS: " + Game.getCONTADOR_FPS(), 20, 30);
 		
 		g.dispose();
 		buffer.show();
@@ -59,6 +55,7 @@ public class Draw  extends Canvas {
 		HashMap<Integer,String> listTanks = new HashMap<Integer,String>();
 		listTanks.put(1, Configuration.ROUTE_IMAGE_TANK1);
 		listTanks.put(2, Configuration.ROUTE_IMAGE_TANK2);
+		System.out.println("si");
 		if(box!=null) {
 		if(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())!=null){
 			DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())), p);

@@ -4,7 +4,6 @@ import draftmans.Draw;
 import object.ObjectGraphic;
 import tablero.Board;
 import views.ViewGame;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.google.common.collect.Lists;
@@ -13,18 +12,12 @@ public class GameTick implements Runnable {
 
 	private static volatile Thread thread; // agregamos el volatile porque estamos usando 2 threads
 	private static boolean working = false;
-	private static int aps = 0; // actualizaciones por segundo
-	private static int fps = 0; // frames por segundo
-	private static int contador_aps = 0;
-	private static int contador_fps = 0;
 	@SuppressWarnings("unused")
 	private static ViewGame viewGame;
-	private  List<ObjectGraphic> objects;
 	//private UpdateGame updateGame;
 	private Draw draw;
 
 	public GameTick(Board board) {
-		objects = Lists.newArrayList();
 	//	updateGame = new UpdateGame();
 		draw = new Draw(board);
 		viewGame = new ViewGame(draw);
@@ -40,12 +33,10 @@ public class GameTick implements Runnable {
 	public void update() {
 	//	updateGame.actualizar();
 	//	draw.getData().addAll(updateGame.getObjects());
-		aps++;
 	}
 
 	public void show() {
 		draw.DrawImages();
-		fps++;
 	}
 
 	// utilizamos nanosegundos, para evitar conflictos si se ejecuta en otro sistema
@@ -75,25 +66,13 @@ public class GameTick implements Runnable {
 			}
 			show();
 
-			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {// esto hace que el contador se actualice cada
-																			// segundo.
-				contador_aps = aps;
-				contador_fps = fps;
-				aps = 0;
-				fps = 0;
+			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
 				referenciaContador = System.nanoTime();
 			}
 		}
 	}
 
 
-	public static int getCONTADOR_APS() {
-		return contador_aps;
-	}
-
-	public static int getCONTADOR_FPS() {
-		return contador_fps;
-	}
 	public synchronized void stop() {
 		working = false;
 		thread = new Thread(this, "Graphics");
