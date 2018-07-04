@@ -57,7 +57,7 @@ public class ControlPrincipalView implements ActionListener{
 			CreateMap createMap = new CreateMap(Constants.ROUTE_PROPERTIES);
 			createMap.createMap();
 			createMap.getMap().addBox(new Point(3,1), new Avatar(100,Orientation.RIGHT,1));
-			createMap.getMap().addBox(new Point(2,4), new Avatar(100,Orientation.RIGHT,2));
+			createMap.getMap().addBox(new Point(2,4), new Avatar(100,Orientation.UP,2));
 			GameTick game = new GameTick(createMap.getMap().getBoard());
 			game.start();
 

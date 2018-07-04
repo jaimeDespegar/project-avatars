@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferStrategy;
 import java.util.HashMap;
+import java.util.List;
 
 import dto.Configuration;
 import enums.TypeOfStructure;
@@ -47,6 +48,25 @@ public class Draw  extends Canvas {
 		g.dispose();
 		buffer.show();
 	}
+	
+	public void drawBoxes(List<Box> boxes, List<Point> coordinates) {
+		final BufferStrategy buffer = this.getBufferStrategy();
+		if(buffer == null) {
+			createBufferStrategy(3);
+			return;
+		}
+			
+		final Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
+		//DrawCommand.drawRectangleFill(g, 0, 0, board.getBoxes().length*40, board.getBoxes()[0].length*40, Color.black);
+			
+		for (int i = 0; i < boxes.size(); i++) {
+			drawBox(g,boxes.get(i), coordinates.get(i));
+		}
+			
+		g.dispose();
+		buffer.show();
+	}
+	
 	private void drawBox(Graphics2D g, Box box, Point p) {
 		HashMap<TypeOfStructure,String> listStructures = new HashMap<TypeOfStructure,String>();
 		listStructures.put(TypeOfStructure.ACERO, Configuration.ROUTE_IMAGE_ACERO);
@@ -56,13 +76,12 @@ public class Draw  extends Canvas {
 		HashMap<Integer,String> listTanks = new HashMap<Integer,String>();
 		listTanks.put(1, Configuration.ROUTE_IMAGE_TANK1);
 		listTanks.put(2, Configuration.ROUTE_IMAGE_TANK2);
-		//System.out.println("si");
+		//meter orientation de tank
 		if(box!=null) {
 			if(box.getObjectGraphic().getClass().getName().equals("object.Structure")){	
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())), p);
 			}
 			else if(box.getObjectGraphic().getClass().getName().equals("object.Avatar")) {
-				System.out.println(((Avatar)box.getObjectGraphic()).getId());
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listTanks.get((((Avatar)((GameObject) box.getObjectGraphic())).getId()))), p);
 			}
 		}
