@@ -60,7 +60,8 @@ public class Draw  extends Canvas {
 		//DrawCommand.drawRectangleFill(g, 0, 0, board.getBoxes().length*40, board.getBoxes()[0].length*40, Color.black);
 			
 		for (int i = 0; i < boxes.size(); i++) {
-			drawBox(g,boxes.get(i), coordinates.get(i));
+			drawBox(g,boxes.get(i), new Point(coordinates.get(i).x*40,coordinates.get(i).y*40));
+			System.out.println(new Point(coordinates.get(i).x*40,coordinates.get(i).y*40));
 		}
 			
 		g.dispose();
@@ -78,7 +79,12 @@ public class Draw  extends Canvas {
 		listTanks.put(2, Configuration.ROUTE_IMAGE_TANK2);
 		//meter orientation de tank
 		if(box!=null) {
-			if(box.getObjectGraphic().getClass().getName().equals("object.Structure")){	
+			if(box.getObjectGraphic()==(null)) {
+				System.out.println("si");
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(Configuration.ROUTE_IMAGE_FONDO), p);
+			}
+			else if(box.getObjectGraphic().getClass().getName().equals("object.Structure")){	
+				System.out.println("no");
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())), p);
 			}
 			else if(box.getObjectGraphic().getClass().getName().equals("object.Avatar")) {
