@@ -71,9 +71,7 @@ public class GameTick implements Runnable {
 		
 		while (working) {
 			
-			//show();
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
-				testUpdateBoxes();
 				stop();
 				referenciaContador = System.nanoTime();
 			}

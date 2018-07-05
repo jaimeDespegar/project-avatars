@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import dto.Configuration;
+import dto.KeyOrientationAvatar;
+import enums.Orientation;
 import enums.TypeOfStructure;
 import object.Avatar;
 import object.GameObject;
@@ -55,15 +57,10 @@ public class Draw  extends Canvas {
 			createBufferStrategy(3);
 			return;
 		}
-			
 		final Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
-		//DrawCommand.drawRectangleFill(g, 0, 0, board.getBoxes().length*40, board.getBoxes()[0].length*40, Color.black);
-			
 		for (int i = 0; i < boxes.size(); i++) {
 			drawBox(g,boxes.get(i), new Point(coordinates.get(i).x*40,coordinates.get(i).y*40));
-			System.out.println(new Point(coordinates.get(i).x*40,coordinates.get(i).y*40));
 		}
-			
 		g.dispose();
 		buffer.show();
 	}
@@ -74,21 +71,25 @@ public class Draw  extends Canvas {
 		listStructures.put(TypeOfStructure.AGUA, Configuration.ROUTE_IMAGE_AGUA);
 		listStructures.put(TypeOfStructure.BOSQUE, Configuration.ROUTE_IMAGE_BOSQUE);
 		listStructures.put(TypeOfStructure.LADRILLO, Configuration.ROUTE_IMAGE_LADRILLO);
-		HashMap<Integer,String> listTanks = new HashMap<Integer,String>();
-		listTanks.put(1, Configuration.ROUTE_IMAGE_TANK1);
-		listTanks.put(2, Configuration.ROUTE_IMAGE_TANK2);
-		//meter orientation de tank
+		HashMap<KeyOrientationAvatar,String> listTanks = new HashMap<KeyOrientationAvatar,String>();
+		listTanks.put(new KeyOrientationAvatar(1,Orientation.UP), Configuration.ROUTE_IMAGE_TANK1UP);
+		listTanks.put(new KeyOrientationAvatar(1,Orientation.RIGHT), Configuration.ROUTE_IMAGE_TANK1RIGHT);
+		listTanks.put(new KeyOrientationAvatar(1,Orientation.LEFT), Configuration.ROUTE_IMAGE_TANK1LEFT);
+		listTanks.put(new KeyOrientationAvatar(1,Orientation.DOWN), Configuration.ROUTE_IMAGE_TANK1DOWN);
+		listTanks.put(new KeyOrientationAvatar(2,Orientation.UP), Configuration.ROUTE_IMAGE_TANK2UP);
+		listTanks.put(new KeyOrientationAvatar(2,Orientation.RIGHT), Configuration.ROUTE_IMAGE_TANK2RIGHT);
+		listTanks.put(new KeyOrientationAvatar(2,Orientation.LEFT), Configuration.ROUTE_IMAGE_TANK2LEFT);
+		listTanks.put(new KeyOrientationAvatar(2,Orientation.DOWN), Configuration.ROUTE_IMAGE_TANK2DOWN);
+		
 		if(box!=null) {
 			if(box.getObjectGraphic()==(null)) {
-				System.out.println("si");
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(Configuration.ROUTE_IMAGE_FONDO), p);
 			}
 			else if(box.getObjectGraphic().getClass().getName().equals("object.Structure")){	
-				System.out.println("no");
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listStructures.get((TypeOfStructure)((Structure)box.getObjectGraphic()).getTypeOfStructure())), p);
 			}
 			else if(box.getObjectGraphic().getClass().getName().equals("object.Avatar")) {
-				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listTanks.get((((Avatar)((GameObject) box.getObjectGraphic())).getId()))), p);
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listTanks.get(new KeyOrientationAvatar((Integer)(((Avatar)((GameObject) box.getObjectGraphic())).getId()), (((Avatar)((GameObject) box.getObjectGraphic())).getOrientation())))), p);
 			}
 		}
 	}
