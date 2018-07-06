@@ -3,11 +3,9 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import draftmans.Draw;
 import enums.TypeOfStructure;
-import object.ObjectGraphic;
 import object.Structure;
 import tablero.Board;
 import tablero.Box;
@@ -21,6 +19,8 @@ public class GameTick implements Runnable {
 	@SuppressWarnings("unused")
 	private static ViewGame viewGame;
 	private Draw draw;
+	private List<List<Box>> newChangesBoxes;
+	private List<List<Point>> newChangesCoordinates;
 
 	public GameTick(Board board) {
 		draw = new Draw(board);
@@ -29,7 +29,7 @@ public class GameTick implements Runnable {
 
 	// synchronized permite que no se puedan ejecutar al mismo tiempo
 	public synchronized void start() {
-		working = true;
+		working = false;
 		thread = new Thread(this, "Graphics");
 		thread.start();
 	}
@@ -71,21 +71,42 @@ public class GameTick implements Runnable {
 			}
 		}
 		
-		while (working) {
+		/*while (working) {
 			
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
 				stop();
 				referenciaContador = System.nanoTime();
 			}
 		}
+		*/
+		for(int i = 0; i < newChangesBoxes.size(); i ++) {
+			updateBoxes(newChangesBoxes.get(i), newChangesCoordinates.get(i));
+			while (working) {
+				if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
+					stop();
+					referenciaContador = System.nanoTime();
+				}
+			}
+			working = true;
+		}
+		newChangesBoxes.clear();
+		newChangesCoordinates.clear();
 	}
 	//recibe una lista de los objetos cambiados (objetonuevo - punto)
 	//es decir, cuando un avatar dispara se debe de guardar en esa lista, el disparo, y su posicion
 	//en la siguiente escena, si el disparo avanzo una casilla, y tambien desaparecela casilla en la que estaba antes
 	//por lo tanto, seria una lista de escenas, y cuando lo dibuja, pasa una escena por segundo, asi se puede observar los cambios
-	public void drawShoot(List<Map<ObjectGraphic,Point>> newChanges) {
-		
-	}
+	public void drawShoot(List<List<Box>> newChangesBoxes,List<List<Point>> newChangesCoordinates) {
+		this.newChangesBoxes = newChangesBoxes;
+		this.newChangesCoordinates = newChangesCoordinates;
+		working = true;
+	//	boolean shoot = true;
+	//	while(shoot) {
+	//		for(int i = 0; i < newChangesBoxes.size(); i ++) {
+	//			updateBoxes(newChangesBoxes.get(i), newChangesCoordinates.get(i));
+	//		}
+	//	}
+		}
 	
 	public synchronized void stop() {
 		working = false;

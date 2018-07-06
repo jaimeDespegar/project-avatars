@@ -34,6 +34,7 @@ public class UserStory06Test {
 	hacha = new Ax(90, 1, Orientation.RIGHT);
 	bazooka1 = new Bazooka(80, 2, Orientation.RIGHT);
 	escopeta = new Shotgun(70, 3, Orientation.RIGHT);
+	System.out.println(escopeta.getClass().getName());
 	}
 
 	/**Si el Avatar (sin escudo) recibe un hachazo de 90 de da�o, luego la vida del Avatar vale 10.*/

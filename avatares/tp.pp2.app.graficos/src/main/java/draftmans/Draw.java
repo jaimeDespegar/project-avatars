@@ -91,6 +91,21 @@ public class Draw  extends Canvas {
 			else if(box.getObjectGraphic().getClass().getName().equals("object.Avatar")) {
 				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(listTanks.get(new KeyOrientationAvatar((Integer)(((Avatar)((GameObject) box.getObjectGraphic())).getId()), (((Avatar)((GameObject) box.getObjectGraphic())).getOrientation())))), p);
 			}
+			else if(box.getObjectGraphic().getClass().getName().equals("object.Shotgun")) {
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(Configuration.ROUTE_IMAGE_WEAPON_SHOTGUN), p);
+			}
+			else if(box.getObjectGraphic().getClass().getName().equals("object.Ax")) {
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(Configuration.ROUTE_IMAGE_WEAPON_AX), p);
+			}
+			else if(box.getObjectGraphic().getClass().getName().equals("object.Bazooka")) {
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(Configuration.ROUTE_IMAGE_WEAPON_BAZOOKA), p);
+			}
+			/*else if(box.getObjectGraphic().getClass().getName().equals("object.Fire")) {
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(Configuration.ROUTE_IMAGE_WEAPON_FIRE), p);
+			}
+			else if(box.getObjectGraphic().getClass().getName().equals("object.Explosion")) {
+				DrawCommand.drawImage(g, ChargerResource.loadImageTranslated(Configuration.ROUTE_IMAGE_WEAPON_EXPLOSION), p);
+			}*/
 		}
 	}
 }
