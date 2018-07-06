@@ -3,9 +3,11 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import draftmans.Draw;
 import enums.TypeOfStructure;
+import object.ObjectGraphic;
 import object.Structure;
 import tablero.Board;
 import tablero.Box;
@@ -77,7 +79,14 @@ public class GameTick implements Runnable {
 			}
 		}
 	}
-
+	//recibe una lista de los objetos cambiados (objetonuevo - punto)
+	//es decir, cuando un avatar dispara se debe de guardar en esa lista, el disparo, y su posicion
+	//en la siguiente escena, si el disparo avanzo una casilla, y tambien desaparecela casilla en la que estaba antes
+	//por lo tanto, seria una lista de escenas, y cuando lo dibuja, pasa una escena por segundo, asi se puede observar los cambios
+	public void drawShoot(List<Map<ObjectGraphic,Point>> newChanges) {
+		
+	}
+	
 	public synchronized void stop() {
 		working = false;
 		thread = new Thread(this, "Graphics");
