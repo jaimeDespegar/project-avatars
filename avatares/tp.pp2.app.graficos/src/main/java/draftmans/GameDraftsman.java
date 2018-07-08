@@ -24,4 +24,5 @@ public class GameDraftsman {
     public void draftPower(Power power){
        // dibujo un poder
     }
+
 }

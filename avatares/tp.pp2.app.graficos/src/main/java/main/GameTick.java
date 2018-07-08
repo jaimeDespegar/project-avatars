@@ -3,7 +3,6 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-
 import draftmans.Draw;
 import enums.TypeOfStructure;
 import object.Structure;
@@ -70,9 +69,9 @@ public class GameTick implements Runnable {
 				referenciaContador = System.nanoTime();
 			}
 		}
-		
+
 		/*while (working) {
-			
+
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
 				stop();
 				referenciaContador = System.nanoTime();

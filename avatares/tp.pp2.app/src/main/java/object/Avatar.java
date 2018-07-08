@@ -11,17 +11,25 @@ public class Avatar extends GameObject{
 		this.id = id;
 		reduceDamage=1;
 	}
-	
 
 	public Integer getReduceDamage() {
 		return reduceDamage;
 	}
+
 	public void setReduceDamage(Integer reduceDamage) {
 		this.reduceDamage = reduceDamage;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
+
+	public void turnToRight() {
+		this.orientation = orientation.getRight();
+	}
+
+	public void turnToLeft() {
+		this.orientation = orientation.getLeft();
+	}
+
 }

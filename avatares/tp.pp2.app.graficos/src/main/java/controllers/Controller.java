@@ -22,7 +22,7 @@ public class Controller {
 		this.game = game;
 		this.gameDraftsman = draftman;
         this.keyListener = new GameKeyListener();
-        this.factoryListener = new FactoryListener();
+        this.factoryListener = FactoryListener.getInstancie();
 	}
 
 	
@@ -36,7 +36,6 @@ public class Controller {
     private void initListeners() {
         KeyDto keyPressed = this.keyListener.getKeyPressed();
         Listener listener = this.factoryListener.getListenerByKey(keyPressed);
-	    listener.doAction();
     }
 
     private void showWindowGraphics(){

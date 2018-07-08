@@ -1,11 +1,14 @@
 package listeners;
 
+import object.Avatar;
+import java.awt.*;
+
 public class AvatarListenerLeft implements Listener {
 
-
     @Override
-    public void doAction() {
-        System.out.println("se presiono la A");
+    public Point actionMove(Avatar avatar, Point positionInMap) {
+        avatar.turnToLeft();
+        return positionInMap;
     }
 
 }

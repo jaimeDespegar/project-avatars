@@ -10,9 +10,7 @@ public class ViewGame {
 
 	private static JFrame view;
 	
-	public ViewGame(Draw draw){ //
-		//BufferedImage image = LoadImage.loadImageTranslated(Constants.ROUTE_ICON);
-		//this.icon = new ImageIcon(image);
+	public ViewGame(Draw draw){
 		configureView(draw);
 	}
 	

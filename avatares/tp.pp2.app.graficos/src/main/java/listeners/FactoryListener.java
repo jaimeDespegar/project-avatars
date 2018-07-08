@@ -6,10 +6,11 @@ import java.util.Map;
 
 public class FactoryListener {
 
+    private static FactoryListener instance;
     private Map<KeyDto, Listener> listenersKeys;
     private Listener listenerSpecialCase;
 
-    public FactoryListener() {
+    private FactoryListener() {
         this.listenersKeys = Maps.newHashMap();
         this.listenerSpecialCase = new NoneListenerSpecialCase();
         this.loadListeners();
@@ -24,6 +25,12 @@ public class FactoryListener {
 
     public Listener getListenerByKey(KeyDto key) {
         return this.listenersKeys.getOrDefault(key, this.listenerSpecialCase);
+    }
+
+    public static FactoryListener getInstancie() {
+        if (instance==null)
+            instance = new FactoryListener();
+        return instance;
     }
 
 }

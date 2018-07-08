@@ -1,7 +1,10 @@
 package listeners;
 
+import object.Avatar;
+import java.awt.*;
+
 public interface Listener {
 
-    void doAction();
+    Point actionMove(Avatar avatar, Point positionInMap);
 
 }

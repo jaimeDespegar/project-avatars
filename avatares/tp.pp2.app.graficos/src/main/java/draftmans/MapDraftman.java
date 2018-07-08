@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferStrategy;
 import java.util.HashMap;
-
 import dto.Configuration;
 import enums.TypeOfStructure;
 import object.Avatar;
@@ -92,6 +91,5 @@ public class MapDraftman extends Canvas implements Draftman  {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 }
