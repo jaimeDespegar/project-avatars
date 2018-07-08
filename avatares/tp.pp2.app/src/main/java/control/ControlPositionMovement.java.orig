@@ -41,7 +41,7 @@ public class ControlPositionMovement extends GameObjectController {
 	//hoihoih
 	public void retroceder(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
-
+<<<<<<< HEAD
 			map.addBoxGameObject(previousPointUp, avatar);
 			//avatar.setPosition(previousPointUp);
 			map.deleteBox(positionAvatar);
@@ -54,7 +54,7 @@ public class ControlPositionMovement extends GameObjectController {
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
 			map.addBoxGameObject(previousPointLeft, avatar);
 		//	avatar.setPosition(previousPointLeft);
-
+=======
 			map.addBox(previousPointUp, avatar);
 			avatar.setPosition(previousPointUp);
 			map.deleteBox(positionAvatar);
@@ -67,7 +67,7 @@ public class ControlPositionMovement extends GameObjectController {
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
 			map.addBox(previousPointLeft, avatar);
 			avatar.setPosition(previousPointLeft);
-
+>>>>>>> 7ead80a67a9d7c46fe8a4a0fa72310c998b3e8ce
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreePreviousPositionRight(positionAvatar))){ //avanzar derecha

@@ -130,7 +130,7 @@ public class ControlPositionMovementTest {
 		
 		aPoint= new Point(1,1);
 		
-		map.addBoxGameObject(aPoint, a);
+		map.addBox(aPoint, a);
 		
 	//	a.setPosition(aPoint);
 		
@@ -152,7 +152,7 @@ public class ControlPositionMovementTest {
 		
 		aPoint= new Point(1,1);
 		
-		map.addBoxGameObject(aPoint, a);
+		map.addBox(aPoint, a);
 		
 	//	a.setPosition(aPoint);
 		
@@ -175,7 +175,7 @@ public class ControlPositionMovementTest {
 		
 		aPoint= new Point(1,1);
 		
-		map.addBoxGameObject(aPoint, a);
+		map.addBox(aPoint, a);
 		
 	//	a.setPosition(aPoint);
 		
@@ -198,7 +198,7 @@ public class ControlPositionMovementTest {
 		
 		aPoint= new Point(1,1);
 		
-		map.addBoxGameObject(aPoint, a);
+		map.addBox(aPoint, a);
 		
 		//a.setPosition(aPoint);
 		

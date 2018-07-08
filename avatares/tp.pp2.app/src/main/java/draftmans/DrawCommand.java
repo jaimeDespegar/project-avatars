@@ -1,4 +1,4 @@
-package graphics;
+package draftmans;
 
 import java.awt.Color;
 import java.awt.Graphics;

@@ -1,8 +1,7 @@
 package main;
 
 import controllers.ControlPrincipalView;
-import controllers.Controller;
-import draftmans.GameDraftsman;
+
 
 public class AppEntorno {
 

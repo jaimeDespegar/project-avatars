@@ -2,7 +2,6 @@ package controllers;
 
 import classProperties.KeyAvatarProperties;
 import main.Constants;
-import main.GameTick;
 import object.Avatar;
 import tablero.CreateMap;
 import tablero.Map;
@@ -12,6 +11,7 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import draftmans.GameTick;
 import enums.Orientation;
 
 public class ControlPrincipalView implements ActionListener{

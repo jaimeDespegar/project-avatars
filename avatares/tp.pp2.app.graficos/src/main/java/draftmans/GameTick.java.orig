@@ -1,16 +1,19 @@
-package main;
+package draftmans;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+<<<<<<< HEAD:avatares/tp.pp2.app.graficos/src/main/java/main/GameTick.java
 import classProperties.ElectionKeyAvatar;
 import draftmans.Draw;
 import enums.Orientation;
 import listeners.Listener;
 import object.Avatar;
 import object.KeyDto;
+=======
+>>>>>>> 7ead80a67a9d7c46fe8a4a0fa72310c998b3e8ce:avatares/tp.pp2.app.graficos/src/main/java/draftmans/GameTick.java
 import enums.TypeOfStructure;
 import listeners.FactoryListener;
 import listeners.GameKeyListener;
@@ -36,9 +39,14 @@ public class GameTick implements Runnable {
 	public GameTick(Board board, ElectionKeyAvatar keys) {
 		draw = new Draw(board);
 		viewGame = new ViewGame(draw);
+<<<<<<< HEAD:avatares/tp.pp2.app.graficos/src/main/java/main/GameTick.java
 		keyboard = new GameKeyListener();
 		factoryListener = FactoryListener.getInstancie();
 		factoryListener.loadListeners(keys);
+=======
+		newChangesBoxes = new ArrayList<List<Box>>();
+		newChangesCoordinates = new ArrayList<List<Point>>();
+>>>>>>> 7ead80a67a9d7c46fe8a4a0fa72310c998b3e8ce:avatares/tp.pp2.app.graficos/src/main/java/draftmans/GameTick.java
 	}
 
 	// synchronized permite que no se puedan ejecutar al mismo tiempo

@@ -4,7 +4,6 @@ import java.awt.Point;
 
 import draftmans.GameTick;
 import enums.Orientation;
-import graphics.Drawer;
 import object.Avatar;
 import tablero.Map;
 import turn.ManagerMove;
@@ -37,6 +36,11 @@ public class GameController implements Runnable{
 			m.manageMoves();
 		}
 		
+<<<<<<< HEAD
+		//map.getBoard().addBoxGameObject(new Point(1,0), new Avatar(100, Orientation.RIGHT,1));
+		map.printMap();
+=======
+>>>>>>> 7ead80a67a9d7c46fe8a4a0fa72310c998b3e8ce
 	}
 
 }
