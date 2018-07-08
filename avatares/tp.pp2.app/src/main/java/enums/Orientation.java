@@ -11,6 +11,11 @@ public enum Orientation {
 		public Orientation getRight() {
 			return DOWN;
 		}
+
+		@Override
+		public Orientation getReverse() {
+			return LEFT;
+		}
 	}, 
 	
 	LEFT {
@@ -22,6 +27,11 @@ public enum Orientation {
 		@Override
 		public Orientation getRight() {
 			return UP;
+		}
+
+		@Override
+		public Orientation getReverse() {
+			return RIGHT;
 		}
 	}, 
 	
@@ -35,6 +45,11 @@ public enum Orientation {
 		public Orientation getRight() {
 			return RIGHT;
 		}
+
+		@Override
+		public Orientation getReverse() {
+			return DOWN;
+		}
 	}, 
 	
 	DOWN {
@@ -47,8 +62,14 @@ public enum Orientation {
 		public Orientation getRight() {
 			return LEFT;
 		}
+
+		@Override
+		public Orientation getReverse() {
+			return UP;
+		}
 	};
 	
 	public abstract Orientation getLeft();
 	public abstract Orientation getRight();
+	public abstract Orientation getReverse();
 }

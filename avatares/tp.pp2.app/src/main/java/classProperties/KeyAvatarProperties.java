@@ -8,23 +8,26 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Properties;
-
 import main.Constants;
-
 
 public class KeyAvatarProperties {
 	private Properties properties;
 	private ElectionKeyAvatar electionKeyAvatar;
 
-	public KeyAvatarProperties() throws AWTException, NoSuchFieldException, IllegalAccessException {
+	public KeyAvatarProperties() {
 		this.properties = new Properties();
 		loadProperties();
 		loadDataProperties();
 	}
 
-	private void loadDataProperties() throws AWTException, NoSuchFieldException, IllegalAccessException {
-		Robot bot = new Robot();
-		
+	private void loadDataProperties() {
+		Robot bot = null;
+		try {
+			bot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
 		String keyUp= properties.getProperty("up");
 		String keyDown= properties.getProperty("down");
 		String keyLeft= properties.getProperty("left");
@@ -32,10 +35,11 @@ public class KeyAvatarProperties {
 		String keyShoot= properties.getProperty("shoot");
 		String keyPower1= properties.getProperty("power1");
 		String keyPower2= properties.getProperty("power2");
-		
-		this.electionKeyAvatar= new ElectionKeyAvatar(writeKeyboard(bot, keyUp), writeKeyboard(bot, keyDown), 
-				writeKeyboard(bot, keyLeft), writeKeyboard(bot, keyRight), writeKeyboard(bot, keyShoot), 
+
+		this.electionKeyAvatar= new ElectionKeyAvatar(writeKeyboard(bot, keyUp), writeKeyboard(bot, keyDown),
+				writeKeyboard(bot, keyLeft), writeKeyboard(bot, keyRight), writeKeyboard(bot, keyShoot),
 				writeKeyboard(bot, keyPower1), writeKeyboard(bot, keyPower2));
+
 	}
 
 	private void loadProperties() {
@@ -51,17 +55,26 @@ public class KeyAvatarProperties {
 	public ElectionKeyAvatar getElectionKeyAvatar() {
 		return electionKeyAvatar;
 	}
-	
-	
+
 	//conviert una letra en un KeyEvent
-	public static int writeKeyboard(Robot bot, String st) throws NoSuchFieldException, IllegalAccessException { 
+	public static int writeKeyboard(Robot bot, String st) {
 		String upperCase = st.toUpperCase();
 		int keyEvent = 0;
 		for(int i = 0; i < upperCase.length(); i++) { 
 			String letter = Character.toString(upperCase.charAt(i)); 
 			String code = "VK_" + letter;
-			Field f = KeyEvent.class.getField(code); 
-			keyEvent = f.getInt(null); bot.keyPress(keyEvent); bot.keyRelease(keyEvent); 
+			Field f = null;
+			try {
+				f = KeyEvent.class.getField(code);
+			} catch (NoSuchFieldException e) {
+				e.printStackTrace();
+			}
+			try {
+				keyEvent = f.getInt(null);
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+			bot.keyPress(keyEvent); bot.keyRelease(keyEvent);
 		}
 		return keyEvent;
 	} 

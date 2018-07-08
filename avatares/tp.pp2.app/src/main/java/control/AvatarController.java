@@ -22,7 +22,7 @@ public class AvatarController extends GameObjectController{
 		d= new ControlColissionShoot(avatar, map, arma);
 	}
 	
-	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow, GameObject enemy) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
+	public void controlAvatar(Point positionAvatar, Integer keyPressedInNow, GameObject enemy)
 	{
 		KeyAvatarProperties k= new KeyAvatarProperties();
 		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);

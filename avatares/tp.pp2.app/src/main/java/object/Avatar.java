@@ -4,7 +4,6 @@ import enums.Orientation;
 
 public class Avatar extends GameObject{
 	private Integer id;
-	private Integer reduceDamage=1;
 
 	public Avatar(Integer vida, Orientation orientation, Integer id) {
 		super(vida, orientation);
@@ -32,4 +31,7 @@ public class Avatar extends GameObject{
 		this.orientation = orientation.getLeft();
 	}
 
+	public void turnToReverse() {
+		this.orientation = orientation.getReverse();
+	}
 }
