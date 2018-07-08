@@ -1,10 +1,9 @@
-package main;
+package draftmans;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import draftmans.Draw;
 import enums.TypeOfStructure;
 import object.Structure;
 import tablero.Board;
@@ -25,6 +24,8 @@ public class GameTick implements Runnable {
 	public GameTick(Board board) {
 		draw = new Draw(board);
 		viewGame = new ViewGame(draw);
+		newChangesBoxes = new ArrayList<List<Box>>();
+		newChangesCoordinates = new ArrayList<List<Point>>();
 	}
 
 	// synchronized permite que no se puedan ejecutar al mismo tiempo
