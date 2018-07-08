@@ -35,91 +35,79 @@ public class ControlPositionMovementTest {
 	}
 	
 	
-//	@Test
-//	public void avanzarConOrientacionDerecha(){
-//		System.out.println("\nTest1\n");
-//		a= new Avatar(100, Orientation.RIGHT);
-//		
-//		aPoint= new Point(1,1);
-//		
-//		map.addBoxGameObject(aPoint, a);
-//		
-//		a.setPosition(aPoint);
-//		
-//		
-//		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
-//		c.avanzar(aPoint);
-//
-//		Point pFinalEstimado= new Point(2,1);
-//		Point actual= a.getPosition();
-//		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
-//		//map.printMap();
-//		assertTrue(actual.equals(pFinalEstimado));
-//	}
+	@Test
+	public void avanzarConOrientacionDerecha(){
+		System.out.println("\nTest1\n");
+		a= new Avatar(100, Orientation.RIGHT,1);
+		aPoint= new Point(1,1);
+		a.setPosition(aPoint);
+		map.addBox(aPoint, a);
+		
+		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
+		c.avanzar(aPoint);
+
+		Point pFinalEstimado= new Point(2,1);
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
+		//map.printMap();
+		assertTrue(actual.equals(pFinalEstimado));
+	}
 	
-//	@Test
-//	public void avanzarConOrientacionAbajo(){
-//		System.out.println("\nTest2\n");
-//		
-//		a= new Avatar(100, Orientation.DOWN);
-//		
-//		aPoint= new Point(1,1);
-//		
-//		map.addBoxGameObject(aPoint, a);
-//		
-//		a.setPosition(aPoint);
-//		
-//		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
-//		c.avanzar(aPoint);
-//
-//		Point pFinalEstimado= new Point(1,2);
-//		Point actual= a.getPosition();
-//		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
-//		//map.printMap();
-//		assertTrue(actual.equals(pFinalEstimado));
-//	}
+	@Test
+	public void avanzarConOrientacionAbajo(){
+		System.out.println("\nTest2\n");
+		
+		a= new Avatar(100, Orientation.DOWN,1);
+		aPoint= new Point(1,1);
+		a.setPosition(aPoint);
+		map.addBox(aPoint, a);
+		
+		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
+		c.avanzar(aPoint);
+
+		Point pFinalEstimado= new Point(1,2);
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
+		//map.printMap();
+		assertTrue(actual.equals(pFinalEstimado));
+	}
 	
-//	@Test
-//	public void avanzarConOrientacionIzquierda(){
-//		System.out.println("\nTest3\n");
-//		
-//		a= new Avatar(100, Orientation.LEFT);
-//		
-//		aPoint= new Point(1,1);
-//		
-//		map.addBoxGameObject(aPoint, a);
-//		
-//		a.setPosition(aPoint);
-//		
-//		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
-//		c.avanzar(aPoint);
-//
-//		Point pFinalEstimado= new Point(0,1);
-//		Point actual= a.getPosition();
-//		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
-//		assertTrue(actual.equals(pFinalEstimado));
-//	}
+	@Test
+	public void avanzarConOrientacionIzquierda(){
+		System.out.println("\nTest3\n");
+		
+		a= new Avatar(100, Orientation.LEFT,1);
+		aPoint= new Point(1,1);
+		a.setPosition(aPoint);
+		map.addBox(aPoint, a);
+		
+		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
+		c.avanzar(aPoint);
+
+		Point pFinalEstimado= new Point(0,1);
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
+		assertTrue(actual.equals(pFinalEstimado));
+	}
 	
-//	@Test
-//	public void avanzarConOrientacionArriba(){
-//		System.out.println("\nTest4\n");
-//		
-//		a= new Avatar(100, Orientation.UP);
-//		
-//		aPoint= new Point(1,1);
-//		
-//		map.addBoxGameObject(aPoint, a);
-//		
-//		a.setPosition(aPoint);
-//		
-//		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
-//		c.avanzar(aPoint);
-//
-//		Point pFinalEstimado= new Point(1,0);
-//		Point actual= a.getPosition();
-//		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
-//		assertTrue(actual.equals(pFinalEstimado));
-//	}
+	@Test
+	public void avanzarConOrientacionArriba(){
+		System.out.println("\nTest4\n");
+		
+		a= new Avatar(100, Orientation.UP,1);
+		aPoint= new Point(1,1);
+		a.setPosition(aPoint);
+		map.addBox(aPoint, a);
+		
+		
+		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
+		c.avanzar(aPoint);
+
+		Point pFinalEstimado= new Point(1,0);
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
+		assertTrue(actual.equals(pFinalEstimado));
+	}
 	
 	//RETROCEDER
 	
@@ -129,17 +117,17 @@ public class ControlPositionMovementTest {
 		a= new Avatar(100, Orientation.RIGHT,1);
 		
 		aPoint= new Point(1,1);
-		
+		a.setPosition(aPoint);
 		map.addBox(aPoint, a);
 		
-	//	a.setPosition(aPoint);
+		
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(0,1);
-		Point actual= null;
+		Point actual= a.getPosition();
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));
@@ -151,17 +139,17 @@ public class ControlPositionMovementTest {
 		a= new Avatar(100, Orientation.DOWN,1);
 		
 		aPoint= new Point(1,1);
-		
+		a.setPosition(aPoint);
 		map.addBox(aPoint, a);
 		
-	//	a.setPosition(aPoint);
+		
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(1,0);
-		Point actual= null;
+		Point actual= a.getPosition();
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));
@@ -172,19 +160,16 @@ public class ControlPositionMovementTest {
 	public void retrocederConOrientacionIzquierda(){
 		System.out.println("\nTest6\n");
 		a= new Avatar(100, Orientation.LEFT,1);
-		
 		aPoint= new Point(1,1);
-		
+		a.setPosition(aPoint);
 		map.addBox(aPoint, a);
-		
-	//	a.setPosition(aPoint);
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(2,1);
-		Point actual= null;
+		Point actual= a.getPosition();
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));
@@ -195,19 +180,19 @@ public class ControlPositionMovementTest {
 	public void retrocederConOrientacionArriba(){
 		System.out.println("\nTest6\n");
 		a= new Avatar(100, Orientation.UP,1);
-		
 		aPoint= new Point(1,1);
-		
+		a.setPosition(aPoint);
 		map.addBox(aPoint, a);
-		
-		//a.setPosition(aPoint);
+		//map.printMap();
+		Point actual= a.getPosition();
+		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(1,2);
-		Point actual= null;
+		actual= a.getPosition();
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));

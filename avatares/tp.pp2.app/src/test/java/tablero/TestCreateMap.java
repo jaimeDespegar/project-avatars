@@ -16,10 +16,10 @@ public class TestCreateMap {
 		createMap = new CreateMap(Constants.ROUTE_PROPERTIES);
 	}
 	
-	@Test
-	public void testMapNull() {
-		assertNull(createMap.getMap());
-	}
+//	@Test
+//	public void testMapNull() {
+//		assertNull(createMap.getMap());
+//	}
 
 	@Test
 	public void testCreateMap() {

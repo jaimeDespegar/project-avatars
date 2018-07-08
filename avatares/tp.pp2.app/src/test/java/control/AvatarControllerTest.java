@@ -1,6 +1,5 @@
 package control;
 
-import static org.junit.Assert.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.Point;

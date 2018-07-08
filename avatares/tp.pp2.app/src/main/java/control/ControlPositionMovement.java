@@ -16,20 +16,22 @@ public class ControlPositionMovement extends GameObjectController {
 	public void avanzar(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreeNextPositionUp(positionAvatar))){ //avanzar arriba
 			map.addBox(nextPointUp, avatar);
-		//	avatar.setPosition(nextPointUp);
+			avatar.setPosition(nextPointUp);//
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreeNextPositionDown(positionAvatar))){ //avanzar abajo
 			map.addBox(nextPointDown, avatar);
-		//	avatar.setPosition(nextPointDown);
+			avatar.setPosition(nextPointDown);//
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreeNextPositionLeft(positionAvatar))){ //avanzar izquierda
 			map.addBox(nextPointLeft, avatar);
+			avatar.setPosition(nextPointLeft);//
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreeNextPositionRight(positionAvatar))){ //avanzar derecha
 			map.addBox(nextPointRight, avatar);
+			avatar.setPosition(nextPointRight);//
 			map.deleteBox(positionAvatar);
 		}
 		else{
@@ -43,35 +45,36 @@ public class ControlPositionMovement extends GameObjectController {
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
 
 			map.addBox(previousPointUp, avatar);
-			//avatar.setPosition(previousPointUp);
+			avatar.setPosition(previousPointUp);//
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
 			map.addBox(previousPointDown, avatar);
-		//	avatar.setPosition(previousPointDown);
-			map.deleteBox(positionAvatar);
-		}
-		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
-		//	avatar.setPosition(previousPointLeft);
-
-			map.addBox(previousPointUp, avatar);
-			map.deleteBox(positionAvatar);
-		}
-		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
-			map.addBox(previousPointDown, avatar);
+			avatar.setPosition(previousPointDown);//
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
 			map.addBox(previousPointLeft, avatar);
+			avatar.setPosition(previousPointLeft);//
 			map.deleteBox(positionAvatar);
 		}
+//		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
+//			map.addBox(previousPointDown, avatar);
+//			avatar.setPosition(previousPointDown);//
+//			map.deleteBox(positionAvatar);
+//		}
+//		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
+//			map.addBox(previousPointLeft, avatar);
+//			avatar.setPosition(previousPointLeft);//
+//			map.deleteBox(positionAvatar);
+//		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreePreviousPositionRight(positionAvatar))){ //avanzar derecha
 			map.addBox(previousPointRight, avatar);
+			avatar.setPosition(previousPointRight);//
 			map.deleteBox(positionAvatar);
-		//	avatar.setPosition(previousPointRight);
 		}
 		else{
-		//	avatar.setPosition(positionAvatar);
+			avatar.setPosition(positionAvatar);//
 		}
 		
 	}
