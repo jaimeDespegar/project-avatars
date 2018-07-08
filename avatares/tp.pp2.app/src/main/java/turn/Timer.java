@@ -1,4 +1,4 @@
-package adapters;
+package turn;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,7 +6,7 @@ public class Timer extends Thread {
 
     private Integer seconds;
     private Boolean passedTime;
-    private static final Integer DEFAULT = 60;
+    private static final Integer DEFAULT = 5;
 
     public Timer()
     {

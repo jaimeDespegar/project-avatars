@@ -132,14 +132,14 @@ public class ControlPositionMovementTest {
 		
 		map.addBoxGameObject(aPoint, a);
 		
-		a.setPosition(aPoint);
+	//	a.setPosition(aPoint);
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(0,1);
-		Point actual= a.getPosition();
+		Point actual= null;
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));
@@ -154,14 +154,14 @@ public class ControlPositionMovementTest {
 		
 		map.addBoxGameObject(aPoint, a);
 		
-		a.setPosition(aPoint);
+	//	a.setPosition(aPoint);
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(1,0);
-		Point actual= a.getPosition();
+		Point actual= null;
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));
@@ -177,14 +177,14 @@ public class ControlPositionMovementTest {
 		
 		map.addBoxGameObject(aPoint, a);
 		
-		a.setPosition(aPoint);
+	//	a.setPosition(aPoint);
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(2,1);
-		Point actual= a.getPosition();
+		Point actual= null;
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));
@@ -200,14 +200,14 @@ public class ControlPositionMovementTest {
 		
 		map.addBoxGameObject(aPoint, a);
 		
-		a.setPosition(aPoint);
+		//a.setPosition(aPoint);
 		
 		
 		ControlPositionMovement c= new ControlPositionMovement(a, map, null);   
 		c.retroceder(aPoint);
 
 		Point pFinalEstimado= new Point(1,2);
-		Point actual= a.getPosition();
+		Point actual= null;
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		//map.printMap();
 		assertTrue(actual.equals(pFinalEstimado));

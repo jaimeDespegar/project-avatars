@@ -23,7 +23,6 @@ public class TestCreateMap {
 
 	@Test
 	public void testCreateMap() {
-		createMap.createMap();
 		assertNotNull(createMap.getMap());
 	}
 }

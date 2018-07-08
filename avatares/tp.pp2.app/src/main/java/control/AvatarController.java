@@ -28,7 +28,7 @@ public class AvatarController extends GameObjectController{
 		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);
 		ControlTurn t= new ControlTurn(avatar, map , arma);
 		
-		
+		/*
 		//keyPressedInNow = keyListener.getKeyPressed();
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyUp()){
 			c.avanzar(positionAvatar);
@@ -54,7 +54,7 @@ public class AvatarController extends GameObjectController{
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatar().getKeyPower2()){
 			//activarPoder2();
-		}
+		}*/
 
 	}
 	private void salir() {

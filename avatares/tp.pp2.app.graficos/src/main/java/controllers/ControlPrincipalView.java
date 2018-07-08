@@ -1,9 +1,11 @@
 package controllers;
 
+import classProperties.KeyAvatarProperties;
 import main.Constants;
 import main.GameTick;
 import object.Avatar;
 import tablero.CreateMap;
+import tablero.Map;
 import views.PrincipalView;
 
 import java.awt.Point;
@@ -38,29 +40,18 @@ public class ControlPrincipalView implements ActionListener{
 		else if (e.getSource() == this.principalView.getBtnAccept()) {
 
 			this.principalView.getConfigurationPanel().setVisible(false);
-/*
-			String up = this.principalView.getTextFieldUp().getText();
-			String down = this.principalView.getTextFieldDown().getText();
-			String left = this.principalView.getTextFieldLeft().getText();
-			String right = this.principalView.getTextFieldRight().getText();
-			//String shoot = this.principalView.getTextShoot().getText(); // AGREGAR TECLA DE DISPARO
-			// guardar informacion de la configuracion
 
-			EleccionMenu eleccion = new EleccionMenu(up, down, left, right, "shoot", 300, 300, 40, 40, "image");
-			Principal principal = new Principal();
-			principal.modificarArchivo(eleccion);
-			*/
 		}
 		
 		else if (e.getSource() == this.principalView.getBtnPlay()) {
 			this.principalView.getFrmPrincipalView().dispose();
 			CreateMap createMap = new CreateMap(Constants.ROUTE_PROPERTIES);
-			createMap.createMap();
-			createMap.getMap().addBox(new Point(3,1), new Avatar(100,Orientation.RIGHT,1));
-			createMap.getMap().addBox(new Point(2,4), new Avatar(100,Orientation.UP,2));
-			GameTick game = new GameTick(createMap.getMap().getBoard());
+			Map mapGame = createMap.getMap();
+			KeyAvatarProperties keyss = new KeyAvatarProperties();
+			mapGame.addBox(new Point(3,1), new Avatar(100,Orientation.RIGHT,1,keyss.getElectionKeyAvatar()));
+			mapGame.addBox(new Point(2,4), new Avatar(100,Orientation.UP,2,null));
+			GameTick game = new GameTick(createMap.getMap().getBoard(), keyss.getElectionKeyAvatar());
 			game.start();
-
 		}
 		
 	}

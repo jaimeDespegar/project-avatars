@@ -2,29 +2,23 @@ package turn;
 
 public class Turn {
 
-	private Player player;
-	private Boolean isFinish;
-	
-	public Turn(Player player) {
+	private Integer player;
+	private Timer timer;
+
+	public Turn(Integer idPlayer) {
 		this.player = player;
-		this.isFinish = Boolean.FALSE;
+		this.timer = new Timer();
 	}
 
-	
+
 	public Boolean isFinish() {
-		return isFinish;
-	}
-
-	
-	public void setIsFinish(Boolean isFinish) {
-		this.isFinish = isFinish;
+		return timer.isFinish();
 	}
  
 	
 	public void play() {
-		Move move = new Move(player);
-		move.doAction();
-		isFinish = Boolean.TRUE;
+		System.out.println("Juega solo el player " + player);
+		timer.initTime();
 	}
 	
 }

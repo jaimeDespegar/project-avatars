@@ -42,26 +42,26 @@ public class ControlPositionMovement extends GameObjectController {
 	public void retroceder(Point positionAvatar){
 		if((avatar.getOrientation() == Orientation.UP) && (isFreePreviousPositionUp(positionAvatar))){ //avanzar arriba
 			map.addBoxGameObject(previousPointUp, avatar);
-			avatar.setPosition(previousPointUp);
+			//avatar.setPosition(previousPointUp);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.DOWN) && (isFreePreviousPositionDown(positionAvatar))){ //avanzar abajo
 			map.addBoxGameObject(previousPointDown, avatar);
-			avatar.setPosition(previousPointDown);
+		//	avatar.setPosition(previousPointDown);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.LEFT) && (isFreePreviousPositionLeft(positionAvatar))){ //avanzar izquierda
 			map.addBoxGameObject(previousPointLeft, avatar);
-			avatar.setPosition(previousPointLeft);
+		//	avatar.setPosition(previousPointLeft);
 			map.deleteBox(positionAvatar);
 		}
 		else if((avatar.getOrientation() == Orientation.RIGHT) && (isFreePreviousPositionRight(positionAvatar))){ //avanzar derecha
 			map.addBoxGameObject(previousPointRight, avatar);
 			map.deleteBox(positionAvatar);
-			avatar.setPosition(previousPointRight);
+		//	avatar.setPosition(previousPointRight);
 		}
 		else{
-			avatar.setPosition(positionAvatar);
+		//	avatar.setPosition(positionAvatar);
 		}
 		
 	}

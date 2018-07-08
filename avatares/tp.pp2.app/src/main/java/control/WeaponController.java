@@ -22,7 +22,7 @@ public class WeaponController {
 		this.map= map;
 		this.arma= arma;
 		
-		arma.setPosition(avatar.getPosition());
+		//arma.setPosition(avatar.getPosition());
 		arma.setOrientation(avatar.getOrientation());
 	}
 	

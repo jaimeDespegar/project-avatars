@@ -29,7 +29,7 @@ public class AvatarWithShieldController extends GameObjectController{
 		
 		
 		//keyPressedInNow = keyListener.getKeyPressed();
-		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyUp()){//KeyEvent.VK_UP){
+	/*	if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyUp()){//KeyEvent.VK_UP){
 			c.avanzar(positionAvatarWithShield);
 		}
 		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyDown()){
@@ -53,7 +53,7 @@ public class AvatarWithShieldController extends GameObjectController{
 		if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyPower2()){
 			//activarPoder2();
 		}
-
+*/
 	}
 	
 	private void salir() {

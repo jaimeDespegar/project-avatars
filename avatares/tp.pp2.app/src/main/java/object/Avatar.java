@@ -1,14 +1,24 @@
 package object;
 
-import enums.Orientation; 
+import classProperties.ElectionKeyGameObject;
+import enums.Orientation;
 
 public class Avatar extends GameObject{
+
 	private Integer id;
+	private ElectionKeyGameObject keys;
 
 	public Avatar(Integer vida, Orientation orientation, Integer id) {
 		super(vida, orientation);
 		this.id = id;
 		reduceDamage=1;
+	}
+
+	public Avatar(Integer vida, Orientation orientation, Integer id, ElectionKeyGameObject electionKeys) {
+		super(vida, orientation);
+		this.id = id;
+		reduceDamage=1;
+		this.keys = electionKeys;
 	}
 
 	public Integer getReduceDamage() {
@@ -34,4 +44,9 @@ public class Avatar extends GameObject{
 	public void turnToReverse() {
 		this.orientation = orientation.getReverse();
 	}
+
+	public ElectionKeyGameObject getKeys() {
+		return keys;
+	}
+
 }

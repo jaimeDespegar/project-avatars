@@ -8,9 +8,10 @@ public class CreateMap {
 	
 	public CreateMap (String route_properties) {
 		mapProperties = new MapProperties(route_properties);
+		createMap();
 	}
 	
-	public void createMap() {
+	private void createMap() {
 		map = new Builder(mapProperties.getElectionMap().getMapSize())
 				.withStructureRectangle(mapProperties.getElectionMap().getRectangle1())
 				.withStructureRectangle(mapProperties.getElectionMap().getRectangle2())

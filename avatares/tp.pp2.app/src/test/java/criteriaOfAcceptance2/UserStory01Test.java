@@ -56,8 +56,8 @@ public class UserStory01Test {
 	aPoint= new Point(1,1);
 	awsPoint= new Point(3,1); 
 	
-	a.setPosition(aPoint);
-	aws.setPosition(awsPoint);
+/*	a.setPosition(aPoint);
+	aws.setPosition(awsPoint);*/
 	
 	rectangle = new Rectangle(new Point(1, 2), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
 	map = new Builder(new Point(4, 4)).withStructureRectangle(rectangle).build();
@@ -138,7 +138,7 @@ public class UserStory01Test {
 		ac.controlAvatar(aPoint, KeyEvent.VK_D, aws);
 	
 		Point pFinalEstimado= new Point(1,1);
-		Point actual= a.getPosition();
+		Point actual= null;
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		assertEquals(actual,pFinalEstimado);
 		assertEquals(Orientation.DOWN, ac.getAvatar().getOrientation());
@@ -152,7 +152,7 @@ public class UserStory01Test {
 		ac.controlAvatar(aPoint, KeyEvent.VK_W, aws);
 	
 		Point pFinalEstimado= new Point(2,1);
-		Point actual= a.getPosition();
+		Point actual= null;
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 	}
 	
@@ -177,7 +177,7 @@ public class UserStory01Test {
 		cShoot.controlDisparo();
 		
 		Point pFinalEstimado= new Point(1,1);
-		Point actual= a.getPosition();
+		Point actual= null;
 		System.out.println("actual: ("+actual.x+" ,"+actual.y+")");
 		assertEquals(pFinalEstimado, actual);
 		assertEquals(60, aws.getVida());

@@ -66,9 +66,9 @@ public class UserStory07Test {
 	@Test
 	public void avatarDerrotadoDesapareceDelMapa(){
 		map.addBox(new Point(0,1), A);
-		A.setPosition(new Point(0,0));
+	//	A.setPosition(new Point(0,0));
 		map.addBox(new Point(0,2), B);
-		B.setPosition(new Point(1,0));
+	//	B.setPosition(new Point(1,0));
 		ControlColissionShoot Acc= new ControlColissionShoot(A, map, null);
 		ControlColissionShoot Bcc= new ControlColissionShoot(B, map, null);
 		Acc.colissionWeaponByEnemy(A, hacha, B);

@@ -1,5 +1,7 @@
 package dto;
 
+import object.KeyDto;
+
 import java.util.List;
 
 public class AvatarDTO {

@@ -19,7 +19,7 @@ public class Game {
 
     private void initMap() {
         CreateMap create = new CreateMap(Constants.ROUTE_PROPERTIES_PATH);
-        create.createMap();
+    //    create.createMap();
         this.map = create.getMap();
     }
 

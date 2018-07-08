@@ -12,7 +12,7 @@ public class App
     public static void main( String[] args )
     {
     	CreateMap createMap = new CreateMap(Constants.ROUTE_PROPERTIES);
-		createMap.createMap();
+		//createMap.createMap();
 		GameController gameController = new GameController(createMap.getMap());
 		gameController.Initialize();
 		

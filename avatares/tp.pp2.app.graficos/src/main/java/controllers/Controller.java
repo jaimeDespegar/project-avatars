@@ -1,8 +1,7 @@
 package controllers;
 
-import draftmans.Draftman;
 import draftmans.GameDraftsman;
-import dto.KeyDto;
+import object.KeyDto;
 import listeners.FactoryListener;
 import listeners.GameKeyListener;
 import listeners.Listener;

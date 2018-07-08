@@ -2,12 +2,22 @@ package main;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import classProperties.ElectionKeyAvatar;
 import draftmans.Draw;
+import enums.Orientation;
+import listeners.Listener;
+import object.Avatar;
+import object.KeyDto;
 import enums.TypeOfStructure;
+import listeners.FactoryListener;
+import listeners.GameKeyListener;
 import object.Structure;
 import tablero.Board;
 import tablero.Box;
+import turn.Turn;
 import views.ViewGame;
 
 public class GameTick implements Runnable {
@@ -20,10 +30,15 @@ public class GameTick implements Runnable {
 	private Draw draw;
 	private List<List<Box>> newChangesBoxes;
 	private List<List<Point>> newChangesCoordinates;
+	private GameKeyListener keyboard;
+	private FactoryListener factoryListener;
 
-	public GameTick(Board board) {
+	public GameTick(Board board, ElectionKeyAvatar keys) {
 		draw = new Draw(board);
 		viewGame = new ViewGame(draw);
+		keyboard = new GameKeyListener();
+		factoryListener = FactoryListener.getInstancie();
+		factoryListener.loadListeners(keys);
 	}
 
 	// synchronized permite que no se puedan ejecutar al mismo tiempo
@@ -57,7 +72,8 @@ public class GameTick implements Runnable {
 		draw.DrawImages();
 	}
 
-	public void run() { 
+	public void run() {
+		KeyDto keyPressed = keyboard.getKeyPressed();
 		final int NS_POR_SEGUNDO = 1000000000; // cantidad de nanosegundos equivalentes a un segundo
 		long referenciaContador = System.nanoTime(); // para contar los frames 
 		//dibujamos una sola vez todos los elementos del juego
@@ -90,6 +106,15 @@ public class GameTick implements Runnable {
 		}
 		newChangesBoxes.clear();
 		newChangesCoordinates.clear();
+		Avatar aa = new Avatar(10,Orientation.UP,1, null);
+		Listener l = factoryListener.getListenerByKey(keyPressed);
+		Point p = l.actionMove(aa,new Point(1,1));
+		System.out.println("Se presiono : " + keyPressed);
+		System.out.println("el avatar se movio ala posicion " + p);
+
+
+		List<Turn> turns = Arrays.asList(new Turn(1),new Turn(2));
+		turns.forEach(i->i.play());
 	}
 	//recibe una lista de los objetos cambiados (objetonuevo - punto)
 	//es decir, cuando un avatar dispara se debe de guardar en esa lista, el disparo, y su posicion

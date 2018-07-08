@@ -35,10 +35,10 @@ public class ControlColissionShoot extends GameObjectController{
 		}
 	}
 	private void borrarAvatarDelMapa() {
-		if(this.avatar.getPosition() != null){
+	/*	if(this.avatar.getPosition() != null){
 			map.deleteBox(this.avatar.getPosition());
 		}
-		
+		*/
 	}
 
 	public void colissionWeapon(GameObject g, Weapon w){
@@ -78,10 +78,10 @@ public class ControlColissionShoot extends GameObjectController{
 	}
 	
 	private void controlChoqueConEnemy(Point puntoChoque2, GameObject g) {
-		if(puntoChoque2.equals(g.getPosition())){
+	/*	if(puntoChoque2.equals(g.getPosition())){
 			colissionWeapon(g, arma);
 			System.out.println("controlChoqueConEnemy");
-		}
+		}*/
 	}
 
 

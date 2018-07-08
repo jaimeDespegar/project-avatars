@@ -1,6 +1,6 @@
 package listeners;
 
-import dto.KeyDto;
+import object.KeyDto;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

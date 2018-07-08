@@ -4,7 +4,7 @@ import enums.Orientation;
 
 public class AvatarBuilder {
 	// con esto creo los avatares , borro la clse avatar with shield
-	private Avatar instance = new Avatar(0, null, 1);
+	private Avatar instance = new Avatar(0, null, 1, null);
 	private Integer withOutshield = 1;
 	private Integer shield = 2;
 	

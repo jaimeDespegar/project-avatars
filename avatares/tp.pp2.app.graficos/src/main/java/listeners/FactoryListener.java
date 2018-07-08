@@ -1,7 +1,8 @@
 package listeners;
 
+import classProperties.ElectionKeyAvatar;
 import com.google.common.collect.Maps;
-import dto.KeyDto;
+import object.KeyDto;
 import java.util.Map;
 
 public class FactoryListener {
@@ -13,14 +14,14 @@ public class FactoryListener {
     private FactoryListener() {
         this.listenersKeys = Maps.newHashMap();
         this.listenerSpecialCase = new NoneListenerSpecialCase();
-        this.loadListeners();
+        //this.loadListeners();
     }
 
-    private void loadListeners() {
-        this.listenersKeys.put(new KeyDto("UP", 56), new AvatarListenerUp());
-        this.listenersKeys.put(new KeyDto("DOWN", 24), new AvatarListenerDown());
-        this.listenersKeys.put(new KeyDto("LEFT", 65), new AvatarListenerLeft());
-        this.listenersKeys.put(new KeyDto("RIGHT", 34), new AvatarListenerRight());
+    public void loadListeners(ElectionKeyAvatar keys) {
+        this.listenersKeys.put(keys.getKeyUp(), new AvatarListenerUp());
+        this.listenersKeys.put(keys.getKeyDown(), new AvatarListenerDown());
+        this.listenersKeys.put(keys.getKeyLeft(), new AvatarListenerLeft());
+        this.listenersKeys.put(keys.getKeyRight(), new AvatarListenerRight());
     }
 
     public Listener getListenerByKey(KeyDto key) {
