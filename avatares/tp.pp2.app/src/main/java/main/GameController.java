@@ -2,28 +2,29 @@ package main;
 
 import java.awt.Point;
 
+import draftmans.GameTick;
 import enums.Orientation;
-import graphics.Drawer;
 import object.Avatar;
 import tablero.Map;
-import turn.Turn;
 
-public class GameController {
+public class GameController implements Runnable{
 	private Map map;
-	private Drawer drawer;
+	private GameTick gameTick;
 	
 	public GameController(Map map) {
 		this.map = map;
-		this.drawer = new Drawer(map.getBoard());
+		this.gameTick = new GameTick(this.map.getBoard());
 	}
 
 	public void Initialize() {
-		//Turn turn = new Turn(null);
-		//aplicar turnos, hacer la gestion de los turnos aca, una vez que muera un avatar termina el juego
-		//pasar todo el tablero al dibujador del juego
+		this.gameTick.start();
+		map.getBoard().addBox(new Point(0,1), new Avatar(100, Orientation.RIGHT,1));
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
 		
-		map.getBoard().addBoxGameObject(new Point(1,0), new Avatar(100, Orientation.RIGHT,1));
-		map.printMap();
 	}
 
 }

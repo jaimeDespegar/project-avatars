@@ -62,8 +62,8 @@ public class UserStory01Test {
 	rectangle = new Rectangle(new Point(1, 2), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
 	map = new Builder(new Point(4, 4)).withStructureRectangle(rectangle).build();
 	
-	map.getBoard().addBoxGameObject(aPoint, a);
-	map.getBoard().addBoxGameObject(awsPoint, aws);	
+	map.getBoard().addBox(aPoint, a);
+	map.getBoard().addBox(awsPoint, aws);	
 	
 	//map.printMap();
 	
