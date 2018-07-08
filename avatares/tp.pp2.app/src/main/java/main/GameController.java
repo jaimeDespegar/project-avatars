@@ -6,6 +6,7 @@ import draftmans.GameTick;
 import enums.Orientation;
 import object.Avatar;
 import tablero.Map;
+import turn.ManagerMove;
 
 public class GameController implements Runnable{
 	private Map map;
@@ -23,7 +24,12 @@ public class GameController implements Runnable{
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		/*ManagerMove m = new ManagerMove();
+		
+		while(true) 
+		{
+			m.manageMoves();
+		}*/
 		
 	}
 
