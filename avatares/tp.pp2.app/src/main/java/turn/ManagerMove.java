@@ -18,15 +18,7 @@ public class ManagerMove {
 	
 	
 	public void manageMoves() {
-		String idPlayerNext = controller.next();	
-		Player player = factory.getPLayerById(idPlayerNext);
-		
-		Turn turn = new Turn(player);
-		
-		if(!turn.isFinish())
-		{
-			turn.play();
-		}
+	
 	}
 	
 }

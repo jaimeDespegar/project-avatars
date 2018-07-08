@@ -4,7 +4,6 @@ import java.awt.Point;
 
 import draftmans.GameTick;
 import enums.Orientation;
-import graphics.Drawer;
 import object.Avatar;
 import tablero.Map;
 import turn.ManagerMove;

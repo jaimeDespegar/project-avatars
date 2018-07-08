@@ -14,7 +14,7 @@ import object.Structure;
 import tablero.Box;
 import tablero.Map;
 
-public class MapDraftman extends Canvas implements Draftman  { 
+public class MapDraftman extends Canvas  { 
 	private Map map;
 	
 	public MapDraftman(Map map) 
@@ -28,7 +28,7 @@ public class MapDraftman extends Canvas implements Draftman  {
 		draftMap();
 	}
 
-	@Override
+//	@Override
 	public void createWindow() {
 		setIgnoreRepaint(true);
 		setPreferredSize(new Dimension(this.map.getBoard().getBoxes().length*40, this.map.getBoard().getBoxes()[0].length*40));//tamaño pantalla
@@ -49,7 +49,7 @@ public class MapDraftman extends Canvas implements Draftman  {
 		buffer.show();
 	}
 	
-	@Override
+//	@Override
 	public void draftMap() 
 	{
 		// hacer todo para dibujar el mapa ! 
@@ -86,7 +86,7 @@ public class MapDraftman extends Canvas implements Draftman  {
 		buffer.show();
 	}
 
-	@Override
+//	@Override
 	public void updateMap() {
 		// TODO Auto-generated method stub
 		
