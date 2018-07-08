@@ -1,6 +1,6 @@
 package main;
 
-import control.ControlFreePosition;
+//import control.ControlFreePosition;
 import tablero.CreateMap;
 
 /**
@@ -16,8 +16,8 @@ public class App
 		GameController gameController = new GameController(createMap.getMap());
 		gameController.Initialize();
 		
-		ControlFreePosition c = new ControlFreePosition(null, createMap.getMap(), null);
-		System.out.println("PRIMERA " + c.asignarPrimerPosicionLibre());
-		System.out.println("ULTIMA " + c.asignarUltimaPosicionLibre());
+		//ControlFreePosition c = new ControlFreePosition(null, createMap.getMap(), null);
+		//System.out.println("PRIMERA " + c.asignarPrimerPosicionLibre());
+		//System.out.println("ULTIMA " + c.asignarUltimaPosicionLibre());
     }
 }
