@@ -31,6 +31,8 @@ public class UserStory07Test {
 	map = new Builder(new Point(3, 3)).build();
 	A= new Avatar(40, Orientation.RIGHT,1);
 	B= new Avatar(50, Orientation.RIGHT,2);
+	A.setPosition(new Point(0,0));
+	B.setPosition(new Point(2,0));
 	hacha= new Ax(90, 1, Orientation.RIGHT);
 	bazooka1= new Bazooka(80, 2, Orientation.RIGHT);
 	escopeta= new Shotgun(70, 3, Orientation.RIGHT);
@@ -42,8 +44,8 @@ public class UserStory07Test {
 	 * y la del Avatar B marcado como ganador.*/
 	@Test
 	public void avatarAEsDerrotadoPorAvatarB(){
-		ControlColissionShoot Acc= new ControlColissionShoot(A, null, null);
-		ControlColissionShoot Bcc= new ControlColissionShoot(B, null, null);
+		ControlColissionShoot Acc= new ControlColissionShoot(A, null, hacha);
+		ControlColissionShoot Bcc= new ControlColissionShoot(B, null, bazooka1);
 		Acc.colissionWeaponByEnemy(A, hacha, B);
 		Bcc.colissionWeaponByEnemy(B, escopeta, A);
 		Acc.colissionWeaponByEnemy(A, bazooka1, B);
@@ -54,8 +56,8 @@ public class UserStory07Test {
 	 * Este muere y se muestra un mensaje con su vida y  la del Avatar A marcado como ganador.*/
 	@Test
 	public void avatarBEsDerrotadoPorAvatarA(){
-		ControlColissionShoot Acc= new ControlColissionShoot(A, null, null);
-		ControlColissionShoot Bcc= new ControlColissionShoot(B, null, null);
+		ControlColissionShoot Acc= new ControlColissionShoot(A, null, hacha);
+		ControlColissionShoot Bcc= new ControlColissionShoot(B, null, bazooka1);
 		Bcc.colissionWeaponByEnemy(B, hacha, A);
 		Acc.colissionWeaponByEnemy(A, bazooka1, B);
 		Bcc.colissionWeaponByEnemy(B, escopeta, A);
@@ -69,8 +71,8 @@ public class UserStory07Test {
 	//	A.setPosition(new Point(0,0));
 		map.addBox(new Point(0,2), B);
 	//	B.setPosition(new Point(1,0));
-		ControlColissionShoot Acc= new ControlColissionShoot(A, map, null);
-		ControlColissionShoot Bcc= new ControlColissionShoot(B, map, null);
+		ControlColissionShoot Acc= new ControlColissionShoot(A, map, hacha);
+		ControlColissionShoot Bcc= new ControlColissionShoot(B, map, bazooka1);
 		Acc.colissionWeaponByEnemy(A, hacha, B);
 		Bcc.colissionWeaponByEnemy(B, bazooka1, A);
 		Acc.colissionWeaponByEnemy(A, hacha, B);

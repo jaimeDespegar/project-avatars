@@ -12,6 +12,7 @@ public class ControlColissionShoot extends GameObjectController{
 
 	public ControlColissionShoot(GameObject avatar, Map map, Weapon arma) {
 		super(avatar, map, arma);
+		arma.setPosition(avatar.getPosition());
 	}
 	
 	@SuppressWarnings("unused")
@@ -78,10 +79,9 @@ public class ControlColissionShoot extends GameObjectController{
 	}
 	
 	private void controlChoqueConEnemy(Point puntoChoque2, GameObject g) {
-	/*	if(puntoChoque2.equals(g.getPosition())){
+		if(puntoChoque2.equals(g.getPosition())){
 			colissionWeapon(g, arma);
-			System.out.println("controlChoqueConEnemy");
-		}*/
+		}
 	}
 
 
@@ -104,4 +104,5 @@ public class ControlColissionShoot extends GameObjectController{
 		boolean r= !i;
 		return r;
 	}
+	
 }

@@ -1,5 +1,7 @@
 package object;
 
+import java.awt.Point;
+
 import enums.Orientation;
 
 public class GameObject extends ObjectGraphic{
@@ -7,7 +9,9 @@ public class GameObject extends ObjectGraphic{
 	protected Integer vida;
 	protected Orientation orientation;
 	protected Integer reduceDamage;
+	protected Point position;
 
+	
 	public GameObject( Integer vida, Orientation orientation) {
 		this.vida= vida;
 		this.orientation= orientation;
@@ -39,6 +43,12 @@ public class GameObject extends ObjectGraphic{
 
 	public void setReduceDamage(Integer reduceDamage) {
 		this.reduceDamage = reduceDamage;
+	}
+	public Point getPosition() {
+		return position;
+	}
+	public void setPosition(Point position) {
+		this.position = position;
 	}
 
 }
