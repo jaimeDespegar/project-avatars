@@ -17,10 +17,7 @@ public class FileReaderProperties {
 		try {
 			this.properties.load(new FileReader(filePath));
 		} catch (FileNotFoundException e) {
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException e) {e.printStackTrace();}
 	}
 
 	public Properties getFileConfiguration() {
