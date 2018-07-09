@@ -53,7 +53,7 @@ buildNumber.properties
 *.log
 
 # INTELLIJ
-idea/
+.idea/
 sonarIssues.xml
 
 # Created by https://www.gitignore.io/api/intellij

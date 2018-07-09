@@ -35,4 +35,7 @@ public class Game {
         return this.avatars;
     }
 
+    public boolean isFinish() {
+        return this.avatars.size()==1;
+    }
 }

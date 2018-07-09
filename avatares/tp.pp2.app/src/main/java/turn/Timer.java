@@ -27,7 +27,7 @@ public class Timer extends Thread {
 
     public void initTime()
     {
-        start();
+        run();
     }
 
     public void run()

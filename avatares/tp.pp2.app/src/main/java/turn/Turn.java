@@ -2,10 +2,10 @@ package turn;
 
 public class Turn {
 
-	private Integer player;
+	private String player;
 	private Timer timer;
 
-	public Turn(Integer idPlayer) {
+	public Turn(String player) {
 		this.player = player;
 		this.timer = new Timer();
 	}
