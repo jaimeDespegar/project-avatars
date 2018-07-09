@@ -2,14 +2,9 @@ package control;
 
 import java.awt.AWTException;  
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-
-import classProperties.KeyAvatarWithShieldProperties;
 import object.GameObject;
 import object.Weapon;
 import tablero.Map;
-
-
 
 public class AvatarWithShieldController extends GameObjectController{
 	Integer cantShootingRange=0;
@@ -23,11 +18,11 @@ public class AvatarWithShieldController extends GameObjectController{
 
 	public void controlAvatar(Point positionAvatarWithShield, Integer keyPressedInNow, GameObject enemy) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException //Esto se usa cuando se juego continuamente
 	{
-		KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
+	/*	KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
 		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);
 		ControlTurn t= new ControlTurn(avatar, map , arma);
 		
-		
+		*/
 		//keyPressedInNow = keyListener.getKeyPressed();
 	/*	if(keyPressedInNow == k.getElectionKeyAvatarWithShield().getKeyUp()){//KeyEvent.VK_UP){
 			c.avanzar(positionAvatarWithShield);

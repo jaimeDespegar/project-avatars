@@ -16,7 +16,7 @@ public class CreateListOfPointsLine {
 			addLineDiagonal(point1,point2,positionsOfLine);
 		}
 		if(!positionsOfLine.contains(point2))
-			throw new RuntimeException("No se puede añadir las estructuras, no es una linea valida");
+			throw new RuntimeException("No se puede aniadir las estructuras, no es una linea valida");
 		return positionsOfLine;
 	}
 	

@@ -10,9 +10,9 @@ public class Builder {
 	
 	public Builder(Point sizeBoard) {
 		if (sizeBoard == null) {
-	        throw new IllegalArgumentException("el tamaño no puede ser null");
+	        throw new IllegalArgumentException("el tamanio no puede ser null");
 		}else if(sizeBoard.x <=1 || sizeBoard.y <= 1) {
-	        throw new IllegalArgumentException("el tamaño no puede ser menor a 1");
+	        throw new IllegalArgumentException("el tamanio no puede ser menor a 1");
 		}
 		board = new Board(sizeBoard);
 	}
