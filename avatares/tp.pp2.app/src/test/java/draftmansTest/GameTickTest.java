@@ -1,9 +1,6 @@
 package draftmansTest;
 
-import java.awt.Canvas;
-//import java.awt.Graphics2D;
 import java.awt.Point;
-//import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +15,14 @@ import object.Structure;
 import org.junit.Before;
 import org.junit.Test;
 
-import draftmans.Draw;
+import draftmans.GameTick;
 import tablero.Box;
 import tablero.Builder;
 import tablero.Map;
 import enums.Orientation;
 import enums.TypeOfStructure;
 
-public class DrawTest extends Canvas{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class GameTickTest {
 	private Map map;
 	private Avatar a;
 	private AvatarWithShield aws;
@@ -37,9 +30,13 @@ public class DrawTest extends Canvas{
 	private Bazooka bazooka1;
 	private Shotgun escopeta;
 	
-
+	/**
+	 Se crea un mapa de tamano 4x4, y se crea un rectangulo ((1,2), (2,2), acero). 
+	 Ademas se crea un Avatar en la posicion (0,0) con orientacion hacia la derecha, vida = 100 
+	 y un Avatar con escudo en la posicion (3,0) con orientacion hacia la izquierda, vida = 100.
+	 */
 	@Before
-	public void UserStory5(){
+	public void init(){
 	a= new Avatar(100, Orientation.RIGHT,1);
 	aws= new AvatarWithShield(100, Orientation.LEFT);
 	a.setPosition(new Point(0,0));
@@ -54,12 +51,8 @@ public class DrawTest extends Canvas{
 	}
 	
 	@Test
-	public void drawImagesTest(){
-		Draw d= new Draw(map.getBoard());
-		
-		try{
-			d.DrawImages();
-		}catch(Exception e){}
+	public void tickTest(){
+		GameTick g= new GameTick(map.getBoard());
 		
 		List<Box> lb =new ArrayList<Box>();
 		lb.add(map.getBox(new Point(0,0)));
@@ -68,28 +61,10 @@ public class DrawTest extends Canvas{
 		List<Point> lc =new ArrayList<Point>();
 		lc.add(new Point(0,0));
 		lc.add(new Point(3,3));
-		
-		try{
-		d.drawBoxes(lb, lc);
-		}catch(Exception e){}
-		
-//		final BufferStrategy buffer = this.getBufferStrategy();
-//		if(buffer == null) {
-//			try{
-//			createBufferStrategy(3);
-//			}catch(Exception e){}
-//			return;
-//		}
-//		final Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
-//		for (int i = 0; i < map.getBoard().size(); i++) {
-//			try{
-//			d.drawBox(g,lb.get(i), new Point(lc.get(i).x*40,lc.get(i).y*40));
-//			}catch(Exception e){}
-//		}
-//		g.dispose();
-		
-		
-		
+		g.updateBoxes(lb, lc);
+		g.show();
+		g.run();
+		//g.drawShoot(lb, lc);
+		g.stop();
 	}
-	
 }
