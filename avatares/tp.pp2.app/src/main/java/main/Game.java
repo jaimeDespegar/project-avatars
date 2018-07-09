@@ -19,7 +19,6 @@ public class Game {
 
     private void initMap() {
         CreateMap create = new CreateMap(Constants.ROUTE_PROPERTIES_PATH);
-    //    create.createMap();
         this.map = create.getMap();
     }
 
@@ -35,7 +34,12 @@ public class Game {
         return this.avatars;
     }
 
+    public void deleteAvatar(Avatar avatar) {
+        this.avatars.remove(avatar);
+    }
+
     public boolean isFinish() {
         return this.avatars.size()==1;
     }
+
 }

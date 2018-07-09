@@ -3,14 +3,13 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-
 import draftmans.GameTick;
 import enums.Orientation;
 import object.Avatar;
 import tablero.Box;
 import tablero.Map;
 
-public class GameController implements Runnable{
+public class GameController implements Runnable {
 	private static volatile Thread thread; 
 	private Map map;
 	private GameTick gameTick;
