@@ -51,7 +51,7 @@ public class ControlPrincipalView implements ActionListener{
 			KeyAvatarProperties keyss = new KeyAvatarProperties();
 			mapGame.addBox(new Point(3,1), new Avatar(100,Orientation.RIGHT,1,keyss.getElectionKeyAvatar()));
 			mapGame.addBox(new Point(2,4), new Avatar(100,Orientation.UP,2,null));
-			GameTick game = new GameTick(createMap.getMap().getBoard(), new Game());
+			GameTick game = new GameTick(createMap.getMap(), new Game());
 			game.start();
 		}
 		
