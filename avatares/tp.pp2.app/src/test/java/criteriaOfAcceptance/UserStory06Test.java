@@ -28,7 +28,7 @@ public class UserStory06Test {
 	private Shotgun escopeta;
 	
 	@Before
-	public void UserStory04(){
+	public void init(){
 	a= new Avatar(100, Orientation.RIGHT,1);
 	aws= new AvatarWithShield(100, Orientation.RIGHT);
 	hacha = new Ax(90, 1, Orientation.RIGHT);

@@ -25,7 +25,7 @@ public class UserStory01Test {
 	private AvatarWithShield aws;
 	
 	@Before
-	public void UserStory5(){
+	public void init(){
 	this.a= new Avatar(100, Orientation.RIGHT,1);
 	this.aws= new AvatarWithShield(100, Orientation.LEFT);
 	Rectangle rectangle = new Rectangle(new Point(1, 1), new Point(2, 2),new Structure(TypeOfStructure.ACERO));

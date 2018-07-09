@@ -21,7 +21,7 @@ public class AddStructure {
 		if (validatePositions(board, positionsOfRectangle) && !rectangle.getStructure().equals(null)) {
 			addStructures(board, positionsOfRectangle, rectangle.getStructure());
 		} else {
-			throw new RuntimeException("No se puede a�adir las estructuras, uno o mas casilleros estan ocupados");
+			throw new RuntimeException("No se puede aniadir las estructuras, uno o mas casilleros estan ocupados");
 		}
 	}
 
@@ -32,7 +32,7 @@ public class AddStructure {
 		if (validatePositions(board, positionsOfLine)) {
 			addStructures(board, positionsOfLine, line.getStructure());
 		} else {
-			throw new RuntimeException("No se puede a�adir las estructuras, uno o mas casilleros estan ocupados");
+			throw new RuntimeException("No se puede aniadir las estructuras, uno o mas casilleros estan ocupados");
 		}
 	}
 

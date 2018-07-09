@@ -1,20 +1,20 @@
 package criteriaOfAcceptance;
-/**Crear un mapa vacío con un tamaño de 6x6
+/**Crear un mapa vacï¿½o con un tamaï¿½o de 6x6
 
 
-Una línea horizontal (5,5) al (7,5), se va de rango, no es válido. Se lanza una excepción de parametro invalido.
-Si creo una línea horizontal (1,1) al (2,1), está dentro del rango, es válido.
-Si creo una línea vertical (1,0) al (1,7), se va de rango, no es válido.
-Si creo una línea vertical (0,0) al (0,2), está dentro del rango, es válido.
-Si creo una línea diagonal (4,4) al (7,7), se va de rango, no es válido.
-Si creo una línea diagonal (0,0) al (2,2), está dentro del rango, es válido.
-Se ingresan las posiciones {(5,5),(1,1)} , {(1,3),(1,5)} y {(3,1), (4,1)}, por lo tanto, la línea va del punto (5,5), hasta el (1,1), después del (1,3) al (1,5), luego del (3,1) al (4,1) como todas están libres, se agregan todas las estructuras. Quedando el mapa de la siguiente manera:
+Una lï¿½nea horizontal (5,5) al (7,5), se va de rango, no es vï¿½lido. Se lanza una excepciï¿½n de parametro invalido.
+Si creo una lï¿½nea horizontal (1,1) al (2,1), estï¿½ dentro del rango, es vï¿½lido.
+Si creo una lï¿½nea vertical (1,0) al (1,7), se va de rango, no es vï¿½lido.
+Si creo una lï¿½nea vertical (0,0) al (0,2), estï¿½ dentro del rango, es vï¿½lido.
+Si creo una lï¿½nea diagonal (4,4) al (7,7), se va de rango, no es vï¿½lido.
+Si creo una lï¿½nea diagonal (0,0) al (2,2), estï¿½ dentro del rango, es vï¿½lido.
+Se ingresan las posiciones {(5,5),(1,1)} , {(1,3),(1,5)} y {(3,1), (4,1)}, por lo tanto, la lï¿½nea va del punto (5,5), hasta el (1,1), despuï¿½s del (1,3) al (1,5), luego del (3,1) al (4,1) como todas estï¿½n libres, se agregan todas las estructuras. Quedando el mapa de la siguiente manera:
 
-Se ingresan las posiciones {(2,5),(5,5)}, por lo tanto, la línea va del punto (2,5), hasta el (5,5), como la posición (5,5) está ocupada, no se agrega ninguna estructura de la línea ingresada. 
-Si se ingresan los puntos {(4,4), (2,4)}, no se puede ya que los casilleros que están dentro del recorrido se encuentra el (4,4) que está ocupado.
-Si se  ingresan los puntos {(0,0), (2,5)}, no se puede debido a que no forman una línea recta diagonal.
-Si se ingresan los puntos {(0,0), (3,5)}, no se puede debido a que no forman una línea recta horizontal.
-Si se ingresan los puntos {(0,0), (4,5)}, no se puede debido a que no forman una línea recta vertical.
+Se ingresan las posiciones {(2,5),(5,5)}, por lo tanto, la lï¿½nea va del punto (2,5), hasta el (5,5), como la posiciï¿½n (5,5) estï¿½ ocupada, no se agrega ninguna estructura de la lï¿½nea ingresada. 
+Si se ingresan los puntos {(4,4), (2,4)}, no se puede ya que los casilleros que estï¿½n dentro del recorrido se encuentra el (4,4) que estï¿½ ocupado.
+Si se  ingresan los puntos {(0,0), (2,5)}, no se puede debido a que no forman una lï¿½nea recta diagonal.
+Si se ingresan los puntos {(0,0), (3,5)}, no se puede debido a que no forman una lï¿½nea recta horizontal.
+Si se ingresan los puntos {(0,0), (4,5)}, no se puede debido a que no forman una lï¿½nea recta vertical.
 */
 
 import static org.junit.Assert.assertNotNull;
@@ -35,20 +35,20 @@ import tablero.UtilCreateListByLine;
 public class UserStory03Test {
 	private Map map;
 
-	/**Crear un mapa vacío con un tamaño de 6x6*/
+	/**Crear un mapa vacï¿½o con un tamaï¿½o de 6x6*/
 	@Before
 	public void init() {
 		map = new Builder(new Point(6, 6)).build();
 	}
 	
-	/**Una línea horizontal (5,5) al (7,5), se va de rango, no es válido. Se lanza una excepción de parametro invalido.*/
+	/**Una linea horizontal (5,5) al (7,5), se va de rango, no es vï¿½lido. Se lanza una excepcion de parametro invalido.*/
 	@Test(expected=IllegalArgumentException.class)
 	public void testLineOutOfRangeHorizontal() {
 		Line line = new Line(UtilCreateListByLine.createList(new Point(5,5), new Point(7,5)), new Structure(TypeOfStructure.ACERO));
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Si creo una línea horizontal (1,1) al (2,1), está dentro del rango, es válido.*/
+	/**Si creo una linea horizontal (1,1) al (2,1), estï¿½ dentro del rango, es valido.*/
 	@Test
 	public void testAddLineHorizontal() {
 		Line line = new Line(UtilCreateListByLine.createList(new Point(1,1), new Point(2,1)), new Structure(TypeOfStructure.ACERO));
@@ -57,14 +57,14 @@ public class UserStory03Test {
 		assertNotNull(map.getBoard().getBoxes()[1][2].getObjectGraphic());
 	}
 	
-	/**Si creo una línea vertical (1,0) al (1,7), se va de rango, no es válido.*/
+	/**Si creo una lï¿½nea vertical (1,0) al (1,7), se va de rango, no es valido.*/
 	@Test(expected=IllegalArgumentException.class)
 	public void testLineOutOfRangeVertical() {
 		Line line = new Line(UtilCreateListByLine.createList(new Point(1,0), new Point(1,7)), new Structure(TypeOfStructure.ACERO));
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Si creo una línea vertical (0,0) al (0,2), está dentro del rango, es válido.*/
+	/**Si creo una linea vertical (0,0) al (0,2), esta dentro del rango, es valido.*/
 	@Test
 	public void testAddLineVertical() {
 		Line line = new Line(UtilCreateListByLine.createList(new Point(0,0), new Point(0,2)), new Structure(TypeOfStructure.ACERO));
@@ -75,14 +75,14 @@ public class UserStory03Test {
 		assertNotNull(map.getBoard().getBoxes()[2][0].getObjectGraphic());
 	}
 	
-	/**Si creo una línea diagonal (4,4) al (7,7), se va de rango, no es válido.*/
+	/**Si creo una linea diagonal (4,4) al (7,7), se va de rango, no es valido.*/
 	@Test(expected=IllegalArgumentException.class)
 	public void testOutOfRangeDiagonal() {
 		Line line = new Line(UtilCreateListByLine.createList(new Point(4,4), new Point(7,7)), new Structure(TypeOfStructure.ACERO));
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Si creo una línea diagonal (0,0) al (2,2), está dentro del rango, es válido.*/
+	/**Si creo una linea diagonal (0,0) al (2,2), esta dentro del rango, es valido.*/
 	@Test
 	public void testAddLineDiagonal() {
 		Line line = new Line(UtilCreateListByLine.createList(new Point(0,0), new Point(2,2)), new Structure(TypeOfStructure.ACERO));
@@ -92,9 +92,9 @@ public class UserStory03Test {
 		assertNotNull(map.getBoard().getBoxes()[2][2].getObjectGraphic());
 	}
 	
-	/**Se ingresan las posiciones {(5,5),(1,1)} , {(1,3),(1,5)} y {(3,1), (4,1)}, por lo tanto, la línea va 
-	 * del punto (5,5), hasta el (1,1), después del (1,3) al (1,5), luego del (3,1) al (4,1) como todas 
-	 * están libres, se agregan todas las estructuras. Quedando el mapa de la siguiente manera:*/
+	/**Se ingresan las posiciones {(5,5),(1,1)} , {(1,3),(1,5)} y {(3,1), (4,1)}, por lo tanto, la lï¿½nea va 
+	 * del punto (5,5), hasta el (1,1), despuï¿½s del (1,3) al (1,5), luego del (3,1) al (4,1) como todas 
+	 * estan libres, se agregan todas las estructuras. Quedando el mapa de la siguiente manera:*/
 	public void AddStructuresByLine() {
 		Line line = new Line(UtilCreateListByLine.createList(new Point(5,5), new Point(1,1)), new Structure(TypeOfStructure.ACERO));
 		AddStructure.addStructureByLine(map.getBoard(), line);
@@ -104,8 +104,8 @@ public class UserStory03Test {
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Se ingresan las posiciones {(2,5),(5,5)}, por lo tanto, la línea va del punto (2,5), hasta el (5,5), 
-	 * como la posición (5,5) está ocupada, no se agrega ninguna estructura de la línea ingresada.*/
+	/**Se ingresan las posiciones {(2,5),(5,5)}, por lo tanto, la linea va del punto (2,5), hasta el (5,5), 
+	 * como la posicion (5,5) esta ocupada, no se agrega ninguna estructura de la linea ingresada.*/
 	@Test(expected=RuntimeException.class)
 	public void testTryToAddLineToPostionOcupated() {
 		AddStructuresByLine();
@@ -113,7 +113,7 @@ public class UserStory03Test {
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Si se ingresan los puntos {(4,4), (2,4)}, no se puede ya que los casilleros que están dentro del recorrido se encuentra el (4,4) que está ocupado.*/
+	/**Si se ingresan los puntos {(4,4), (2,4)}, no se puede ya que los casilleros que estan dentro del recorrido se encuentra el (4,4) que esta ocupado.*/
 	@Test(expected=RuntimeException.class)
 	public void testPositionOcupatedHoizontal() {
 		AddStructuresByLine();
@@ -121,7 +121,7 @@ public class UserStory03Test {
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Si se  ingresan los puntos {(0,0), (2,5)}, no se puede debido a que no forman una línea recta diagonal.*/
+	/**Si se ingresan los puntos {(0,0), (2,5)}, no se puede debido a que no forman una linea recta diagonal.*/
 	@Test(expected=RuntimeException.class)
 	public void testInvalidLineDiagonal() {
 		AddStructuresByLine();
@@ -129,7 +129,7 @@ public class UserStory03Test {
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Si se ingresan los puntos {(0,0), (3,5)}, no se puede debido a que no forman una línea recta horizontal.*/
+	/**Si se ingresan los puntos {(0,0), (3,5)}, no se puede debido a que no forman una linea recta horizontal.*/
 	@Test(expected=RuntimeException.class)
 	public void testInvalidLineHorizontal() {
 		AddStructuresByLine();
@@ -137,7 +137,7 @@ public class UserStory03Test {
 		AddStructure.addStructureByLine(map.getBoard(), line);
 	}
 	
-	/**Si se ingresan los puntos {(0,0), (4,5)}, no se puede debido a que no forman una línea recta vertical.*/
+	/**Si se ingresan los puntos {(0,0), (4,5)}, no se puede debido a que no forman una linea recta vertical.*/
 	@Test(expected=RuntimeException.class)
 	public void testInvalidLineVertical() {
 		AddStructuresByLine();

@@ -3,6 +3,7 @@ package controllers;
 import classProperties.KeyAvatarProperties;
 import draftmans.GameTick;
 import main.Constants;
+import main.Game;
 import object.Avatar;
 import tablero.CreateMap;
 import tablero.Map;
@@ -50,7 +51,7 @@ public class ControlPrincipalView implements ActionListener{
 			KeyAvatarProperties keyss = new KeyAvatarProperties();
 			mapGame.addBox(new Point(3,1), new Avatar(100,Orientation.RIGHT,1,keyss.getElectionKeyAvatar()));
 			mapGame.addBox(new Point(2,4), new Avatar(100,Orientation.UP,2,null));
-			GameTick game = new GameTick(createMap.getMap().getBoard(), keyss.getElectionKeyAvatar());
+			GameTick game = new GameTick(createMap.getMap().getBoard(), new Game());
 			game.start();
 		}
 		

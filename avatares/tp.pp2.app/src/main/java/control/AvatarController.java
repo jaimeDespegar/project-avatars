@@ -1,15 +1,10 @@
 package control;
 
-import java.awt.AWTException;
-import java.awt.Point; 
-import java.awt.event.KeyEvent;
-
+import java.awt.Point;
 import classProperties.KeyAvatarProperties;
 import object.GameObject;
 import object.Weapon;
 import tablero.Map;
-
-
 
 public class AvatarController extends GameObjectController{
 	Integer cantShootingRange=0;
@@ -26,7 +21,7 @@ public class AvatarController extends GameObjectController{
 	{
 		KeyAvatarProperties k= new KeyAvatarProperties();
 		ControlPositionMovement c= new ControlPositionMovement(avatar, map, arma);
-		ControlTurn t= new ControlTurn(avatar, map , arma);
+
 		
 		/*
 		//keyPressedInNow = keyListener.getKeyPressed();

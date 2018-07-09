@@ -1,12 +1,12 @@
 package object;
 
-import classProperties.ElectionKeyGameObject;
+import classProperties.ElectionKeyAvatar;
 import enums.Orientation;
 
 public class Avatar extends GameObject{
 
 	private Integer id;
-	private ElectionKeyGameObject keys;
+	private ElectionKeyAvatar keys;
 
 	public Avatar(Integer vida, Orientation orientation, Integer id) {
 		super(vida, orientation);
@@ -14,7 +14,7 @@ public class Avatar extends GameObject{
 		reduceDamage=1;
 	}
 
-	public Avatar(Integer vida, Orientation orientation, Integer id, ElectionKeyGameObject electionKeys) {
+	public Avatar(Integer vida, Orientation orientation, Integer id, ElectionKeyAvatar electionKeys) {
 		super(vida, orientation);
 		this.id = id;
 		reduceDamage=1;
@@ -45,7 +45,7 @@ public class Avatar extends GameObject{
 		this.orientation = orientation.getReverse();
 	}
 
-	public ElectionKeyGameObject getKeys() {
+	public ElectionKeyAvatar getKeys() {
 		return keys;
 	}
 

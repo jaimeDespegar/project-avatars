@@ -2,22 +2,15 @@ package draftmans;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import classProperties.ElectionKeyAvatar;
-import draftmans.Draw;
-import enums.Orientation;
-import listeners.Listener;
-import object.Avatar;
-import object.KeyDto;
 import enums.TypeOfStructure;
+import main.Game;
+import object.KeyDto;
 import listeners.FactoryListener;
 import listeners.GameKeyListener;
 import object.Structure;
 import tablero.Board;
 import tablero.Box;
-import turn.Turn;
 import views.ViewGame;
 
 public class GameTick implements Runnable {
@@ -33,15 +26,16 @@ public class GameTick implements Runnable {
 	private GameKeyListener keyboard;
 	private FactoryListener factoryListener;
 
-	public GameTick(Board board, ElectionKeyAvatar keys) {
+	public GameTick(Board board, Game game) {
 		draw = new Draw(board);
-		viewGame = new ViewGame(draw);
 		keyboard = new GameKeyListener();
+		viewGame = new ViewGame(draw, keyboard);
 		factoryListener = FactoryListener.getInstancie();
-		factoryListener.loadListeners(keys);
 		newChangesBoxes = new ArrayList<List<Box>>();
 		newChangesCoordinates = new ArrayList<List<Point>>();
 
+		// agrego los listenrees de cada avatar
+		game.getAvatars().forEach(a -> factoryListener.loadListeners(a.getKeys()));
 	}
 
 	// synchronized permite que no se puedan ejecutar al mismo tiempo
@@ -88,15 +82,9 @@ public class GameTick implements Runnable {
 				referenciaContador = System.nanoTime();
 			}
 		}
-		
-		/*while (working) {
-			
-			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
-				stop();
-				referenciaContador = System.nanoTime();
-			}
-		}
-		*/
+
+
+
 		for(int i = 0; i < newChangesBoxes.size(); i ++) {
 			updateBoxes(newChangesBoxes.get(i), newChangesCoordinates.get(i));
 			while (working) {
@@ -109,20 +97,14 @@ public class GameTick implements Runnable {
 		}
 		newChangesBoxes.clear();
 		newChangesCoordinates.clear();
-		Avatar aa = new Avatar(10,Orientation.UP,1, null);
-		Listener l = factoryListener.getListenerByKey(keyPressed);
-		Point p = l.actionMove(aa,new Point(1,1));
-		System.out.println("Se presiono : " + keyPressed);
-		System.out.println("el avatar se movio ala posicion " + p);
 
 
-		List<Turn> turns = Arrays.asList(new Turn(1),new Turn(2));
-		turns.forEach(i->i.play());
+
+
+
 	}
-	//recibe una lista de los objetos cambiados (objetonuevo - punto)
-	//es decir, cuando un avatar dispara se debe de guardar en esa lista, el disparo, y su posicion
-	//en la siguiente escena, si el disparo avanzo una casilla, y tambien desaparecela casilla en la que estaba antes
-	//por lo tanto, seria una lista de escenas, y cuando lo dibuja, pasa una escena por segundo, asi se puede observar los cambios
+
+
 	public void drawShoot(List<List<Box>> newChangesBoxes,List<List<Point>> newChangesCoordinates) {
 		this.newChangesBoxes = newChangesBoxes;
 		this.newChangesCoordinates = newChangesCoordinates;
@@ -140,4 +122,5 @@ public class GameTick implements Runnable {
 		thread = new Thread(this, "Graphics");
 		thread.start();
 	}
+
 }
