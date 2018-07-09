@@ -27,9 +27,9 @@ public class UserStory08Test {
 	private Shotgun escopeta;
 	
 	/**
-	 Se crea un mapa de tama�o 4x4, y se crea un rect�ngulo ((1,2), (2,2), acero). 
-	 Adem�s se crea un Avatar en la posici�n (0,0) con orientaci�n hacia la derecha, vida=100 
-	 y un Avatar con escudo en la posici�n (3,0) con orientaci�n hacia la izquierda, vida = 100.
+	 Se crea un mapa de tamano 4x4, y se crea un rectangulo ((1,2), (2,2), acero). 
+	 Ademas se crea un Avatar en la posicion (0,0) con orientacion hacia la derecha, vida = 100 
+	 y un Avatar con escudo en la posicion (3,0) con orientacion hacia la izquierda, vida = 100.
 	 */
 	@Before
 	public void UserStory5(){
