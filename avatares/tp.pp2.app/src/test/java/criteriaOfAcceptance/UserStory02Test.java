@@ -1,6 +1,6 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.assertNotNull; 
+import static org.junit.Assert.assertNotNull;  
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
 
@@ -14,11 +14,9 @@ import org.junit.Test;
 import tablero.Map;
 
 import enums.TypeOfStructure;
-import object.Rectangle;
 import object.Structure;
 import tablero.AddStructure;
 import tablero.Builder;
-import tablero.Map;
 //
 ///**
 // * 

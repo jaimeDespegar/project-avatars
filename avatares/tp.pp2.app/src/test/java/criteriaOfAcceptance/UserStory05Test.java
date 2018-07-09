@@ -1,10 +1,11 @@
 package criteriaOfAcceptance;
 
-import static org.junit.Assert.*; 
+import static org.junit.Assert.*;
 import java.awt.Point;
 import org.junit.Before;
 import org.junit.Test;
 import control.ControlPositionMovement;
+
 import enums.Orientation;
 import enums.TypeOfStructure;
 import object.Avatar;
@@ -56,12 +57,12 @@ public class UserStory05Test {
 	}
 	
 	/**Si el Avatar intenta girar a la derecha, entonces el Avatar tendr� orientaci�n hacia abajo.*/
-	@Test
-	public void girarAvatarDerecha(){
-	//	ControlTurn t = new ControlTurn(a, map, null);
-	//	t.girarHaciaDerecha();
-		assertTrue(a.getOrientation().equals(Orientation.DOWN));
-	}
+//	@Test
+//	public void girarAvatarDerecha(){
+//		ControlTurn t = new ControlTurn(a, map, null);
+//		t.girarHaciaDerecha();
+//		assertTrue(a.getOrientation().equals(Orientation.DOWN));
+//	}
 	
 	/**Si el Avatar con escudo intenta retroceder un casillero, entonces el avatar con escudo deber� seguir ocupando la posici�n (0,2).*/
 //	@Test
@@ -72,10 +73,10 @@ public class UserStory05Test {
 //	}
 
 	/**Si el Avatar con escudo  girar a la izquierda, entonces el Avatar con escudo tendr� orientaci�n hacia arriba.*/
-	@Test
-	public void girarAvatarConEscudoIzquierda(){
-	//	ControlTurn t= new ControlTurn(aws, map, null);
-	//	t.girarHaciaIzquierda();;
-		assertTrue(aws.getOrientation().equals(Orientation.UP));
-	}
+//	@Test
+//	public void girarAvatarConEscudoIzquierda(){
+//		ControlTurn t= new ControlTurn(aws, map, null);
+//		t.girarHaciaIzquierda();;
+//		assertTrue(aws.getOrientation().equals(Orientation.UP));
+//	}
 }
