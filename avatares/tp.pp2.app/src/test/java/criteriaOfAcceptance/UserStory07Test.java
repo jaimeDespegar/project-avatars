@@ -27,7 +27,7 @@ public class UserStory07Test {
 	Se crea un mapa de tama�o 3x3. Se crean un avatar A con vida = 40 y otro avatar B con vida = 50. Ambos sin escudo.
 	 */
 	@Before
-	public void UserStory04(){
+	public void init(){
 	map = new Builder(new Point(3, 3)).build();
 	A= new Avatar(40, Orientation.RIGHT,1);
 	B= new Avatar(50, Orientation.RIGHT,2);

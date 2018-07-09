@@ -26,11 +26,10 @@ public class UserStory04Test {
 	private Map map;
 
 	@Before
-	public void UserStory04() {
+	public void init() {
 		Rectangle rectangle1 = new Rectangle(new Point(0, 0), new Point(1, 1), new Structure(TypeOfStructure.ACERO));
 		Rectangle rectangle2 = new Rectangle(new Point(2, 2), new Point(1, 1), new Structure(TypeOfStructure.ACERO));
 		map = new Builder(new Point(3, 5)).withStructureRectangle(rectangle1).withStructureRectangle(rectangle2).build();
-
 	}
 
 

@@ -29,7 +29,7 @@ public class UserStory05Test {
 	private Point awsPoint;
 	
 	@Before
-	public void UserStory5(){
+	public void init(){
 	Rectangle rectangle = new Rectangle(new Point(1, 1), new Point(2, 2),new Structure(TypeOfStructure.ACERO));
 	map = new Builder(new Point(3, 3)).withStructureRectangle(rectangle).build();
 	a= new Avatar(100, Orientation.RIGHT,1);

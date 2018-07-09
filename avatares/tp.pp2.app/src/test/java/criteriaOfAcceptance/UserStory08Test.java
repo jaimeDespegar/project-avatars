@@ -32,7 +32,7 @@ public class UserStory08Test {
 	 y un Avatar con escudo en la posicion (3,0) con orientacion hacia la izquierda, vida = 100.
 	 */
 	@Before
-	public void UserStory5(){
+	public void init(){
 	a= new Avatar(100, Orientation.RIGHT,1);
 	aws= new AvatarWithShield(100, Orientation.LEFT);
 	a.setPosition(new Point(0,0));

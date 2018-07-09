@@ -4,14 +4,11 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import enums.TypeOfStructure;
-import object.Structure;
 import tablero.Board;
 import tablero.Box;
 
-public class GameTick implements Runnable {
+public class GameTick{
 
-	private static volatile Thread thread; // agregamos el volatile porque estamos usando 2 threads
 	private static boolean working = false;
 	private boolean drawOneTime = true;
 	@SuppressWarnings("unused")
@@ -27,30 +24,8 @@ public class GameTick implements Runnable {
 		newChangesCoordinates = new ArrayList<List<Point>>();
 	}
 
-	// synchronized permite que no se puedan ejecutar al mismo tiempo
-	public synchronized void start() {
-		working = false;
-		thread = new Thread(this, "Graphics");
-		thread.start();
-	}
-
-	public void update() {
-		working = true;
-	}
-
-
 	public void updateBoxes(List<Box> boxes, List<Point> coordinates) {
 		draw.drawBoxes(boxes,coordinates);
-	}
-	
-	public void testUpdateBoxes() {
-		List<Box> boxes = new ArrayList<Box>();
-		boxes.add(new Box(null));
-		boxes.add(new Box(new Structure(TypeOfStructure.ACERO)));
-		List<Point> coordinates =  new ArrayList<Point>();
-		coordinates.add(new Point(0,0));
-		coordinates.add(new Point(1,1));
-		updateBoxes(boxes,coordinates);
 	}
 	
 	public void show() {
@@ -86,11 +61,10 @@ public class GameTick implements Runnable {
 		this.newChangesBoxes = newChangesBoxes;
 		this.newChangesCoordinates = newChangesCoordinates;
 		working = true;
+		run();
 		}
 	
 	public synchronized void stop() {
 		working = false;
-		thread = new Thread(this, "Graphics");
-		thread.start();
 	}
 }
