@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 
 public class ViewGame {		
 
-	private static JFrame view;
+	private JFrame view;
 	
 	public ViewGame(Draw draw, KeyListener listener){
 		configureView(draw,listener);

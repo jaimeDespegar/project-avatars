@@ -1,6 +1,6 @@
 package draftmans;
 
-import java.awt.Point;
+import java.awt.Point; 
 import java.util.ArrayList;
 import java.util.List;
 import enums.TypeOfStructure;
@@ -19,7 +19,7 @@ public class GameTick implements Runnable {
 	private static boolean working = false;
 	private boolean drawOneTime = true;
 	@SuppressWarnings("unused")
-	private static ViewGame viewGame;
+	private ViewGame viewGame;
 	private Draw draw;
 	private List<List<Box>> newChangesBoxes;
 	private List<List<Point>> newChangesCoordinates;
