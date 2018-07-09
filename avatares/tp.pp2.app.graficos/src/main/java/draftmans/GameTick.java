@@ -3,12 +3,7 @@ package draftmans;
 import java.awt.Point; 
 import java.util.ArrayList;
 import java.util.List;
-import enums.TypeOfStructure;
 import main.Game;
-import object.KeyDto;
-import listeners.FactoryListener;
-import listeners.GameKeyListener;
-import object.Structure;
 import tablero.Box;
 import tablero.Map;
 import views.ViewGame;
@@ -23,19 +18,13 @@ public class GameTick implements Runnable {
 	private Draw draw;
 	private List<List<Box>> newChangesBoxes;
 	private List<List<Point>> newChangesCoordinates;
-	private GameKeyListener keyboard;
-	private FactoryListener factoryListener;
+
 
 	public GameTick(Map map, Game game) {
 		draw = new Draw(map.getBoard());
-		keyboard = new GameKeyListener();
-		viewGame = new ViewGame(draw, keyboard);
-		factoryListener = FactoryListener.getInstancie();
+		viewGame = new ViewGame(draw, game.getKeyboard());
 		newChangesBoxes = new ArrayList<List<Box>>();
 		newChangesCoordinates = new ArrayList<List<Point>>();
-
-		// agrego los listenrees de cada avatar
-		game.getAvatars().forEach(a -> factoryListener.loadListeners(a.getKeys()));
 	}
 
 	// synchronized permite que no se puedan ejecutar al mismo tiempo
@@ -83,6 +72,7 @@ public class GameTick implements Runnable {
 		newChangesCoordinates.clear();
 
 	}
+
 
 
 	public void drawShoot(List<List<Box>> newChangesBoxes,List<List<Point>> newChangesCoordinates) {

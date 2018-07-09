@@ -7,6 +7,9 @@ import enums.Orientation;
 import object.Avatar;
 import tablero.CreateMap;
 import tablero.Map;
+import turn.GameKeyListener;
+
+import java.awt.event.KeyListener;
 import java.util.List;
 
 public class Game {
@@ -14,10 +17,12 @@ public class Game {
     private GameConfiguration configuration;
     private List<Avatar> avatars;
     private Map map;
+    private GameKeyListener keyboard;
 
     public Game() {
         initMap();
         initAvatares();
+        keyboard = new GameKeyListener();
     }
 
     private void initMap() {
@@ -61,4 +66,7 @@ public class Game {
         return this.avatars.size()==1;
     }
 
+    public GameKeyListener getKeyboard() {
+        return keyboard;
+    }
 }

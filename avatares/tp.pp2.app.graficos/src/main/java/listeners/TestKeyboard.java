@@ -2,6 +2,7 @@ package listeners;
 
 import main.Game;
 import object.KeyDto;
+import turn.GameKeyListener;
 import turn.ManagerMove;
 
 public class TestKeyboard {
