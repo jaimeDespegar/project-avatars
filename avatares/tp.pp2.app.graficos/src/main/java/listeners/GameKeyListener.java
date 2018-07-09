@@ -1,7 +1,6 @@
 package listeners;
 
 import object.KeyDto;
-//import javax.swing.*;
 import java.awt.event.*;
 
 public class GameKeyListener implements KeyListener {
@@ -28,7 +27,7 @@ public class GameKeyListener implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-//        System.out.println("Se solto la tecla con key : " + e.getKeyCode());
+        System.out.println("Se solto la tecla con key : " + e.getKeyCode());
     }
 
 

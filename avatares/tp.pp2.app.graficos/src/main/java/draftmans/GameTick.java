@@ -55,36 +55,21 @@ public class GameTick implements Runnable {
 		//working = true;
 	}
 	
-	public void testUpdateBoxes() {
-		List<Box> boxes = new ArrayList<Box>();
-		boxes.add(new Box(null));
-		boxes.add(new Box(new Structure(TypeOfStructure.ACERO)));
-		List<Point> coordinates =  new ArrayList<Point>();
-		coordinates.add(new Point(0,0));
-		coordinates.add(new Point(1,1));
-		updateBoxes(boxes,coordinates);
-	}
-	
 	public void show() {
 		draw.DrawImages();
 	}
 
 	public void run() {
-		KeyDto keyPressed = keyboard.getKeyPressed();
 		final int NS_POR_SEGUNDO = 1000000000; // cantidad de nanosegundos equivalentes a un segundo
 		long referenciaContador = System.nanoTime(); // para contar los frames 
 		//dibujamos una sola vez todos los elementos del juego
 		while (drawOneTime) {
 			show();
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
-				testUpdateBoxes();
 				drawOneTime = false;
 				referenciaContador = System.nanoTime();
 			}
 		}
-
-
-
 		for(int i = 0; i < newChangesBoxes.size(); i ++) {
 			updateBoxes(newChangesBoxes.get(i), newChangesCoordinates.get(i));
 			while (working) {
@@ -94,8 +79,7 @@ public class GameTick implements Runnable {
 				}
 			}
 			working = true;
-		}
-		newChangesBoxes.clear();
+		}		newChangesBoxes.clear();
 		newChangesCoordinates.clear();
 
 	}
@@ -105,18 +89,11 @@ public class GameTick implements Runnable {
 		this.newChangesBoxes = newChangesBoxes;
 		this.newChangesCoordinates = newChangesCoordinates;
 		working = true;
-	//	boolean shoot = true;
-	//	while(shoot) {
-	//		for(int i = 0; i < newChangesBoxes.size(); i ++) {
-	//			updateBoxes(newChangesBoxes.get(i), newChangesCoordinates.get(i));
-	//		}
-	//	}
-		}
+		run();
+	}
 	
 	public synchronized void stop() {
 		working = false;
-		thread = new Thread(this, "Graphics");
-		thread.start();
 	}
 
 }

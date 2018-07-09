@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 import draftmans.GameTick;
 import enums.Orientation;
 import object.Avatar;
+import object.KeyDto;
 import tablero.Box;
 import tablero.Map;
 

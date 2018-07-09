@@ -14,8 +14,6 @@ import object.Structure;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import draftmans.GameTick;
 import tablero.Box;
 import tablero.Builder;
 import tablero.Map;
@@ -52,7 +50,7 @@ public class GameTickTest {
 	
 	@Test
 	public void tickTest(){
-		GameTick g= new GameTick(map.getBoard());
+		//GameTick g= new GameTick(map.getBoard());
 		
 		List<Box> lb =new ArrayList<Box>();
 		lb.add(map.getBox(new Point(0,0)));
@@ -61,10 +59,10 @@ public class GameTickTest {
 		List<Point> lc =new ArrayList<Point>();
 		lc.add(new Point(0,0));
 		lc.add(new Point(3,3));
-		g.updateBoxes(lb, lc);
-		g.show();
-		g.run();
+	//	g.updateBoxes(lb, lc);
+	//	g.show();
+	//	g.run();
 		//g.drawShoot(lb, lc);
-		g.stop();
+	//	g.stop();
 	}
 }

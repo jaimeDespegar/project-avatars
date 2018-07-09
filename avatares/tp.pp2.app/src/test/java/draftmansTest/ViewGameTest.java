@@ -11,7 +11,6 @@ import org.junit.Test;
 import tablero.Builder;
 import tablero.Map;
 import draftmans.Draw;
-import draftmans.ViewGame;
 import enums.Orientation;
 import enums.TypeOfStructure;
 

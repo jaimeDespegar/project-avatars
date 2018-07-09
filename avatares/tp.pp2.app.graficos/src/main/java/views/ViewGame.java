@@ -3,6 +3,7 @@ package views;
 import javax.swing.*;
 
 import draftmans.Draw;
+import object.KeyDto;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
@@ -18,7 +19,6 @@ public class ViewGame {
 	public void configureView(Draw draw, KeyListener listener){
 		view = new JFrame("Avatars");
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//view.setIconImage(icon.getImage());
 		view.setResizable(false);
 		view.setLayout(new BorderLayout());
 		view.add(draw, BorderLayout.CENTER);
@@ -26,8 +26,9 @@ public class ViewGame {
 		view.pack();
 		view.setLocationRelativeTo(null);
 		view.setVisible(true);
-
+			
 		view.setFocusable(true);
 		view.addKeyListener(listener);
 	}
+	
 }

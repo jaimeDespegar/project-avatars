@@ -78,7 +78,7 @@ public class KeyAvatarProperties {
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			}
-			bot.keyPress(keyEvent); bot.keyRelease(keyEvent);
+			//bot.keyPress(keyEvent); bot.keyRelease(keyEvent);
 		}
 		return keyEvent;
 	} 
