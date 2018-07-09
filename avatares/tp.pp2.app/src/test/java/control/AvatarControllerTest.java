@@ -1,7 +1,7 @@
 package control;
 
 
-import java.awt.AWTException;
+import java.awt.AWTException; 
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 
@@ -13,7 +13,7 @@ import object.Rectangle;
 import object.Shotgun;
 import object.Structure;
 import org.junit.Test;
-import classProperties.KeyAvatarProperties;
+//import classProperties.KeyAvatarProperties;
 import tablero.Builder;
 import tablero.Map;
 import enums.Orientation;
@@ -54,8 +54,11 @@ public class AvatarControllerTest {
 		ac.controlAvatar(aPoint, KeyEvent.VK_Y,null);
 		ac.controlAvatar(aPoint, KeyEvent.VK_U,null);
 		
-		KeyAvatarProperties k= new KeyAvatarProperties();
+		//KeyAvatarProperties k= new KeyAvatarProperties();
 	//	assertTrue(KeyEvent.VK_W == k.getElectionKeyAvatar().getKeyUp());
+		ac.getCantShootingRange();
+		ac.isColission();
+		ac.getD();
 		
 	}
 }
