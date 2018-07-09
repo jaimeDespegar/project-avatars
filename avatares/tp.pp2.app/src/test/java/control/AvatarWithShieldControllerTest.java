@@ -1,12 +1,12 @@
 package control;
 
-import static org.junit.Assert.assertTrue; 
+//import static org.junit.Assert.assertTrue;  
 
 import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import org.junit.Test;
-import classProperties.KeyAvatarWithShieldProperties;
+//import classProperties.KeyAvatarWithShieldProperties;
 import enums.Orientation;
 import enums.TypeOfStructure;
 import object.Avatar;
@@ -54,8 +54,10 @@ public class AvatarWithShieldControllerTest {
 		awsc.controlAvatar(aPoint, KeyEvent.VK_I,null);
 		awsc.controlAvatar(aPoint, KeyEvent.VK_P,null);
 		
-		KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
+	//	KeyAvatarWithShieldProperties k= new KeyAvatarWithShieldProperties();
 	//	assertTrue(KeyEvent.VK_O == k.getElectionKeyAvatarWithShield().getKeyUp());
-		
+		awsc.getCantShootingRange();
+		awsc.isColission();
+		awsc.getD();
 	}
 }

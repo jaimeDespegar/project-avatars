@@ -51,7 +51,19 @@ public class ControlFreePositionTest {
 		c.asignarPrimerPosicionLibre();
 		c.asignarUltimaPosicionLibre();
 		c.scrollMap(map, os);
+		os.getFirstInit();
+		os.getSecondInit();
+		os.getOperation(1);
+		os.isFinish(1, 1);
+		os.getInitSize();
+		os.getSecondSize();
 		c.scrollMap(map, os2);
+		os2.getFirstInit();
+		os2.getSecondInit();
+		os2.getOperation(1);
+		os2.isFinish(1, 1);
+		os2.getInitSize();
+		os2.getSecondSize();
 	}
 	
 }
