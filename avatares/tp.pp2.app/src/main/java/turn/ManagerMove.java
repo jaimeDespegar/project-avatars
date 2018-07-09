@@ -6,7 +6,6 @@ import java.util.Arrays;
 public class ManagerMove {
 
 	private ControllerPlayerTurn controllerTurns;
-	private FactoryPlayer factory;
 	private Game game;
 	private String playerIsPlaying;
 
