@@ -63,7 +63,7 @@ public class Draw  extends Canvas {
 		buffer.show();
 	}
 	
-	private void drawBox(Graphics2D g, Box box, Point p) {
+	public void drawBox(Graphics2D g, Box box, Point p) {//private
 		HashMap<TypeOfStructure,String> listStructures = new HashMap<TypeOfStructure,String>();
 		listStructures.put(TypeOfStructure.ACERO, Configuration.ROUTE_IMAGE_ACERO);
 		listStructures.put(TypeOfStructure.AGUA, Configuration.ROUTE_IMAGE_AGUA);
