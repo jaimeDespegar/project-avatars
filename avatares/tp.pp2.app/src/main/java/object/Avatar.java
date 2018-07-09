@@ -1,7 +1,6 @@
 package object;
 
 import classProperties.ElectionKeyAvatar;
-import classProperties.ElectionKeyGameObject;
 import enums.Orientation;
 
 public class Avatar extends GameObject{
