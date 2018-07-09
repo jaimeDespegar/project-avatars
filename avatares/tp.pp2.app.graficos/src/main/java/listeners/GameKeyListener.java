@@ -1,14 +1,14 @@
 package listeners;
 
 import object.KeyDto;
-import javax.swing.*;
+//import javax.swing.*;
 import java.awt.event.*;
 
-public class GameKeyListener extends JFrame implements KeyListener {
+public class GameKeyListener implements KeyListener {
 
     private KeyDto keyPressed;
 
-    JLabel labelTitulo;
+   /* JLabel labelTitulo;
     JLabel labelAreaEntrada;
     JLabel labelAreaSalida;
     JLabel labelSalida;
@@ -16,12 +16,12 @@ public class GameKeyListener extends JFrame implements KeyListener {
     JTextArea areaEntradaDeTexto;
     JScrollPane scrollPaneAreaEntrada;
     JTextArea areaSalidaDeTexto;
-    JScrollPane scrollPaneAreaSalida;
+    JScrollPane scrollPaneAreaSalida;*/
 
     public GameKeyListener()
     {
         super();
-        setFocusable(true);
+       /* setFocusable(true);
         addKeyListener(this);
         iniciaComponentes();
         //Asigna un titulo a la barra de titulo
@@ -31,12 +31,12 @@ public class GameKeyListener extends JFrame implements KeyListener {
         //pone la ventana en el Centro de la pantalla
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        setVisible(true);*/
     }
 
     public void iniciaComponentes(){
 
-        labelTitulo= new JLabel();
+  /*      labelTitulo= new JLabel();
         labelTitulo.setFont(new java.awt.Font("Comic Sans MS", 0, 28));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Eventos del Teclado");
@@ -81,7 +81,7 @@ public class GameKeyListener extends JFrame implements KeyListener {
         add(labelAreaEntrada);
         add(labelAreaSalida);
         add(scrollPaneAreaEntrada);
-        add(scrollPaneAreaSalida);
+        add(scrollPaneAreaSalida);*/
     }
 
 
@@ -90,15 +90,17 @@ public class GameKeyListener extends JFrame implements KeyListener {
 
     }
 
+
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("Presiono la tecla con key " + e.getKeyCode());
         keyPressed = new KeyDto("PRESSED", e.getKeyCode());
     }
+
 
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println("Se solto la tecla con key : " + e.getKeyCode());
-        // keyPressed = null;
     }
 
 

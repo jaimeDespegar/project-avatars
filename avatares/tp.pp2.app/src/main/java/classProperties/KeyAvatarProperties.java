@@ -16,7 +16,10 @@ public class KeyAvatarProperties {
 
 	public KeyAvatarProperties() {
 		this.properties = new Properties();
-		loadProperties();
+	}
+
+	public void loadPropertiesByRoute(String route) {
+		loadProperties(route);
 		loadDataProperties();
 	}
 
@@ -42,9 +45,10 @@ public class KeyAvatarProperties {
 
 	}
 
-	private void loadProperties() {
+	private void loadProperties(String routePropertiesByPlayer) {
 		try {
-			this.properties.load(new FileReader(Constants.ROUTE_PROPERTIES_Avatar));
+			this.properties.clear();
+			this.properties.load(new FileReader(routePropertiesByPlayer)); //Constants.ROUTE_PROPERTIES_Avatar
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

@@ -9,8 +9,8 @@ import object.KeyDto;
 import listeners.FactoryListener;
 import listeners.GameKeyListener;
 import object.Structure;
-import tablero.Board;
 import tablero.Box;
+import tablero.Map;
 import views.ViewGame;
 
 public class GameTick implements Runnable {
@@ -26,8 +26,8 @@ public class GameTick implements Runnable {
 	private GameKeyListener keyboard;
 	private FactoryListener factoryListener;
 
-	public GameTick(Board board, Game game) {
-		draw = new Draw(board);
+	public GameTick(Map map, Game game) {
+		draw = new Draw(map.getBoard());
 		keyboard = new GameKeyListener();
 		viewGame = new ViewGame(draw, keyboard);
 		factoryListener = FactoryListener.getInstancie();
@@ -97,10 +97,6 @@ public class GameTick implements Runnable {
 		}
 		newChangesBoxes.clear();
 		newChangesCoordinates.clear();
-
-
-
-
 
 	}
 

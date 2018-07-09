@@ -39,8 +39,8 @@ public class ViewGameTest {
 	public void vgTest(){
 		Draw d= new Draw(map.getBoard());
 		
-		ViewGame vg= new ViewGame(d);
+	//	ViewGame vg= new ViewGame(d);
 		
-		vg.configureView(d);
+	//	vg.configureView(d);
 	}
 }

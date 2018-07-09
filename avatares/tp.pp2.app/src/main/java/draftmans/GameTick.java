@@ -3,7 +3,6 @@ package draftmans;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-
 import tablero.Board;
 import tablero.Box;
 
@@ -19,7 +18,7 @@ public class GameTick{
 
 	public GameTick(Board board) {
 		draw = new Draw(board);
-		viewGame = new ViewGame(draw);
+		viewGame = new ViewGame(draw, null);
 		newChangesBoxes = new ArrayList<List<Box>>();
 		newChangesCoordinates = new ArrayList<List<Point>>();
 	}
@@ -62,7 +61,7 @@ public class GameTick{
 		this.newChangesCoordinates = newChangesCoordinates;
 		working = true;
 		run();
-		}
+	}
 	
 	public synchronized void stop() {
 		working = false;

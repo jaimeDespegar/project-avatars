@@ -3,6 +3,7 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import com.google.common.collect.Lists;
 import draftmans.GameTick;
 import enums.Orientation;
 import object.Avatar;
@@ -16,19 +17,19 @@ public class GameController implements Runnable {
 	private Avatar avatar1;
 	private Avatar avatar2;
 	
-	public GameController(Map map) {
-		this.map = map;
-		this.gameTick = new GameTick(this.map.getBoard());
-		this.avatar1 = new Avatar(100, Orientation.RIGHT,1);
-		this.avatar2 = new Avatar(100, Orientation.UP,2);
+	public GameController(Game game) {
+		this.map = game.getMap();
+		this.gameTick = new GameTick(this.map, game);
+		this.avatar1 = game.getAvatars().get(0);
+		this.avatar2 = game.getAvatars().get(1);
 	}
 
 	public void Initialize() {
 		this.gameTick.run();
-		map.getBoard().addBox(new Point(0,1), avatar1);
-		map.getBoard().addBox(new Point(6,8), avatar2);
-		List<Box> boxes = new ArrayList<Box>();
-		List<Point> coordinates = new ArrayList<Point>();
+		map.addBox(new Point(0,1), avatar1);
+		map.addBox(new Point(6,8), avatar2);
+		List<Box> boxes = Lists.newArrayList();
+		List<Point> coordinates = Lists.newArrayList();
 		boxes.add(new Box(avatar1));
 		boxes.add(new Box(avatar2));
 		coordinates.add(new Point(0,1));
