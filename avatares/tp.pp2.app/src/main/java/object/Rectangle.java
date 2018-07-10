@@ -17,16 +17,8 @@ public class Rectangle extends ObjectGraphic{
 		return position;
 	}
 
-	public void setPosition(Point position) {
-		this.position = position;
-	}
-
 	public Point getSize() {
 		return size;
-	}
-
-	public void setSize(Point size) {
-		this.size = size;
 	}
 
 	public Structure getStructure() {

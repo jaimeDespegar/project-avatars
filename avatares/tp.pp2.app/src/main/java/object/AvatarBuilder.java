@@ -8,7 +8,7 @@ public class AvatarBuilder {
 	private Integer withOutshield = 1;
 	private Integer shield = 2;
 	
-	private AvatarBuilder() {}
+	public AvatarBuilder() {}
 	
 	public static AvatarBuilder create() {
 		return new AvatarBuilder();

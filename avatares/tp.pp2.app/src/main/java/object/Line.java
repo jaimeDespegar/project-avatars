@@ -17,15 +17,8 @@ public class Line extends ObjectGraphic{
 		return positions;
 	}
 
-	public void setPositions(List<Point> positions) {
-		this.positions = positions;
-	}
-
 	public Structure getStructure() {
 		return structure;
 	}
 
-	public void setStructure(Structure structure) {
-		this.structure = structure;
-	}
 }

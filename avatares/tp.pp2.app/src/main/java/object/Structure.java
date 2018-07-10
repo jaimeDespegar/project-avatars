@@ -12,8 +12,4 @@ public class Structure extends ObjectGraphic{
 	public TypeOfStructure getTypeOfStructure() {
 		return typeOfStructure;
 	}
-
-	public void setTypeOfStructure(TypeOfStructure typeOfStructure) {
-		this.typeOfStructure = typeOfStructure;
-	}
 }
