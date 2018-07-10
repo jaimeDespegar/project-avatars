@@ -9,7 +9,7 @@ public class ControllerPlayerTurn {
 	private List<String> users;
 	private Integer index = -1;
 	
-	private ControllerPlayerTurn(List<String> ids) {
+	public ControllerPlayerTurn(List<String> ids) {//private
 		this.users = Lists.newLinkedList();
 		this.users.addAll(ids);
 	}
