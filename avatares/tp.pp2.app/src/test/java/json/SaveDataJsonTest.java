@@ -9,13 +9,13 @@ import org.junit.Test;
 
 import tablero.Board;
 
-public class LoadDataJsonTest {
+public class SaveDataJsonTest {
 
 	@Test
 	public void chargeBoardTest() {
 		JSONObject globalJSON = new JSONObject();
 		Board board = new Board(new Point(2,2));
-		LoadDataJson loadDataJson = new LoadDataJson(globalJSON, board);
+		SaveDataJson loadDataJson = new SaveDataJson(globalJSON, board);
 		loadDataJson.chargeBoard();
 		assertNotNull(loadDataJson.getBoard());
 	}

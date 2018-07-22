@@ -16,6 +16,6 @@ public class CreateJsonTest {
 		CreateJson createJson = new CreateJson(board);
 		createJson.createNewJson();
 		assertNotNull(createJson.getGlobalJSON());
-		assertNotNull(createJson.getLoadDataJson());
+		assertNotNull(createJson.getSaveDataJson());
 	}
 }

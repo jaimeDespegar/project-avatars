@@ -6,18 +6,18 @@ import org.json.simple.JSONObject;
 import tablero.Board;
 
 @SuppressWarnings("unchecked")
-public class LoadDataJson {
+public class SaveDataJson {
 	private JSONObject globalJSON;
 	private Board board;
 	
-	public LoadDataJson(JSONObject globalJSON, Board board) {
+	public SaveDataJson(JSONObject globalJSON, Board board) {
 		this.globalJSON = globalJSON;
 		this.board = board;
 	}
 	
 	public void chargeBoard() {
 		globalJSON.put("Width", board.getLimitsBoard().getX());
-		globalJSON.put("High", board.getLimitsBoard().getY());
+		globalJSON.put("Heigth", board.getLimitsBoard().getY());
 		updateJson("Boxes", getListStringOfBoxes());
 		updateJson("Points", getListStringOfPoints());
 	}
