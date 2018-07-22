@@ -8,8 +8,6 @@ import object.Avatar;
 import tablero.CreateMap;
 import tablero.Map;
 import turn.GameKeyListener;
-
-import java.awt.event.KeyListener;
 import java.util.List;
 
 public class Game {
@@ -39,8 +37,8 @@ public class Game {
         propertiesPlayer.loadPropertiesByRoute(Constants.ROUTE_PROPERTIES_AvatarWithShield);
         ElectionKeyAvatar keysAvatarTwo = propertiesPlayer.getElectionKeyAvatar();
 
-        System.out.println("player 1 keys " + keysAvatarOne);
-        System.out.println("player 2 keys " + keysAvatarTwo);
+//        System.out.println("player 1 keys " + keysAvatarOne);
+//        System.out.println("player 2 keys " + keysAvatarTwo);
 
         this.avatars.add(new Avatar(100, Orientation.RIGHT,1, keysAvatarOne));
         this.avatars.add(new Avatar(100, Orientation.UP,2, keysAvatarTwo));
