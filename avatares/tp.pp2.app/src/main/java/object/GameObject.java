@@ -50,5 +50,16 @@ public class GameObject extends ObjectGraphic{
 	public void setPosition(Point position) {
 		this.position = position;
 	}
+	
+	public void turnToRight() {
+		this.orientation = orientation.getRight();
+	}
 
+	public void turnToLeft() {
+		this.orientation = orientation.getLeft();
+	}
+
+	public void turnToReverse() {
+		this.orientation = orientation.getReverse();
+	}
 }
