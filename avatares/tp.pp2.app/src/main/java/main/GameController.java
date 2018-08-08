@@ -39,8 +39,9 @@ public class GameController implements Runnable {
 		map.addBox(new Point(0,1), game.getAvatars().get(0));
 		map.addBox(new Point(6,8), game.getAvatars().get(1));
 		map.printMap();
-		CreateJson createJson = new CreateJson(this.map.getBoard());
-		createJson.createNewJson();
+		//aca debo traer las listas de posiciones y boxes
+		CreateJson createJson = new CreateJson(this.map.getBoard().getListOfBoxes(),this.map.getBoard().getListOfPoints());
+		createJson.createNewJsonWhitLimitBoard(this.map.getBoard().getLimitsBoard().getX(), this.map.getBoard().getLimitsBoard().getY());
 //		CREATE JSON (con mapa y avatares)
 	}
 

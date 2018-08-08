@@ -1,46 +1,51 @@
 package json;
 
+import java.awt.Point;
+import java.util.List;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import tablero.Board;
+import tablero.Box;
 
 @SuppressWarnings("unchecked")
 public class SaveDataJson {
 	private JSONObject globalJSON;
-	private Board board;
-	
-	public SaveDataJson(JSONObject globalJSON, Board board) {
+	private List<Box> boxes;
+	private List<Point> points;
+
+	public SaveDataJson(JSONObject globalJSON, List<Box> boxes, List<Point> points) {
 		this.globalJSON = globalJSON;
-		this.board = board;
+		this.boxes = boxes;
+		this.points = points;
+	}
+	
+	/**puedo traer del properties, puede ser lo mejor*/
+	public void chargeDimensionsOfBoard(double width, double heigth) {
+		globalJSON.put("Width", width);
+		globalJSON.put("Heigth", heigth);
 	}
 	
 	public void chargeBoard() {
-		globalJSON.put("Width", board.getLimitsBoard().getX());
-		globalJSON.put("Heigth", board.getLimitsBoard().getY());
 		updateJson("Boxes", getListStringOfBoxes());
 		updateJson("Points", getListStringOfPoints());
 	}
 	
 	private JSONArray getListStringOfPoints() {
 		JSONArray listStringOfPoints = new JSONArray();
-		for (int y = 0; y < board.getBoxes()[0].length; y++) {
-			for (int x = 0; x < board.getBoxes().length; x++) {
-				listStringOfPoints.add("(" + x + "," + y + ")");
-			}
+		for (Point point: points) {
+			listStringOfPoints.add("(" + point.getX() + "," + point.getY() + ")");
 		}
 		return listStringOfPoints;
 	}
 
 	private JSONArray getListStringOfBoxes() {
 		JSONArray listStringOfBoxes = new JSONArray();
-		for (int y = 0; y < board.getBoxes()[0].length; y++) {
-			for (int x = 0; x < board.getBoxes().length; x++) {
-				if(board.getBoxes()[x][y]==null) {
-					listStringOfBoxes.add("object.Fondo");
-				}else{	
-					listStringOfBoxes.add(board.getBoxes()[x][y].getObjectGraphic().getClass().getName());
-				}
+		for (Box box: boxes) {
+			if(box==null) {
+				listStringOfBoxes.add("object.Fondo");
+			}else{	
+				listStringOfBoxes.add(box.getObjectGraphic().getClass().getName());
 			}
 		}
 		return listStringOfBoxes;
@@ -49,9 +54,5 @@ public class SaveDataJson {
 	/***con esto se anaden los distintos datos al globalJSON*/
 	public void updateJson(String nameOfList, JSONArray dates) {
 		globalJSON.put(nameOfList, dates);
-	}
-
-	public Board getBoard() {
-		return board;
 	}
 }

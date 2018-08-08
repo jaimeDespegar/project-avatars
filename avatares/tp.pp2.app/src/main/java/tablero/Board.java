@@ -1,6 +1,9 @@
 package tablero;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
 import object.ObjectGraphic;
 import object.Structure;
 
@@ -52,6 +55,26 @@ public class Board {
 		}
 	}
 
+	public List<Box> getListOfBoxes(){
+		List<Box> listBoxes = new ArrayList<>();
+		for (int y = 0; y < this.boxes[0].length; y++) {
+			for (int x = 0; x < this.boxes[0].length; x++) {
+				listBoxes.add(this.boxes[x][y]);
+			}
+		}
+		return listBoxes;
+	}
+	
+	public List<Point> getListOfPoints(){
+		List<Point> listBoxes = new ArrayList<>();
+		for (int y = 0; y < this.boxes[0].length; y++) {
+			for (int x = 0; x < this.boxes[0].length; x++) {
+				listBoxes.add(new Point(x,y));
+			}
+		}
+		return listBoxes;
+	}
+	
 	public Point getLimitsBoard() {
 		return new Point(boxes.length, boxes[0].length);
 	}
