@@ -75,14 +75,15 @@ public class UserStory01Test {
 		ac.controlAvatar(aPoint, KeyEvent.VK_T, aws); 
 		cantShootingRange= ac.getCantShootingRange();
 		System.out.println("arma Activo (disparo): "+ ac.isDisparoRealizado());
-//		boolean huboChoque= ac.isColission(cantShootingRange);
-//		System.out.println("huboChoque: "+huboChoque);
-//		ac.actualizarDisparoRealizado();
-//		System.out.println("arma Activo (despues): "+ ac.controlDisparoRealizado());
-////		
-//		System.out.println("cantDisparos1: "+ac.getCantDisparos());
-//		System.out.println("vida aws: "+aws.getVida());
-//		assertEquals(aws.getVida(),60);
+		//boolean huboChoque= ac.isColission(cantShootingRange);
+		boolean huboChoque= ac.isColission();
+		System.out.println("huboChoque: "+huboChoque);
+		ac.actualizarDisparoRealizado();
+		System.out.println("arma Activo (despues): "+ ac.isDisparoRealizado());
+	
+		System.out.println("cantDisparos1: "+ac.getCantDisparos());
+		System.out.println("vida aws: "+aws.getVida());
+		assertEquals(aws.getVida(),60);
 	}
 		
 	
