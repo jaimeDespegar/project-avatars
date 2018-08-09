@@ -75,7 +75,6 @@ public class UserStory01Test {
 		ac.controlAvatar(aPoint, KeyEvent.VK_T, aws); 
 		cantShootingRange= ac.getCantShootingRange();
 		System.out.println("arma Activo (disparo): "+ ac.isDisparoRealizado());
-		//boolean huboChoque= ac.isColission(cantShootingRange);
 		boolean huboChoque= ac.isColission();
 		System.out.println("huboChoque: "+huboChoque);
 		ac.actualizarDisparoRealizado();
@@ -83,43 +82,45 @@ public class UserStory01Test {
 	
 		System.out.println("cantDisparos1: "+ac.getCantDisparos());
 		System.out.println("vida aws: "+aws.getVida());
-		assertEquals(aws.getVida(),60);
+		assertEquals(60,aws.getVida());
 	}
 		
 	
 	
-//	@Test
-//	public void controlTurnsTest(){
-//		
-//		AvatarController ac= new AvatarController(a, map, bazooka1);
-//		System.out.println("\ncantDisparos0: "+ac.getCantDisparos());
-//		
-//		System.out.println("\nPRIMER DISPARO!!");
-//		System.out.println("arma Activo (antes): "+ ac.controlDisparoRealizado());
-//		Integer cantShootingRange=0;
-//		cantShootingRange= ac.disparar(aws);
-//		System.out.println("arma Activo (disparo): "+ ac.controlDisparoRealizado());
-//		boolean huboChoque= ac.isColission(cantShootingRange);
-//		System.out.println("huboChoque: "+huboChoque);
-//		ac.actualizarDisparoRealizado();
-//		System.out.println("arma Activo (despues): "+ ac.controlDisparoRealizado());
-//		
-//		System.out.println("cantDisparos1: "+ac.getCantDisparos());
-//		System.out.println("vida aws: "+aws.getVida());
-//		assertEquals(aws.getVida(),60);
-//		
-//		System.out.println("\nSEGUNDO DISPARO!!");
-//		System.out.println("arma Activo (antes): "+ ac.controlDisparoRealizado());
-//		cantShootingRange=0;
-//		cantShootingRange= ac.disparar(aws);
-//		System.out.println("arma Activo (disparo): "+ ac.controlDisparoRealizado());
-//		huboChoque= ac.isColission(cantShootingRange);
-//		System.out.println("huboChoque: "+huboChoque);
-//		ac.actualizarDisparoRealizado();
-//		System.out.println("arma Activo (despues): "+ ac.controlDisparoRealizado());
-//		
-//		System.out.println("cantDisparos2: "+ac.getCantDisparos());
-//		System.out.println("vida aws: "+aws.getVida());
-//		assertEquals(aws.getVida(),20);
-//	}
+	@Test
+	public void controlTurns2Test()throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, AWTException{
+		
+		AvatarController ac= new AvatarController(a, map, bazooka1);
+		System.out.println("\ncantDisparos0: "+ac.getCantDisparos());
+		
+		System.out.println("\nPRIMER DISPARO!!");
+		System.out.println("arma Activo (antes): "+ ac.isDisparoRealizado());
+		Integer cantShootingRange=0;
+		ac.controlAvatar(aPoint, KeyEvent.VK_T, aws); 
+		cantShootingRange= ac.getCantShootingRange();
+		System.out.println("arma Activo (disparo): "+ ac.isDisparoRealizado());
+		boolean huboChoque= ac.isColission();
+		System.out.println("huboChoque: "+huboChoque);
+		ac.actualizarDisparoRealizado();
+		System.out.println("arma Activo (despues): "+ ac.isDisparoRealizado());
+		
+		System.out.println("cantDisparos1: "+ac.getCantDisparos());
+		System.out.println("vida aws: "+aws.getVida());
+		assertEquals(60,aws.getVida());
+		
+		System.out.println("\nSEGUNDO DISPARO!!");
+		System.out.println("arma Activo (antes): "+ ac.isDisparoRealizado());
+		cantShootingRange=0;
+		ac.controlAvatar(aPoint, KeyEvent.VK_T, aws); 
+		cantShootingRange= ac.getCantShootingRange();
+		System.out.println("arma Activo (disparo): "+ ac.isDisparoRealizado());
+		huboChoque= ac.isColission();
+		System.out.println("huboChoque: "+huboChoque);
+		ac.actualizarDisparoRealizado();
+		System.out.println("arma Activo (despues): "+ ac.isDisparoRealizado());
+		
+		System.out.println("cantDisparos2: "+ac.getCantDisparos());
+		System.out.println("vida aws: "+aws.getVida());
+		assertEquals(20,aws.getVida());
+	}
 }

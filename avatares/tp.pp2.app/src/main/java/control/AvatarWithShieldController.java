@@ -48,6 +48,7 @@ public class AvatarWithShieldController extends GameObjectController{
 			control= true;
 			cantShootingRange= d.disparar(enemy);
 			isDisparoRealizado= true;
+			cantDisparos= cantDisparos+1;
 		}
 		if(keyPressedInNow.equals(k.getElectionKeyAvatar().getKeyPower1().getKeyValue())){
 			//activarPoder1();
