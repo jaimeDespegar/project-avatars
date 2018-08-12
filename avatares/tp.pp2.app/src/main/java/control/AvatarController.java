@@ -58,6 +58,8 @@ public class AvatarController extends GameObjectController{
 		}
 
 	}
+	
+
 	private void salir() {
 	}
 	public Integer getCantShootingRange() {
@@ -73,8 +75,13 @@ public class AvatarController extends GameObjectController{
 		}
 	}
 
-	public ControlColissionShoot getD() {
+	public ControlColissionShoot getControlColissionShoot() {
 		return d;
 	}
-	
+	public KeyAvatarProperties getKeyAvatarProperties() {
+		return k;
+	}
+	public ControlPositionMovement getControlPositionMovement() {
+		return c;
+	}
 }

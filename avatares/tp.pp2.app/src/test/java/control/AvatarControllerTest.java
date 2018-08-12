@@ -58,7 +58,9 @@ public class AvatarControllerTest {
 	//	assertTrue(KeyEvent.VK_W == k.getElectionKeyAvatar().getKeyUp());
 		ac.getCantShootingRange();
 		ac.isColission();
-		ac.getD();
+		ac.getControlColissionShoot();
+		ac.getControlPositionMovement();
+		ac.getKeyAvatarProperties();
 		
 	}
 }
