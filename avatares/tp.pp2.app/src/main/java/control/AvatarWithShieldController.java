@@ -15,13 +15,15 @@ public class AvatarWithShieldController extends GameObjectController{
 	KeyAvatarProperties k;
 	ControlPositionMovement c;
 	boolean control= false;
+	Integer cantPower1=1;
+	Integer cantPower2= 1;
 	
 	public AvatarWithShieldController(GameObject avatar, Map map, Weapon arma) 
 	{
 		super(avatar, map, arma);
 		d= new ControlColissionShoot(avatar, map, arma);
 		k= new KeyAvatarProperties();
-		k.loadPropertiesByRoute(Constants.ROUTE_PROPERTIES_AvatarWithShield);
+		k.loadPropertiesByRoute(Constants.ROUTE_PROPERTIES_Avatar);
 		c= new ControlPositionMovement(avatar, map, arma);
 	}
 	
@@ -51,13 +53,15 @@ public class AvatarWithShieldController extends GameObjectController{
 			cantDisparos= cantDisparos+1;
 		}
 		if(keyPressedInNow.equals(k.getElectionKeyAvatar().getKeyPower1().getKeyValue())){
-			//activarPoder1();
+			//cantPower1= cantPower1 -1;
 		}
 		if(keyPressedInNow.equals(k.getElectionKeyAvatar().getKeyPower2().getKeyValue())){
-			//activarPoder2();
+			//cantPower2= cantPower2 -1;
 		}
 
 	}
+	
+
 	private void salir() {
 	}
 	public Integer getCantShootingRange() {
@@ -73,8 +77,28 @@ public class AvatarWithShieldController extends GameObjectController{
 		}
 	}
 
-	public ControlColissionShoot getD() {
+	public ControlColissionShoot getControlColissionShoot() {
 		return d;
 	}
+	public KeyAvatarProperties getKeyAvatarProperties() {
+		return k;
+	}
+	public ControlPositionMovement getControlPositionMovement() {
+		return c;
+	}
+
+	public Integer getCantPower1() {
+		return cantPower1;
+	}
+	public void setCantPower1(Integer cantPower1) {
+		this.cantPower1 = cantPower1;
+	}
+	public Integer getCantPower2() {
+		return cantPower2;
+	}
+	public void setCantPower2(Integer cantPower2) {
+		this.cantPower2 = cantPower2;
+	}
+	
 	
 }

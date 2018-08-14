@@ -58,6 +58,6 @@ public class AvatarWithShieldControllerTest {
 	//	assertTrue(KeyEvent.VK_O == k.getElectionKeyAvatarWithShield().getKeyUp());
 		awsc.getCantShootingRange();
 		awsc.isColission();
-		awsc.getD();
+		
 	}
 }
